@@ -1,0 +1,299 @@
+---Test stack (normal)---
+    stk_dump()
+    stack[0x7fffffffe090] called from src/test/test.cpp:11 test_stack_normal
+    {
+        size     = 1
+        capacity = 2
+        checksum = 0x7b
+        data[0x55555555b490] {
+            *[0] 123
+             [1] (poison)
+        }
+    }
+    stk_dump()
+    stack[0x7fffffffe090] called from src/test/test.cpp:16 test_stack_normal
+    {
+        size     = 11
+        capacity = 16
+        checksum = 0x1d53d0a8
+        data[0x55555555b490] {
+            *[ 0] 123
+            *[ 1] 0
+            *[ 2] 1
+            *[ 3] 2
+            *[ 4] 3
+            *[ 5] 4
+            *[ 6] 5
+            *[ 7] 6
+            *[ 8] 7
+            *[ 9] 8
+            *[10] 9
+             [11] (poison)
+             [12] (poison)
+             [13] (poison)
+             [14] (poison)
+             [15] (poison)
+        }
+    }
+    stk_dump()
+    stack[0x7fffffffe090] called from src/test/test.cpp:25 test_stack_normal
+    {
+        size     = 11
+        capacity = 16
+        checksum = 0x1d53d0a8
+        data[0x55555555b490] {
+            *[ 0] 123
+            *[ 1] 0
+            *[ 2] 1
+            *[ 3] 2
+            *[ 4] 3
+            *[ 5] 4
+            *[ 6] 5
+            *[ 7] 6
+            *[ 8] 7
+            *[ 9] 8
+            *[10] 9
+             [11] (poison)
+             [12] (poison)
+             [13] (poison)
+             [14] (poison)
+             [15] (poison)
+        }
+    }
+    stk_dump()
+    stack[0x7fffffffe090] called from src/test/test.cpp:32 test_stack_normal
+    {
+        size     = 6
+        capacity = 16
+        checksum = 0x6457885
+        data[0x55555555b490] {
+            *[ 0] 123
+            *[ 1] 0
+            *[ 2] 1
+            *[ 3] 2
+            *[ 4] 3
+            *[ 5] 4
+             [ 6] (poison)
+             [ 7] (poison)
+             [ 8] (poison)
+             [ 9] (poison)
+             [10] (poison)
+             [11] (poison)
+             [12] (poison)
+             [13] (poison)
+             [14] (poison)
+             [15] (poison)
+        }
+    }
+    stk_dump()
+    stack[0x7fffffffe090] called from src/test/test.cpp:39 test_stack_normal
+    {
+        size     = 0
+        capacity = 16
+        checksum = 0x0
+        data[0x55555555b490] {
+             [ 0] (poison)
+             [ 1] (poison)
+             [ 2] (poison)
+             [ 3] (poison)
+             [ 4] (poison)
+             [ 5] (poison)
+             [ 6] (poison)
+             [ 7] (poison)
+             [ 8] (poison)
+             [ 9] (poison)
+             [10] (poison)
+             [11] (poison)
+             [12] (poison)
+             [13] (poison)
+             [14] (poison)
+             [15] (poison)
+        }
+    }
+    stk_dump()
+    stack[0x7fffffffe090] called from src/test/test.cpp:43 test_stack_normal
+    {
+        size     = -1
+        capacity = -1
+        checksum = 0x0
+        data[(nil)] {
+        }
+    }
+---Test stack (normal) end---
+---Test stack (error)---
+    stk_dump()
+    stack[0x7fffffffe090] called from src/test/test.cpp:55 test_stack_error
+    {
+        size     = 1
+        capacity = 2
+        checksum = 0x7b
+        data[0x55555555b4e0] {
+            *[0] 123
+             [1] (poison)
+        }
+    }
+    stk_dump()
+    stack[0x7fffffffe090] called from src/test/test.cpp:60 test_stack_error
+    {
+        size     = 11
+        capacity = 16
+        checksum = 0x1d53d0a8
+        data[0x55555555b4e0] {
+            *[ 0] 123
+            *[ 1] 0
+            *[ 2] 1
+            *[ 3] 2
+            *[ 4] 3
+            *[ 5] 4
+            *[ 6] 5
+            *[ 7] 6
+            *[ 8] 7
+            *[ 9] 8
+            *[10] 9
+             [11] (poison)
+             [12] (poison)
+             [13] (poison)
+             [14] (poison)
+             [15] (poison)
+        }
+    }
+!!! Empty element value is not poison
+!!! Stack was modified (wrong checksum)
+    stk_dump()
+    stack[0x7fffffffe090] called from src/stack.cpp:83 stk_push
+    {
+        size     = 11
+        capacity = 16
+        checksum = 0x1d53d0a8
+        data[0x55555555b4e0] {
+            *[ 0] 123
+            *[ 1] 0
+            *[ 2] 1
+            *[ 3] 2
+            *[ 4] 3
+            *[ 5] 234
+            *[ 6] 5
+            *[ 7] 6
+            *[ 8] 7
+            *[ 9] 8
+            *[10] 9
+             [11] (poison)
+             [12] (poison)
+             [13] 0
+             [14] (poison)
+             [15] (poison)
+        }
+    }
+    stk_dump()
+    stack[0x7fffffffe090] called from src/test/test.cpp:69 test_stack_error
+    {
+        size     = 11
+        capacity = 16
+        checksum = 0x1d53d0a8
+        data[0x55555555b4e0] {
+            *[ 0] 123
+            *[ 1] 0
+            *[ 2] 1
+            *[ 3] 2
+            *[ 4] 3
+            *[ 5] 234
+            *[ 6] 5
+            *[ 7] 6
+            *[ 8] 7
+            *[ 9] 8
+            *[10] 9
+             [11] (poison)
+             [12] (poison)
+             [13] 0
+             [14] (poison)
+             [15] (poison)
+        }
+    }
+!!! Empty element value is not poison
+!!! Stack was modified (wrong checksum)
+    stk_dump()
+    stack[0x7fffffffe090] called from src/stack.cpp:36 stk_dtor
+    {
+        size     = 11
+        capacity = 16
+        checksum = 0x1d53d0a8
+        data[0x55555555b4e0] {
+            *[ 0] 123
+            *[ 1] 0
+            *[ 2] 1
+            *[ 3] 2
+            *[ 4] 3
+            *[ 5] 234
+            *[ 6] 5
+            *[ 7] 6
+            *[ 8] 7
+            *[ 9] 8
+            *[10] 9
+             [11] (poison)
+             [12] (poison)
+             [13] 0
+             [14] (poison)
+             [15] (poison)
+        }
+    }
+!!! Program is trying to pop empty stack
+    stk_dump()
+    stack[0x7fffffffe090] called from src/stack.cpp:115 stk_pop
+    {
+        size     = 0
+        capacity = 16
+        checksum = 0x0
+        data[0x55555555b530] {
+             [ 0] (poison)
+             [ 1] (poison)
+             [ 2] (poison)
+             [ 3] (poison)
+             [ 4] (poison)
+             [ 5] (poison)
+             [ 6] (poison)
+             [ 7] (poison)
+             [ 8] (poison)
+             [ 9] (poison)
+             [10] (poison)
+             [11] (poison)
+             [12] (poison)
+             [13] (poison)
+             [14] (poison)
+             [15] (poison)
+        }
+    }
+    stk_dump()
+    stack[0x7fffffffe090] called from src/test/test.cpp:83 test_stack_error
+    {
+        size     = 0
+        capacity = 16
+        checksum = 0x0
+        data[0x55555555b530] {
+             [ 0] (poison)
+             [ 1] (poison)
+             [ 2] (poison)
+             [ 3] (poison)
+             [ 4] (poison)
+             [ 5] (poison)
+             [ 6] (poison)
+             [ 7] (poison)
+             [ 8] (poison)
+             [ 9] (poison)
+             [10] (poison)
+             [11] (poison)
+             [12] (poison)
+             [13] (poison)
+             [14] (poison)
+             [15] (poison)
+        }
+    }
+    stk_dump()
+    stack[0x7fffffffe090] called from src/test/test.cpp:87 test_stack_error
+    {
+        size     = -1
+        capacity = -1
+        checksum = 0x0
+        data[(nil)] {
+        }
+    }
+---Test stack (error) end---

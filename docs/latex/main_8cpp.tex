@@ -1,0 +1,60 @@
+\doxysection{src/main.cpp File Reference}
+\hypertarget{main_8cpp}{}\label{main_8cpp}\index{src/main.cpp@{src/main.cpp}}
+{\ttfamily \#include \"{}test/test.\+h\"{}}\newline
+{\ttfamily \#include \"{}log/log.\+h\"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_log_file_data}{Log\+File\+Data}} \mbox{\hyperlink{main_8cpp_a06336a68ce7f0258cc88d5a2bb94e4d3}{log\+\_\+file}} = \{\"{}log.\+txt\"{}\}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\label{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+\index{main.cpp@{main.cpp}!main@{main}}
+\index{main@{main}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{main_8cpp_source_l00006}{6}} of file \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00006\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00007\ \ \ \ \ \mbox{\hyperlink{log_8cpp_a14e1237e4072873a2976b48d52b10429}{log\_open\_file}}(\&\mbox{\hyperlink{main_8cpp_a06336a68ce7f0258cc88d5a2bb94e4d3}{log\_file}},\ \textcolor{stringliteral}{"{}wb"{}});}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \ \ \ \ \mbox{\hyperlink{test_8cpp_abec71bd0a7628d880e9a4fd6fbc8fab1}{test\_stack\_normal}}();}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \ \ \ \ \mbox{\hyperlink{test_8cpp_a18fd0e0a4df75c88c82ddac311aadb7f}{test\_stack\_error}}();}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{main_8cpp_source_l00004}{log\+\_\+file}}, \mbox{\hyperlink{log_8cpp_source_l00016}{log\+\_\+open\+\_\+file()}}, \mbox{\hyperlink{test_8cpp_source_l00047}{test\+\_\+stack\+\_\+error()}}, and \mbox{\hyperlink{test_8cpp_source_l00003}{test\+\_\+stack\+\_\+normal()}}.
+
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{main_8cpp_a06336a68ce7f0258cc88d5a2bb94e4d3}\label{main_8cpp_a06336a68ce7f0258cc88d5a2bb94e4d3} 
+\index{main.cpp@{main.cpp}!log\_file@{log\_file}}
+\index{log\_file@{log\_file}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{log\_file}{log\_file}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_log_file_data}{Log\+File\+Data}} log\+\_\+file = \{\"{}log.\+txt\"{}\}}
+
+
+
+Definition at line \mbox{\hyperlink{main_8cpp_source_l00004}{4}} of file \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{log_8cpp_source_l00029}{log\+\_\+close\+\_\+file()}}, \mbox{\hyperlink{log_8cpp_source_l00016}{log\+\_\+open\+\_\+file()}}, \mbox{\hyperlink{log_8cpp_source_l00003}{log\+\_\+printf()}}, \mbox{\hyperlink{main_8cpp_source_l00006}{main()}}, \mbox{\hyperlink{stack_8cpp_source_l00212}{stk\+\_\+dump()}}, \mbox{\hyperlink{stack_8cpp_source_l00176}{stk\+\_\+print\+\_\+error()}}, \mbox{\hyperlink{test_8cpp_source_l00047}{test\+\_\+stack\+\_\+error()}}, and \mbox{\hyperlink{test_8cpp_source_l00003}{test\+\_\+stack\+\_\+normal()}}.
+

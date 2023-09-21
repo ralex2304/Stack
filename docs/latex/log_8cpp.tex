@@ -1,0 +1,156 @@
+\doxysection{src/log/log.cpp File Reference}
+\hypertarget{log_8cpp}{}\label{log_8cpp}\index{src/log/log.cpp@{src/log/log.cpp}}
+{\ttfamily \#include \"{}log.\+h\"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{log_8cpp_adab5e89ed01fa9fb9c55544d3a21629b}{log\+\_\+printf}} (\mbox{\hyperlink{struct_log_file_data}{Log\+File\+Data}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{main_8cpp_a06336a68ce7f0258cc88d5a2bb94e4d3}{log\+\_\+file}}, const char \texorpdfstring{$\ast$}{*}format,...)
+\begin{DoxyCompactList}\small\item\em Prints data in printf format to log file. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{log_8cpp_a14e1237e4072873a2976b48d52b10429}{log\+\_\+open\+\_\+file}} (\mbox{\hyperlink{struct_log_file_data}{Log\+File\+Data}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{main_8cpp_a06336a68ce7f0258cc88d5a2bb94e4d3}{log\+\_\+file}}, const char \texorpdfstring{$\ast$}{*}mode)
+\begin{DoxyCompactList}\small\item\em Opens log file. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{log_8cpp_a4294d549b20fd1af99c3fbee5cf4dc99}{log\+\_\+close\+\_\+file}} (\mbox{\hyperlink{struct_log_file_data}{Log\+File\+Data}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{main_8cpp_a06336a68ce7f0258cc88d5a2bb94e4d3}{log\+\_\+file}})
+\begin{DoxyCompactList}\small\item\em Closes log fle. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{log_8cpp_a4294d549b20fd1af99c3fbee5cf4dc99}\label{log_8cpp_a4294d549b20fd1af99c3fbee5cf4dc99} 
+\index{log.cpp@{log.cpp}!log\_close\_file@{log\_close\_file}}
+\index{log\_close\_file@{log\_close\_file}!log.cpp@{log.cpp}}
+\doxysubsubsection{\texorpdfstring{log\_close\_file()}{log\_close\_file()}}
+{\footnotesize\ttfamily bool log\+\_\+close\+\_\+file (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_log_file_data}{Log\+File\+Data}} \texorpdfstring{$\ast$}{*}}]{log }\end{DoxyParamCaption})}
+
+
+
+Closes log fle. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em log} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true success 
+
+false failure 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{log_8cpp_source_l00029}{29}} of file \mbox{\hyperlink{log_8cpp_source}{log.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordflow}{if}\ (fclose(\mbox{\hyperlink{main_8cpp_a06336a68ce7f0258cc88d5a2bb94e4d3}{log\_file}}-\/>\mbox{\hyperlink{struct_log_file_data_a6cee51f74b20002956d076717f2a416c}{file}})\ !=\ 0)\ \{}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ perror(\textcolor{stringliteral}{"{}Error\ closing\ log\_file\ file"{}});}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00033\ \ \ \ \ \}}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \ \ \mbox{\hyperlink{main_8cpp_a06336a68ce7f0258cc88d5a2bb94e4d3}{log\_file}}-\/>\mbox{\hyperlink{struct_log_file_data_a6cee51f74b20002956d076717f2a416c}{file}}\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00037\ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{log_8h_source_l00017}{Log\+File\+Data\+::file}}, and \mbox{\hyperlink{main_8cpp_source_l00004}{log\+\_\+file}}.
+
+\Hypertarget{log_8cpp_a14e1237e4072873a2976b48d52b10429}\label{log_8cpp_a14e1237e4072873a2976b48d52b10429} 
+\index{log.cpp@{log.cpp}!log\_open\_file@{log\_open\_file}}
+\index{log\_open\_file@{log\_open\_file}!log.cpp@{log.cpp}}
+\doxysubsubsection{\texorpdfstring{log\_open\_file()}{log\_open\_file()}}
+{\footnotesize\ttfamily bool log\+\_\+open\+\_\+file (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_log_file_data}{Log\+File\+Data}} \texorpdfstring{$\ast$}{*}}]{log,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{mode = {\ttfamily \"{}ab\"{}} }\end{DoxyParamCaption})}
+
+
+
+Opens log file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em log} & \\
+\hline
+{\em mode} & fopen() mode \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true success 
+
+false failure 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{log_8cpp_source_l00016}{16}} of file \mbox{\hyperlink{log_8cpp_source}{log.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00017\ \ \ \ \ assert(\mbox{\hyperlink{main_8cpp_a06336a68ce7f0258cc88d5a2bb94e4d3}{log\_file}});}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \ \ \ \ \mbox{\hyperlink{main_8cpp_a06336a68ce7f0258cc88d5a2bb94e4d3}{log\_file}}-\/>\mbox{\hyperlink{struct_log_file_data_a6cee51f74b20002956d076717f2a416c}{file}}\ =\ fopen(\mbox{\hyperlink{main_8cpp_a06336a68ce7f0258cc88d5a2bb94e4d3}{log\_file}}-\/>\mbox{\hyperlink{struct_log_file_data_aa2532f60b605d24a48ce4e86236e8d2b}{filename}},\ mode);}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{main_8cpp_a06336a68ce7f0258cc88d5a2bb94e4d3}{log\_file}}-\/>\mbox{\hyperlink{struct_log_file_data_a6cee51f74b20002956d076717f2a416c}{file}}\ ==\ \textcolor{keyword}{nullptr})\ \{}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ perror(\textcolor{stringliteral}{"{}Error\ opening\ log\_file\ file"{}});}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00024\ \ \ \ \ \}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00027\ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{log_8h_source_l00017}{Log\+File\+Data\+::file}}, \mbox{\hyperlink{log_8h_source_l00016}{Log\+File\+Data\+::filename}}, and \mbox{\hyperlink{main_8cpp_source_l00004}{log\+\_\+file}}.
+
+
+
+Referenced by \mbox{\hyperlink{log_8cpp_source_l00003}{log\+\_\+printf()}}, and \mbox{\hyperlink{main_8cpp_source_l00006}{main()}}.
+
+\Hypertarget{log_8cpp_adab5e89ed01fa9fb9c55544d3a21629b}\label{log_8cpp_adab5e89ed01fa9fb9c55544d3a21629b} 
+\index{log.cpp@{log.cpp}!log\_printf@{log\_printf}}
+\index{log\_printf@{log\_printf}!log.cpp@{log.cpp}}
+\doxysubsubsection{\texorpdfstring{log\_printf()}{log\_printf()}}
+{\footnotesize\ttfamily int log\+\_\+printf (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_log_file_data}{Log\+File\+Data}} \texorpdfstring{$\ast$}{*}}]{log,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{format,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+
+
+Prints data in printf format to log file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em log} & \\
+\hline
+{\em format} & \\
+\hline
+{\em ...} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{log_8cpp_source_l00003}{3}} of file \mbox{\hyperlink{log_8cpp_source}{log.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00003\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00004\ \ \ \ \ assert(\mbox{\hyperlink{main_8cpp_a06336a68ce7f0258cc88d5a2bb94e4d3}{log\_file}});}
+\DoxyCodeLine{00005\ \ \ \ \ assert(format);}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{main_8cpp_a06336a68ce7f0258cc88d5a2bb94e4d3}{log\_file}}-\/>\mbox{\hyperlink{struct_log_file_data_a6cee51f74b20002956d076717f2a416c}{file}}\ ==\ \textcolor{keyword}{nullptr})}
+\DoxyCodeLine{00008\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{log_8cpp_a14e1237e4072873a2976b48d52b10429}{log\_open\_file}}(\mbox{\hyperlink{main_8cpp_a06336a68ce7f0258cc88d5a2bb94e4d3}{log\_file}}))}
+\DoxyCodeLine{00009\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1;}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \ \ \ \ va\_list\ argList;}
+\DoxyCodeLine{00012\ \ \ \ \ va\_start(argList,\ format);}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keywordflow}{return}\ vfprintf(\mbox{\hyperlink{main_8cpp_a06336a68ce7f0258cc88d5a2bb94e4d3}{log\_file}}-\/>\mbox{\hyperlink{struct_log_file_data_a6cee51f74b20002956d076717f2a416c}{file}},\ format,\ argList);}
+\DoxyCodeLine{00014\ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{log_8h_source_l00017}{Log\+File\+Data\+::file}}, \mbox{\hyperlink{main_8cpp_source_l00004}{log\+\_\+file}}, and \mbox{\hyperlink{log_8cpp_source_l00016}{log\+\_\+open\+\_\+file()}}.
+
+
+
+Referenced by \mbox{\hyperlink{stack_8cpp_source_l00212}{stk\+\_\+dump()}}, \mbox{\hyperlink{stack_8cpp_source_l00176}{stk\+\_\+print\+\_\+error()}}, \mbox{\hyperlink{test_8cpp_source_l00047}{test\+\_\+stack\+\_\+error()}}, and \mbox{\hyperlink{test_8cpp_source_l00003}{test\+\_\+stack\+\_\+normal()}}.
+
