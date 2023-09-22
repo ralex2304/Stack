@@ -1,6 +1,7 @@
 var stack_8cpp =
 [
-    [ "stk_ctor", "stack_8cpp.html#a6271f17fa97026a406adbb93340c3d7a", null ],
+    [ "stk_ctor", "stack_8cpp.html#acebf747ea274a34941598f3f39c61b1f", null ],
+    [ "stk_ctor_debug", "stack_8cpp.html#ae77dc1db2b6e8ea409db63167b641afa", null ],
     [ "stk_dtor", "stack_8cpp.html#a60863cc39088870cab1ccd33d1e8d2f6", null ],
     [ "stk_dump", "stack_8cpp.html#a68851ac5731acdc015c8200d2c7192d9", null ],
     [ "stk_pop", "stack_8cpp.html#af81453e30590dfee9dd3f4b35b9b30c1", null ],

@@ -1,22 +1,28 @@
 ---Test stack (normal)---
-    stk_dump()
-    stack[0x7fffffffe090] called from src/test/test.cpp:11 test_stack_normal
+    stk_dump() called from src/test/test.cpp:11 test_stack_normal
+    stack[0x7fffffffe070] initialised in src/test/test.cpp:7 test_stack_normal 
     {
+        L_canary = 0x8badf00ddeaddead
         size     = 1
         capacity = 2
         checksum = 0x7b
-        data[0x55555555b490] {
+        data[0x55555555b498] {
+            L_canary = 0x8badf00ddeaddead
             *[0] 123
              [1] (poison)
+            R_canary = 0x8badf00ddeaddead
         }
+        R_canary = 0x8badf00ddeaddead
     }
-    stk_dump()
-    stack[0x7fffffffe090] called from src/test/test.cpp:16 test_stack_normal
+    stk_dump() called from src/test/test.cpp:16 test_stack_normal
+    stack[0x7fffffffe070] initialised in src/test/test.cpp:7 test_stack_normal 
     {
+        L_canary = 0x8badf00ddeaddead
         size     = 11
         capacity = 16
         checksum = 0x1d53d0a8
-        data[0x55555555b490] {
+        data[0x55555555b498] {
+            L_canary = 0x8badf00ddeaddead
             *[ 0] 123
             *[ 1] 0
             *[ 2] 1
@@ -33,15 +39,19 @@
              [13] (poison)
              [14] (poison)
              [15] (poison)
+            R_canary = 0x8badf00ddeaddead
         }
+        R_canary = 0x8badf00ddeaddead
     }
-    stk_dump()
-    stack[0x7fffffffe090] called from src/test/test.cpp:25 test_stack_normal
+    stk_dump() called from src/test/test.cpp:25 test_stack_normal
+    stack[0x7fffffffe070] initialised in src/test/test.cpp:7 test_stack_normal 
     {
+        L_canary = 0x8badf00ddeaddead
         size     = 11
         capacity = 16
         checksum = 0x1d53d0a8
-        data[0x55555555b490] {
+        data[0x55555555b498] {
+            L_canary = 0x8badf00ddeaddead
             *[ 0] 123
             *[ 1] 0
             *[ 2] 1
@@ -58,15 +68,19 @@
              [13] (poison)
              [14] (poison)
              [15] (poison)
+            R_canary = 0x8badf00ddeaddead
         }
+        R_canary = 0x8badf00ddeaddead
     }
-    stk_dump()
-    stack[0x7fffffffe090] called from src/test/test.cpp:32 test_stack_normal
+    stk_dump() called from src/test/test.cpp:32 test_stack_normal
+    stack[0x7fffffffe070] initialised in src/test/test.cpp:7 test_stack_normal 
     {
+        L_canary = 0x8badf00ddeaddead
         size     = 6
         capacity = 16
         checksum = 0x6457885
-        data[0x55555555b490] {
+        data[0x55555555b498] {
+            L_canary = 0x8badf00ddeaddead
             *[ 0] 123
             *[ 1] 0
             *[ 2] 1
@@ -83,15 +97,19 @@
              [13] (poison)
              [14] (poison)
              [15] (poison)
+            R_canary = 0x8badf00ddeaddead
         }
+        R_canary = 0x8badf00ddeaddead
     }
-    stk_dump()
-    stack[0x7fffffffe090] called from src/test/test.cpp:39 test_stack_normal
+    stk_dump() called from src/test/test.cpp:39 test_stack_normal
+    stack[0x7fffffffe070] initialised in src/test/test.cpp:7 test_stack_normal 
     {
+        L_canary = 0x8badf00ddeaddead
         size     = 0
         capacity = 16
         checksum = 0x0
-        data[0x55555555b490] {
+        data[0x55555555b498] {
+            L_canary = 0x8badf00ddeaddead
              [ 0] (poison)
              [ 1] (poison)
              [ 2] (poison)
@@ -108,37 +126,47 @@
              [13] (poison)
              [14] (poison)
              [15] (poison)
+            R_canary = 0x8badf00ddeaddead
         }
+        R_canary = 0x8badf00ddeaddead
     }
-    stk_dump()
-    stack[0x7fffffffe090] called from src/test/test.cpp:43 test_stack_normal
+    stk_dump() called from src/test/test.cpp:43 test_stack_normal
+    stack[0x7fffffffe070] initialised in src/test/test.cpp:7 test_stack_normal 
     {
+        L_canary = 0x8badf00ddeaddead
         size     = -1
         capacity = -1
         checksum = 0x0
         data[(nil)] {
         }
+        R_canary = 0x8badf00ddeaddead
     }
 ---Test stack (normal) end---
 ---Test stack (error)---
-    stk_dump()
-    stack[0x7fffffffe090] called from src/test/test.cpp:55 test_stack_error
+    stk_dump() called from src/test/test.cpp:55 test_stack_error
+    stack[0x7fffffffe070] initialised in src/test/test.cpp:51 test_stack_error 
     {
+        L_canary = 0x8badf00ddeaddead
         size     = 1
         capacity = 2
         checksum = 0x7b
-        data[0x55555555b4e0] {
+        data[0x55555555b4f8] {
+            L_canary = 0x8badf00ddeaddead
             *[0] 123
              [1] (poison)
+            R_canary = 0x8badf00ddeaddead
         }
+        R_canary = 0x8badf00ddeaddead
     }
-    stk_dump()
-    stack[0x7fffffffe090] called from src/test/test.cpp:60 test_stack_error
+    stk_dump() called from src/test/test.cpp:60 test_stack_error
+    stack[0x7fffffffe070] initialised in src/test/test.cpp:51 test_stack_error 
     {
+        L_canary = 0x8badf00ddeaddead
         size     = 11
         capacity = 16
         checksum = 0x1d53d0a8
-        data[0x55555555b4e0] {
+        data[0x55555555b4f8] {
+            L_canary = 0x8badf00ddeaddead
             *[ 0] 123
             *[ 1] 0
             *[ 2] 1
@@ -155,17 +183,21 @@
              [13] (poison)
              [14] (poison)
              [15] (poison)
+            R_canary = 0x8badf00ddeaddead
         }
+        R_canary = 0x8badf00ddeaddead
     }
 !!! Empty element value is not poison
 !!! Stack was modified (wrong checksum)
-    stk_dump()
-    stack[0x7fffffffe090] called from src/stack.cpp:83 stk_push
+    stk_dump() called from src/stack.cpp:129 stk_push
+    stack[0x7fffffffe070] initialised in src/test/test.cpp:51 test_stack_error 
     {
+        L_canary = 0x8badf00ddeaddead
         size     = 11
         capacity = 16
         checksum = 0x1d53d0a8
-        data[0x55555555b4e0] {
+        data[0x55555555b4f8] {
+            L_canary = 0x8badf00ddeaddead
             *[ 0] 123
             *[ 1] 0
             *[ 2] 1
@@ -182,15 +214,19 @@
              [13] 0
              [14] (poison)
              [15] (poison)
+            R_canary = 0x8badf00ddeaddead
         }
+        R_canary = 0x8badf00ddeaddead
     }
-    stk_dump()
-    stack[0x7fffffffe090] called from src/test/test.cpp:69 test_stack_error
+    stk_dump() called from src/test/test.cpp:69 test_stack_error
+    stack[0x7fffffffe070] initialised in src/test/test.cpp:51 test_stack_error 
     {
+        L_canary = 0x8badf00ddeaddead
         size     = 11
         capacity = 16
         checksum = 0x1d53d0a8
-        data[0x55555555b4e0] {
+        data[0x55555555b4f8] {
+            L_canary = 0x8badf00ddeaddead
             *[ 0] 123
             *[ 1] 0
             *[ 2] 1
@@ -207,17 +243,21 @@
              [13] 0
              [14] (poison)
              [15] (poison)
+            R_canary = 0x8badf00ddeaddead
         }
+        R_canary = 0x8badf00ddeaddead
     }
 !!! Empty element value is not poison
 !!! Stack was modified (wrong checksum)
-    stk_dump()
-    stack[0x7fffffffe090] called from src/stack.cpp:36 stk_dtor
+    stk_dump() called from src/stack.cpp:61 stk_dtor
+    stack[0x7fffffffe070] initialised in src/test/test.cpp:51 test_stack_error 
     {
+        L_canary = 0x8badf00ddeaddead
         size     = 11
         capacity = 16
         checksum = 0x1d53d0a8
-        data[0x55555555b4e0] {
+        data[0x55555555b4f8] {
+            L_canary = 0x8badf00ddeaddead
             *[ 0] 123
             *[ 1] 0
             *[ 2] 1
@@ -234,16 +274,20 @@
              [13] 0
              [14] (poison)
              [15] (poison)
+            R_canary = 0x8badf00ddeaddead
         }
+        R_canary = 0x8badf00ddeaddead
     }
 !!! Program is trying to pop empty stack
-    stk_dump()
-    stack[0x7fffffffe090] called from src/stack.cpp:115 stk_pop
+    stk_dump() called from src/stack.cpp:161 stk_pop
+    stack[0x7fffffffe070] initialised in src/test/test.cpp:72 test_stack_error 
     {
+        L_canary = 0x8badf00ddeaddead
         size     = 0
         capacity = 16
         checksum = 0x0
-        data[0x55555555b530] {
+        data[0x55555555b558] {
+            L_canary = 0x8badf00ddeaddead
              [ 0] (poison)
              [ 1] (poison)
              [ 2] (poison)
@@ -260,15 +304,19 @@
              [13] (poison)
              [14] (poison)
              [15] (poison)
+            R_canary = 0x8badf00ddeaddead
         }
+        R_canary = 0x8badf00ddeaddead
     }
-    stk_dump()
-    stack[0x7fffffffe090] called from src/test/test.cpp:83 test_stack_error
+    stk_dump() called from src/test/test.cpp:83 test_stack_error
+    stack[0x7fffffffe070] initialised in src/test/test.cpp:72 test_stack_error 
     {
+        L_canary = 0x8badf00ddeaddead
         size     = 0
         capacity = 16
         checksum = 0x0
-        data[0x55555555b530] {
+        data[0x55555555b558] {
+            L_canary = 0x8badf00ddeaddead
              [ 0] (poison)
              [ 1] (poison)
              [ 2] (poison)
@@ -285,15 +333,19 @@
              [13] (poison)
              [14] (poison)
              [15] (poison)
+            R_canary = 0x8badf00ddeaddead
         }
+        R_canary = 0x8badf00ddeaddead
     }
-    stk_dump()
-    stack[0x7fffffffe090] called from src/test/test.cpp:87 test_stack_error
+    stk_dump() called from src/test/test.cpp:87 test_stack_error
+    stack[0x7fffffffe070] initialised in src/test/test.cpp:72 test_stack_error 
     {
+        L_canary = 0x8badf00ddeaddead
         size     = -1
         capacity = -1
         checksum = 0x0
         data[(nil)] {
         }
+        R_canary = 0x8badf00ddeaddead
     }
 ---Test stack (error) end---

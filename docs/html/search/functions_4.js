@@ -1,11 +1,4 @@
 var searchData=
 [
-  ['stk_5fctor_0',['stk_ctor',['../stack_8cpp.html#a6271f17fa97026a406adbb93340c3d7a',1,'stk_ctor(Stack *stk, ssize_t init_capacity):&#160;stack.cpp'],['../stack_8h.html#a8a832365fba30ca3aee76b5cdf91047c',1,'stk_ctor(Stack *stk, const ssize_t init_capacity=Stack::INIT_CAPACITY):&#160;stack.cpp']]],
-  ['stk_5fdtor_1',['stk_dtor',['../stack_8cpp.html#a60863cc39088870cab1ccd33d1e8d2f6',1,'stk_dtor(Stack *stk):&#160;stack.cpp'],['../stack_8h.html#a60863cc39088870cab1ccd33d1e8d2f6',1,'stk_dtor(Stack *stk):&#160;stack.cpp']]],
-  ['stk_5fdump_2',['stk_dump',['../stack_8cpp.html#a68851ac5731acdc015c8200d2c7192d9',1,'stk_dump(const Stack *stk, const char *file, const int line, const char *func):&#160;stack.cpp'],['../stack_8h.html#a68851ac5731acdc015c8200d2c7192d9',1,'stk_dump(const Stack *stk, const char *file, const int line, const char *func):&#160;stack.cpp']]],
-  ['stk_5fpop_3',['stk_pop',['../stack_8cpp.html#af81453e30590dfee9dd3f4b35b9b30c1',1,'stk_pop(Stack *stk, Elem_t *const elem):&#160;stack.cpp'],['../stack_8h.html#a8a9034ca7b569e78083db61cefdafbff',1,'stk_pop(Stack *stk, Elem_t *const res):&#160;stack.cpp']]],
-  ['stk_5fprint_5ferror_4',['stk_print_error',['../stack_8cpp.html#a1b7caf431e78e8fc61a308f2898feafe',1,'stk_print_error(const int err_code):&#160;stack.cpp'],['../stack_8h.html#a1b7caf431e78e8fc61a308f2898feafe',1,'stk_print_error(const int err_code):&#160;stack.cpp']]],
-  ['stk_5fpush_5',['stk_push',['../stack_8cpp.html#aa30787d931ba7ff16b8aa1ddfa7337d3',1,'stk_push(Stack *stk, const Elem_t elem):&#160;stack.cpp'],['../stack_8h.html#aa30787d931ba7ff16b8aa1ddfa7337d3',1,'stk_push(Stack *stk, const Elem_t elem):&#160;stack.cpp']]],
-  ['stk_5fresize_6',['stk_resize',['../stack_8cpp.html#a98e256beef7b5e9fd5db8989473bebf9',1,'stk_resize(Stack *stk, const ssize_t new_size):&#160;stack.cpp'],['../stack_8h.html#a644b9030cb1c4f62fd11cdac43104e35',1,'stk_resize(Stack *stk, ssize_t new_size):&#160;stack.cpp']]],
-  ['stk_5fverify_7',['stk_verify',['../stack_8cpp.html#aa5801fe77f92f99b324b972ee22ed326',1,'stk_verify(Stack *stk):&#160;stack.cpp'],['../stack_8h.html#aa5801fe77f92f99b324b972ee22ed326',1,'stk_verify(Stack *stk):&#160;stack.cpp']]]
+  ['recalloc_0',['recalloc',['../macros_8h.html#a3e542cb9c488f76f1d0cb4b6ef234203',1,'macros.h']]]
 ];

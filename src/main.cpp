@@ -10,4 +10,5 @@ int main() {
 
     test_stack_error();
 
+    log_close_file(&log_file);
 }

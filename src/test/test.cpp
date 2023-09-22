@@ -4,7 +4,7 @@ void test_stack_normal() {
     log_printf(&log_file, "---Test stack (normal)---\n");
 
     Stack stk = {};
-    stk_ctor(&stk);
+    STK_CTOR(&stk);
 
     stk_push(&stk, 123);
 
@@ -48,7 +48,7 @@ void test_stack_error() {
     log_printf(&log_file, "---Test stack (error)---\n");
 
     Stack stk = {};
-    stk_ctor(&stk);
+    STK_CTOR(&stk);
 
     stk_push(&stk, 123);
 
@@ -69,7 +69,7 @@ void test_stack_error() {
     STK_DUMP(&stk);
 
     stk_dtor(&stk); /// reset stack
-    stk_ctor(&stk);
+    STK_CTOR(&stk);
 
     for (int i = 0; i < 10; i++)
         stk_push(&stk, i);

@@ -1,0 +1,52 @@
+\doxysection{linux\+\_\+mem.\+cpp}
+\hypertarget{linux__mem_8cpp_source}{}\label{linux__mem_8cpp_source}\index{src/utils/linux\_mem.cpp@{src/utils/linux\_mem.cpp}}
+\mbox{\hyperlink{linux__mem_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{linux__mem_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{linux__mem_8h}{linux\_mem.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{linux__mem_8cpp_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{linux__mem_8cpp_source_l00003}\mbox{\hyperlink{linux__mem_8cpp_a8b27c8c3ef75b12ce64ed810ab614d33}{00003}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{linux__mem_8cpp_a8b27c8c3ef75b12ce64ed810ab614d33}{is\_ptr\_valid}}(\textcolor{keywordtype}{void}*\ p,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ mode)\ \{}
+\DoxyCodeLine{\Hypertarget{linux__mem_8cpp_source_l00004}00004\ \ \ \ \ \textcolor{keywordflow}{return}\ p\ !=\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{\Hypertarget{linux__mem_8cpp_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{linux__mem_8cpp_source_l00006}00006\ \ \ \ \ assert(mode\ ==\ \textcolor{charliteral}{'r'}\ ||\ mode\ ==\ \textcolor{charliteral}{'w'});}
+\DoxyCodeLine{\Hypertarget{linux__mem_8cpp_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{linux__mem_8cpp_source_l00008}00008\ \ \ \ \ uintptr\_t\ begin\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{linux__mem_8cpp_source_l00009}00009\ \ \ \ \ uintptr\_t\ end\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{linux__mem_8cpp_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{linux__mem_8cpp_source_l00011}00011\ \ \ \ \ \textcolor{keywordtype}{char}\ readable\ \ \ =\ \textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{\Hypertarget{linux__mem_8cpp_source_l00012}00012\ \ \ \ \ \textcolor{keywordtype}{char}\ writable\ \ \ =\ \textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{\Hypertarget{linux__mem_8cpp_source_l00013}00013\ \ \ \ \ \textcolor{keywordtype}{char}\ executable\ =\ \textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{\Hypertarget{linux__mem_8cpp_source_l00014}00014\ \ \ \ \ \textcolor{keywordtype}{char}\ mapped\ \ \ \ \ =\ \textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{\Hypertarget{linux__mem_8cpp_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{linux__mem_8cpp_source_l00016}00016\ \ \ \ \ FILE*\ file\ =\ fopen(\textcolor{stringliteral}{"{}/proc/self/maps"{}},\ \textcolor{stringliteral}{"{}r"{}});}
+\DoxyCodeLine{\Hypertarget{linux__mem_8cpp_source_l00017}00017\ }
+\DoxyCodeLine{\Hypertarget{linux__mem_8cpp_source_l00018}00018\ \ \ \ \ \textcolor{keywordflow}{if}\ (!file)}
+\DoxyCodeLine{\Hypertarget{linux__mem_8cpp_source_l00019}00019\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{linux__mem_8cpp_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{linux__mem_8cpp_source_l00021}00021\ \ \ \ \ \textcolor{keywordflow}{while}\ (fscanf(file,\ \textcolor{stringliteral}{"{}\%"{}}\ SCNxPTR\ \textcolor{stringliteral}{"{}-\/\%"{}}\ SCNxPTR\ \textcolor{stringliteral}{"{}\ \%c\%c\%c\%c"{}},}
+\DoxyCodeLine{\Hypertarget{linux__mem_8cpp_source_l00022}00022\ \ \ \ \ \ \ \ \ \ \ \ \ \&begin,\ \&end,\ \&readable,\ \&writable,\ \&executable,\ \&mapped)\ ==\ 6)\ \{}
+\DoxyCodeLine{\Hypertarget{linux__mem_8cpp_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{linux__mem_8cpp_source_l00024}00024\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (begin\ <=\ (uintptr\_t)p\ \&\&\ (uintptr\_t)p\ <\ end)\ \{}
+\DoxyCodeLine{\Hypertarget{linux__mem_8cpp_source_l00025}00025\ \ \ \ \ \ \ \ \ \ \ \ \ fclose(file);}
+\DoxyCodeLine{\Hypertarget{linux__mem_8cpp_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{linux__mem_8cpp_source_l00027}00027\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}\ (mode)\ \{}
+\DoxyCodeLine{\Hypertarget{linux__mem_8cpp_source_l00028}00028\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'r'}:}
+\DoxyCodeLine{\Hypertarget{linux__mem_8cpp_source_l00029}00029\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ readable\ ==\ \textcolor{charliteral}{'r'};}
+\DoxyCodeLine{\Hypertarget{linux__mem_8cpp_source_l00030}00030\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{linux__mem_8cpp_source_l00031}00031\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'w'}:}
+\DoxyCodeLine{\Hypertarget{linux__mem_8cpp_source_l00032}00032\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ writable\ ==\ \textcolor{charliteral}{'w'};}
+\DoxyCodeLine{\Hypertarget{linux__mem_8cpp_source_l00033}00033\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{linux__mem_8cpp_source_l00034}00034\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{linux__mem_8cpp_source_l00035}00035\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ assert(0\ \&\&\ \textcolor{stringliteral}{"{}is\_ptr\_valid()\ wrong\ mode\ specified"{}});}
+\DoxyCodeLine{\Hypertarget{linux__mem_8cpp_source_l00036}00036\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{linux__mem_8cpp_source_l00037}00037\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{linux__mem_8cpp_source_l00038}00038\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{linux__mem_8cpp_source_l00039}00039\ }
+\DoxyCodeLine{\Hypertarget{linux__mem_8cpp_source_l00040}00040\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (fgetc(file)\ !=\ \textcolor{charliteral}{'\(\backslash\)n'})\ \{\}}
+\DoxyCodeLine{\Hypertarget{linux__mem_8cpp_source_l00041}00041\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{linux__mem_8cpp_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{linux__mem_8cpp_source_l00043}00043\ \ \ \ \ fclose(file);}
+\DoxyCodeLine{\Hypertarget{linux__mem_8cpp_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{linux__mem_8cpp_source_l00045}00045\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{linux__mem_8cpp_source_l00046}00046\ \}}
+
+\end{DoxyCode}
