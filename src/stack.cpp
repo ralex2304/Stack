@@ -131,7 +131,7 @@ int stk_push(Stack* stk, const Elem_t elem) {
     if (res != stk->OK)
         return res;
 
-    if (stk->size == stk->capacity)
+    while (stk->size >= stk->capacity)
         res |= stk_resize(stk, stk->capacity * 2);
 
     if (res != stk->OK)
@@ -164,9 +164,14 @@ int stk_pop(Stack* stk, Elem_t *const elem) {
 
     *elem = stk->data[--stk->size];
 
+#ifdef DEBUG
     hash_create(&stk->checksum, stk->data, stk->size);
 
     stk->data[stk->size] = stk->POISON;
+#endif // #ifdef DEBUG
+
+    while (stk->size * 4 <= stk->capacity && stk->capacity >= stk->INIT_CAPACITY * 2)
+        res |= stk_resize(stk, stk->capacity / 2);
 
     res |= STK_VERIFY(stk);
     STK_OK(stk, res);

@@ -21,7 +21,7 @@
         size     = 11
         capacity = 16
         checksum = 0x1d53d0a8
-        data[0x55555555b498] {
+        data[0x55555555baa8] {
             L_canary = 0x8badf00ddeaddead
             *[ 0] 123
             *[ 1] 0
@@ -50,7 +50,7 @@
         size     = 11
         capacity = 16
         checksum = 0x1d53d0a8
-        data[0x55555555b498] {
+        data[0x55555555baa8] {
             L_canary = 0x8badf00ddeaddead
             *[ 0] 123
             *[ 1] 0
@@ -79,7 +79,7 @@
         size     = 6
         capacity = 16
         checksum = 0x6457885
-        data[0x55555555b498] {
+        data[0x55555555baa8] {
             L_canary = 0x8badf00ddeaddead
             *[ 0] 123
             *[ 1] 0
@@ -106,26 +106,12 @@
     {
         L_canary = 0x8badf00ddeaddead
         size     = 0
-        capacity = 16
+        capacity = 2
         checksum = 0x0
-        data[0x55555555b498] {
+        data[0x55555555baa8] {
             L_canary = 0x8badf00ddeaddead
-             [ 0] (poison)
-             [ 1] (poison)
-             [ 2] (poison)
-             [ 3] (poison)
-             [ 4] (poison)
-             [ 5] (poison)
-             [ 6] (poison)
-             [ 7] (poison)
-             [ 8] (poison)
-             [ 9] (poison)
-             [10] (poison)
-             [11] (poison)
-             [12] (poison)
-             [13] (poison)
-             [14] (poison)
-             [15] (poison)
+             [0] (poison)
+             [1] (poison)
             R_canary = 0x8badf00ddeaddead
         }
         R_canary = 0x8badf00ddeaddead
@@ -150,7 +136,7 @@
         size     = 1
         capacity = 2
         checksum = 0x7b
-        data[0x55555555b4f8] {
+        data[0x55555555bb08] {
             L_canary = 0x8badf00ddeaddead
             *[0] 123
              [1] (poison)
@@ -165,7 +151,7 @@
         size     = 11
         capacity = 16
         checksum = 0x1d53d0a8
-        data[0x55555555b4f8] {
+        data[0x55555555bb08] {
             L_canary = 0x8badf00ddeaddead
             *[ 0] 123
             *[ 1] 0
@@ -196,7 +182,7 @@
         size     = 11
         capacity = 16
         checksum = 0x1d53d0a8
-        data[0x55555555b4f8] {
+        data[0x55555555bb08] {
             L_canary = 0x8badf00ddeaddead
             *[ 0] 123
             *[ 1] 0
@@ -225,7 +211,7 @@
         size     = 11
         capacity = 16
         checksum = 0x1d53d0a8
-        data[0x55555555b4f8] {
+        data[0x55555555bb08] {
             L_canary = 0x8badf00ddeaddead
             *[ 0] 123
             *[ 1] 0
@@ -256,7 +242,7 @@
         size     = 11
         capacity = 16
         checksum = 0x1d53d0a8
-        data[0x55555555b4f8] {
+        data[0x55555555bb08] {
             L_canary = 0x8badf00ddeaddead
             *[ 0] 123
             *[ 1] 0
@@ -284,26 +270,12 @@
     {
         L_canary = 0x8badf00ddeaddead
         size     = 0
-        capacity = 16
+        capacity = 2
         checksum = 0x0
-        data[0x55555555b558] {
+        data[0x55555555bb68] {
             L_canary = 0x8badf00ddeaddead
-             [ 0] (poison)
-             [ 1] (poison)
-             [ 2] (poison)
-             [ 3] (poison)
-             [ 4] (poison)
-             [ 5] (poison)
-             [ 6] (poison)
-             [ 7] (poison)
-             [ 8] (poison)
-             [ 9] (poison)
-             [10] (poison)
-             [11] (poison)
-             [12] (poison)
-             [13] (poison)
-             [14] (poison)
-             [15] (poison)
+             [0] (poison)
+             [1] (poison)
             R_canary = 0x8badf00ddeaddead
         }
         R_canary = 0x8badf00ddeaddead
@@ -313,26 +285,12 @@
     {
         L_canary = 0x8badf00ddeaddead
         size     = 0
-        capacity = 16
+        capacity = 2
         checksum = 0x0
-        data[0x55555555b558] {
+        data[0x55555555bb68] {
             L_canary = 0x8badf00ddeaddead
-             [ 0] (poison)
-             [ 1] (poison)
-             [ 2] (poison)
-             [ 3] (poison)
-             [ 4] (poison)
-             [ 5] (poison)
-             [ 6] (poison)
-             [ 7] (poison)
-             [ 8] (poison)
-             [ 9] (poison)
-             [10] (poison)
-             [11] (poison)
-             [12] (poison)
-             [13] (poison)
-             [14] (poison)
-             [15] (poison)
+             [0] (poison)
+             [1] (poison)
             R_canary = 0x8badf00ddeaddead
         }
         R_canary = 0x8badf00ddeaddead

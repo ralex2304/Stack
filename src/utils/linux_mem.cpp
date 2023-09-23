@@ -1,8 +1,6 @@
 #include "linux_mem.h"
 
 bool is_ptr_valid(void* p, const char mode) {
-    return p != nullptr;
-
     assert(mode == 'r' || mode == 'w');
 
     uintptr_t begin = 0;
