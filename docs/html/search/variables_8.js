@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['poison_0',['POISON',['../struct_stack.html#a48bbbcc55325f72dcbe2414dd9598a30',1,'Stack']]]
+  ['unitialised_5fcapacity_0',['UNITIALISED_CAPACITY',['../struct_stack.html#aa50c905a38095756b153a80c4e974ee2',1,'Stack']]]
 ];

@@ -1,6 +1,6 @@
 var annotated_dup =
 [
-    [ "Hash", "struct_hash.html", "struct_hash" ],
     [ "LogFileData", "struct_log_file_data.html", "struct_log_file_data" ],
-    [ "Stack", "struct_stack.html", "struct_stack" ]
+    [ "Stack", "struct_stack.html", "struct_stack" ],
+    [ "VarCodeData", "struct_var_code_data.html", "struct_var_code_data" ]
 ];

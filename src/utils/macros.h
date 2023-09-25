@@ -24,4 +24,14 @@ inline void* recalloc(void* ptr, size_t old_size, size_t new_size) {
     return ptr;
 }
 
+struct VarCodeData {
+    const char* name = "Not specified";
+    const char* file = "Not specified";
+          int   line = -1;
+    const char* func = "Not specified";
+};
+
+#define VAR_CODE_DATA(name) {# name, __FILE__, __LINE__, __func__}
+#define VAR_CODE_DATA_PTR(name) {(# name) + 1, __FILE__, __LINE__, __func__}
+
 #endif // #ifndef MACROS_H_

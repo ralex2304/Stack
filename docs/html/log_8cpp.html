@@ -268,15 +268,15 @@ false failure </dd></dl>
 <div class="line"><span class="lineno">    8</span>        <span class="keywordflow">if</span> (!<a class="code hl_function" href="log_8cpp.html#a14e1237e4072873a2976b48d52b10429">log_open_file</a>(<a class="code hl_variable" href="main_8cpp.html#a06336a68ce7f0258cc88d5a2bb94e4d3">log_file</a>))</div>
 <div class="line"><span class="lineno">    9</span>            <span class="keywordflow">return</span> -1;</div>
 <div class="line"><span class="lineno">   10</span> </div>
-<div class="line"><span class="lineno">   11</span>    va_list argList;</div>
-<div class="line"><span class="lineno">   12</span>    va_start(argList, format);</div>
-<div class="line"><span class="lineno">   13</span>    <span class="keywordflow">return</span> vfprintf(<a class="code hl_variable" href="main_8cpp.html#a06336a68ce7f0258cc88d5a2bb94e4d3">log_file</a>-&gt;<a class="code hl_variable" href="struct_log_file_data.html#a6cee51f74b20002956d076717f2a416c">file</a>, format, argList);</div>
+<div class="line"><span class="lineno">   11</span>    va_list arg_list = {};</div>
+<div class="line"><span class="lineno">   12</span>    va_start(arg_list, format);</div>
+<div class="line"><span class="lineno">   13</span>    <span class="keywordflow">return</span> vfprintf(<a class="code hl_variable" href="main_8cpp.html#a06336a68ce7f0258cc88d5a2bb94e4d3">log_file</a>-&gt;<a class="code hl_variable" href="struct_log_file_data.html#a6cee51f74b20002956d076717f2a416c">file</a>, format, arg_list);</div>
 <div class="line"><span class="lineno">   14</span>}</div>
 <div class="ttc" id="alog_8cpp_html_a14e1237e4072873a2976b48d52b10429"><div class="ttname"><a href="log_8cpp.html#a14e1237e4072873a2976b48d52b10429">log_open_file</a></div><div class="ttdeci">bool log_open_file(LogFileData *log_file, const char *mode)</div><div class="ttdoc">Opens log file.</div><div class="ttdef"><b>Definition</b> <a href="log_8cpp_source.html#l00016">log.cpp:16</a></div></div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="log_8h_source.html#l00017">LogFileData::file</a>, <a class="el" href="main_8cpp_source.html#l00004">log_file</a>, and <a class="el" href="log_8cpp_source.html#l00016">log_open_file()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="stack_8cpp_source.html#l00226">stk_dump()</a>, <a class="el" href="stack_8cpp_source.html#l00177">stk_print_error()</a>, <a class="el" href="test_8cpp_source.html#l00047">test_stack_error()</a>, and <a class="el" href="test_8cpp_source.html#l00003">test_stack_normal()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="stack_8cpp_source.html#l00222">stk_dump()</a>, <a class="el" href="stack_8cpp_source.html#l00195">stk_print_error()</a>, <a class="el" href="test_8cpp_source.html#l00047">test_stack_error()</a>, and <a class="el" href="test_8cpp_source.html#l00003">test_stack_normal()</a>.</p>
 
 </div>
 </div>

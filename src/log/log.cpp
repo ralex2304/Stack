@@ -8,9 +8,9 @@ int log_printf(LogFileData* log_file, const char* format, ...) {
         if (!log_open_file(log_file))
             return -1;
 
-    va_list argList;
-    va_start(argList, format);
-    return vfprintf(log_file->file, format, argList);
+    va_list arg_list = {};
+    va_start(arg_list, format);
+    return vfprintf(log_file->file, format, arg_list);
 }
 
 bool log_open_file(LogFileData* log_file, const char* mode) {

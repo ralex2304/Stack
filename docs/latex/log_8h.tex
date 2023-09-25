@@ -153,9 +153,9 @@ Definition at line \mbox{\hyperlink{log_8cpp_source_l00003}{3}} of file \mbox{\h
 \DoxyCodeLine{00008\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{log_8cpp_a14e1237e4072873a2976b48d52b10429}{log\_open\_file}}(\mbox{\hyperlink{main_8cpp_a06336a68ce7f0258cc88d5a2bb94e4d3}{log\_file}}))}
 \DoxyCodeLine{00009\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1;}
 \DoxyCodeLine{00010\ }
-\DoxyCodeLine{00011\ \ \ \ \ va\_list\ argList;}
-\DoxyCodeLine{00012\ \ \ \ \ va\_start(argList,\ format);}
-\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keywordflow}{return}\ vfprintf(\mbox{\hyperlink{main_8cpp_a06336a68ce7f0258cc88d5a2bb94e4d3}{log\_file}}-\/>\mbox{\hyperlink{struct_log_file_data_a6cee51f74b20002956d076717f2a416c}{file}},\ format,\ argList);}
+\DoxyCodeLine{00011\ \ \ \ \ va\_list\ arg\_list\ =\ \{\};}
+\DoxyCodeLine{00012\ \ \ \ \ va\_start(arg\_list,\ format);}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keywordflow}{return}\ vfprintf(\mbox{\hyperlink{main_8cpp_a06336a68ce7f0258cc88d5a2bb94e4d3}{log\_file}}-\/>\mbox{\hyperlink{struct_log_file_data_a6cee51f74b20002956d076717f2a416c}{file}},\ format,\ arg\_list);}
 \DoxyCodeLine{00014\ \}}
 
 \end{DoxyCode}
@@ -165,5 +165,5 @@ References \mbox{\hyperlink{log_8h_source_l00017}{Log\+File\+Data\+::file}}, \mb
 
 
 
-Referenced by \mbox{\hyperlink{stack_8cpp_source_l00226}{stk\+\_\+dump()}}, \mbox{\hyperlink{stack_8cpp_source_l00177}{stk\+\_\+print\+\_\+error()}}, \mbox{\hyperlink{test_8cpp_source_l00047}{test\+\_\+stack\+\_\+error()}}, and \mbox{\hyperlink{test_8cpp_source_l00003}{test\+\_\+stack\+\_\+normal()}}.
+Referenced by \mbox{\hyperlink{stack_8cpp_source_l00222}{stk\+\_\+dump()}}, \mbox{\hyperlink{stack_8cpp_source_l00195}{stk\+\_\+print\+\_\+error()}}, \mbox{\hyperlink{test_8cpp_source_l00047}{test\+\_\+stack\+\_\+error()}}, and \mbox{\hyperlink{test_8cpp_source_l00003}{test\+\_\+stack\+\_\+normal()}}.
 

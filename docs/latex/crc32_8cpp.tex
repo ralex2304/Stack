@@ -1,0 +1,55 @@
+\doxysection{src/hash/crc32.cpp File Reference}
+\hypertarget{crc32_8cpp}{}\label{crc32_8cpp}\index{src/hash/crc32.cpp@{src/hash/crc32.cpp}}
+{\ttfamily \#include \"{}crc32.\+h\"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{crc32_8h_aec0adc213b23c34ec982fa84dceb81fd}{CRC32\+\_\+t}} \mbox{\hyperlink{crc32_8cpp_ac24ce753a192608e6a70627eecea4adb}{crc\+\_\+add}} (\mbox{\hyperlink{crc32_8h_aec0adc213b23c34ec982fa84dceb81fd}{CRC32\+\_\+t}} crc, const char \texorpdfstring{$\ast$}{*}data, ssize\+\_\+t data\+\_\+size)
+\begin{DoxyCompactList}\small\item\em Calcs CRC32 hash. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{crc32_8cpp_ac24ce753a192608e6a70627eecea4adb}\label{crc32_8cpp_ac24ce753a192608e6a70627eecea4adb} 
+\index{crc32.cpp@{crc32.cpp}!crc\_add@{crc\_add}}
+\index{crc\_add@{crc\_add}!crc32.cpp@{crc32.cpp}}
+\doxysubsubsection{\texorpdfstring{crc\_add()}{crc\_add()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{crc32_8h_aec0adc213b23c34ec982fa84dceb81fd}{CRC32\+\_\+t}} crc\+\_\+add (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{crc32_8h_aec0adc213b23c34ec982fa84dceb81fd}{CRC32\+\_\+t}}}]{crc,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{data,  }\item[{ssize\+\_\+t}]{data\+\_\+size }\end{DoxyParamCaption})}
+
+
+
+Calcs CRC32 hash. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em crc} & init value \\
+\hline
+{\em data} & \\
+\hline
+{\em data\+\_\+size} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+CRC32\+\_\+t 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{crc32_8cpp_source_l00003}{3}} of file \mbox{\hyperlink{crc32_8cpp_source}{crc32.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00003\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00004\ \ \ \ \ assert(data);}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \ \ \ \ \textcolor{keywordflow}{while}\ (data\_size-\/-\/)\ \{}
+\DoxyCodeLine{00007\ \ \ \ \ \ \ \ \ crc\ =\ (crc\ <<\ 8)\ \string^\ crc32\_table[((crc\ >>\ 24)\ \string^\ *data)\ \&\ 255];}
+\DoxyCodeLine{00008\ \ \ \ \ \ \ \ \ data++;}
+\DoxyCodeLine{00009\ \ \ \ \ \}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keywordflow}{return}\ crc;}
+\DoxyCodeLine{00012\ \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{stack_8h_source_l00251}{stk\+\_\+data\+\_\+hash\+\_\+calc()}}, \mbox{\hyperlink{stack_8h_source_l00265}{stk\+\_\+data\+\_\+hash\+\_\+push()}}, and \mbox{\hyperlink{stack_8h_source_l00238}{stk\+\_\+struct\+\_\+hash\+\_\+calc()}}.
+

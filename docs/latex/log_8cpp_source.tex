@@ -12,9 +12,9 @@
 \DoxyCodeLine{\Hypertarget{log_8cpp_source_l00008}00008\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{log_8cpp_a14e1237e4072873a2976b48d52b10429}{log\_open\_file}}(\mbox{\hyperlink{main_8cpp_a06336a68ce7f0258cc88d5a2bb94e4d3}{log\_file}}))}
 \DoxyCodeLine{\Hypertarget{log_8cpp_source_l00009}00009\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1;}
 \DoxyCodeLine{\Hypertarget{log_8cpp_source_l00010}00010\ }
-\DoxyCodeLine{\Hypertarget{log_8cpp_source_l00011}00011\ \ \ \ \ va\_list\ argList;}
-\DoxyCodeLine{\Hypertarget{log_8cpp_source_l00012}00012\ \ \ \ \ va\_start(argList,\ format);}
-\DoxyCodeLine{\Hypertarget{log_8cpp_source_l00013}00013\ \ \ \ \ \textcolor{keywordflow}{return}\ vfprintf(\mbox{\hyperlink{main_8cpp_a06336a68ce7f0258cc88d5a2bb94e4d3}{log\_file}}-\/>\mbox{\hyperlink{struct_log_file_data_a6cee51f74b20002956d076717f2a416c}{file}},\ format,\ argList);}
+\DoxyCodeLine{\Hypertarget{log_8cpp_source_l00011}00011\ \ \ \ \ va\_list\ arg\_list\ =\ \{\};}
+\DoxyCodeLine{\Hypertarget{log_8cpp_source_l00012}00012\ \ \ \ \ va\_start(arg\_list,\ format);}
+\DoxyCodeLine{\Hypertarget{log_8cpp_source_l00013}00013\ \ \ \ \ \textcolor{keywordflow}{return}\ vfprintf(\mbox{\hyperlink{main_8cpp_a06336a68ce7f0258cc88d5a2bb94e4d3}{log\_file}}-\/>\mbox{\hyperlink{struct_log_file_data_a6cee51f74b20002956d076717f2a416c}{file}},\ format,\ arg\_list);}
 \DoxyCodeLine{\Hypertarget{log_8cpp_source_l00014}00014\ \}}
 \DoxyCodeLine{\Hypertarget{log_8cpp_source_l00015}00015\ }
 \DoxyCodeLine{\Hypertarget{log_8cpp_source_l00016}\mbox{\hyperlink{log_8cpp_a14e1237e4072873a2976b48d52b10429}{00016}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{log_8cpp_a14e1237e4072873a2976b48d52b10429}{log\_open\_file}}(\mbox{\hyperlink{struct_log_file_data}{LogFileData}}*\ \mbox{\hyperlink{main_8cpp_a06336a68ce7f0258cc88d5a2bb94e4d3}{log\_file}},\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ mode)\ \{}

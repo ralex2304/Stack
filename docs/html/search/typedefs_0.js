@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['elem_5ft_0',['Elem_t',['../config_8h.html#a080be3bdb852e7fe4ae09e67e3f7012c',1,'config.h']]]
+  ['canary_5ft_0',['Canary_t',['../config_8h.html#a788ec731a306c6e69c1dbb06983429ed',1,'config.h']]],
+  ['crc32_5ft_1',['CRC32_t',['../crc32_8h.html#aec0adc213b23c34ec982fa84dceb81fd',1,'crc32.h']]]
 ];

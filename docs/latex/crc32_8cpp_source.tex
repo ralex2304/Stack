@@ -1,0 +1,18 @@
+\doxysection{crc32.\+cpp}
+\hypertarget{crc32_8cpp_source}{}\label{crc32_8cpp_source}\index{src/hash/crc32.cpp@{src/hash/crc32.cpp}}
+\mbox{\hyperlink{crc32_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{crc32_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{crc32_8h}{crc32.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{crc32_8cpp_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{crc32_8cpp_source_l00003}\mbox{\hyperlink{crc32_8cpp_ac24ce753a192608e6a70627eecea4adb}{00003}}\ \mbox{\hyperlink{crc32_8h_aec0adc213b23c34ec982fa84dceb81fd}{CRC32\_t}}\ \mbox{\hyperlink{crc32_8cpp_ac24ce753a192608e6a70627eecea4adb}{crc\_add}}(\mbox{\hyperlink{crc32_8h_aec0adc213b23c34ec982fa84dceb81fd}{CRC32\_t}}\ crc,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ data,\ ssize\_t\ data\_size)\ \{}
+\DoxyCodeLine{\Hypertarget{crc32_8cpp_source_l00004}00004\ \ \ \ \ assert(data);}
+\DoxyCodeLine{\Hypertarget{crc32_8cpp_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{crc32_8cpp_source_l00006}00006\ \ \ \ \ \textcolor{keywordflow}{while}\ (data\_size-\/-\/)\ \{}
+\DoxyCodeLine{\Hypertarget{crc32_8cpp_source_l00007}00007\ \ \ \ \ \ \ \ \ crc\ =\ (crc\ <<\ 8)\ \string^\ crc32\_table[((crc\ >>\ 24)\ \string^\ *data)\ \&\ 255];}
+\DoxyCodeLine{\Hypertarget{crc32_8cpp_source_l00008}00008\ \ \ \ \ \ \ \ \ data++;}
+\DoxyCodeLine{\Hypertarget{crc32_8cpp_source_l00009}00009\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{crc32_8cpp_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{crc32_8cpp_source_l00011}00011\ \ \ \ \ \textcolor{keywordflow}{return}\ crc;}
+\DoxyCodeLine{\Hypertarget{crc32_8cpp_source_l00012}00012\ \}}
+
+\end{DoxyCode}

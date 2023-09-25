@@ -16,27 +16,30 @@ enum \mbox{\hyperlink{struct_stack_ae8242b5f1b2c3d98a6dbafc302e509d5}{Results}} 
 \mbox{\hyperlink{struct_stack_ae8242b5f1b2c3d98a6dbafc302e509d5a146633a2ef2a9bbb1c05ec4cd31ba019}{OK}} = 0x0000
 , \mbox{\hyperlink{struct_stack_ae8242b5f1b2c3d98a6dbafc302e509d5a21fffebce3cb1827d31bfb5bc44dfca8}{NOTHING\+\_\+\+TO\+\_\+\+POP}} = 0x0001
 , \mbox{\hyperlink{struct_stack_ae8242b5f1b2c3d98a6dbafc302e509d5a8e610fdd9bd4faa7ad35a6058ad9fcbf}{ALLOC\+\_\+\+ERR}} = 0x0002
-, \mbox{\hyperlink{struct_stack_ae8242b5f1b2c3d98a6dbafc302e509d5ae1ec0912fd480f7fdd5f38f4e990ffed}{UNITIALISED}} = 0x0004
+, \mbox{\hyperlink{struct_stack_ae8242b5f1b2c3d98a6dbafc302e509d5af004171243fdbfc79e0cb30fd7561690}{ALREADY\+\_\+\+INITIALISED}} = 0x0004
 , \newline
-\mbox{\hyperlink{struct_stack_ae8242b5f1b2c3d98a6dbafc302e509d5ab37ce957889466c726330c2b5b513b4f}{DATA\+\_\+\+INVALID\+\_\+\+PTR}} = 0x0008
-, \mbox{\hyperlink{struct_stack_ae8242b5f1b2c3d98a6dbafc302e509d5aa17ea00c21ef8ada8344e88a5d63a0de}{POISON\+\_\+\+VAL\+\_\+\+FOUND}} = 0x0010
-, \mbox{\hyperlink{struct_stack_ae8242b5f1b2c3d98a6dbafc302e509d5a9e1e940df37869517f75f4d2198aebad}{NON\+\_\+\+POISON\+\_\+\+EMPTY}} = 0x0020
-, \mbox{\hyperlink{struct_stack_ae8242b5f1b2c3d98a6dbafc302e509d5a850f5a4a8e8d806c4d727d7611a23830}{CHECKSUM\+\_\+\+ERR}} = 0x0040
+\mbox{\hyperlink{struct_stack_ae8242b5f1b2c3d98a6dbafc302e509d5ae1ec0912fd480f7fdd5f38f4e990ffed}{UNITIALISED}} = 0x0008
+, \mbox{\hyperlink{struct_stack_ae8242b5f1b2c3d98a6dbafc302e509d5ab37ce957889466c726330c2b5b513b4f}{DATA\+\_\+\+INVALID\+\_\+\+PTR}} = 0x0010
+, \mbox{\hyperlink{struct_stack_ae8242b5f1b2c3d98a6dbafc302e509d5aa17ea00c21ef8ada8344e88a5d63a0de}{POISON\+\_\+\+VAL\+\_\+\+FOUND}} = 0x0020
+, \mbox{\hyperlink{struct_stack_ae8242b5f1b2c3d98a6dbafc302e509d5a9e1e940df37869517f75f4d2198aebad}{NON\+\_\+\+POISON\+\_\+\+EMPTY}} = 0x0040
 , \newline
-\mbox{\hyperlink{struct_stack_ae8242b5f1b2c3d98a6dbafc302e509d5a0a4d618cba92355bcf446359ec408e60}{LOW\+\_\+\+CAPACITY}} = 0x0080
-, \mbox{\hyperlink{struct_stack_ae8242b5f1b2c3d98a6dbafc302e509d5af68a03245ae05bdfca1879f027972e0c}{NEGATIVE\+\_\+\+CAPACITY}} = 0x0100
-, \mbox{\hyperlink{struct_stack_ae8242b5f1b2c3d98a6dbafc302e509d5ad85f8db9f888d5f54791ec3dbe8dae1c}{NEGATIVE\+\_\+\+SIZE}} = 0x0200
-, \mbox{\hyperlink{struct_stack_ae8242b5f1b2c3d98a6dbafc302e509d5a7972d76b7f1e784ff89358e60e73f6c5}{STRUCT\+\_\+\+L\+\_\+\+CANARY\+\_\+\+ERR}} = 0x0400
+\mbox{\hyperlink{struct_stack_ae8242b5f1b2c3d98a6dbafc302e509d5a8cccf06af95813b4626427c4c2595033}{STRUCT\+\_\+\+HASH\+\_\+\+ERR}} = 0x0080
+, \mbox{\hyperlink{struct_stack_ae8242b5f1b2c3d98a6dbafc302e509d5a2dbe0f67c49b72aef7d6253cdc1f9d43}{DATA\+\_\+\+HASH\+\_\+\+ERR}} = 0x0100
+, \mbox{\hyperlink{struct_stack_ae8242b5f1b2c3d98a6dbafc302e509d5a0a4d618cba92355bcf446359ec408e60}{LOW\+\_\+\+CAPACITY}} = 0x0200
+, \mbox{\hyperlink{struct_stack_ae8242b5f1b2c3d98a6dbafc302e509d5af68a03245ae05bdfca1879f027972e0c}{NEGATIVE\+\_\+\+CAPACITY}} = 0x0400
 , \newline
-\mbox{\hyperlink{struct_stack_ae8242b5f1b2c3d98a6dbafc302e509d5a8deedabd24b6f0684dbf7b7ee110bd21}{STRUCT\+\_\+\+R\+\_\+\+CANARY\+\_\+\+ERR}} = 0x0800
-, \mbox{\hyperlink{struct_stack_ae8242b5f1b2c3d98a6dbafc302e509d5a972d0ae4ce1c7527212f6e29d78df8fe}{DATA\+\_\+\+L\+\_\+\+CANARY\+\_\+\+ERR}} = 0x1000
-, \mbox{\hyperlink{struct_stack_ae8242b5f1b2c3d98a6dbafc302e509d5a31325202b6e6bfa0cb1b1e0c0601bea5}{DATA\+\_\+\+R\+\_\+\+CANARY\+\_\+\+ERR}} = 0x2000
+\mbox{\hyperlink{struct_stack_ae8242b5f1b2c3d98a6dbafc302e509d5ad85f8db9f888d5f54791ec3dbe8dae1c}{NEGATIVE\+\_\+\+SIZE}} = 0x0800
+, \mbox{\hyperlink{struct_stack_ae8242b5f1b2c3d98a6dbafc302e509d5a7972d76b7f1e784ff89358e60e73f6c5}{STRUCT\+\_\+\+L\+\_\+\+CANARY\+\_\+\+ERR}} = 0x1000
+, \mbox{\hyperlink{struct_stack_ae8242b5f1b2c3d98a6dbafc302e509d5a8deedabd24b6f0684dbf7b7ee110bd21}{STRUCT\+\_\+\+R\+\_\+\+CANARY\+\_\+\+ERR}} = 0x2000
+, \mbox{\hyperlink{struct_stack_ae8242b5f1b2c3d98a6dbafc302e509d5a972d0ae4ce1c7527212f6e29d78df8fe}{DATA\+\_\+\+L\+\_\+\+CANARY\+\_\+\+ERR}} = 0x4000
+, \newline
+\mbox{\hyperlink{struct_stack_ae8242b5f1b2c3d98a6dbafc302e509d5a31325202b6e6bfa0cb1b1e0c0601bea5}{DATA\+\_\+\+R\+\_\+\+CANARY\+\_\+\+ERR}} = 0x8000
  \}
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-unsigned long long \mbox{\hyperlink{struct_stack_a28842fa31d7aec7f839fbcd51ef3edfe}{canary\+\_\+left}} = CANARY\+\_\+\+VAL
+\mbox{\hyperlink{config_8h_a788ec731a306c6e69c1dbb06983429ed}{Canary\+\_\+t}} \mbox{\hyperlink{struct_stack_a93649663411b07293ec66851c09c99c9}{canary\+\_\+left}} = CANARY\+\_\+\+VAL
 \item 
 \mbox{\hyperlink{config_8h_a080be3bdb852e7fe4ae09e67e3f7012c}{Elem\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_stack_a02ed96691b2e6636bd9155758e8ee8cd}{data}} = nullptr
 \item 
@@ -44,15 +47,13 @@ ssize\+\_\+t \mbox{\hyperlink{struct_stack_a2f2b41ebbf7c8adce40da902814e1c7b}{ca
 \item 
 ssize\+\_\+t \mbox{\hyperlink{struct_stack_a3b6cb0b4ff732c7bbbaaa5d3860bcd1a}{size}} = \mbox{\hyperlink{struct_stack_aa50c905a38095756b153a80c4e974ee2}{UNITIALISED\+\_\+\+CAPACITY}}
 \item 
-\mbox{\hyperlink{struct_hash}{Hash}} \mbox{\hyperlink{struct_stack_afb254e7cd7f3e17f483ef2866cc5b922}{checksum}} = \{\}
+\mbox{\hyperlink{crc32_8h_aec0adc213b23c34ec982fa84dceb81fd}{CRC32\+\_\+t}} \mbox{\hyperlink{struct_stack_a5d85c28620cf7c22e622df2d8a58f35b}{struct\+\_\+hash}} = 0
 \item 
-const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_stack_a6566913dd7e46a9de98b4fae96ef1b22}{init\+\_\+file}} = \"{}\"{}
+\mbox{\hyperlink{crc32_8h_aec0adc213b23c34ec982fa84dceb81fd}{CRC32\+\_\+t}} \mbox{\hyperlink{struct_stack_a0313f9fb25ba1f5ce41bcaf465777ead}{data\+\_\+hash}} = 0
 \item 
-int \mbox{\hyperlink{struct_stack_a98ddb9b9cce48e4dca81d6cf852c5905}{init\+\_\+line}} = -\/1
+\mbox{\hyperlink{struct_var_code_data}{Var\+Code\+Data}} \mbox{\hyperlink{struct_stack_ada9ac9dd578c2f702547fbf23447dfc5}{var\+\_\+data}}
 \item 
-const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_stack_ab234bfceb8dc921e91dbf8d9776ecc04}{init\+\_\+func}} = \"{}\"{}
-\item 
-unsigned long long \mbox{\hyperlink{struct_stack_af8349cc517cbeee8fc2a0177f17d5109}{canary\+\_\+right}} = CANARY\+\_\+\+VAL
+\mbox{\hyperlink{config_8h_a788ec731a306c6e69c1dbb06983429ed}{Canary\+\_\+t}} \mbox{\hyperlink{struct_stack_a26e3a891c804d0a2deef354cb6d7f13b}{canary\+\_\+right}} = CANARY\+\_\+\+VAL
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Static Public Attributes}
 \begin{DoxyCompactItemize}
@@ -92,6 +93,10 @@ NOTHING\+\_\+\+TO\+\_\+\+POP&\\
 ALLOC\+\_\+\+ERR&\\
 \hline
 
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ALREADY\_INITIALISED@{ALREADY\_INITIALISED}!Stack@{Stack}}\index{Stack@{Stack}!ALREADY\_INITIALISED@{ALREADY\_INITIALISED}}}\Hypertarget{struct_stack_ae8242b5f1b2c3d98a6dbafc302e509d5af004171243fdbfc79e0cb30fd7561690}\label{struct_stack_ae8242b5f1b2c3d98a6dbafc302e509d5af004171243fdbfc79e0cb30fd7561690} 
+ALREADY\+\_\+\+INITIALISED&\\
+\hline
+
 \raisebox{\heightof{T}}[0pt][0pt]{\index{UNITIALISED@{UNITIALISED}!Stack@{Stack}}\index{Stack@{Stack}!UNITIALISED@{UNITIALISED}}}\Hypertarget{struct_stack_ae8242b5f1b2c3d98a6dbafc302e509d5ae1ec0912fd480f7fdd5f38f4e990ffed}\label{struct_stack_ae8242b5f1b2c3d98a6dbafc302e509d5ae1ec0912fd480f7fdd5f38f4e990ffed} 
 UNITIALISED&\\
 \hline
@@ -108,8 +113,12 @@ POISON\+\_\+\+VAL\+\_\+\+FOUND&\\
 NON\+\_\+\+POISON\+\_\+\+EMPTY&\\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{CHECKSUM\_ERR@{CHECKSUM\_ERR}!Stack@{Stack}}\index{Stack@{Stack}!CHECKSUM\_ERR@{CHECKSUM\_ERR}}}\Hypertarget{struct_stack_ae8242b5f1b2c3d98a6dbafc302e509d5a850f5a4a8e8d806c4d727d7611a23830}\label{struct_stack_ae8242b5f1b2c3d98a6dbafc302e509d5a850f5a4a8e8d806c4d727d7611a23830} 
-CHECKSUM\+\_\+\+ERR&\\
+\raisebox{\heightof{T}}[0pt][0pt]{\index{STRUCT\_HASH\_ERR@{STRUCT\_HASH\_ERR}!Stack@{Stack}}\index{Stack@{Stack}!STRUCT\_HASH\_ERR@{STRUCT\_HASH\_ERR}}}\Hypertarget{struct_stack_ae8242b5f1b2c3d98a6dbafc302e509d5a8cccf06af95813b4626427c4c2595033}\label{struct_stack_ae8242b5f1b2c3d98a6dbafc302e509d5a8cccf06af95813b4626427c4c2595033} 
+STRUCT\+\_\+\+HASH\+\_\+\+ERR&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DATA\_HASH\_ERR@{DATA\_HASH\_ERR}!Stack@{Stack}}\index{Stack@{Stack}!DATA\_HASH\_ERR@{DATA\_HASH\_ERR}}}\Hypertarget{struct_stack_ae8242b5f1b2c3d98a6dbafc302e509d5a2dbe0f67c49b72aef7d6253cdc1f9d43}\label{struct_stack_ae8242b5f1b2c3d98a6dbafc302e509d5a2dbe0f67c49b72aef7d6253cdc1f9d43} 
+DATA\+\_\+\+HASH\+\_\+\+ERR&\\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{LOW\_CAPACITY@{LOW\_CAPACITY}!Stack@{Stack}}\index{Stack@{Stack}!LOW\_CAPACITY@{LOW\_CAPACITY}}}\Hypertarget{struct_stack_ae8242b5f1b2c3d98a6dbafc302e509d5a0a4d618cba92355bcf446359ec408e60}\label{struct_stack_ae8242b5f1b2c3d98a6dbafc302e509d5a0a4d618cba92355bcf446359ec408e60} 
@@ -143,60 +152,62 @@ DATA\+\_\+\+R\+\_\+\+CANARY\+\_\+\+ERR&\\
 \end{DoxyEnumFields}
 
 
-Definition at line \mbox{\hyperlink{stack_8h_source_l00034}{34}} of file \mbox{\hyperlink{stack_8h_source}{stack.\+h}}.
+Definition at line \mbox{\hyperlink{stack_8h_source_l00024}{24}} of file \mbox{\hyperlink{stack_8h_source}{stack.\+h}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_stack_ae8242b5f1b2c3d98a6dbafc302e509d5a146633a2ef2a9bbb1c05ec4cd31ba019}{OK}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ =\ 0x0000,}
-\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_stack_ae8242b5f1b2c3d98a6dbafc302e509d5a21fffebce3cb1827d31bfb5bc44dfca8}{NOTHING\_TO\_POP}}\ \ \ \ \ \ =\ 0x0001,}
-\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_stack_ae8242b5f1b2c3d98a6dbafc302e509d5a8e610fdd9bd4faa7ad35a6058ad9fcbf}{ALLOC\_ERR}}\ \ \ \ \ \ \ \ \ \ \ =\ 0x0002,}
-\DoxyCodeLine{00038\ }
-\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_stack_ae8242b5f1b2c3d98a6dbafc302e509d5ae1ec0912fd480f7fdd5f38f4e990ffed}{UNITIALISED}}\ \ \ \ \ \ \ \ \ =\ 0x0004,}
-\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_stack_ae8242b5f1b2c3d98a6dbafc302e509d5ab37ce957889466c726330c2b5b513b4f}{DATA\_INVALID\_PTR}}\ \ \ \ =\ 0x0008,}
-\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_stack_ae8242b5f1b2c3d98a6dbafc302e509d5aa17ea00c21ef8ada8344e88a5d63a0de}{POISON\_VAL\_FOUND}}\ \ \ \ =\ 0x0010,}
-\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_stack_ae8242b5f1b2c3d98a6dbafc302e509d5a9e1e940df37869517f75f4d2198aebad}{NON\_POISON\_EMPTY}}\ \ \ \ =\ 0x0020,}
-\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_stack_ae8242b5f1b2c3d98a6dbafc302e509d5a850f5a4a8e8d806c4d727d7611a23830}{CHECKSUM\_ERR}}\ \ \ \ \ \ \ \ =\ 0x0040,}
-\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_stack_ae8242b5f1b2c3d98a6dbafc302e509d5a0a4d618cba92355bcf446359ec408e60}{LOW\_CAPACITY}}\ \ \ \ \ \ \ \ =\ 0x0080,}
-\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_stack_ae8242b5f1b2c3d98a6dbafc302e509d5af68a03245ae05bdfca1879f027972e0c}{NEGATIVE\_CAPACITY}}\ \ \ =\ 0x0100,}
-\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_stack_ae8242b5f1b2c3d98a6dbafc302e509d5ad85f8db9f888d5f54791ec3dbe8dae1c}{NEGATIVE\_SIZE}}\ \ \ \ \ \ \ =\ 0x0200,}
-\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_stack_ae8242b5f1b2c3d98a6dbafc302e509d5a7972d76b7f1e784ff89358e60e73f6c5}{STRUCT\_L\_CANARY\_ERR}}\ =\ 0x0400,}
-\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_stack_ae8242b5f1b2c3d98a6dbafc302e509d5a8deedabd24b6f0684dbf7b7ee110bd21}{STRUCT\_R\_CANARY\_ERR}}\ =\ 0x0800,}
-\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_stack_ae8242b5f1b2c3d98a6dbafc302e509d5a972d0ae4ce1c7527212f6e29d78df8fe}{DATA\_L\_CANARY\_ERR}}\ \ \ =\ 0x1000,}
-\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_stack_ae8242b5f1b2c3d98a6dbafc302e509d5a31325202b6e6bfa0cb1b1e0c0601bea5}{DATA\_R\_CANARY\_ERR}}\ \ \ =\ 0x2000,}
-\DoxyCodeLine{00051\ \ \ \ \ \};}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_stack_ae8242b5f1b2c3d98a6dbafc302e509d5a146633a2ef2a9bbb1c05ec4cd31ba019}{OK}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ =\ 0x0000,}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_stack_ae8242b5f1b2c3d98a6dbafc302e509d5a21fffebce3cb1827d31bfb5bc44dfca8}{NOTHING\_TO\_POP}}\ \ \ \ \ \ =\ 0x0001,}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_stack_ae8242b5f1b2c3d98a6dbafc302e509d5a8e610fdd9bd4faa7ad35a6058ad9fcbf}{ALLOC\_ERR}}\ \ \ \ \ \ \ \ \ \ \ =\ 0x0002,}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_stack_ae8242b5f1b2c3d98a6dbafc302e509d5af004171243fdbfc79e0cb30fd7561690}{ALREADY\_INITIALISED}}\ =\ 0x0004,}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_stack_ae8242b5f1b2c3d98a6dbafc302e509d5ae1ec0912fd480f7fdd5f38f4e990ffed}{UNITIALISED}}\ \ \ \ \ \ \ \ \ =\ 0x0008,}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_stack_ae8242b5f1b2c3d98a6dbafc302e509d5ab37ce957889466c726330c2b5b513b4f}{DATA\_INVALID\_PTR}}\ \ \ \ =\ 0x0010,}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_stack_ae8242b5f1b2c3d98a6dbafc302e509d5aa17ea00c21ef8ada8344e88a5d63a0de}{POISON\_VAL\_FOUND}}\ \ \ \ =\ 0x0020,}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_stack_ae8242b5f1b2c3d98a6dbafc302e509d5a9e1e940df37869517f75f4d2198aebad}{NON\_POISON\_EMPTY}}\ \ \ \ =\ 0x0040,}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_stack_ae8242b5f1b2c3d98a6dbafc302e509d5a8cccf06af95813b4626427c4c2595033}{STRUCT\_HASH\_ERR}}\ \ \ \ \ =\ 0x0080,}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_stack_ae8242b5f1b2c3d98a6dbafc302e509d5a2dbe0f67c49b72aef7d6253cdc1f9d43}{DATA\_HASH\_ERR}}\ \ \ \ \ \ \ =\ 0x0100,}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_stack_ae8242b5f1b2c3d98a6dbafc302e509d5a0a4d618cba92355bcf446359ec408e60}{LOW\_CAPACITY}}\ \ \ \ \ \ \ \ =\ 0x0200,}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_stack_ae8242b5f1b2c3d98a6dbafc302e509d5af68a03245ae05bdfca1879f027972e0c}{NEGATIVE\_CAPACITY}}\ \ \ =\ 0x0400,}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_stack_ae8242b5f1b2c3d98a6dbafc302e509d5ad85f8db9f888d5f54791ec3dbe8dae1c}{NEGATIVE\_SIZE}}\ \ \ \ \ \ \ =\ 0x0800,}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_stack_ae8242b5f1b2c3d98a6dbafc302e509d5a7972d76b7f1e784ff89358e60e73f6c5}{STRUCT\_L\_CANARY\_ERR}}\ =\ 0x1000,}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_stack_ae8242b5f1b2c3d98a6dbafc302e509d5a8deedabd24b6f0684dbf7b7ee110bd21}{STRUCT\_R\_CANARY\_ERR}}\ =\ 0x2000,}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_stack_ae8242b5f1b2c3d98a6dbafc302e509d5a972d0ae4ce1c7527212f6e29d78df8fe}{DATA\_L\_CANARY\_ERR}}\ \ \ =\ 0x4000,}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_stack_ae8242b5f1b2c3d98a6dbafc302e509d5a31325202b6e6bfa0cb1b1e0c0601bea5}{DATA\_R\_CANARY\_ERR}}\ \ \ =\ 0x8000,}
+\DoxyCodeLine{00043\ \ \ \ \ \};}
 
 \end{DoxyCode}
 
 
 \doxysubsection{Member Data Documentation}
-\Hypertarget{struct_stack_a28842fa31d7aec7f839fbcd51ef3edfe}\label{struct_stack_a28842fa31d7aec7f839fbcd51ef3edfe} 
+\Hypertarget{struct_stack_a93649663411b07293ec66851c09c99c9}\label{struct_stack_a93649663411b07293ec66851c09c99c9} 
 \index{Stack@{Stack}!canary\_left@{canary\_left}}
 \index{canary\_left@{canary\_left}!Stack@{Stack}}
 \doxysubsubsection{\texorpdfstring{canary\_left}{canary\_left}}
-{\footnotesize\ttfamily unsigned long long Stack\+::canary\+\_\+left = CANARY\+\_\+\+VAL}
+{\footnotesize\ttfamily \mbox{\hyperlink{config_8h_a788ec731a306c6e69c1dbb06983429ed}{Canary\+\_\+t}} Stack\+::canary\+\_\+left = CANARY\+\_\+\+VAL}
 
 
 
-Definition at line \mbox{\hyperlink{stack_8h_source_l00025}{25}} of file \mbox{\hyperlink{stack_8h_source}{stack.\+h}}.
+Definition at line \mbox{\hyperlink{stack_8h_source_l00046}{46}} of file \mbox{\hyperlink{stack_8h_source}{stack.\+h}}.
 
 
 
-Referenced by \mbox{\hyperlink{stack_8cpp_source_l00226}{stk\+\_\+dump()}}, and \mbox{\hyperlink{stack_8cpp_source_l00270}{stk\+\_\+verify()}}.
+Referenced by \mbox{\hyperlink{stack_8cpp_source_l00222}{stk\+\_\+dump()}}, and \mbox{\hyperlink{stack_8cpp_source_l00292}{stk\+\_\+verify()}}.
 
-\Hypertarget{struct_stack_af8349cc517cbeee8fc2a0177f17d5109}\label{struct_stack_af8349cc517cbeee8fc2a0177f17d5109} 
+\Hypertarget{struct_stack_a26e3a891c804d0a2deef354cb6d7f13b}\label{struct_stack_a26e3a891c804d0a2deef354cb6d7f13b} 
 \index{Stack@{Stack}!canary\_right@{canary\_right}}
 \index{canary\_right@{canary\_right}!Stack@{Stack}}
 \doxysubsubsection{\texorpdfstring{canary\_right}{canary\_right}}
-{\footnotesize\ttfamily unsigned long long Stack\+::canary\+\_\+right = CANARY\+\_\+\+VAL}
+{\footnotesize\ttfamily \mbox{\hyperlink{config_8h_a788ec731a306c6e69c1dbb06983429ed}{Canary\+\_\+t}} Stack\+::canary\+\_\+right = CANARY\+\_\+\+VAL}
 
 
 
-Definition at line \mbox{\hyperlink{stack_8h_source_l00058}{58}} of file \mbox{\hyperlink{stack_8h_source}{stack.\+h}}.
+Definition at line \mbox{\hyperlink{stack_8h_source_l00063}{63}} of file \mbox{\hyperlink{stack_8h_source}{stack.\+h}}.
 
 
 
-Referenced by \mbox{\hyperlink{stack_8cpp_source_l00226}{stk\+\_\+dump()}}, and \mbox{\hyperlink{stack_8cpp_source_l00270}{stk\+\_\+verify()}}.
+Referenced by \mbox{\hyperlink{stack_8cpp_source_l00222}{stk\+\_\+dump()}}.
 
 \Hypertarget{struct_stack_a2f2b41ebbf7c8adce40da902814e1c7b}\label{struct_stack_a2f2b41ebbf7c8adce40da902814e1c7b} 
 \index{Stack@{Stack}!capacity@{capacity}}
@@ -206,25 +217,11 @@ Referenced by \mbox{\hyperlink{stack_8cpp_source_l00226}{stk\+\_\+dump()}}, and 
 
 
 
-Definition at line \mbox{\hyperlink{stack_8h_source_l00029}{29}} of file \mbox{\hyperlink{stack_8h_source}{stack.\+h}}.
+Definition at line \mbox{\hyperlink{stack_8h_source_l00050}{50}} of file \mbox{\hyperlink{stack_8h_source}{stack.\+h}}.
 
 
 
-Referenced by \mbox{\hyperlink{stack_8cpp_source_l00034}{stk\+\_\+ctor()}}, \mbox{\hyperlink{stack_8cpp_source_l00057}{stk\+\_\+dtor()}}, \mbox{\hyperlink{stack_8cpp_source_l00226}{stk\+\_\+dump()}}, \mbox{\hyperlink{stack_8cpp_source_l00125}{stk\+\_\+push()}}, \mbox{\hyperlink{stack_8cpp_source_l00080}{stk\+\_\+resize()}}, and \mbox{\hyperlink{stack_8cpp_source_l00270}{stk\+\_\+verify()}}.
-
-\Hypertarget{struct_stack_afb254e7cd7f3e17f483ef2866cc5b922}\label{struct_stack_afb254e7cd7f3e17f483ef2866cc5b922} 
-\index{Stack@{Stack}!checksum@{checksum}}
-\index{checksum@{checksum}!Stack@{Stack}}
-\doxysubsubsection{\texorpdfstring{checksum}{checksum}}
-{\footnotesize\ttfamily \mbox{\hyperlink{struct_hash}{Hash}} Stack\+::checksum = \{\}}
-
-
-
-Definition at line \mbox{\hyperlink{stack_8h_source_l00032}{32}} of file \mbox{\hyperlink{stack_8h_source}{stack.\+h}}.
-
-
-
-Referenced by \mbox{\hyperlink{stack_8cpp_source_l00006}{stk\+\_\+ctor\+\_\+debug()}}, \mbox{\hyperlink{stack_8cpp_source_l00057}{stk\+\_\+dtor()}}, \mbox{\hyperlink{stack_8cpp_source_l00226}{stk\+\_\+dump()}}, \mbox{\hyperlink{stack_8cpp_source_l00150}{stk\+\_\+pop()}}, \mbox{\hyperlink{stack_8cpp_source_l00125}{stk\+\_\+push()}}, and \mbox{\hyperlink{stack_8cpp_source_l00270}{stk\+\_\+verify()}}.
+Referenced by \mbox{\hyperlink{stack_8cpp_source_l00017}{stk\+\_\+ctor()}}, \mbox{\hyperlink{stack_8cpp_source_l00059}{stk\+\_\+dtor()}}, \mbox{\hyperlink{stack_8cpp_source_l00222}{stk\+\_\+dump()}}, \mbox{\hyperlink{stack_8cpp_source_l00087}{stk\+\_\+resize()}}, and \mbox{\hyperlink{stack_8cpp_source_l00292}{stk\+\_\+verify()}}.
 
 \Hypertarget{struct_stack_a02ed96691b2e6636bd9155758e8ee8cd}\label{struct_stack_a02ed96691b2e6636bd9155758e8ee8cd} 
 \index{Stack@{Stack}!data@{data}}
@@ -234,11 +231,25 @@ Referenced by \mbox{\hyperlink{stack_8cpp_source_l00006}{stk\+\_\+ctor\+\_\+debu
 
 
 
-Definition at line \mbox{\hyperlink{stack_8h_source_l00028}{28}} of file \mbox{\hyperlink{stack_8h_source}{stack.\+h}}.
+Definition at line \mbox{\hyperlink{stack_8h_source_l00049}{49}} of file \mbox{\hyperlink{stack_8h_source}{stack.\+h}}.
 
 
 
-Referenced by \mbox{\hyperlink{stack_8cpp_source_l00034}{stk\+\_\+ctor()}}, \mbox{\hyperlink{stack_8cpp_source_l00006}{stk\+\_\+ctor\+\_\+debug()}}, \mbox{\hyperlink{stack_8cpp_source_l00057}{stk\+\_\+dtor()}}, \mbox{\hyperlink{stack_8cpp_source_l00226}{stk\+\_\+dump()}}, \mbox{\hyperlink{stack_8cpp_source_l00150}{stk\+\_\+pop()}}, \mbox{\hyperlink{stack_8cpp_source_l00125}{stk\+\_\+push()}}, \mbox{\hyperlink{stack_8cpp_source_l00080}{stk\+\_\+resize()}}, \mbox{\hyperlink{stack_8cpp_source_l00270}{stk\+\_\+verify()}}, and \mbox{\hyperlink{test_8cpp_source_l00047}{test\+\_\+stack\+\_\+error()}}.
+Referenced by \mbox{\hyperlink{stack_8cpp_source_l00017}{stk\+\_\+ctor()}}, \mbox{\hyperlink{stack_8h_source_l00251}{stk\+\_\+data\+\_\+hash\+\_\+calc()}}, \mbox{\hyperlink{stack_8cpp_source_l00059}{stk\+\_\+dtor()}}, \mbox{\hyperlink{stack_8cpp_source_l00222}{stk\+\_\+dump()}}, \mbox{\hyperlink{stack_8cpp_source_l00162}{stk\+\_\+pop()}}, \mbox{\hyperlink{stack_8cpp_source_l00139}{stk\+\_\+push()}}, \mbox{\hyperlink{stack_8cpp_source_l00087}{stk\+\_\+resize()}}, \mbox{\hyperlink{stack_8cpp_source_l00292}{stk\+\_\+verify()}}, and \mbox{\hyperlink{test_8cpp_source_l00047}{test\+\_\+stack\+\_\+error()}}.
+
+\Hypertarget{struct_stack_a0313f9fb25ba1f5ce41bcaf465777ead}\label{struct_stack_a0313f9fb25ba1f5ce41bcaf465777ead} 
+\index{Stack@{Stack}!data\_hash@{data\_hash}}
+\index{data\_hash@{data\_hash}!Stack@{Stack}}
+\doxysubsubsection{\texorpdfstring{data\_hash}{data\_hash}}
+{\footnotesize\ttfamily \mbox{\hyperlink{crc32_8h_aec0adc213b23c34ec982fa84dceb81fd}{CRC32\+\_\+t}} Stack\+::data\+\_\+hash = 0}
+
+
+
+Definition at line \mbox{\hyperlink{stack_8h_source_l00055}{55}} of file \mbox{\hyperlink{stack_8h_source}{stack.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{stack_8cpp_source_l00017}{stk\+\_\+ctor()}}, \mbox{\hyperlink{stack_8cpp_source_l00059}{stk\+\_\+dtor()}}, \mbox{\hyperlink{stack_8cpp_source_l00222}{stk\+\_\+dump()}}, \mbox{\hyperlink{stack_8cpp_source_l00162}{stk\+\_\+pop()}}, \mbox{\hyperlink{stack_8cpp_source_l00139}{stk\+\_\+push()}}, and \mbox{\hyperlink{stack_8cpp_source_l00292}{stk\+\_\+verify()}}.
 
 \Hypertarget{struct_stack_a873889fbf0b397d1b5be02d19bef2b41}\label{struct_stack_a873889fbf0b397d1b5be02d19bef2b41} 
 \index{Stack@{Stack}!INIT\_CAPACITY@{INIT\_CAPACITY}}
@@ -252,49 +263,7 @@ Definition at line \mbox{\hyperlink{stack_8h_source_l00020}{20}} of file \mbox{\
 
 
 
-Referenced by \mbox{\hyperlink{stack_8cpp_source_l00270}{stk\+\_\+verify()}}.
-
-\Hypertarget{struct_stack_a6566913dd7e46a9de98b4fae96ef1b22}\label{struct_stack_a6566913dd7e46a9de98b4fae96ef1b22} 
-\index{Stack@{Stack}!init\_file@{init\_file}}
-\index{init\_file@{init\_file}!Stack@{Stack}}
-\doxysubsubsection{\texorpdfstring{init\_file}{init\_file}}
-{\footnotesize\ttfamily const char\texorpdfstring{$\ast$}{*} Stack\+::init\+\_\+file = \"{}\"{}}
-
-
-
-Definition at line \mbox{\hyperlink{stack_8h_source_l00054}{54}} of file \mbox{\hyperlink{stack_8h_source}{stack.\+h}}.
-
-
-
-Referenced by \mbox{\hyperlink{stack_8cpp_source_l00006}{stk\+\_\+ctor\+\_\+debug()}}, and \mbox{\hyperlink{stack_8cpp_source_l00226}{stk\+\_\+dump()}}.
-
-\Hypertarget{struct_stack_ab234bfceb8dc921e91dbf8d9776ecc04}\label{struct_stack_ab234bfceb8dc921e91dbf8d9776ecc04} 
-\index{Stack@{Stack}!init\_func@{init\_func}}
-\index{init\_func@{init\_func}!Stack@{Stack}}
-\doxysubsubsection{\texorpdfstring{init\_func}{init\_func}}
-{\footnotesize\ttfamily const char\texorpdfstring{$\ast$}{*} Stack\+::init\+\_\+func = \"{}\"{}}
-
-
-
-Definition at line \mbox{\hyperlink{stack_8h_source_l00056}{56}} of file \mbox{\hyperlink{stack_8h_source}{stack.\+h}}.
-
-
-
-Referenced by \mbox{\hyperlink{stack_8cpp_source_l00006}{stk\+\_\+ctor\+\_\+debug()}}, and \mbox{\hyperlink{stack_8cpp_source_l00226}{stk\+\_\+dump()}}.
-
-\Hypertarget{struct_stack_a98ddb9b9cce48e4dca81d6cf852c5905}\label{struct_stack_a98ddb9b9cce48e4dca81d6cf852c5905} 
-\index{Stack@{Stack}!init\_line@{init\_line}}
-\index{init\_line@{init\_line}!Stack@{Stack}}
-\doxysubsubsection{\texorpdfstring{init\_line}{init\_line}}
-{\footnotesize\ttfamily int Stack\+::init\+\_\+line = -\/1}
-
-
-
-Definition at line \mbox{\hyperlink{stack_8h_source_l00055}{55}} of file \mbox{\hyperlink{stack_8h_source}{stack.\+h}}.
-
-
-
-Referenced by \mbox{\hyperlink{stack_8cpp_source_l00006}{stk\+\_\+ctor\+\_\+debug()}}, and \mbox{\hyperlink{stack_8cpp_source_l00226}{stk\+\_\+dump()}}.
+Referenced by \mbox{\hyperlink{stack_8cpp_source_l00087}{stk\+\_\+resize()}}.
 
 \Hypertarget{struct_stack_a48bbbcc55325f72dcbe2414dd9598a30}\label{struct_stack_a48bbbcc55325f72dcbe2414dd9598a30} 
 \index{Stack@{Stack}!POISON@{POISON}}
@@ -308,7 +277,7 @@ Definition at line \mbox{\hyperlink{stack_8h_source_l00021}{21}} of file \mbox{\
 
 
 
-Referenced by \mbox{\hyperlink{stack_8cpp_source_l00006}{stk\+\_\+ctor\+\_\+debug()}}, \mbox{\hyperlink{stack_8cpp_source_l00057}{stk\+\_\+dtor()}}, \mbox{\hyperlink{stack_8cpp_source_l00226}{stk\+\_\+dump()}}, \mbox{\hyperlink{stack_8cpp_source_l00150}{stk\+\_\+pop()}}, \mbox{\hyperlink{stack_8cpp_source_l00080}{stk\+\_\+resize()}}, and \mbox{\hyperlink{stack_8cpp_source_l00270}{stk\+\_\+verify()}}.
+Referenced by \mbox{\hyperlink{stack_8cpp_source_l00222}{stk\+\_\+dump()}}, \mbox{\hyperlink{stack_8cpp_source_l00162}{stk\+\_\+pop()}}, and \mbox{\hyperlink{stack_8cpp_source_l00292}{stk\+\_\+verify()}}.
 
 \Hypertarget{struct_stack_a3b6cb0b4ff732c7bbbaaa5d3860bcd1a}\label{struct_stack_a3b6cb0b4ff732c7bbbaaa5d3860bcd1a} 
 \index{Stack@{Stack}!size@{size}}
@@ -318,11 +287,25 @@ Referenced by \mbox{\hyperlink{stack_8cpp_source_l00006}{stk\+\_\+ctor\+\_\+debu
 
 
 
-Definition at line \mbox{\hyperlink{stack_8h_source_l00030}{30}} of file \mbox{\hyperlink{stack_8h_source}{stack.\+h}}.
+Definition at line \mbox{\hyperlink{stack_8h_source_l00051}{51}} of file \mbox{\hyperlink{stack_8h_source}{stack.\+h}}.
 
 
 
-Referenced by \mbox{\hyperlink{stack_8cpp_source_l00034}{stk\+\_\+ctor()}}, \mbox{\hyperlink{stack_8cpp_source_l00057}{stk\+\_\+dtor()}}, \mbox{\hyperlink{stack_8cpp_source_l00226}{stk\+\_\+dump()}}, \mbox{\hyperlink{stack_8cpp_source_l00150}{stk\+\_\+pop()}}, \mbox{\hyperlink{stack_8cpp_source_l00125}{stk\+\_\+push()}}, and \mbox{\hyperlink{stack_8cpp_source_l00270}{stk\+\_\+verify()}}.
+Referenced by \mbox{\hyperlink{stack_8cpp_source_l00017}{stk\+\_\+ctor()}}, \mbox{\hyperlink{stack_8h_source_l00251}{stk\+\_\+data\+\_\+hash\+\_\+calc()}}, \mbox{\hyperlink{stack_8cpp_source_l00059}{stk\+\_\+dtor()}}, \mbox{\hyperlink{stack_8cpp_source_l00222}{stk\+\_\+dump()}}, \mbox{\hyperlink{stack_8cpp_source_l00162}{stk\+\_\+pop()}}, \mbox{\hyperlink{stack_8cpp_source_l00139}{stk\+\_\+push()}}, \mbox{\hyperlink{stack_8cpp_source_l00087}{stk\+\_\+resize()}}, and \mbox{\hyperlink{stack_8cpp_source_l00292}{stk\+\_\+verify()}}.
+
+\Hypertarget{struct_stack_a5d85c28620cf7c22e622df2d8a58f35b}\label{struct_stack_a5d85c28620cf7c22e622df2d8a58f35b} 
+\index{Stack@{Stack}!struct\_hash@{struct\_hash}}
+\index{struct\_hash@{struct\_hash}!Stack@{Stack}}
+\doxysubsubsection{\texorpdfstring{struct\_hash}{struct\_hash}}
+{\footnotesize\ttfamily \mbox{\hyperlink{crc32_8h_aec0adc213b23c34ec982fa84dceb81fd}{CRC32\+\_\+t}} Stack\+::struct\+\_\+hash = 0}
+
+
+
+Definition at line \mbox{\hyperlink{stack_8h_source_l00054}{54}} of file \mbox{\hyperlink{stack_8h_source}{stack.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{stack_8cpp_source_l00017}{stk\+\_\+ctor()}}, \mbox{\hyperlink{stack_8cpp_source_l00059}{stk\+\_\+dtor()}}, \mbox{\hyperlink{stack_8cpp_source_l00222}{stk\+\_\+dump()}}, \mbox{\hyperlink{stack_8cpp_source_l00162}{stk\+\_\+pop()}}, \mbox{\hyperlink{stack_8cpp_source_l00139}{stk\+\_\+push()}}, \mbox{\hyperlink{stack_8cpp_source_l00087}{stk\+\_\+resize()}}, \mbox{\hyperlink{stack_8h_source_l00238}{stk\+\_\+struct\+\_\+hash\+\_\+calc()}}, and \mbox{\hyperlink{stack_8cpp_source_l00292}{stk\+\_\+verify()}}.
 
 \Hypertarget{struct_stack_aa50c905a38095756b153a80c4e974ee2}\label{struct_stack_aa50c905a38095756b153a80c4e974ee2} 
 \index{Stack@{Stack}!UNITIALISED\_CAPACITY@{UNITIALISED\_CAPACITY}}
@@ -336,7 +319,21 @@ Definition at line \mbox{\hyperlink{stack_8h_source_l00022}{22}} of file \mbox{\
 
 
 
-Referenced by \mbox{\hyperlink{stack_8cpp_source_l00057}{stk\+\_\+dtor()}}.
+Referenced by \mbox{\hyperlink{stack_8cpp_source_l00059}{stk\+\_\+dtor()}}, and \mbox{\hyperlink{stack_8cpp_source_l00292}{stk\+\_\+verify()}}.
+
+\Hypertarget{struct_stack_ada9ac9dd578c2f702547fbf23447dfc5}\label{struct_stack_ada9ac9dd578c2f702547fbf23447dfc5} 
+\index{Stack@{Stack}!var\_data@{var\_data}}
+\index{var\_data@{var\_data}!Stack@{Stack}}
+\doxysubsubsection{\texorpdfstring{var\_data}{var\_data}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_var_code_data}{Var\+Code\+Data}} Stack\+::var\+\_\+data}
+
+
+
+Definition at line \mbox{\hyperlink{stack_8h_source_l00059}{59}} of file \mbox{\hyperlink{stack_8h_source}{stack.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{stack_8cpp_source_l00006}{stk\+\_\+ctor\+\_\+debug()}}, and \mbox{\hyperlink{stack_8cpp_source_l00222}{stk\+\_\+dump()}}.
 
 
 

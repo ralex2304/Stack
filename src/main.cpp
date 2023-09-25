@@ -1,7 +1,7 @@
 #include "test/test.h"
 #include "log/log.h"
 
-LogFileData log_file = {"log.txt"};
+LogFileData log_file = {"log.html"};
 
 int main() {
     log_open_file(&log_file, "wb");

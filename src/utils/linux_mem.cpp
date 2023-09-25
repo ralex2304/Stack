@@ -35,7 +35,10 @@ bool is_ptr_valid(void* p, const char mode) {
             }
         }
 
-        while (fgetc(file) != '\n') {}
+        int c = '\0';
+        do {
+            c = fgetc(file);
+        } while (c != '\n' && c != EOF);
     }
 
     fclose(file);

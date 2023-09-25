@@ -2,6 +2,7 @@
 \hypertarget{test_8h}{}\label{test_8h}\index{src/test/test.h@{src/test/test.h}}
 {\ttfamily \#include \"{}../stack.\+h\"{}}\newline
 {\ttfamily \#include \"{}../log/log.\+h\"{}}\newline
+{\ttfamily \#include \"{}../utils/html.\+h\"{}}\newline
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -38,7 +39,7 @@ Definition at line \mbox{\hyperlink{test_8cpp_source_l00047}{47}} of file \mbox{
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00048\ \ \ \ \ \mbox{\hyperlink{log_8cpp_adab5e89ed01fa9fb9c55544d3a21629b}{log\_printf}}(\&\mbox{\hyperlink{main_8cpp_a06336a68ce7f0258cc88d5a2bb94e4d3}{log\_file}},\ \textcolor{stringliteral}{"{}-\/-\/-\/Test\ stack\ (error)-\/-\/-\/\(\backslash\)n"{}});}
+\DoxyCodeLine{00048\ \ \ \ \ \mbox{\hyperlink{log_8cpp_adab5e89ed01fa9fb9c55544d3a21629b}{log\_printf}}(\&\mbox{\hyperlink{main_8cpp_a06336a68ce7f0258cc88d5a2bb94e4d3}{log\_file}},\ \mbox{\hyperlink{html_8h_a4f37d26f15ba36163d63280545df246b}{HTML\_H2}}(\textcolor{stringliteral}{"{}-\/-\/-\/Test\ stack\ (error)-\/-\/-\/\(\backslash\)n"{}}));}
 \DoxyCodeLine{00049\ }
 \DoxyCodeLine{00050\ \ \ \ \ \mbox{\hyperlink{struct_stack}{Stack}}\ stk\ =\ \{\};}
 \DoxyCodeLine{00051\ \ \ \ \ \mbox{\hyperlink{stack_8h_a77d5f30dcde5dbd333d45dc0958348d7}{STK\_CTOR}}(\&stk);}
@@ -76,13 +77,13 @@ Definition at line \mbox{\hyperlink{test_8cpp_source_l00047}{47}} of file \mbox{
 \DoxyCodeLine{00085\ \ \ \ \ \mbox{\hyperlink{stack_8cpp_a60863cc39088870cab1ccd33d1e8d2f6}{stk\_dtor}}(\&stk);}
 \DoxyCodeLine{00086\ }
 \DoxyCodeLine{00087\ \ \ \ \ \mbox{\hyperlink{stack_8h_a8ee2f82704b56dfa7a24d2b44becebd4}{STK\_DUMP}}(\&stk);}
-\DoxyCodeLine{00088\ \ \ \ \ \mbox{\hyperlink{log_8cpp_adab5e89ed01fa9fb9c55544d3a21629b}{log\_printf}}(\&\mbox{\hyperlink{main_8cpp_a06336a68ce7f0258cc88d5a2bb94e4d3}{log\_file}},\ \textcolor{stringliteral}{"{}-\/-\/-\/Test\ stack\ (error)\ end-\/-\/-\/\(\backslash\)n"{}});}
+\DoxyCodeLine{00088\ \ \ \ \ \mbox{\hyperlink{log_8cpp_adab5e89ed01fa9fb9c55544d3a21629b}{log\_printf}}(\&\mbox{\hyperlink{main_8cpp_a06336a68ce7f0258cc88d5a2bb94e4d3}{log\_file}},\ \mbox{\hyperlink{html_8h_a4f37d26f15ba36163d63280545df246b}{HTML\_H2}}(\textcolor{stringliteral}{"{}-\/-\/-\/Test\ stack\ (error)\ end-\/-\/-\/\(\backslash\)n"{}}));}
 \DoxyCodeLine{00089\ \}}
 
 \end{DoxyCode}
 
 
-References \mbox{\hyperlink{stack_8h_source_l00028}{Stack\+::data}}, \mbox{\hyperlink{main_8cpp_source_l00004}{log\+\_\+file}}, \mbox{\hyperlink{log_8cpp_source_l00003}{log\+\_\+printf()}}, \mbox{\hyperlink{stack_8h_source_l00149}{STK\+\_\+\+CTOR}}, \mbox{\hyperlink{stack_8cpp_source_l00057}{stk\+\_\+dtor()}}, \mbox{\hyperlink{stack_8h_source_l00174}{STK\+\_\+\+DUMP}}, \mbox{\hyperlink{stack_8cpp_source_l00150}{stk\+\_\+pop()}}, and \mbox{\hyperlink{stack_8cpp_source_l00125}{stk\+\_\+push()}}.
+References \mbox{\hyperlink{stack_8h_source_l00049}{Stack\+::data}}, \mbox{\hyperlink{html_8h_source_l00022}{HTML\+\_\+\+H2}}, \mbox{\hyperlink{main_8cpp_source_l00004}{log\+\_\+file}}, \mbox{\hyperlink{log_8cpp_source_l00003}{log\+\_\+printf()}}, \mbox{\hyperlink{stack_8h_source_l00081}{STK\+\_\+\+CTOR}}, \mbox{\hyperlink{stack_8cpp_source_l00059}{stk\+\_\+dtor()}}, \mbox{\hyperlink{stack_8h_source_l00208}{STK\+\_\+\+DUMP}}, \mbox{\hyperlink{stack_8cpp_source_l00162}{stk\+\_\+pop()}}, and \mbox{\hyperlink{stack_8cpp_source_l00139}{stk\+\_\+push()}}.
 
 
 
@@ -105,7 +106,7 @@ Definition at line \mbox{\hyperlink{test_8cpp_source_l00003}{3}} of file \mbox{\
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00003\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00004\ \ \ \ \ \mbox{\hyperlink{log_8cpp_adab5e89ed01fa9fb9c55544d3a21629b}{log\_printf}}(\&\mbox{\hyperlink{main_8cpp_a06336a68ce7f0258cc88d5a2bb94e4d3}{log\_file}},\ \textcolor{stringliteral}{"{}-\/-\/-\/Test\ stack\ (normal)-\/-\/-\/\(\backslash\)n"{}});}
+\DoxyCodeLine{00004\ \ \ \ \ \mbox{\hyperlink{log_8cpp_adab5e89ed01fa9fb9c55544d3a21629b}{log\_printf}}(\&\mbox{\hyperlink{main_8cpp_a06336a68ce7f0258cc88d5a2bb94e4d3}{log\_file}},\ \mbox{\hyperlink{html_8h_a4f37d26f15ba36163d63280545df246b}{HTML\_H2}}(\textcolor{stringliteral}{"{}-\/-\/-\/Test\ stack\ (normal)-\/-\/-\/\(\backslash\)n"{}}));}
 \DoxyCodeLine{00005\ }
 \DoxyCodeLine{00006\ \ \ \ \ \mbox{\hyperlink{struct_stack}{Stack}}\ stk\ =\ \{\};}
 \DoxyCodeLine{00007\ \ \ \ \ \mbox{\hyperlink{stack_8h_a77d5f30dcde5dbd333d45dc0958348d7}{STK\_CTOR}}(\&stk);}
@@ -145,13 +146,13 @@ Definition at line \mbox{\hyperlink{test_8cpp_source_l00003}{3}} of file \mbox{\
 \DoxyCodeLine{00041\ \ \ \ \ \mbox{\hyperlink{stack_8cpp_a60863cc39088870cab1ccd33d1e8d2f6}{stk\_dtor}}(\&stk);}
 \DoxyCodeLine{00042\ }
 \DoxyCodeLine{00043\ \ \ \ \ \mbox{\hyperlink{stack_8h_a8ee2f82704b56dfa7a24d2b44becebd4}{STK\_DUMP}}(\&stk);}
-\DoxyCodeLine{00044\ \ \ \ \ \mbox{\hyperlink{log_8cpp_adab5e89ed01fa9fb9c55544d3a21629b}{log\_printf}}(\&\mbox{\hyperlink{main_8cpp_a06336a68ce7f0258cc88d5a2bb94e4d3}{log\_file}},\ \textcolor{stringliteral}{"{}-\/-\/-\/Test\ stack\ (normal)\ end-\/-\/-\/\(\backslash\)n"{}});}
+\DoxyCodeLine{00044\ \ \ \ \ \mbox{\hyperlink{log_8cpp_adab5e89ed01fa9fb9c55544d3a21629b}{log\_printf}}(\&\mbox{\hyperlink{main_8cpp_a06336a68ce7f0258cc88d5a2bb94e4d3}{log\_file}},\ \mbox{\hyperlink{html_8h_a4f37d26f15ba36163d63280545df246b}{HTML\_H2}}(\textcolor{stringliteral}{"{}-\/-\/-\/Test\ stack\ (normal)\ end-\/-\/-\/\(\backslash\)n"{}}));}
 \DoxyCodeLine{00045\ \}}
 
 \end{DoxyCode}
 
 
-References \mbox{\hyperlink{main_8cpp_source_l00004}{log\+\_\+file}}, \mbox{\hyperlink{log_8cpp_source_l00003}{log\+\_\+printf()}}, \mbox{\hyperlink{stack_8h_source_l00149}{STK\+\_\+\+CTOR}}, \mbox{\hyperlink{stack_8cpp_source_l00057}{stk\+\_\+dtor()}}, \mbox{\hyperlink{stack_8h_source_l00174}{STK\+\_\+\+DUMP}}, \mbox{\hyperlink{stack_8cpp_source_l00150}{stk\+\_\+pop()}}, and \mbox{\hyperlink{stack_8cpp_source_l00125}{stk\+\_\+push()}}.
+References \mbox{\hyperlink{html_8h_source_l00022}{HTML\+\_\+\+H2}}, \mbox{\hyperlink{main_8cpp_source_l00004}{log\+\_\+file}}, \mbox{\hyperlink{log_8cpp_source_l00003}{log\+\_\+printf()}}, \mbox{\hyperlink{stack_8h_source_l00081}{STK\+\_\+\+CTOR}}, \mbox{\hyperlink{stack_8cpp_source_l00059}{stk\+\_\+dtor()}}, \mbox{\hyperlink{stack_8h_source_l00208}{STK\+\_\+\+DUMP}}, \mbox{\hyperlink{stack_8cpp_source_l00162}{stk\+\_\+pop()}}, and \mbox{\hyperlink{stack_8cpp_source_l00139}{stk\+\_\+push()}}.
 
 
 

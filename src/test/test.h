@@ -3,6 +3,7 @@
 
 #include "../stack.h"
 #include "../log/log.h"
+#include "../utils/html.h"
 
 extern LogFileData log_file;
 

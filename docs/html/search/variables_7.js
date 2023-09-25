@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['mod_0',['MOD',['../struct_hash.html#ab5f4bded484af4c757616656b81a2310',1,'Hash']]]
+  ['size_0',['size',['../struct_stack.html#a3b6cb0b4ff732c7bbbaaa5d3860bcd1a',1,'Stack']]],
+  ['struct_5fhash_1',['struct_hash',['../struct_stack.html#a5d85c28620cf7c22e622df2d8a58f35b',1,'Stack']]]
 ];

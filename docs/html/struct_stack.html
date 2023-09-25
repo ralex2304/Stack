@@ -109,45 +109,46 @@ Public Types</h2></td></tr>
 &#160;&#160;<a class="el" href="struct_stack.html#ae8242b5f1b2c3d98a6dbafc302e509d5a146633a2ef2a9bbb1c05ec4cd31ba019">OK</a> = 0x0000
 , <a class="el" href="struct_stack.html#ae8242b5f1b2c3d98a6dbafc302e509d5a21fffebce3cb1827d31bfb5bc44dfca8">NOTHING_TO_POP</a> = 0x0001
 , <a class="el" href="struct_stack.html#ae8242b5f1b2c3d98a6dbafc302e509d5a8e610fdd9bd4faa7ad35a6058ad9fcbf">ALLOC_ERR</a> = 0x0002
-, <a class="el" href="struct_stack.html#ae8242b5f1b2c3d98a6dbafc302e509d5ae1ec0912fd480f7fdd5f38f4e990ffed">UNITIALISED</a> = 0x0004
+, <a class="el" href="struct_stack.html#ae8242b5f1b2c3d98a6dbafc302e509d5af004171243fdbfc79e0cb30fd7561690">ALREADY_INITIALISED</a> = 0x0004
 , <br />
-&#160;&#160;<a class="el" href="struct_stack.html#ae8242b5f1b2c3d98a6dbafc302e509d5ab37ce957889466c726330c2b5b513b4f">DATA_INVALID_PTR</a> = 0x0008
-, <a class="el" href="struct_stack.html#ae8242b5f1b2c3d98a6dbafc302e509d5aa17ea00c21ef8ada8344e88a5d63a0de">POISON_VAL_FOUND</a> = 0x0010
-, <a class="el" href="struct_stack.html#ae8242b5f1b2c3d98a6dbafc302e509d5a9e1e940df37869517f75f4d2198aebad">NON_POISON_EMPTY</a> = 0x0020
-, <a class="el" href="struct_stack.html#ae8242b5f1b2c3d98a6dbafc302e509d5a850f5a4a8e8d806c4d727d7611a23830">CHECKSUM_ERR</a> = 0x0040
+&#160;&#160;<a class="el" href="struct_stack.html#ae8242b5f1b2c3d98a6dbafc302e509d5ae1ec0912fd480f7fdd5f38f4e990ffed">UNITIALISED</a> = 0x0008
+, <a class="el" href="struct_stack.html#ae8242b5f1b2c3d98a6dbafc302e509d5ab37ce957889466c726330c2b5b513b4f">DATA_INVALID_PTR</a> = 0x0010
+, <a class="el" href="struct_stack.html#ae8242b5f1b2c3d98a6dbafc302e509d5aa17ea00c21ef8ada8344e88a5d63a0de">POISON_VAL_FOUND</a> = 0x0020
+, <a class="el" href="struct_stack.html#ae8242b5f1b2c3d98a6dbafc302e509d5a9e1e940df37869517f75f4d2198aebad">NON_POISON_EMPTY</a> = 0x0040
 , <br />
-&#160;&#160;<a class="el" href="struct_stack.html#ae8242b5f1b2c3d98a6dbafc302e509d5a0a4d618cba92355bcf446359ec408e60">LOW_CAPACITY</a> = 0x0080
-, <a class="el" href="struct_stack.html#ae8242b5f1b2c3d98a6dbafc302e509d5af68a03245ae05bdfca1879f027972e0c">NEGATIVE_CAPACITY</a> = 0x0100
-, <a class="el" href="struct_stack.html#ae8242b5f1b2c3d98a6dbafc302e509d5ad85f8db9f888d5f54791ec3dbe8dae1c">NEGATIVE_SIZE</a> = 0x0200
-, <a class="el" href="struct_stack.html#ae8242b5f1b2c3d98a6dbafc302e509d5a7972d76b7f1e784ff89358e60e73f6c5">STRUCT_L_CANARY_ERR</a> = 0x0400
+&#160;&#160;<a class="el" href="struct_stack.html#ae8242b5f1b2c3d98a6dbafc302e509d5a8cccf06af95813b4626427c4c2595033">STRUCT_HASH_ERR</a> = 0x0080
+, <a class="el" href="struct_stack.html#ae8242b5f1b2c3d98a6dbafc302e509d5a2dbe0f67c49b72aef7d6253cdc1f9d43">DATA_HASH_ERR</a> = 0x0100
+, <a class="el" href="struct_stack.html#ae8242b5f1b2c3d98a6dbafc302e509d5a0a4d618cba92355bcf446359ec408e60">LOW_CAPACITY</a> = 0x0200
+, <a class="el" href="struct_stack.html#ae8242b5f1b2c3d98a6dbafc302e509d5af68a03245ae05bdfca1879f027972e0c">NEGATIVE_CAPACITY</a> = 0x0400
 , <br />
-&#160;&#160;<a class="el" href="struct_stack.html#ae8242b5f1b2c3d98a6dbafc302e509d5a8deedabd24b6f0684dbf7b7ee110bd21">STRUCT_R_CANARY_ERR</a> = 0x0800
-, <a class="el" href="struct_stack.html#ae8242b5f1b2c3d98a6dbafc302e509d5a972d0ae4ce1c7527212f6e29d78df8fe">DATA_L_CANARY_ERR</a> = 0x1000
-, <a class="el" href="struct_stack.html#ae8242b5f1b2c3d98a6dbafc302e509d5a31325202b6e6bfa0cb1b1e0c0601bea5">DATA_R_CANARY_ERR</a> = 0x2000
+&#160;&#160;<a class="el" href="struct_stack.html#ae8242b5f1b2c3d98a6dbafc302e509d5ad85f8db9f888d5f54791ec3dbe8dae1c">NEGATIVE_SIZE</a> = 0x0800
+, <a class="el" href="struct_stack.html#ae8242b5f1b2c3d98a6dbafc302e509d5a7972d76b7f1e784ff89358e60e73f6c5">STRUCT_L_CANARY_ERR</a> = 0x1000
+, <a class="el" href="struct_stack.html#ae8242b5f1b2c3d98a6dbafc302e509d5a8deedabd24b6f0684dbf7b7ee110bd21">STRUCT_R_CANARY_ERR</a> = 0x2000
+, <a class="el" href="struct_stack.html#ae8242b5f1b2c3d98a6dbafc302e509d5a972d0ae4ce1c7527212f6e29d78df8fe">DATA_L_CANARY_ERR</a> = 0x4000
+, <br />
+&#160;&#160;<a class="el" href="struct_stack.html#ae8242b5f1b2c3d98a6dbafc302e509d5a31325202b6e6bfa0cb1b1e0c0601bea5">DATA_R_CANARY_ERR</a> = 0x8000
 <br />
  }</td></tr>
 <tr class="separator:ae8242b5f1b2c3d98a6dbafc302e509d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a28842fa31d7aec7f839fbcd51ef3edfe"><td class="memItemLeft" align="right" valign="top">unsigned long long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_stack.html#a28842fa31d7aec7f839fbcd51ef3edfe">canary_left</a> = CANARY_VAL</td></tr>
-<tr class="separator:a28842fa31d7aec7f839fbcd51ef3edfe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a93649663411b07293ec66851c09c99c9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="config_8h.html#a788ec731a306c6e69c1dbb06983429ed">Canary_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_stack.html#a93649663411b07293ec66851c09c99c9">canary_left</a> = CANARY_VAL</td></tr>
+<tr class="separator:a93649663411b07293ec66851c09c99c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a02ed96691b2e6636bd9155758e8ee8cd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="config_8h.html#a080be3bdb852e7fe4ae09e67e3f7012c">Elem_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_stack.html#a02ed96691b2e6636bd9155758e8ee8cd">data</a> = nullptr</td></tr>
 <tr class="separator:a02ed96691b2e6636bd9155758e8ee8cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2f2b41ebbf7c8adce40da902814e1c7b"><td class="memItemLeft" align="right" valign="top">ssize_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_stack.html#a2f2b41ebbf7c8adce40da902814e1c7b">capacity</a> = <a class="el" href="struct_stack.html#aa50c905a38095756b153a80c4e974ee2">UNITIALISED_CAPACITY</a></td></tr>
 <tr class="separator:a2f2b41ebbf7c8adce40da902814e1c7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3b6cb0b4ff732c7bbbaaa5d3860bcd1a"><td class="memItemLeft" align="right" valign="top">ssize_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_stack.html#a3b6cb0b4ff732c7bbbaaa5d3860bcd1a">size</a> = <a class="el" href="struct_stack.html#aa50c905a38095756b153a80c4e974ee2">UNITIALISED_CAPACITY</a></td></tr>
 <tr class="separator:a3b6cb0b4ff732c7bbbaaa5d3860bcd1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afb254e7cd7f3e17f483ef2866cc5b922"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_hash.html">Hash</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_stack.html#afb254e7cd7f3e17f483ef2866cc5b922">checksum</a> = {}</td></tr>
-<tr class="separator:afb254e7cd7f3e17f483ef2866cc5b922"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6566913dd7e46a9de98b4fae96ef1b22"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_stack.html#a6566913dd7e46a9de98b4fae96ef1b22">init_file</a> = &quot;&quot;</td></tr>
-<tr class="separator:a6566913dd7e46a9de98b4fae96ef1b22"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a98ddb9b9cce48e4dca81d6cf852c5905"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_stack.html#a98ddb9b9cce48e4dca81d6cf852c5905">init_line</a> = -1</td></tr>
-<tr class="separator:a98ddb9b9cce48e4dca81d6cf852c5905"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab234bfceb8dc921e91dbf8d9776ecc04"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_stack.html#ab234bfceb8dc921e91dbf8d9776ecc04">init_func</a> = &quot;&quot;</td></tr>
-<tr class="separator:ab234bfceb8dc921e91dbf8d9776ecc04"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af8349cc517cbeee8fc2a0177f17d5109"><td class="memItemLeft" align="right" valign="top">unsigned long long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_stack.html#af8349cc517cbeee8fc2a0177f17d5109">canary_right</a> = CANARY_VAL</td></tr>
-<tr class="separator:af8349cc517cbeee8fc2a0177f17d5109"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5d85c28620cf7c22e622df2d8a58f35b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="crc32_8h.html#aec0adc213b23c34ec982fa84dceb81fd">CRC32_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_stack.html#a5d85c28620cf7c22e622df2d8a58f35b">struct_hash</a> = 0</td></tr>
+<tr class="separator:a5d85c28620cf7c22e622df2d8a58f35b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0313f9fb25ba1f5ce41bcaf465777ead"><td class="memItemLeft" align="right" valign="top"><a class="el" href="crc32_8h.html#aec0adc213b23c34ec982fa84dceb81fd">CRC32_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_stack.html#a0313f9fb25ba1f5ce41bcaf465777ead">data_hash</a> = 0</td></tr>
+<tr class="separator:a0313f9fb25ba1f5ce41bcaf465777ead"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada9ac9dd578c2f702547fbf23447dfc5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_var_code_data.html">VarCodeData</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_stack.html#ada9ac9dd578c2f702547fbf23447dfc5">var_data</a></td></tr>
+<tr class="separator:ada9ac9dd578c2f702547fbf23447dfc5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a26e3a891c804d0a2deef354cb6d7f13b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="config_8h.html#a788ec731a306c6e69c1dbb06983429ed">Canary_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_stack.html#a26e3a891c804d0a2deef354cb6d7f13b">canary_right</a> = CANARY_VAL</td></tr>
+<tr class="separator:a26e3a891c804d0a2deef354cb6d7f13b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
@@ -178,11 +179,13 @@ Static Public Attributes</h2></td></tr>
 <tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ae8242b5f1b2c3d98a6dbafc302e509d5a146633a2ef2a9bbb1c05ec4cd31ba019" name="ae8242b5f1b2c3d98a6dbafc302e509d5a146633a2ef2a9bbb1c05ec4cd31ba019"></a>OK&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="ae8242b5f1b2c3d98a6dbafc302e509d5a21fffebce3cb1827d31bfb5bc44dfca8" name="ae8242b5f1b2c3d98a6dbafc302e509d5a21fffebce3cb1827d31bfb5bc44dfca8"></a>NOTHING_TO_POP&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="ae8242b5f1b2c3d98a6dbafc302e509d5a8e610fdd9bd4faa7ad35a6058ad9fcbf" name="ae8242b5f1b2c3d98a6dbafc302e509d5a8e610fdd9bd4faa7ad35a6058ad9fcbf"></a>ALLOC_ERR&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ae8242b5f1b2c3d98a6dbafc302e509d5af004171243fdbfc79e0cb30fd7561690" name="ae8242b5f1b2c3d98a6dbafc302e509d5af004171243fdbfc79e0cb30fd7561690"></a>ALREADY_INITIALISED&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="ae8242b5f1b2c3d98a6dbafc302e509d5ae1ec0912fd480f7fdd5f38f4e990ffed" name="ae8242b5f1b2c3d98a6dbafc302e509d5ae1ec0912fd480f7fdd5f38f4e990ffed"></a>UNITIALISED&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="ae8242b5f1b2c3d98a6dbafc302e509d5ab37ce957889466c726330c2b5b513b4f" name="ae8242b5f1b2c3d98a6dbafc302e509d5ab37ce957889466c726330c2b5b513b4f"></a>DATA_INVALID_PTR&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="ae8242b5f1b2c3d98a6dbafc302e509d5aa17ea00c21ef8ada8344e88a5d63a0de" name="ae8242b5f1b2c3d98a6dbafc302e509d5aa17ea00c21ef8ada8344e88a5d63a0de"></a>POISON_VAL_FOUND&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="ae8242b5f1b2c3d98a6dbafc302e509d5a9e1e940df37869517f75f4d2198aebad" name="ae8242b5f1b2c3d98a6dbafc302e509d5a9e1e940df37869517f75f4d2198aebad"></a>NON_POISON_EMPTY&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="ae8242b5f1b2c3d98a6dbafc302e509d5a850f5a4a8e8d806c4d727d7611a23830" name="ae8242b5f1b2c3d98a6dbafc302e509d5a850f5a4a8e8d806c4d727d7611a23830"></a>CHECKSUM_ERR&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ae8242b5f1b2c3d98a6dbafc302e509d5a8cccf06af95813b4626427c4c2595033" name="ae8242b5f1b2c3d98a6dbafc302e509d5a8cccf06af95813b4626427c4c2595033"></a>STRUCT_HASH_ERR&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ae8242b5f1b2c3d98a6dbafc302e509d5a2dbe0f67c49b72aef7d6253cdc1f9d43" name="ae8242b5f1b2c3d98a6dbafc302e509d5a2dbe0f67c49b72aef7d6253cdc1f9d43"></a>DATA_HASH_ERR&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="ae8242b5f1b2c3d98a6dbafc302e509d5a0a4d618cba92355bcf446359ec408e60" name="ae8242b5f1b2c3d98a6dbafc302e509d5a0a4d618cba92355bcf446359ec408e60"></a>LOW_CAPACITY&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="ae8242b5f1b2c3d98a6dbafc302e509d5af68a03245ae05bdfca1879f027972e0c" name="ae8242b5f1b2c3d98a6dbafc302e509d5af68a03245ae05bdfca1879f027972e0c"></a>NEGATIVE_CAPACITY&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="ae8242b5f1b2c3d98a6dbafc302e509d5ad85f8db9f888d5f54791ec3dbe8dae1c" name="ae8242b5f1b2c3d98a6dbafc302e509d5ad85f8db9f888d5f54791ec3dbe8dae1c"></a>NEGATIVE_SIZE&#160;</td><td class="fielddoc"></td></tr>
@@ -192,77 +195,81 @@ Static Public Attributes</h2></td></tr>
 <tr><td class="fieldname"><a id="ae8242b5f1b2c3d98a6dbafc302e509d5a31325202b6e6bfa0cb1b1e0c0601bea5" name="ae8242b5f1b2c3d98a6dbafc302e509d5a31325202b6e6bfa0cb1b1e0c0601bea5"></a>DATA_R_CANARY_ERR&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
-<p class="definition">Definition at line <a class="el" href="stack_8h_source.html#l00034">34</a> of file <a class="el" href="stack_8h_source.html">stack.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   34</span>                 {</div>
-<div class="line"><span class="lineno">   35</span>        <a class="code hl_enumvalue" href="struct_stack.html#ae8242b5f1b2c3d98a6dbafc302e509d5a146633a2ef2a9bbb1c05ec4cd31ba019">OK</a>                  = 0x0000,</div>
-<div class="line"><span class="lineno">   36</span>        <a class="code hl_enumvalue" href="struct_stack.html#ae8242b5f1b2c3d98a6dbafc302e509d5a21fffebce3cb1827d31bfb5bc44dfca8">NOTHING_TO_POP</a>      = 0x0001,</div>
-<div class="line"><span class="lineno">   37</span>        <a class="code hl_enumvalue" href="struct_stack.html#ae8242b5f1b2c3d98a6dbafc302e509d5a8e610fdd9bd4faa7ad35a6058ad9fcbf">ALLOC_ERR</a>           = 0x0002,</div>
-<div class="line"><span class="lineno">   38</span> </div>
-<div class="line"><span class="lineno">   39</span>        <a class="code hl_enumvalue" href="struct_stack.html#ae8242b5f1b2c3d98a6dbafc302e509d5ae1ec0912fd480f7fdd5f38f4e990ffed">UNITIALISED</a>         = 0x0004,</div>
-<div class="line"><span class="lineno">   40</span>        <a class="code hl_enumvalue" href="struct_stack.html#ae8242b5f1b2c3d98a6dbafc302e509d5ab37ce957889466c726330c2b5b513b4f">DATA_INVALID_PTR</a>    = 0x0008,</div>
-<div class="line"><span class="lineno">   41</span>        <a class="code hl_enumvalue" href="struct_stack.html#ae8242b5f1b2c3d98a6dbafc302e509d5aa17ea00c21ef8ada8344e88a5d63a0de">POISON_VAL_FOUND</a>    = 0x0010,</div>
-<div class="line"><span class="lineno">   42</span>        <a class="code hl_enumvalue" href="struct_stack.html#ae8242b5f1b2c3d98a6dbafc302e509d5a9e1e940df37869517f75f4d2198aebad">NON_POISON_EMPTY</a>    = 0x0020,</div>
-<div class="line"><span class="lineno">   43</span>        <a class="code hl_enumvalue" href="struct_stack.html#ae8242b5f1b2c3d98a6dbafc302e509d5a850f5a4a8e8d806c4d727d7611a23830">CHECKSUM_ERR</a>        = 0x0040,</div>
-<div class="line"><span class="lineno">   44</span>        <a class="code hl_enumvalue" href="struct_stack.html#ae8242b5f1b2c3d98a6dbafc302e509d5a0a4d618cba92355bcf446359ec408e60">LOW_CAPACITY</a>        = 0x0080,</div>
-<div class="line"><span class="lineno">   45</span>        <a class="code hl_enumvalue" href="struct_stack.html#ae8242b5f1b2c3d98a6dbafc302e509d5af68a03245ae05bdfca1879f027972e0c">NEGATIVE_CAPACITY</a>   = 0x0100,</div>
-<div class="line"><span class="lineno">   46</span>        <a class="code hl_enumvalue" href="struct_stack.html#ae8242b5f1b2c3d98a6dbafc302e509d5ad85f8db9f888d5f54791ec3dbe8dae1c">NEGATIVE_SIZE</a>       = 0x0200,</div>
-<div class="line"><span class="lineno">   47</span>        <a class="code hl_enumvalue" href="struct_stack.html#ae8242b5f1b2c3d98a6dbafc302e509d5a7972d76b7f1e784ff89358e60e73f6c5">STRUCT_L_CANARY_ERR</a> = 0x0400,</div>
-<div class="line"><span class="lineno">   48</span>        <a class="code hl_enumvalue" href="struct_stack.html#ae8242b5f1b2c3d98a6dbafc302e509d5a8deedabd24b6f0684dbf7b7ee110bd21">STRUCT_R_CANARY_ERR</a> = 0x0800,</div>
-<div class="line"><span class="lineno">   49</span>        <a class="code hl_enumvalue" href="struct_stack.html#ae8242b5f1b2c3d98a6dbafc302e509d5a972d0ae4ce1c7527212f6e29d78df8fe">DATA_L_CANARY_ERR</a>   = 0x1000,</div>
-<div class="line"><span class="lineno">   50</span>        <a class="code hl_enumvalue" href="struct_stack.html#ae8242b5f1b2c3d98a6dbafc302e509d5a31325202b6e6bfa0cb1b1e0c0601bea5">DATA_R_CANARY_ERR</a>   = 0x2000,</div>
-<div class="line"><span class="lineno">   51</span>    };</div>
-<div class="ttc" id="astruct_stack_html_ae8242b5f1b2c3d98a6dbafc302e509d5a0a4d618cba92355bcf446359ec408e60"><div class="ttname"><a href="struct_stack.html#ae8242b5f1b2c3d98a6dbafc302e509d5a0a4d618cba92355bcf446359ec408e60">Stack::LOW_CAPACITY</a></div><div class="ttdeci">@ LOW_CAPACITY</div><div class="ttdef"><b>Definition</b> <a href="stack_8h_source.html#l00044">stack.h:44</a></div></div>
-<div class="ttc" id="astruct_stack_html_ae8242b5f1b2c3d98a6dbafc302e509d5a146633a2ef2a9bbb1c05ec4cd31ba019"><div class="ttname"><a href="struct_stack.html#ae8242b5f1b2c3d98a6dbafc302e509d5a146633a2ef2a9bbb1c05ec4cd31ba019">Stack::OK</a></div><div class="ttdeci">@ OK</div><div class="ttdef"><b>Definition</b> <a href="stack_8h_source.html#l00035">stack.h:35</a></div></div>
-<div class="ttc" id="astruct_stack_html_ae8242b5f1b2c3d98a6dbafc302e509d5a21fffebce3cb1827d31bfb5bc44dfca8"><div class="ttname"><a href="struct_stack.html#ae8242b5f1b2c3d98a6dbafc302e509d5a21fffebce3cb1827d31bfb5bc44dfca8">Stack::NOTHING_TO_POP</a></div><div class="ttdeci">@ NOTHING_TO_POP</div><div class="ttdef"><b>Definition</b> <a href="stack_8h_source.html#l00036">stack.h:36</a></div></div>
-<div class="ttc" id="astruct_stack_html_ae8242b5f1b2c3d98a6dbafc302e509d5a31325202b6e6bfa0cb1b1e0c0601bea5"><div class="ttname"><a href="struct_stack.html#ae8242b5f1b2c3d98a6dbafc302e509d5a31325202b6e6bfa0cb1b1e0c0601bea5">Stack::DATA_R_CANARY_ERR</a></div><div class="ttdeci">@ DATA_R_CANARY_ERR</div><div class="ttdef"><b>Definition</b> <a href="stack_8h_source.html#l00050">stack.h:50</a></div></div>
-<div class="ttc" id="astruct_stack_html_ae8242b5f1b2c3d98a6dbafc302e509d5a7972d76b7f1e784ff89358e60e73f6c5"><div class="ttname"><a href="struct_stack.html#ae8242b5f1b2c3d98a6dbafc302e509d5a7972d76b7f1e784ff89358e60e73f6c5">Stack::STRUCT_L_CANARY_ERR</a></div><div class="ttdeci">@ STRUCT_L_CANARY_ERR</div><div class="ttdef"><b>Definition</b> <a href="stack_8h_source.html#l00047">stack.h:47</a></div></div>
-<div class="ttc" id="astruct_stack_html_ae8242b5f1b2c3d98a6dbafc302e509d5a850f5a4a8e8d806c4d727d7611a23830"><div class="ttname"><a href="struct_stack.html#ae8242b5f1b2c3d98a6dbafc302e509d5a850f5a4a8e8d806c4d727d7611a23830">Stack::CHECKSUM_ERR</a></div><div class="ttdeci">@ CHECKSUM_ERR</div><div class="ttdef"><b>Definition</b> <a href="stack_8h_source.html#l00043">stack.h:43</a></div></div>
-<div class="ttc" id="astruct_stack_html_ae8242b5f1b2c3d98a6dbafc302e509d5a8deedabd24b6f0684dbf7b7ee110bd21"><div class="ttname"><a href="struct_stack.html#ae8242b5f1b2c3d98a6dbafc302e509d5a8deedabd24b6f0684dbf7b7ee110bd21">Stack::STRUCT_R_CANARY_ERR</a></div><div class="ttdeci">@ STRUCT_R_CANARY_ERR</div><div class="ttdef"><b>Definition</b> <a href="stack_8h_source.html#l00048">stack.h:48</a></div></div>
-<div class="ttc" id="astruct_stack_html_ae8242b5f1b2c3d98a6dbafc302e509d5a8e610fdd9bd4faa7ad35a6058ad9fcbf"><div class="ttname"><a href="struct_stack.html#ae8242b5f1b2c3d98a6dbafc302e509d5a8e610fdd9bd4faa7ad35a6058ad9fcbf">Stack::ALLOC_ERR</a></div><div class="ttdeci">@ ALLOC_ERR</div><div class="ttdef"><b>Definition</b> <a href="stack_8h_source.html#l00037">stack.h:37</a></div></div>
-<div class="ttc" id="astruct_stack_html_ae8242b5f1b2c3d98a6dbafc302e509d5a972d0ae4ce1c7527212f6e29d78df8fe"><div class="ttname"><a href="struct_stack.html#ae8242b5f1b2c3d98a6dbafc302e509d5a972d0ae4ce1c7527212f6e29d78df8fe">Stack::DATA_L_CANARY_ERR</a></div><div class="ttdeci">@ DATA_L_CANARY_ERR</div><div class="ttdef"><b>Definition</b> <a href="stack_8h_source.html#l00049">stack.h:49</a></div></div>
-<div class="ttc" id="astruct_stack_html_ae8242b5f1b2c3d98a6dbafc302e509d5a9e1e940df37869517f75f4d2198aebad"><div class="ttname"><a href="struct_stack.html#ae8242b5f1b2c3d98a6dbafc302e509d5a9e1e940df37869517f75f4d2198aebad">Stack::NON_POISON_EMPTY</a></div><div class="ttdeci">@ NON_POISON_EMPTY</div><div class="ttdef"><b>Definition</b> <a href="stack_8h_source.html#l00042">stack.h:42</a></div></div>
-<div class="ttc" id="astruct_stack_html_ae8242b5f1b2c3d98a6dbafc302e509d5aa17ea00c21ef8ada8344e88a5d63a0de"><div class="ttname"><a href="struct_stack.html#ae8242b5f1b2c3d98a6dbafc302e509d5aa17ea00c21ef8ada8344e88a5d63a0de">Stack::POISON_VAL_FOUND</a></div><div class="ttdeci">@ POISON_VAL_FOUND</div><div class="ttdef"><b>Definition</b> <a href="stack_8h_source.html#l00041">stack.h:41</a></div></div>
-<div class="ttc" id="astruct_stack_html_ae8242b5f1b2c3d98a6dbafc302e509d5ab37ce957889466c726330c2b5b513b4f"><div class="ttname"><a href="struct_stack.html#ae8242b5f1b2c3d98a6dbafc302e509d5ab37ce957889466c726330c2b5b513b4f">Stack::DATA_INVALID_PTR</a></div><div class="ttdeci">@ DATA_INVALID_PTR</div><div class="ttdef"><b>Definition</b> <a href="stack_8h_source.html#l00040">stack.h:40</a></div></div>
-<div class="ttc" id="astruct_stack_html_ae8242b5f1b2c3d98a6dbafc302e509d5ad85f8db9f888d5f54791ec3dbe8dae1c"><div class="ttname"><a href="struct_stack.html#ae8242b5f1b2c3d98a6dbafc302e509d5ad85f8db9f888d5f54791ec3dbe8dae1c">Stack::NEGATIVE_SIZE</a></div><div class="ttdeci">@ NEGATIVE_SIZE</div><div class="ttdef"><b>Definition</b> <a href="stack_8h_source.html#l00046">stack.h:46</a></div></div>
-<div class="ttc" id="astruct_stack_html_ae8242b5f1b2c3d98a6dbafc302e509d5ae1ec0912fd480f7fdd5f38f4e990ffed"><div class="ttname"><a href="struct_stack.html#ae8242b5f1b2c3d98a6dbafc302e509d5ae1ec0912fd480f7fdd5f38f4e990ffed">Stack::UNITIALISED</a></div><div class="ttdeci">@ UNITIALISED</div><div class="ttdef"><b>Definition</b> <a href="stack_8h_source.html#l00039">stack.h:39</a></div></div>
-<div class="ttc" id="astruct_stack_html_ae8242b5f1b2c3d98a6dbafc302e509d5af68a03245ae05bdfca1879f027972e0c"><div class="ttname"><a href="struct_stack.html#ae8242b5f1b2c3d98a6dbafc302e509d5af68a03245ae05bdfca1879f027972e0c">Stack::NEGATIVE_CAPACITY</a></div><div class="ttdeci">@ NEGATIVE_CAPACITY</div><div class="ttdef"><b>Definition</b> <a href="stack_8h_source.html#l00045">stack.h:45</a></div></div>
+<p class="definition">Definition at line <a class="el" href="stack_8h_source.html#l00024">24</a> of file <a class="el" href="stack_8h_source.html">stack.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   24</span>                 {</div>
+<div class="line"><span class="lineno">   25</span>        <a class="code hl_enumvalue" href="struct_stack.html#ae8242b5f1b2c3d98a6dbafc302e509d5a146633a2ef2a9bbb1c05ec4cd31ba019">OK</a>                  = 0x0000,</div>
+<div class="line"><span class="lineno">   26</span>        <a class="code hl_enumvalue" href="struct_stack.html#ae8242b5f1b2c3d98a6dbafc302e509d5a21fffebce3cb1827d31bfb5bc44dfca8">NOTHING_TO_POP</a>      = 0x0001,</div>
+<div class="line"><span class="lineno">   27</span>        <a class="code hl_enumvalue" href="struct_stack.html#ae8242b5f1b2c3d98a6dbafc302e509d5a8e610fdd9bd4faa7ad35a6058ad9fcbf">ALLOC_ERR</a>           = 0x0002,</div>
+<div class="line"><span class="lineno">   28</span> </div>
+<div class="line"><span class="lineno">   29</span>        <a class="code hl_enumvalue" href="struct_stack.html#ae8242b5f1b2c3d98a6dbafc302e509d5af004171243fdbfc79e0cb30fd7561690">ALREADY_INITIALISED</a> = 0x0004,</div>
+<div class="line"><span class="lineno">   30</span>        <a class="code hl_enumvalue" href="struct_stack.html#ae8242b5f1b2c3d98a6dbafc302e509d5ae1ec0912fd480f7fdd5f38f4e990ffed">UNITIALISED</a>         = 0x0008,</div>
+<div class="line"><span class="lineno">   31</span>        <a class="code hl_enumvalue" href="struct_stack.html#ae8242b5f1b2c3d98a6dbafc302e509d5ab37ce957889466c726330c2b5b513b4f">DATA_INVALID_PTR</a>    = 0x0010,</div>
+<div class="line"><span class="lineno">   32</span>        <a class="code hl_enumvalue" href="struct_stack.html#ae8242b5f1b2c3d98a6dbafc302e509d5aa17ea00c21ef8ada8344e88a5d63a0de">POISON_VAL_FOUND</a>    = 0x0020,</div>
+<div class="line"><span class="lineno">   33</span>        <a class="code hl_enumvalue" href="struct_stack.html#ae8242b5f1b2c3d98a6dbafc302e509d5a9e1e940df37869517f75f4d2198aebad">NON_POISON_EMPTY</a>    = 0x0040,</div>
+<div class="line"><span class="lineno">   34</span>        <a class="code hl_enumvalue" href="struct_stack.html#ae8242b5f1b2c3d98a6dbafc302e509d5a8cccf06af95813b4626427c4c2595033">STRUCT_HASH_ERR</a>     = 0x0080,</div>
+<div class="line"><span class="lineno">   35</span>        <a class="code hl_enumvalue" href="struct_stack.html#ae8242b5f1b2c3d98a6dbafc302e509d5a2dbe0f67c49b72aef7d6253cdc1f9d43">DATA_HASH_ERR</a>       = 0x0100,</div>
+<div class="line"><span class="lineno">   36</span>        <a class="code hl_enumvalue" href="struct_stack.html#ae8242b5f1b2c3d98a6dbafc302e509d5a0a4d618cba92355bcf446359ec408e60">LOW_CAPACITY</a>        = 0x0200,</div>
+<div class="line"><span class="lineno">   37</span>        <a class="code hl_enumvalue" href="struct_stack.html#ae8242b5f1b2c3d98a6dbafc302e509d5af68a03245ae05bdfca1879f027972e0c">NEGATIVE_CAPACITY</a>   = 0x0400,</div>
+<div class="line"><span class="lineno">   38</span>        <a class="code hl_enumvalue" href="struct_stack.html#ae8242b5f1b2c3d98a6dbafc302e509d5ad85f8db9f888d5f54791ec3dbe8dae1c">NEGATIVE_SIZE</a>       = 0x0800,</div>
+<div class="line"><span class="lineno">   39</span>        <a class="code hl_enumvalue" href="struct_stack.html#ae8242b5f1b2c3d98a6dbafc302e509d5a7972d76b7f1e784ff89358e60e73f6c5">STRUCT_L_CANARY_ERR</a> = 0x1000,</div>
+<div class="line"><span class="lineno">   40</span>        <a class="code hl_enumvalue" href="struct_stack.html#ae8242b5f1b2c3d98a6dbafc302e509d5a8deedabd24b6f0684dbf7b7ee110bd21">STRUCT_R_CANARY_ERR</a> = 0x2000,</div>
+<div class="line"><span class="lineno">   41</span>        <a class="code hl_enumvalue" href="struct_stack.html#ae8242b5f1b2c3d98a6dbafc302e509d5a972d0ae4ce1c7527212f6e29d78df8fe">DATA_L_CANARY_ERR</a>   = 0x4000,</div>
+<div class="line"><span class="lineno">   42</span>        <a class="code hl_enumvalue" href="struct_stack.html#ae8242b5f1b2c3d98a6dbafc302e509d5a31325202b6e6bfa0cb1b1e0c0601bea5">DATA_R_CANARY_ERR</a>   = 0x8000,</div>
+<div class="line"><span class="lineno">   43</span>    };</div>
+<div class="ttc" id="astruct_stack_html_ae8242b5f1b2c3d98a6dbafc302e509d5a0a4d618cba92355bcf446359ec408e60"><div class="ttname"><a href="struct_stack.html#ae8242b5f1b2c3d98a6dbafc302e509d5a0a4d618cba92355bcf446359ec408e60">Stack::LOW_CAPACITY</a></div><div class="ttdeci">@ LOW_CAPACITY</div><div class="ttdef"><b>Definition</b> <a href="stack_8h_source.html#l00036">stack.h:36</a></div></div>
+<div class="ttc" id="astruct_stack_html_ae8242b5f1b2c3d98a6dbafc302e509d5a146633a2ef2a9bbb1c05ec4cd31ba019"><div class="ttname"><a href="struct_stack.html#ae8242b5f1b2c3d98a6dbafc302e509d5a146633a2ef2a9bbb1c05ec4cd31ba019">Stack::OK</a></div><div class="ttdeci">@ OK</div><div class="ttdef"><b>Definition</b> <a href="stack_8h_source.html#l00025">stack.h:25</a></div></div>
+<div class="ttc" id="astruct_stack_html_ae8242b5f1b2c3d98a6dbafc302e509d5a21fffebce3cb1827d31bfb5bc44dfca8"><div class="ttname"><a href="struct_stack.html#ae8242b5f1b2c3d98a6dbafc302e509d5a21fffebce3cb1827d31bfb5bc44dfca8">Stack::NOTHING_TO_POP</a></div><div class="ttdeci">@ NOTHING_TO_POP</div><div class="ttdef"><b>Definition</b> <a href="stack_8h_source.html#l00026">stack.h:26</a></div></div>
+<div class="ttc" id="astruct_stack_html_ae8242b5f1b2c3d98a6dbafc302e509d5a2dbe0f67c49b72aef7d6253cdc1f9d43"><div class="ttname"><a href="struct_stack.html#ae8242b5f1b2c3d98a6dbafc302e509d5a2dbe0f67c49b72aef7d6253cdc1f9d43">Stack::DATA_HASH_ERR</a></div><div class="ttdeci">@ DATA_HASH_ERR</div><div class="ttdef"><b>Definition</b> <a href="stack_8h_source.html#l00035">stack.h:35</a></div></div>
+<div class="ttc" id="astruct_stack_html_ae8242b5f1b2c3d98a6dbafc302e509d5a31325202b6e6bfa0cb1b1e0c0601bea5"><div class="ttname"><a href="struct_stack.html#ae8242b5f1b2c3d98a6dbafc302e509d5a31325202b6e6bfa0cb1b1e0c0601bea5">Stack::DATA_R_CANARY_ERR</a></div><div class="ttdeci">@ DATA_R_CANARY_ERR</div><div class="ttdef"><b>Definition</b> <a href="stack_8h_source.html#l00042">stack.h:42</a></div></div>
+<div class="ttc" id="astruct_stack_html_ae8242b5f1b2c3d98a6dbafc302e509d5a7972d76b7f1e784ff89358e60e73f6c5"><div class="ttname"><a href="struct_stack.html#ae8242b5f1b2c3d98a6dbafc302e509d5a7972d76b7f1e784ff89358e60e73f6c5">Stack::STRUCT_L_CANARY_ERR</a></div><div class="ttdeci">@ STRUCT_L_CANARY_ERR</div><div class="ttdef"><b>Definition</b> <a href="stack_8h_source.html#l00039">stack.h:39</a></div></div>
+<div class="ttc" id="astruct_stack_html_ae8242b5f1b2c3d98a6dbafc302e509d5a8cccf06af95813b4626427c4c2595033"><div class="ttname"><a href="struct_stack.html#ae8242b5f1b2c3d98a6dbafc302e509d5a8cccf06af95813b4626427c4c2595033">Stack::STRUCT_HASH_ERR</a></div><div class="ttdeci">@ STRUCT_HASH_ERR</div><div class="ttdef"><b>Definition</b> <a href="stack_8h_source.html#l00034">stack.h:34</a></div></div>
+<div class="ttc" id="astruct_stack_html_ae8242b5f1b2c3d98a6dbafc302e509d5a8deedabd24b6f0684dbf7b7ee110bd21"><div class="ttname"><a href="struct_stack.html#ae8242b5f1b2c3d98a6dbafc302e509d5a8deedabd24b6f0684dbf7b7ee110bd21">Stack::STRUCT_R_CANARY_ERR</a></div><div class="ttdeci">@ STRUCT_R_CANARY_ERR</div><div class="ttdef"><b>Definition</b> <a href="stack_8h_source.html#l00040">stack.h:40</a></div></div>
+<div class="ttc" id="astruct_stack_html_ae8242b5f1b2c3d98a6dbafc302e509d5a8e610fdd9bd4faa7ad35a6058ad9fcbf"><div class="ttname"><a href="struct_stack.html#ae8242b5f1b2c3d98a6dbafc302e509d5a8e610fdd9bd4faa7ad35a6058ad9fcbf">Stack::ALLOC_ERR</a></div><div class="ttdeci">@ ALLOC_ERR</div><div class="ttdef"><b>Definition</b> <a href="stack_8h_source.html#l00027">stack.h:27</a></div></div>
+<div class="ttc" id="astruct_stack_html_ae8242b5f1b2c3d98a6dbafc302e509d5a972d0ae4ce1c7527212f6e29d78df8fe"><div class="ttname"><a href="struct_stack.html#ae8242b5f1b2c3d98a6dbafc302e509d5a972d0ae4ce1c7527212f6e29d78df8fe">Stack::DATA_L_CANARY_ERR</a></div><div class="ttdeci">@ DATA_L_CANARY_ERR</div><div class="ttdef"><b>Definition</b> <a href="stack_8h_source.html#l00041">stack.h:41</a></div></div>
+<div class="ttc" id="astruct_stack_html_ae8242b5f1b2c3d98a6dbafc302e509d5a9e1e940df37869517f75f4d2198aebad"><div class="ttname"><a href="struct_stack.html#ae8242b5f1b2c3d98a6dbafc302e509d5a9e1e940df37869517f75f4d2198aebad">Stack::NON_POISON_EMPTY</a></div><div class="ttdeci">@ NON_POISON_EMPTY</div><div class="ttdef"><b>Definition</b> <a href="stack_8h_source.html#l00033">stack.h:33</a></div></div>
+<div class="ttc" id="astruct_stack_html_ae8242b5f1b2c3d98a6dbafc302e509d5aa17ea00c21ef8ada8344e88a5d63a0de"><div class="ttname"><a href="struct_stack.html#ae8242b5f1b2c3d98a6dbafc302e509d5aa17ea00c21ef8ada8344e88a5d63a0de">Stack::POISON_VAL_FOUND</a></div><div class="ttdeci">@ POISON_VAL_FOUND</div><div class="ttdef"><b>Definition</b> <a href="stack_8h_source.html#l00032">stack.h:32</a></div></div>
+<div class="ttc" id="astruct_stack_html_ae8242b5f1b2c3d98a6dbafc302e509d5ab37ce957889466c726330c2b5b513b4f"><div class="ttname"><a href="struct_stack.html#ae8242b5f1b2c3d98a6dbafc302e509d5ab37ce957889466c726330c2b5b513b4f">Stack::DATA_INVALID_PTR</a></div><div class="ttdeci">@ DATA_INVALID_PTR</div><div class="ttdef"><b>Definition</b> <a href="stack_8h_source.html#l00031">stack.h:31</a></div></div>
+<div class="ttc" id="astruct_stack_html_ae8242b5f1b2c3d98a6dbafc302e509d5ad85f8db9f888d5f54791ec3dbe8dae1c"><div class="ttname"><a href="struct_stack.html#ae8242b5f1b2c3d98a6dbafc302e509d5ad85f8db9f888d5f54791ec3dbe8dae1c">Stack::NEGATIVE_SIZE</a></div><div class="ttdeci">@ NEGATIVE_SIZE</div><div class="ttdef"><b>Definition</b> <a href="stack_8h_source.html#l00038">stack.h:38</a></div></div>
+<div class="ttc" id="astruct_stack_html_ae8242b5f1b2c3d98a6dbafc302e509d5ae1ec0912fd480f7fdd5f38f4e990ffed"><div class="ttname"><a href="struct_stack.html#ae8242b5f1b2c3d98a6dbafc302e509d5ae1ec0912fd480f7fdd5f38f4e990ffed">Stack::UNITIALISED</a></div><div class="ttdeci">@ UNITIALISED</div><div class="ttdef"><b>Definition</b> <a href="stack_8h_source.html#l00030">stack.h:30</a></div></div>
+<div class="ttc" id="astruct_stack_html_ae8242b5f1b2c3d98a6dbafc302e509d5af004171243fdbfc79e0cb30fd7561690"><div class="ttname"><a href="struct_stack.html#ae8242b5f1b2c3d98a6dbafc302e509d5af004171243fdbfc79e0cb30fd7561690">Stack::ALREADY_INITIALISED</a></div><div class="ttdeci">@ ALREADY_INITIALISED</div><div class="ttdef"><b>Definition</b> <a href="stack_8h_source.html#l00029">stack.h:29</a></div></div>
+<div class="ttc" id="astruct_stack_html_ae8242b5f1b2c3d98a6dbafc302e509d5af68a03245ae05bdfca1879f027972e0c"><div class="ttname"><a href="struct_stack.html#ae8242b5f1b2c3d98a6dbafc302e509d5af68a03245ae05bdfca1879f027972e0c">Stack::NEGATIVE_CAPACITY</a></div><div class="ttdeci">@ NEGATIVE_CAPACITY</div><div class="ttdef"><b>Definition</b> <a href="stack_8h_source.html#l00037">stack.h:37</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="a28842fa31d7aec7f839fbcd51ef3edfe" name="a28842fa31d7aec7f839fbcd51ef3edfe"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a28842fa31d7aec7f839fbcd51ef3edfe">&#9670;&#160;</a></span>canary_left</h2>
+<a id="a93649663411b07293ec66851c09c99c9" name="a93649663411b07293ec66851c09c99c9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a93649663411b07293ec66851c09c99c9">&#9670;&#160;</a></span>canary_left</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">unsigned long long Stack::canary_left = CANARY_VAL</td>
+          <td class="memname"><a class="el" href="config_8h.html#a788ec731a306c6e69c1dbb06983429ed">Canary_t</a> Stack::canary_left = CANARY_VAL</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="stack_8h_source.html#l00025">25</a> of file <a class="el" href="stack_8h_source.html">stack.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="stack_8h_source.html#l00046">46</a> of file <a class="el" href="stack_8h_source.html">stack.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="stack_8cpp_source.html#l00226">stk_dump()</a>, and <a class="el" href="stack_8cpp_source.html#l00270">stk_verify()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="stack_8cpp_source.html#l00222">stk_dump()</a>, and <a class="el" href="stack_8cpp_source.html#l00292">stk_verify()</a>.</p>
 
 </div>
 </div>
-<a id="af8349cc517cbeee8fc2a0177f17d5109" name="af8349cc517cbeee8fc2a0177f17d5109"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af8349cc517cbeee8fc2a0177f17d5109">&#9670;&#160;</a></span>canary_right</h2>
+<a id="a26e3a891c804d0a2deef354cb6d7f13b" name="a26e3a891c804d0a2deef354cb6d7f13b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a26e3a891c804d0a2deef354cb6d7f13b">&#9670;&#160;</a></span>canary_right</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">unsigned long long Stack::canary_right = CANARY_VAL</td>
+          <td class="memname"><a class="el" href="config_8h.html#a788ec731a306c6e69c1dbb06983429ed">Canary_t</a> Stack::canary_right = CANARY_VAL</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="stack_8h_source.html#l00058">58</a> of file <a class="el" href="stack_8h_source.html">stack.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="stack_8h_source.html#l00063">63</a> of file <a class="el" href="stack_8h_source.html">stack.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="stack_8cpp_source.html#l00226">stk_dump()</a>, and <a class="el" href="stack_8cpp_source.html#l00270">stk_verify()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="stack_8cpp_source.html#l00222">stk_dump()</a>.</p>
 
 </div>
 </div>
@@ -278,27 +285,9 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="stack_8h_source.html#l00029">29</a> of file <a class="el" href="stack_8h_source.html">stack.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="stack_8h_source.html#l00050">50</a> of file <a class="el" href="stack_8h_source.html">stack.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="stack_8cpp_source.html#l00034">stk_ctor()</a>, <a class="el" href="stack_8cpp_source.html#l00057">stk_dtor()</a>, <a class="el" href="stack_8cpp_source.html#l00226">stk_dump()</a>, <a class="el" href="stack_8cpp_source.html#l00125">stk_push()</a>, <a class="el" href="stack_8cpp_source.html#l00080">stk_resize()</a>, and <a class="el" href="stack_8cpp_source.html#l00270">stk_verify()</a>.</p>
-
-</div>
-</div>
-<a id="afb254e7cd7f3e17f483ef2866cc5b922" name="afb254e7cd7f3e17f483ef2866cc5b922"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afb254e7cd7f3e17f483ef2866cc5b922">&#9670;&#160;</a></span>checksum</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="struct_hash.html">Hash</a> Stack::checksum = {}</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="stack_8h_source.html#l00032">32</a> of file <a class="el" href="stack_8h_source.html">stack.h</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="stack_8cpp_source.html#l00006">stk_ctor_debug()</a>, <a class="el" href="stack_8cpp_source.html#l00057">stk_dtor()</a>, <a class="el" href="stack_8cpp_source.html#l00226">stk_dump()</a>, <a class="el" href="stack_8cpp_source.html#l00150">stk_pop()</a>, <a class="el" href="stack_8cpp_source.html#l00125">stk_push()</a>, and <a class="el" href="stack_8cpp_source.html#l00270">stk_verify()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="stack_8cpp_source.html#l00017">stk_ctor()</a>, <a class="el" href="stack_8cpp_source.html#l00059">stk_dtor()</a>, <a class="el" href="stack_8cpp_source.html#l00222">stk_dump()</a>, <a class="el" href="stack_8cpp_source.html#l00087">stk_resize()</a>, and <a class="el" href="stack_8cpp_source.html#l00292">stk_verify()</a>.</p>
 
 </div>
 </div>
@@ -314,9 +303,27 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="stack_8h_source.html#l00028">28</a> of file <a class="el" href="stack_8h_source.html">stack.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="stack_8h_source.html#l00049">49</a> of file <a class="el" href="stack_8h_source.html">stack.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="stack_8cpp_source.html#l00034">stk_ctor()</a>, <a class="el" href="stack_8cpp_source.html#l00006">stk_ctor_debug()</a>, <a class="el" href="stack_8cpp_source.html#l00057">stk_dtor()</a>, <a class="el" href="stack_8cpp_source.html#l00226">stk_dump()</a>, <a class="el" href="stack_8cpp_source.html#l00150">stk_pop()</a>, <a class="el" href="stack_8cpp_source.html#l00125">stk_push()</a>, <a class="el" href="stack_8cpp_source.html#l00080">stk_resize()</a>, <a class="el" href="stack_8cpp_source.html#l00270">stk_verify()</a>, and <a class="el" href="test_8cpp_source.html#l00047">test_stack_error()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="stack_8cpp_source.html#l00017">stk_ctor()</a>, <a class="el" href="stack_8h_source.html#l00251">stk_data_hash_calc()</a>, <a class="el" href="stack_8cpp_source.html#l00059">stk_dtor()</a>, <a class="el" href="stack_8cpp_source.html#l00222">stk_dump()</a>, <a class="el" href="stack_8cpp_source.html#l00162">stk_pop()</a>, <a class="el" href="stack_8cpp_source.html#l00139">stk_push()</a>, <a class="el" href="stack_8cpp_source.html#l00087">stk_resize()</a>, <a class="el" href="stack_8cpp_source.html#l00292">stk_verify()</a>, and <a class="el" href="test_8cpp_source.html#l00047">test_stack_error()</a>.</p>
+
+</div>
+</div>
+<a id="a0313f9fb25ba1f5ce41bcaf465777ead" name="a0313f9fb25ba1f5ce41bcaf465777ead"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0313f9fb25ba1f5ce41bcaf465777ead">&#9670;&#160;</a></span>data_hash</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="crc32_8h.html#aec0adc213b23c34ec982fa84dceb81fd">CRC32_t</a> Stack::data_hash = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="stack_8h_source.html#l00055">55</a> of file <a class="el" href="stack_8h_source.html">stack.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="stack_8cpp_source.html#l00017">stk_ctor()</a>, <a class="el" href="stack_8cpp_source.html#l00059">stk_dtor()</a>, <a class="el" href="stack_8cpp_source.html#l00222">stk_dump()</a>, <a class="el" href="stack_8cpp_source.html#l00162">stk_pop()</a>, <a class="el" href="stack_8cpp_source.html#l00139">stk_push()</a>, and <a class="el" href="stack_8cpp_source.html#l00292">stk_verify()</a>.</p>
 
 </div>
 </div>
@@ -342,61 +349,7 @@ Static Public Attributes</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="stack_8h_source.html#l00020">20</a> of file <a class="el" href="stack_8h_source.html">stack.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="stack_8cpp_source.html#l00270">stk_verify()</a>.</p>
-
-</div>
-</div>
-<a id="a6566913dd7e46a9de98b4fae96ef1b22" name="a6566913dd7e46a9de98b4fae96ef1b22"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6566913dd7e46a9de98b4fae96ef1b22">&#9670;&#160;</a></span>init_file</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const char* Stack::init_file = &quot;&quot;</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="stack_8h_source.html#l00054">54</a> of file <a class="el" href="stack_8h_source.html">stack.h</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="stack_8cpp_source.html#l00006">stk_ctor_debug()</a>, and <a class="el" href="stack_8cpp_source.html#l00226">stk_dump()</a>.</p>
-
-</div>
-</div>
-<a id="ab234bfceb8dc921e91dbf8d9776ecc04" name="ab234bfceb8dc921e91dbf8d9776ecc04"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab234bfceb8dc921e91dbf8d9776ecc04">&#9670;&#160;</a></span>init_func</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const char* Stack::init_func = &quot;&quot;</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="stack_8h_source.html#l00056">56</a> of file <a class="el" href="stack_8h_source.html">stack.h</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="stack_8cpp_source.html#l00006">stk_ctor_debug()</a>, and <a class="el" href="stack_8cpp_source.html#l00226">stk_dump()</a>.</p>
-
-</div>
-</div>
-<a id="a98ddb9b9cce48e4dca81d6cf852c5905" name="a98ddb9b9cce48e4dca81d6cf852c5905"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a98ddb9b9cce48e4dca81d6cf852c5905">&#9670;&#160;</a></span>init_line</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int Stack::init_line = -1</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="stack_8h_source.html#l00055">55</a> of file <a class="el" href="stack_8h_source.html">stack.h</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="stack_8cpp_source.html#l00006">stk_ctor_debug()</a>, and <a class="el" href="stack_8cpp_source.html#l00226">stk_dump()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="stack_8cpp_source.html#l00087">stk_resize()</a>.</p>
 
 </div>
 </div>
@@ -422,7 +375,7 @@ Static Public Attributes</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="stack_8h_source.html#l00021">21</a> of file <a class="el" href="stack_8h_source.html">stack.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="stack_8cpp_source.html#l00006">stk_ctor_debug()</a>, <a class="el" href="stack_8cpp_source.html#l00057">stk_dtor()</a>, <a class="el" href="stack_8cpp_source.html#l00226">stk_dump()</a>, <a class="el" href="stack_8cpp_source.html#l00150">stk_pop()</a>, <a class="el" href="stack_8cpp_source.html#l00080">stk_resize()</a>, and <a class="el" href="stack_8cpp_source.html#l00270">stk_verify()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="stack_8cpp_source.html#l00222">stk_dump()</a>, <a class="el" href="stack_8cpp_source.html#l00162">stk_pop()</a>, and <a class="el" href="stack_8cpp_source.html#l00292">stk_verify()</a>.</p>
 
 </div>
 </div>
@@ -438,9 +391,27 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="stack_8h_source.html#l00030">30</a> of file <a class="el" href="stack_8h_source.html">stack.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="stack_8h_source.html#l00051">51</a> of file <a class="el" href="stack_8h_source.html">stack.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="stack_8cpp_source.html#l00034">stk_ctor()</a>, <a class="el" href="stack_8cpp_source.html#l00057">stk_dtor()</a>, <a class="el" href="stack_8cpp_source.html#l00226">stk_dump()</a>, <a class="el" href="stack_8cpp_source.html#l00150">stk_pop()</a>, <a class="el" href="stack_8cpp_source.html#l00125">stk_push()</a>, and <a class="el" href="stack_8cpp_source.html#l00270">stk_verify()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="stack_8cpp_source.html#l00017">stk_ctor()</a>, <a class="el" href="stack_8h_source.html#l00251">stk_data_hash_calc()</a>, <a class="el" href="stack_8cpp_source.html#l00059">stk_dtor()</a>, <a class="el" href="stack_8cpp_source.html#l00222">stk_dump()</a>, <a class="el" href="stack_8cpp_source.html#l00162">stk_pop()</a>, <a class="el" href="stack_8cpp_source.html#l00139">stk_push()</a>, <a class="el" href="stack_8cpp_source.html#l00087">stk_resize()</a>, and <a class="el" href="stack_8cpp_source.html#l00292">stk_verify()</a>.</p>
+
+</div>
+</div>
+<a id="a5d85c28620cf7c22e622df2d8a58f35b" name="a5d85c28620cf7c22e622df2d8a58f35b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5d85c28620cf7c22e622df2d8a58f35b">&#9670;&#160;</a></span>struct_hash</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="crc32_8h.html#aec0adc213b23c34ec982fa84dceb81fd">CRC32_t</a> Stack::struct_hash = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="stack_8h_source.html#l00054">54</a> of file <a class="el" href="stack_8h_source.html">stack.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="stack_8cpp_source.html#l00017">stk_ctor()</a>, <a class="el" href="stack_8cpp_source.html#l00059">stk_dtor()</a>, <a class="el" href="stack_8cpp_source.html#l00222">stk_dump()</a>, <a class="el" href="stack_8cpp_source.html#l00162">stk_pop()</a>, <a class="el" href="stack_8cpp_source.html#l00139">stk_push()</a>, <a class="el" href="stack_8cpp_source.html#l00087">stk_resize()</a>, <a class="el" href="stack_8h_source.html#l00238">stk_struct_hash_calc()</a>, and <a class="el" href="stack_8cpp_source.html#l00292">stk_verify()</a>.</p>
 
 </div>
 </div>
@@ -466,7 +437,25 @@ Static Public Attributes</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="stack_8h_source.html#l00022">22</a> of file <a class="el" href="stack_8h_source.html">stack.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="stack_8cpp_source.html#l00057">stk_dtor()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="stack_8cpp_source.html#l00059">stk_dtor()</a>, and <a class="el" href="stack_8cpp_source.html#l00292">stk_verify()</a>.</p>
+
+</div>
+</div>
+<a id="ada9ac9dd578c2f702547fbf23447dfc5" name="ada9ac9dd578c2f702547fbf23447dfc5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ada9ac9dd578c2f702547fbf23447dfc5">&#9670;&#160;</a></span>var_data</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_var_code_data.html">VarCodeData</a> Stack::var_data</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="stack_8h_source.html#l00059">59</a> of file <a class="el" href="stack_8h_source.html">stack.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="stack_8cpp_source.html#l00006">stk_ctor_debug()</a>, and <a class="el" href="stack_8cpp_source.html#l00222">stk_dump()</a>.</p>
 
 </div>
 </div>

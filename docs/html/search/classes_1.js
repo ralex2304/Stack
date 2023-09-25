@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['logfiledata_0',['LogFileData',['../struct_log_file_data.html',1,'']]]
+  ['stack_0',['Stack',['../struct_stack.html',1,'']]]
 ];

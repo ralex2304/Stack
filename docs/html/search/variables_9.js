@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['size_0',['size',['../struct_stack.html#a3b6cb0b4ff732c7bbbaaa5d3860bcd1a',1,'Stack']]]
+  ['var_5fdata_0',['var_data',['../struct_stack.html#ada9ac9dd578c2f702547fbf23447dfc5',1,'Stack']]]
 ];

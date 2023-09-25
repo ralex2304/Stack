@@ -2,6 +2,11 @@
 \hypertarget{macros_8h}{}\label{macros_8h}\index{src/utils/macros.h@{src/utils/macros.h}}
 {\ttfamily \#include $<$stdlib.\+h$>$}\newline
 {\ttfamily \#include $<$memory.\+h$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_var_code_data}{Var\+Code\+Data}}
+\end{DoxyCompactItemize}
 \doxysubsubsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
@@ -10,6 +15,10 @@
 \#define \mbox{\hyperlink{macros_8h_afa99ec4acc4ecb2dc3c2d05da15d0e3f}{MAX}}(a,  b)~((a) $>$ (b) ? (a) \+: (b))
 \item 
 \#define \mbox{\hyperlink{macros_8h_a105949c59c998e38aad80266afac92bf}{FREE}}(ptr)
+\item 
+\#define \mbox{\hyperlink{macros_8h_a68960fb933bea9b067598ca388e5b6d5}{VAR\+\_\+\+CODE\+\_\+\+DATA}}(name)~\{\# name, \+\_\+\+\_\+\+FILE\+\_\+\+\_\+, \+\_\+\+\_\+\+LINE\+\_\+\+\_\+, \+\_\+\+\_\+func\+\_\+\+\_\+\}
+\item 
+\#define \mbox{\hyperlink{macros_8h_a8b6dac4dee6062b891084db600caa7ec}{VAR\+\_\+\+CODE\+\_\+\+DATA\+\_\+\+PTR}}(name)~\{(\# name) + 1, \+\_\+\+\_\+\+FILE\+\_\+\+\_\+, \+\_\+\+\_\+\+LINE\+\_\+\+\_\+, \+\_\+\+\_\+func\+\_\+\+\_\+\}
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
@@ -57,6 +66,26 @@ Definition at line \mbox{\hyperlink{macros_8h_source_l00008}{8}} of file \mbox{\
 
 Definition at line \mbox{\hyperlink{macros_8h_source_l00007}{7}} of file \mbox{\hyperlink{macros_8h_source}{macros.\+h}}.
 
+\Hypertarget{macros_8h_a68960fb933bea9b067598ca388e5b6d5}\label{macros_8h_a68960fb933bea9b067598ca388e5b6d5} 
+\index{macros.h@{macros.h}!VAR\_CODE\_DATA@{VAR\_CODE\_DATA}}
+\index{VAR\_CODE\_DATA@{VAR\_CODE\_DATA}!macros.h@{macros.h}}
+\doxysubsubsection{\texorpdfstring{VAR\_CODE\_DATA}{VAR\_CODE\_DATA}}
+{\footnotesize\ttfamily \#define VAR\+\_\+\+CODE\+\_\+\+DATA(\begin{DoxyParamCaption}\item[{}]{name }\end{DoxyParamCaption})~\{\# name, \+\_\+\+\_\+\+FILE\+\_\+\+\_\+, \+\_\+\+\_\+\+LINE\+\_\+\+\_\+, \+\_\+\+\_\+func\+\_\+\+\_\+\}}
+
+
+
+Definition at line \mbox{\hyperlink{macros_8h_source_l00034}{34}} of file \mbox{\hyperlink{macros_8h_source}{macros.\+h}}.
+
+\Hypertarget{macros_8h_a8b6dac4dee6062b891084db600caa7ec}\label{macros_8h_a8b6dac4dee6062b891084db600caa7ec} 
+\index{macros.h@{macros.h}!VAR\_CODE\_DATA\_PTR@{VAR\_CODE\_DATA\_PTR}}
+\index{VAR\_CODE\_DATA\_PTR@{VAR\_CODE\_DATA\_PTR}!macros.h@{macros.h}}
+\doxysubsubsection{\texorpdfstring{VAR\_CODE\_DATA\_PTR}{VAR\_CODE\_DATA\_PTR}}
+{\footnotesize\ttfamily \#define VAR\+\_\+\+CODE\+\_\+\+DATA\+\_\+\+PTR(\begin{DoxyParamCaption}\item[{}]{name }\end{DoxyParamCaption})~\{(\# name) + 1, \+\_\+\+\_\+\+FILE\+\_\+\+\_\+, \+\_\+\+\_\+\+LINE\+\_\+\+\_\+, \+\_\+\+\_\+func\+\_\+\+\_\+\}}
+
+
+
+Definition at line \mbox{\hyperlink{macros_8h_source_l00035}{35}} of file \mbox{\hyperlink{macros_8h_source}{macros.\+h}}.
+
 
 
 \doxysubsection{Function Documentation}
@@ -87,5 +116,5 @@ Definition at line \mbox{\hyperlink{macros_8h_source_l00015}{15}} of file \mbox{
 \end{DoxyCode}
 
 
-Referenced by \mbox{\hyperlink{stack_8cpp_source_l00080}{stk\+\_\+resize()}}.
+Referenced by \mbox{\hyperlink{stack_8cpp_source_l00087}{stk\+\_\+resize()}}.
 

@@ -101,6 +101,7 @@ $(document).ready(function(){initNavTree('linux__mem_8cpp.html',''); initResizab
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a8b27c8c3ef75b12ce64ed810ab614d33"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="linux__mem_8cpp.html#a8b27c8c3ef75b12ce64ed810ab614d33">is_ptr_valid</a> (void *p, const char mode)</td></tr>
+<tr class="memdesc:a8b27c8c3ef75b12ce64ed810ab614d33"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if pointer is valid for access in mode.  <br /></td></tr>
 <tr class="separator:a8b27c8c3ef75b12ce64ed810ab614d33"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
@@ -120,7 +121,7 @@ Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const char&#160;</td>
-          <td class="paramname"><em>mode</em>&#160;</td>
+          <td class="paramname"><em>mode</em> = <code>'w'</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -130,53 +131,66 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Checks if pointer is valid for access in mode. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>pointer </td></tr>
+    <tr><td class="paramname">mode</td><td>'w' or 'r' </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true is valid </dd>
+<dd>
+false is not valid </dd></dl>
+
 <p class="definition">Definition at line <a class="el" href="linux__mem_8cpp_source.html#l00003">3</a> of file <a class="el" href="linux__mem_8cpp_source.html">linux_mem.cpp</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">    3</span>                                            {</div>
-<div class="line"><span class="lineno">    4</span>    <span class="keywordflow">return</span> p != <span class="keyword">nullptr</span>;</div>
+<div class="line"><span class="lineno">    4</span>    assert(mode == <span class="charliteral">&#39;r&#39;</span> || mode == <span class="charliteral">&#39;w&#39;</span>);</div>
 <div class="line"><span class="lineno">    5</span> </div>
-<div class="line"><span class="lineno">    6</span>    assert(mode == <span class="charliteral">&#39;r&#39;</span> || mode == <span class="charliteral">&#39;w&#39;</span>);</div>
-<div class="line"><span class="lineno">    7</span> </div>
-<div class="line"><span class="lineno">    8</span>    uintptr_t begin = 0;</div>
-<div class="line"><span class="lineno">    9</span>    uintptr_t end = 0;</div>
-<div class="line"><span class="lineno">   10</span> </div>
-<div class="line"><span class="lineno">   11</span>    <span class="keywordtype">char</span> readable   = <span class="charliteral">&#39;\0&#39;</span>;</div>
-<div class="line"><span class="lineno">   12</span>    <span class="keywordtype">char</span> writable   = <span class="charliteral">&#39;\0&#39;</span>;</div>
-<div class="line"><span class="lineno">   13</span>    <span class="keywordtype">char</span> executable = <span class="charliteral">&#39;\0&#39;</span>;</div>
-<div class="line"><span class="lineno">   14</span>    <span class="keywordtype">char</span> mapped     = <span class="charliteral">&#39;\0&#39;</span>;</div>
+<div class="line"><span class="lineno">    6</span>    uintptr_t begin = 0;</div>
+<div class="line"><span class="lineno">    7</span>    uintptr_t end = 0;</div>
+<div class="line"><span class="lineno">    8</span> </div>
+<div class="line"><span class="lineno">    9</span>    <span class="keywordtype">char</span> readable   = <span class="charliteral">&#39;\0&#39;</span>;</div>
+<div class="line"><span class="lineno">   10</span>    <span class="keywordtype">char</span> writable   = <span class="charliteral">&#39;\0&#39;</span>;</div>
+<div class="line"><span class="lineno">   11</span>    <span class="keywordtype">char</span> executable = <span class="charliteral">&#39;\0&#39;</span>;</div>
+<div class="line"><span class="lineno">   12</span>    <span class="keywordtype">char</span> mapped     = <span class="charliteral">&#39;\0&#39;</span>;</div>
+<div class="line"><span class="lineno">   13</span> </div>
+<div class="line"><span class="lineno">   14</span>    FILE* file = fopen(<span class="stringliteral">&quot;/proc/self/maps&quot;</span>, <span class="stringliteral">&quot;r&quot;</span>);</div>
 <div class="line"><span class="lineno">   15</span> </div>
-<div class="line"><span class="lineno">   16</span>    FILE* file = fopen(<span class="stringliteral">&quot;/proc/self/maps&quot;</span>, <span class="stringliteral">&quot;r&quot;</span>);</div>
-<div class="line"><span class="lineno">   17</span> </div>
-<div class="line"><span class="lineno">   18</span>    <span class="keywordflow">if</span> (!file)</div>
-<div class="line"><span class="lineno">   19</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">   20</span> </div>
-<div class="line"><span class="lineno">   21</span>    <span class="keywordflow">while</span> (fscanf(file, <span class="stringliteral">&quot;%&quot;</span> SCNxPTR <span class="stringliteral">&quot;-%&quot;</span> SCNxPTR <span class="stringliteral">&quot; %c%c%c%c&quot;</span>,</div>
-<div class="line"><span class="lineno">   22</span>            &amp;begin, &amp;end, &amp;readable, &amp;writable, &amp;executable, &amp;mapped) == 6) {</div>
-<div class="line"><span class="lineno">   23</span> </div>
-<div class="line"><span class="lineno">   24</span>        <span class="keywordflow">if</span> (begin &lt;= (uintptr_t)p &amp;&amp; (uintptr_t)p &lt; end) {</div>
-<div class="line"><span class="lineno">   25</span>            fclose(file);</div>
-<div class="line"><span class="lineno">   26</span> </div>
-<div class="line"><span class="lineno">   27</span>            <span class="keywordflow">switch</span> (mode) {</div>
-<div class="line"><span class="lineno">   28</span>                <span class="keywordflow">case</span> <span class="charliteral">&#39;r&#39;</span>:</div>
-<div class="line"><span class="lineno">   29</span>                    <span class="keywordflow">return</span> readable == <span class="charliteral">&#39;r&#39;</span>;</div>
-<div class="line"><span class="lineno">   30</span>                    <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">   31</span>                <span class="keywordflow">case</span> <span class="charliteral">&#39;w&#39;</span>:</div>
-<div class="line"><span class="lineno">   32</span>                    <span class="keywordflow">return</span> writable == <span class="charliteral">&#39;w&#39;</span>;</div>
-<div class="line"><span class="lineno">   33</span>                    <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">   34</span>                <span class="keywordflow">default</span>:</div>
-<div class="line"><span class="lineno">   35</span>                    assert(0 &amp;&amp; <span class="stringliteral">&quot;is_ptr_valid() wrong mode specified&quot;</span>);</div>
-<div class="line"><span class="lineno">   36</span>                    <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">   37</span>            }</div>
-<div class="line"><span class="lineno">   38</span>        }</div>
-<div class="line"><span class="lineno">   39</span> </div>
-<div class="line"><span class="lineno">   40</span>        <span class="keywordflow">while</span> (fgetc(file) != <span class="charliteral">&#39;\n&#39;</span>) {}</div>
-<div class="line"><span class="lineno">   41</span>    }</div>
-<div class="line"><span class="lineno">   42</span> </div>
-<div class="line"><span class="lineno">   43</span>    fclose(file);</div>
-<div class="line"><span class="lineno">   44</span> </div>
-<div class="line"><span class="lineno">   45</span>    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">   46</span>}</div>
+<div class="line"><span class="lineno">   16</span>    <span class="keywordflow">if</span> (!file)</div>
+<div class="line"><span class="lineno">   17</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">   18</span> </div>
+<div class="line"><span class="lineno">   19</span>    <span class="keywordflow">while</span> (fscanf(file, <span class="stringliteral">&quot;%&quot;</span> SCNxPTR <span class="stringliteral">&quot;-%&quot;</span> SCNxPTR <span class="stringliteral">&quot; %c%c%c%c&quot;</span>,</div>
+<div class="line"><span class="lineno">   20</span>            &amp;begin, &amp;end, &amp;readable, &amp;writable, &amp;executable, &amp;mapped) == 6) {</div>
+<div class="line"><span class="lineno">   21</span> </div>
+<div class="line"><span class="lineno">   22</span>        <span class="keywordflow">if</span> (begin &lt;= (uintptr_t)p &amp;&amp; (uintptr_t)p &lt; end) {</div>
+<div class="line"><span class="lineno">   23</span>            fclose(file);</div>
+<div class="line"><span class="lineno">   24</span> </div>
+<div class="line"><span class="lineno">   25</span>            <span class="keywordflow">switch</span> (mode) {</div>
+<div class="line"><span class="lineno">   26</span>                <span class="keywordflow">case</span> <span class="charliteral">&#39;r&#39;</span>:</div>
+<div class="line"><span class="lineno">   27</span>                    <span class="keywordflow">return</span> readable == <span class="charliteral">&#39;r&#39;</span>;</div>
+<div class="line"><span class="lineno">   28</span>                    <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">   29</span>                <span class="keywordflow">case</span> <span class="charliteral">&#39;w&#39;</span>:</div>
+<div class="line"><span class="lineno">   30</span>                    <span class="keywordflow">return</span> writable == <span class="charliteral">&#39;w&#39;</span>;</div>
+<div class="line"><span class="lineno">   31</span>                    <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">   32</span>                <span class="keywordflow">default</span>:</div>
+<div class="line"><span class="lineno">   33</span>                    assert(0 &amp;&amp; <span class="stringliteral">&quot;is_ptr_valid() wrong mode specified&quot;</span>);</div>
+<div class="line"><span class="lineno">   34</span>                    <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">   35</span>            }</div>
+<div class="line"><span class="lineno">   36</span>        }</div>
+<div class="line"><span class="lineno">   37</span> </div>
+<div class="line"><span class="lineno">   38</span>        <span class="keywordtype">int</span> c = <span class="charliteral">&#39;\0&#39;</span>;</div>
+<div class="line"><span class="lineno">   39</span>        <span class="keywordflow">do</span> {</div>
+<div class="line"><span class="lineno">   40</span>            c = fgetc(file);</div>
+<div class="line"><span class="lineno">   41</span>        } <span class="keywordflow">while</span> (c != <span class="charliteral">&#39;\n&#39;</span> &amp;&amp; c != EOF);</div>
+<div class="line"><span class="lineno">   42</span>    }</div>
+<div class="line"><span class="lineno">   43</span> </div>
+<div class="line"><span class="lineno">   44</span>    fclose(file);</div>
+<div class="line"><span class="lineno">   45</span> </div>
+<div class="line"><span class="lineno">   46</span>    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">   47</span>}</div>
 </div><!-- fragment -->
-<p class="reference">Referenced by <a class="el" href="stack_8cpp_source.html#l00226">stk_dump()</a>, and <a class="el" href="stack_8cpp_source.html#l00270">stk_verify()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="stack_8cpp_source.html#l00222">stk_dump()</a>, and <a class="el" href="stack_8cpp_source.html#l00292">stk_verify()</a>.</p>
 
 </div>
 </div>

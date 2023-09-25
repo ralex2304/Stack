@@ -4,6 +4,5 @@ var searchData=
   ['main_1',['main',['../main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main.cpp']]],
   ['main_2ecpp_2',['main.cpp',['../main_8cpp.html',1,'']]],
   ['max_3',['MAX',['../macros_8h.html#afa99ec4acc4ecb2dc3c2d05da15d0e3f',1,'macros.h']]],
-  ['min_4',['MIN',['../macros_8h.html#a3acffbd305ee72dcd4593c0d8af64a4f',1,'macros.h']]],
-  ['mod_5',['MOD',['../struct_hash.html#ab5f4bded484af4c757616656b81a2310',1,'Hash']]]
+  ['min_4',['MIN',['../macros_8h.html#a3acffbd305ee72dcd4593c0d8af64a4f',1,'macros.h']]]
 ];

@@ -1,7 +1,7 @@
 #include "test.h"
 
 void test_stack_normal() {
-    log_printf(&log_file, "---Test stack (normal)---\n");
+    log_printf(&log_file, HTML_H2("---Test stack (normal)---\n"));
 
     Stack stk = {};
     STK_CTOR(&stk);
@@ -41,11 +41,11 @@ void test_stack_normal() {
     stk_dtor(&stk);
 
     STK_DUMP(&stk);
-    log_printf(&log_file, "---Test stack (normal) end---\n");
+    log_printf(&log_file, HTML_H2("---Test stack (normal) end---\n"));
 }
 
 void test_stack_error() {
-    log_printf(&log_file, "---Test stack (error)---\n");
+    log_printf(&log_file, HTML_H2("---Test stack (error)---\n"));
 
     Stack stk = {};
     STK_CTOR(&stk);
@@ -85,5 +85,5 @@ void test_stack_error() {
     stk_dtor(&stk);
 
     STK_DUMP(&stk);
-    log_printf(&log_file, "---Test stack (error) end---\n");
+    log_printf(&log_file, HTML_H2("---Test stack (error) end---\n"));
 }
