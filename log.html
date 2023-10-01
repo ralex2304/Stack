@@ -2,32 +2,35 @@
 </h2>
 <pre>
     stk_dump() called from src/test/test.cpp:11 test_stack_normal
-    stk[0x7fffffffe070] initialised in src/test/test.cpp:7 test_stack_normal 
+    stk[0x7ffc27060c80] initialised in src/test/test.cpp:7 test_stack_normal 
     {
         L_canary = 0x8BADF00DDEADDEAD
+        R_canary = 0x8BADF00DDEADDEAD
         size     = 1
-        capacity = 2
+        capacity = 3
+        min capacity = 3
         struct hash = 0x487D2C53
-        data   hash = 0x188D127E
-        data[0x55555555e498] {
+        data   hash = 0xCBFFD686
+        data[0x603000000048] {
             L_canary = 0x8BADF00DDEADDEAD
             *[0] 123
              [1] (poison)
+             [2] (poison)
             R_canary = 0x8BADF00DDEADDEAD
         }
-        R_canary = 0x8BADF00DDEADDEAD
     }
-</pre>
 <pre>
     stk_dump() called from src/test/test.cpp:16 test_stack_normal
-    stk[0x7fffffffe070] initialised in src/test/test.cpp:7 test_stack_normal 
+    stk[0x7ffc27060c80] initialised in src/test/test.cpp:7 test_stack_normal 
     {
         L_canary = 0x8BADF00DDEADDEAD
+        R_canary = 0x8BADF00DDEADDEAD
         size     = 11
-        capacity = 16
+        capacity = 12
+        min capacity = 3
         struct hash = 0x487D2C53
-        data   hash = 0x4E1E018E
-        data[0x55555555eaa8] {
+        data   hash = 0x41457E81
+        data[0x6030000000a8] {
             L_canary = 0x8BADF00DDEADDEAD
             *[ 0] 123
             *[ 1] 0
@@ -41,25 +44,21 @@
             *[ 9] 8
             *[10] 9
              [11] (poison)
-             [12] (poison)
-             [13] (poison)
-             [14] (poison)
-             [15] (poison)
             R_canary = 0x8BADF00DDEADDEAD
         }
-        R_canary = 0x8BADF00DDEADDEAD
     }
-</pre>
 <pre>
     stk_dump() called from src/test/test.cpp:25 test_stack_normal
-    stk[0x7fffffffe070] initialised in src/test/test.cpp:7 test_stack_normal 
+    stk[0x7ffc27060c80] initialised in src/test/test.cpp:7 test_stack_normal 
     {
         L_canary = 0x8BADF00DDEADDEAD
+        R_canary = 0x8BADF00DDEADDEAD
         size     = 11
-        capacity = 16
+        capacity = 12
+        min capacity = 3
         struct hash = 0x487D2C53
-        data   hash = 0x4E1E018E
-        data[0x55555555eaa8] {
+        data   hash = 0x41457E81
+        data[0x6030000000a8] {
             L_canary = 0x8BADF00DDEADDEAD
             *[ 0] 123
             *[ 1] 0
@@ -73,25 +72,21 @@
             *[ 9] 8
             *[10] 9
              [11] (poison)
-             [12] (poison)
-             [13] (poison)
-             [14] (poison)
-             [15] (poison)
             R_canary = 0x8BADF00DDEADDEAD
         }
-        R_canary = 0x8BADF00DDEADDEAD
     }
-</pre>
 <pre>
     stk_dump() called from src/test/test.cpp:32 test_stack_normal
-    stk[0x7fffffffe070] initialised in src/test/test.cpp:7 test_stack_normal 
+    stk[0x7ffc27060c80] initialised in src/test/test.cpp:7 test_stack_normal 
     {
         L_canary = 0x8BADF00DDEADDEAD
+        R_canary = 0x8BADF00DDEADDEAD
         size     = 6
-        capacity = 16
+        capacity = 12
+        min capacity = 3
         struct hash = 0x487D2C53
-        data   hash = 0xDEC322A8
-        data[0x55555555eaa8] {
+        data   hash = 0x448DC6A2
+        data[0x6030000000a8] {
             L_canary = 0x8BADF00DDEADDEAD
             *[ 0] 123
             *[ 1] 0
@@ -105,45 +100,41 @@
              [ 9] (poison)
              [10] (poison)
              [11] (poison)
-             [12] (poison)
-             [13] (poison)
-             [14] (poison)
-             [15] (poison)
             R_canary = 0x8BADF00DDEADDEAD
         }
-        R_canary = 0x8BADF00DDEADDEAD
     }
-</pre>
 <pre>
     stk_dump() called from src/test/test.cpp:39 test_stack_normal
-    stk[0x7fffffffe070] initialised in src/test/test.cpp:7 test_stack_normal 
+    stk[0x7ffc27060c80] initialised in src/test/test.cpp:7 test_stack_normal 
     {
         L_canary = 0x8BADF00DDEADDEAD
+        R_canary = 0x8BADF00DDEADDEAD
         size     = 0
-        capacity = 2
+        capacity = 3
+        min capacity = 3
         struct hash = 0x487D2C53
         data   hash = 0x0
-        data[0x55555555eaa8] {
+        data[0x603000000108] {
             L_canary = 0x8BADF00DDEADDEAD
              [0] (poison)
              [1] (poison)
+             [2] (poison)
             R_canary = 0x8BADF00DDEADDEAD
         }
-        R_canary = 0x8BADF00DDEADDEAD
     }
-</pre>
 <pre>
     stk_dump() called from src/test/test.cpp:43 test_stack_normal
-    stk[0x7fffffffe070] initialised in src/test/test.cpp:7 test_stack_normal 
+    stk[0x7ffc27060c80] initialised in src/test/test.cpp:7 test_stack_normal 
     {
         L_canary = 0x8BADF00DDEADDEAD
+        R_canary = 0x8BADF00DDEADDEAD
         size     = -1
         capacity = -1
+        min capacity = 3
         struct hash = 0x487D2C53
         data   hash = 0x0
         data[(nil)] {
         }
-        R_canary = 0x8BADF00DDEADDEAD
     }
 </pre>
 <h2>---Test stack (normal) end---
@@ -152,32 +143,34 @@
 </h2>
 <pre>
     stk_dump() called from src/test/test.cpp:55 test_stack_error
-    stk[0x7fffffffe070] initialised in src/test/test.cpp:51 test_stack_error 
+    stk[0x7ffc27060c70] initialised in src/test/test.cpp:51 test_stack_error 
     {
         L_canary = 0x8BADF00DDEADDEAD
+        R_canary = 0x8BADF00DDEADDEAD
         size     = 1
         capacity = 2
+        min capacity = 2
         struct hash = 0x487D2C53
-        data   hash = 0x188D127E
-        data[0x55555555eb08] {
+        data   hash = 0xCBFFD686
+        data[0x603000000138] {
             L_canary = 0x8BADF00DDEADDEAD
             *[0] 123
              [1] (poison)
             R_canary = 0x8BADF00DDEADDEAD
         }
-        R_canary = 0x8BADF00DDEADDEAD
     }
-</pre>
 <pre>
     stk_dump() called from src/test/test.cpp:60 test_stack_error
-    stk[0x7fffffffe070] initialised in src/test/test.cpp:51 test_stack_error 
+    stk[0x7ffc27060c70] initialised in src/test/test.cpp:51 test_stack_error 
     {
         L_canary = 0x8BADF00DDEADDEAD
+        R_canary = 0x8BADF00DDEADDEAD
         size     = 11
         capacity = 16
+        min capacity = 2
         struct hash = 0x487D2C53
-        data   hash = 0x4E1E018E
-        data[0x55555555eb08] {
+        data   hash = 0x41457E81
+        data[0x604000000018] {
             L_canary = 0x8BADF00DDEADDEAD
             *[ 0] 123
             *[ 1] 0
@@ -197,9 +190,7 @@
              [15] (poison)
             R_canary = 0x8BADF00DDEADDEAD
         }
-        R_canary = 0x8BADF00DDEADDEAD
     }
-</pre>
 <pre>
 <font color="red">!!! NON_POISON_EMPTY: Empty element is not poison
 </font></pre>
@@ -207,22 +198,24 @@
 <font color="red">!!! DATA_HASH_ERR: Stack data was modified (wrong hash)
 </font></pre>
 <pre>
-    stk_dump() called from src/stack.cpp:140 stk_push
-    stk[0x7fffffffe070] initialised in src/test/test.cpp:51 test_stack_error 
+    stk_dump() called from src/stack.cpp:142 stk_push
+    stk[0x7ffc27060c70] initialised in src/test/test.cpp:51 test_stack_error 
     {
         L_canary = 0x8BADF00DDEADDEAD
+        R_canary = 0x8BADF00DDEADDEAD
         size     = 11
         capacity = 16
+        min capacity = 2
         struct hash = 0x487D2C53
-        data   hash = 0x4E1E018E
-        data[0x55555555eb08] {
+        data   hash = 0x41457E81
+        data[0x604000000018] {
             L_canary = 0x8BADF00DDEADDEAD
             *[ 0] 123
             *[ 1] 0
             *[ 2] 1
             *[ 3] 2
             *[ 4] 3
-            *[ 5] 234
+            *[ 5] 111
             *[ 6] 5
             *[ 7] 6
             *[ 8] 7
@@ -235,26 +228,26 @@
              [15] (poison)
             R_canary = 0x8BADF00DDEADDEAD
         }
-        R_canary = 0x8BADF00DDEADDEAD
     }
-</pre>
 <pre>
     stk_dump() called from src/test/test.cpp:69 test_stack_error
-    stk[0x7fffffffe070] initialised in src/test/test.cpp:51 test_stack_error 
+    stk[0x7ffc27060c70] initialised in src/test/test.cpp:51 test_stack_error 
     {
         L_canary = 0x8BADF00DDEADDEAD
+        R_canary = 0x8BADF00DDEADDEAD
         size     = 11
         capacity = 16
+        min capacity = 2
         struct hash = 0x487D2C53
-        data   hash = 0x4E1E018E
-        data[0x55555555eb08] {
+        data   hash = 0x41457E81
+        data[0x604000000018] {
             L_canary = 0x8BADF00DDEADDEAD
             *[ 0] 123
             *[ 1] 0
             *[ 2] 1
             *[ 3] 2
             *[ 4] 3
-            *[ 5] 234
+            *[ 5] 111
             *[ 6] 5
             *[ 7] 6
             *[ 8] 7
@@ -267,9 +260,7 @@
              [15] (poison)
             R_canary = 0x8BADF00DDEADDEAD
         }
-        R_canary = 0x8BADF00DDEADDEAD
     }
-</pre>
 <pre>
 <font color="red">!!! NON_POISON_EMPTY: Empty element is not poison
 </font></pre>
@@ -277,22 +268,24 @@
 <font color="red">!!! DATA_HASH_ERR: Stack data was modified (wrong hash)
 </font></pre>
 <pre>
-    stk_dump() called from src/stack.cpp:63 stk_dtor
-    stk[0x7fffffffe070] initialised in src/test/test.cpp:51 test_stack_error 
+    stk_dump() called from src/stack.cpp:73 stk_dtor
+    stk[0x7ffc27060c70] initialised in src/test/test.cpp:51 test_stack_error 
     {
         L_canary = 0x8BADF00DDEADDEAD
+        R_canary = 0x8BADF00DDEADDEAD
         size     = 11
         capacity = 16
+        min capacity = 2
         struct hash = 0x487D2C53
-        data   hash = 0x4E1E018E
-        data[0x55555555eb08] {
+        data   hash = 0x41457E81
+        data[0x604000000018] {
             L_canary = 0x8BADF00DDEADDEAD
             *[ 0] 123
             *[ 1] 0
             *[ 2] 1
             *[ 3] 2
             *[ 4] 3
-            *[ 5] 234
+            *[ 5] 111
             *[ 6] 5
             *[ 7] 6
             *[ 8] 7
@@ -305,60 +298,59 @@
              [15] (poison)
             R_canary = 0x8BADF00DDEADDEAD
         }
-        R_canary = 0x8BADF00DDEADDEAD
     }
-</pre>
 <pre>
 <font color="red">!!! NOTHING_TO_POP: Program is trying to pop empty stack
 </font></pre>
 <pre>
-    stk_dump() called from src/stack.cpp:167 stk_pop
-    stk[0x7fffffffe070] initialised in src/test/test.cpp:72 test_stack_error 
+    stk_dump() called from src/stack.cpp:171 stk_pop
+    stk[0x7ffc27060c70] initialised in src/test/test.cpp:72 test_stack_error 
     {
         L_canary = 0x8BADF00DDEADDEAD
+        R_canary = 0x8BADF00DDEADDEAD
         size     = 0
         capacity = 2
+        min capacity = 2
         struct hash = 0x487D2C53
         data   hash = 0x0
-        data[0x55555555eb68] {
+        data[0x6030000002b8] {
             L_canary = 0x8BADF00DDEADDEAD
              [0] (poison)
              [1] (poison)
             R_canary = 0x8BADF00DDEADDEAD
         }
-        R_canary = 0x8BADF00DDEADDEAD
     }
-</pre>
 <pre>
     stk_dump() called from src/test/test.cpp:83 test_stack_error
-    stk[0x7fffffffe070] initialised in src/test/test.cpp:72 test_stack_error 
+    stk[0x7ffc27060c70] initialised in src/test/test.cpp:72 test_stack_error 
     {
         L_canary = 0x8BADF00DDEADDEAD
+        R_canary = 0x8BADF00DDEADDEAD
         size     = 0
         capacity = 2
+        min capacity = 2
         struct hash = 0x487D2C53
         data   hash = 0x0
-        data[0x55555555eb68] {
+        data[0x6030000002b8] {
             L_canary = 0x8BADF00DDEADDEAD
              [0] (poison)
              [1] (poison)
             R_canary = 0x8BADF00DDEADDEAD
         }
-        R_canary = 0x8BADF00DDEADDEAD
     }
-</pre>
 <pre>
     stk_dump() called from src/test/test.cpp:87 test_stack_error
-    stk[0x7fffffffe070] initialised in src/test/test.cpp:72 test_stack_error 
+    stk[0x7ffc27060c70] initialised in src/test/test.cpp:72 test_stack_error 
     {
         L_canary = 0x8BADF00DDEADDEAD
+        R_canary = 0x8BADF00DDEADDEAD
         size     = -1
         capacity = -1
+        min capacity = 2
         struct hash = 0x487D2C53
         data   hash = 0x0
         data[(nil)] {
         }
-        R_canary = 0x8BADF00DDEADDEAD
     }
 </pre>
 <h2>---Test stack (error) end---

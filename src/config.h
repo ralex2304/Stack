@@ -6,8 +6,8 @@
 #define HASH_PROTECT    ///< Enables hash protection
 
 
-typedef int Elem_t;                                              //< stack elements type
-static const Elem_t ELEM_T_POISON = __INT_MAX__ - 13;            //< poison value for stack
+typedef signed char Elem_t;                                              //< stack elements type
+static const Elem_t ELEM_T_POISON = 127 - 13;            //< poison value for stack
 #define ELEM_T_PRINTF   "%d"                                     //< Elem_t printf specificator
 
 typedef unsigned long long Canary_t;                             //< canary type

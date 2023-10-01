@@ -2,8 +2,8 @@ var stack_8cpp =
 [
     [ "CHECK_ERR_", "stack_8cpp.html#a0f2905892855073ba849455a73cd569b", null ],
     [ "PRINT_ERR_", "stack_8cpp.html#a4f9e8dba978737f226f1698e5d4ac66f", null ],
-    [ "stk_ctor", "stack_8cpp.html#acebf747ea274a34941598f3f39c61b1f", null ],
-    [ "stk_ctor_debug", "stack_8cpp.html#ab72daa39c0762ba17e9a0b32d6b6d111", null ],
+    [ "stk_ctor", "stack_8cpp.html#ac40f23ce0306e51ff48fb50482f041cf", null ],
+    [ "stk_ctor_debug", "stack_8cpp.html#a9b091b3dca354534e6d3db87fc1f24a5", null ],
     [ "stk_dtor", "stack_8cpp.html#a60863cc39088870cab1ccd33d1e8d2f6", null ],
     [ "stk_dump", "stack_8cpp.html#a512d9a3195de2d401bec9a3c64a29fd0", null ],
     [ "stk_pop", "stack_8cpp.html#af81453e30590dfee9dd3f4b35b9b30c1", null ],

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['low_5fcapacity_0',['LOW_CAPACITY',['../struct_stack.html#ae8242b5f1b2c3d98a6dbafc302e509d5a0a4d618cba92355bcf446359ec408e60',1,'Stack']]]
+  ['invalid_5fmin_5fcapacity_0',['INVALID_MIN_CAPACITY',['../struct_stack.html#ae8242b5f1b2c3d98a6dbafc302e509d5a60df658a23b1cc23a5f228015a51ebc2',1,'Stack']]]
 ];

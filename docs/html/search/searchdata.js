@@ -4,11 +4,11 @@ var indexSectionsWithContent =
   1: "lsv",
   2: "chlmrst",
   3: "cilmrst",
-  4: "cdfilnpsuv",
+  4: "cdflmnpsuv",
   5: "ce",
   6: "r",
-  7: "adlnopsu",
-  8: "bcdefhmpsv",
+  7: "adilnopsu",
+  8: "bcdefhmopsv",
   9: "s"
 };
 

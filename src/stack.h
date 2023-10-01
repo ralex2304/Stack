@@ -17,29 +17,30 @@
  * @brief Stack data struct
  */
 struct Stack {
-    static const ssize_t INIT_CAPACITY = 2;
+    static const ssize_t DEFAULT_CAPACITY = 2;
     static const Elem_t POISON = ELEM_T_POISON;
     static const ssize_t UNITIALISED_CAPACITY = -1;
 
     enum Results {
-        OK                  = 0x0000,
-        NOTHING_TO_POP      = 0x0001,
-        ALLOC_ERR           = 0x0002,
+        OK                   = 0x00000,
+        NOTHING_TO_POP       = 0x00001,
+        ALLOC_ERR            = 0x00002,
 
-        ALREADY_INITIALISED = 0x0004,
-        UNITIALISED         = 0x0008,
-        DATA_INVALID_PTR    = 0x0010,
-        POISON_VAL_FOUND    = 0x0020,
-        NON_POISON_EMPTY    = 0x0040,
-        STRUCT_HASH_ERR     = 0x0080,
-        DATA_HASH_ERR       = 0x0100,
-        LOW_CAPACITY        = 0x0200,
-        NEGATIVE_CAPACITY   = 0x0400,
-        NEGATIVE_SIZE       = 0x0800,
-        STRUCT_L_CANARY_ERR = 0x1000,
-        STRUCT_R_CANARY_ERR = 0x2000,
-        DATA_L_CANARY_ERR   = 0x4000,
-        DATA_R_CANARY_ERR   = 0x8000,
+        ALREADY_INITIALISED  = 0x00004,
+        UNITIALISED          = 0x00008,
+        DATA_INVALID_PTR     = 0x00010,
+        POISON_VAL_FOUND     = 0x00020,
+        NON_POISON_EMPTY     = 0x00040,
+        STRUCT_HASH_ERR      = 0x00080,
+        DATA_HASH_ERR        = 0x00100,
+        LOW_CAPACITY         = 0x00200,
+        NEGATIVE_CAPACITY    = 0x00400,
+        INVALID_MIN_CAPACITY = 0x00800,
+        NEGATIVE_SIZE        = 0x01000,
+        STRUCT_L_CANARY_ERR  = 0x02000,
+        STRUCT_R_CANARY_ERR  = 0x04000,
+        DATA_L_CANARY_ERR    = 0x08000,
+        DATA_R_CANARY_ERR    = 0x10000,
     };
 
 #ifdef CANARY_PROTECT
@@ -48,11 +49,12 @@ struct Stack {
 
     Elem_t* data = nullptr;
     ssize_t capacity = UNITIALISED_CAPACITY;
+    size_t min_capacity = DEFAULT_CAPACITY;
     ssize_t size = UNITIALISED_CAPACITY;
 
 #ifdef HASH_PROTECT
     CRC32_t struct_hash = 0;
-    CRC32_t data_hash = 0;
+    CRC32_t data_hash   = 0;
 #endif // #ifdef HASH_PROTECT
 
 #ifdef DEBUG
@@ -69,10 +71,23 @@ struct Stack {
  * @attention Use with macros STK_CTOR or STK_CTOR_CAP
  *
  * @param stk
- * @param init_capacity
+ * @param min_capacity
  * @return int
  */
-int stk_ctor(Stack* stk, const ssize_t init_capacity = Stack::INIT_CAPACITY);
+int stk_ctor(Stack* stk, const size_t min_capacity = Stack::DEFAULT_CAPACITY);
+
+/**
+ * @brief Checks if stack is initialised
+ *
+ * @param stk
+ * @return true
+ * @return false
+ */
+inline bool stk_is_initialised(const Stack* stk) {
+    return stk->size != stk->UNITIALISED_CAPACITY ||
+           stk->capacity != stk->UNITIALISED_CAPACITY ||
+           stk->data != nullptr;
+}
 
 #ifdef DEBUG
 /**
@@ -145,15 +160,20 @@ int stk_dtor(Stack* stk);
 #ifdef DEBUG
 
     /**
+     * @brief hidden ifdef macros for DEBUG
+     */
+    #define ON_DEBUG(...) __VA_ARGS__
+
+    /**
      * @brief Stack constructor in debug mode (calls stk_ctor() inside)
      *
      * @param stk
      * @param var_data initialising place
-     * @param init_capacity
+     * @param min_capacity
      * @return int
      */
     int stk_ctor_debug(Stack* stk, const VarCodeData var_data,
-                       const ssize_t init_capacity = Stack::INIT_CAPACITY);
+                       const size_t min_capacity = Stack::DEFAULT_CAPACITY);
 
     /**
      * @brief Dumps all stack data to log
@@ -208,6 +228,11 @@ int stk_dtor(Stack* stk);
     #define STK_DUMP(stk)   stk_dump(stk, VAR_CODE_DATA())
 #else // #ifndef DEBUG
     /**
+     * @brief hidden ifdef macros for DEBUG
+     */
+    #define ON_DEBUG(...)
+
+    /**
      * @brief Used in the beginning of stk_ function
      */
     #define STK_ASSERT(stk) Stack::OK
@@ -228,6 +253,11 @@ int stk_dtor(Stack* stk);
 #endif // #ifdef DEBUG
 
 #ifdef HASH_PROTECT
+
+/**
+ * @brief hidden ifdef macros for HASH_PROTECT
+ */
+#define ON_HASH_PROTECT(...) __VA_ARGS__
 
 /**
  * @brief Calculates hash for Stack struct
@@ -251,7 +281,7 @@ inline CRC32_t stk_struct_hash_calc(Stack* stk) {
 inline CRC32_t stk_data_hash_calc(Stack* stk) {
     assert(stk);
 
-    return crc_add(0, (char*)(stk->data - 1), sizeof(Elem_t) * stk->size);
+    return crc_add(0, (char*)stk->data, sizeof(Elem_t) * stk->size);
 }
 
 /**
@@ -267,6 +297,70 @@ inline CRC32_t stk_data_hash_push(Stack* stk, Elem_t elem, CRC32_t crc) {
 
     return crc_add(crc, (char*)(&elem), sizeof(elem));
 }
+#else // #ifndef HASH_PROTECT
+
+/**
+ * @brief hidden ifdef macros for HASH_PROTECT
+ */
+#define ON_HASH_PROTECT(...)
+
 #endif // #ifdef HASH_PROTECT
+
+#ifdef CANARY_PROTECT
+
+/**
+ * @brief hidden ifdef macros for CANARY_PROTECT
+ */
+#define ON_CANARY_PROTECT(...) __VA_ARGS__
+
+/**
+ * @brief Returns pointer to stk.data left canary
+ *
+ * @param stk
+ * @return Canary_t*
+ */
+inline Canary_t* left_data_canary_ptr(const Stack* stk) {
+    assert(stk);
+    assert(stk->data);
+
+    return (Canary_t*)stk->data - 1;
+}
+
+/**
+ * @brief Returns pointer to stk.data right canary
+ *
+ * @param stk
+ * @return Canary_t*
+ */
+inline Canary_t* right_data_canary_ptr(const Stack* stk) {
+    assert(stk);
+    assert(stk->data);
+
+    return (Canary_t*)((char*)stk->data + stk->capacity * sizeof(Elem_t)
+                     + sizeof(Canary_t) - stk->capacity * sizeof(Elem_t) % sizeof(Canary_t));
+}
+
+#else  // #ifndef CANARY_PROTECT
+
+/**
+ * @brief hidden ifdef macros for CANARY_PROTECT
+ */
+#define ON_CANARY_PROTECT(...)
+
+#endif // #ifdef CANARY_PROTECT
+
+
+
+/**
+ * @brief Calcs stk.data size in bytes
+ *
+ * @param len data array len
+ * @return size_t
+ */
+inline size_t calc_stk_data_size(size_t len) {
+    return len * sizeof(Elem_t)
+           ON_CANARY_PROTECT(+ sizeof(Canary_t) - len * sizeof(Elem_t) % sizeof(Canary_t)
+                             + 2 * sizeof(Canary_t));
+}
 
 #endif // #ifndef STACK_H_
