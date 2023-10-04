@@ -121,7 +121,7 @@ Public Types</h2></td></tr>
 , <a class="el" href="struct_stack.html#ae8242b5f1b2c3d98a6dbafc302e509d5a0a4d618cba92355bcf446359ec408e60">LOW_CAPACITY</a> = 0x00200
 , <a class="el" href="struct_stack.html#ae8242b5f1b2c3d98a6dbafc302e509d5af68a03245ae05bdfca1879f027972e0c">NEGATIVE_CAPACITY</a> = 0x00400
 , <br />
-&#160;&#160;<a class="el" href="struct_stack.html#ae8242b5f1b2c3d98a6dbafc302e509d5a60df658a23b1cc23a5f228015a51ebc2">INVALID_MIN_CAPACITY</a> = 0x00800
+&#160;&#160;<a class="el" href="struct_stack.html#ae8242b5f1b2c3d98a6dbafc302e509d5aa41ce2e438b0124421ebaa0a7bd4a8b2">INVALID_CAPACITY</a> = 0x00800
 , <a class="el" href="struct_stack.html#ae8242b5f1b2c3d98a6dbafc302e509d5ad85f8db9f888d5f54791ec3dbe8dae1c">NEGATIVE_SIZE</a> = 0x01000
 , <a class="el" href="struct_stack.html#ae8242b5f1b2c3d98a6dbafc302e509d5a7972d76b7f1e784ff89358e60e73f6c5">STRUCT_L_CANARY_ERR</a> = 0x02000
 , <a class="el" href="struct_stack.html#ae8242b5f1b2c3d98a6dbafc302e509d5a8deedabd24b6f0684dbf7b7ee110bd21">STRUCT_R_CANARY_ERR</a> = 0x04000
@@ -140,8 +140,6 @@ Public Attributes</h2></td></tr>
 <tr class="separator:a02ed96691b2e6636bd9155758e8ee8cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2f2b41ebbf7c8adce40da902814e1c7b"><td class="memItemLeft" align="right" valign="top">ssize_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_stack.html#a2f2b41ebbf7c8adce40da902814e1c7b">capacity</a> = <a class="el" href="struct_stack.html#aa50c905a38095756b153a80c4e974ee2">UNITIALISED_CAPACITY</a></td></tr>
 <tr class="separator:a2f2b41ebbf7c8adce40da902814e1c7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a27c2c24df341868a66cea296228b7ca2"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_stack.html#a27c2c24df341868a66cea296228b7ca2">min_capacity</a> = <a class="el" href="struct_stack.html#a02dd99e7282f168c46deef6f08f40a58">DEFAULT_CAPACITY</a></td></tr>
-<tr class="separator:a27c2c24df341868a66cea296228b7ca2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3b6cb0b4ff732c7bbbaaa5d3860bcd1a"><td class="memItemLeft" align="right" valign="top">ssize_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_stack.html#a3b6cb0b4ff732c7bbbaaa5d3860bcd1a">size</a> = <a class="el" href="struct_stack.html#aa50c905a38095756b153a80c4e974ee2">UNITIALISED_CAPACITY</a></td></tr>
 <tr class="separator:a3b6cb0b4ff732c7bbbaaa5d3860bcd1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5d85c28620cf7c22e622df2d8a58f35b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="crc32_8h.html#aec0adc213b23c34ec982fa84dceb81fd">CRC32_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_stack.html#a5d85c28620cf7c22e622df2d8a58f35b">struct_hash</a> = 0</td></tr>
@@ -155,12 +153,12 @@ Public Attributes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
-<tr class="memitem:a02dd99e7282f168c46deef6f08f40a58"><td class="memItemLeft" align="right" valign="top">static const ssize_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_stack.html#a02dd99e7282f168c46deef6f08f40a58">DEFAULT_CAPACITY</a> = 2</td></tr>
+<tr class="memitem:a02dd99e7282f168c46deef6f08f40a58"><td class="memItemLeft" align="right" valign="top">static const ssize_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_stack.html#a02dd99e7282f168c46deef6f08f40a58">DEFAULT_CAPACITY</a> = 8</td></tr>
 <tr class="separator:a02dd99e7282f168c46deef6f08f40a58"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a48bbbcc55325f72dcbe2414dd9598a30"><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="config_8h.html#a2cc56bfd987df84942ab4dc387f55160">Elem_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_stack.html#a48bbbcc55325f72dcbe2414dd9598a30">POISON</a> = ELEM_T_POISON</td></tr>
-<tr class="separator:a48bbbcc55325f72dcbe2414dd9598a30"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa50c905a38095756b153a80c4e974ee2"><td class="memItemLeft" align="right" valign="top">static const ssize_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_stack.html#aa50c905a38095756b153a80c4e974ee2">UNITIALISED_CAPACITY</a> = -1</td></tr>
 <tr class="separator:aa50c905a38095756b153a80c4e974ee2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a48bbbcc55325f72dcbe2414dd9598a30"><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="config_8h.html#a2cc56bfd987df84942ab4dc387f55160">Elem_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_stack.html#a48bbbcc55325f72dcbe2414dd9598a30">POISON</a> = ELEM_T_POISON</td></tr>
+<tr class="separator:a48bbbcc55325f72dcbe2414dd9598a30"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="struct_stack.html" title="Stack data struct.">Stack</a> data struct. </p>
@@ -191,7 +189,7 @@ Static Public Attributes</h2></td></tr>
 <tr><td class="fieldname"><a id="ae8242b5f1b2c3d98a6dbafc302e509d5a2dbe0f67c49b72aef7d6253cdc1f9d43" name="ae8242b5f1b2c3d98a6dbafc302e509d5a2dbe0f67c49b72aef7d6253cdc1f9d43"></a>DATA_HASH_ERR&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="ae8242b5f1b2c3d98a6dbafc302e509d5a0a4d618cba92355bcf446359ec408e60" name="ae8242b5f1b2c3d98a6dbafc302e509d5a0a4d618cba92355bcf446359ec408e60"></a>LOW_CAPACITY&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="ae8242b5f1b2c3d98a6dbafc302e509d5af68a03245ae05bdfca1879f027972e0c" name="ae8242b5f1b2c3d98a6dbafc302e509d5af68a03245ae05bdfca1879f027972e0c"></a>NEGATIVE_CAPACITY&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="ae8242b5f1b2c3d98a6dbafc302e509d5a60df658a23b1cc23a5f228015a51ebc2" name="ae8242b5f1b2c3d98a6dbafc302e509d5a60df658a23b1cc23a5f228015a51ebc2"></a>INVALID_MIN_CAPACITY&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ae8242b5f1b2c3d98a6dbafc302e509d5aa41ce2e438b0124421ebaa0a7bd4a8b2" name="ae8242b5f1b2c3d98a6dbafc302e509d5aa41ce2e438b0124421ebaa0a7bd4a8b2"></a>INVALID_CAPACITY&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="ae8242b5f1b2c3d98a6dbafc302e509d5ad85f8db9f888d5f54791ec3dbe8dae1c" name="ae8242b5f1b2c3d98a6dbafc302e509d5ad85f8db9f888d5f54791ec3dbe8dae1c"></a>NEGATIVE_SIZE&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="ae8242b5f1b2c3d98a6dbafc302e509d5a7972d76b7f1e784ff89358e60e73f6c5" name="ae8242b5f1b2c3d98a6dbafc302e509d5a7972d76b7f1e784ff89358e60e73f6c5"></a>STRUCT_L_CANARY_ERR&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="ae8242b5f1b2c3d98a6dbafc302e509d5a8deedabd24b6f0684dbf7b7ee110bd21" name="ae8242b5f1b2c3d98a6dbafc302e509d5a8deedabd24b6f0684dbf7b7ee110bd21"></a>STRUCT_R_CANARY_ERR&#160;</td><td class="fielddoc"></td></tr>
@@ -214,7 +212,7 @@ Static Public Attributes</h2></td></tr>
 <div class="line"><span class="lineno">   35</span>        <a class="code hl_enumvalue" href="struct_stack.html#ae8242b5f1b2c3d98a6dbafc302e509d5a2dbe0f67c49b72aef7d6253cdc1f9d43">DATA_HASH_ERR</a>        = 0x00100,</div>
 <div class="line"><span class="lineno">   36</span>        <a class="code hl_enumvalue" href="struct_stack.html#ae8242b5f1b2c3d98a6dbafc302e509d5a0a4d618cba92355bcf446359ec408e60">LOW_CAPACITY</a>         = 0x00200,</div>
 <div class="line"><span class="lineno">   37</span>        <a class="code hl_enumvalue" href="struct_stack.html#ae8242b5f1b2c3d98a6dbafc302e509d5af68a03245ae05bdfca1879f027972e0c">NEGATIVE_CAPACITY</a>    = 0x00400,</div>
-<div class="line"><span class="lineno">   38</span>        <a class="code hl_enumvalue" href="struct_stack.html#ae8242b5f1b2c3d98a6dbafc302e509d5a60df658a23b1cc23a5f228015a51ebc2">INVALID_MIN_CAPACITY</a> = 0x00800,</div>
+<div class="line"><span class="lineno">   38</span>        <a class="code hl_enumvalue" href="struct_stack.html#ae8242b5f1b2c3d98a6dbafc302e509d5aa41ce2e438b0124421ebaa0a7bd4a8b2">INVALID_CAPACITY</a>     = 0x00800,</div>
 <div class="line"><span class="lineno">   39</span>        <a class="code hl_enumvalue" href="struct_stack.html#ae8242b5f1b2c3d98a6dbafc302e509d5ad85f8db9f888d5f54791ec3dbe8dae1c">NEGATIVE_SIZE</a>        = 0x01000,</div>
 <div class="line"><span class="lineno">   40</span>        <a class="code hl_enumvalue" href="struct_stack.html#ae8242b5f1b2c3d98a6dbafc302e509d5a7972d76b7f1e784ff89358e60e73f6c5">STRUCT_L_CANARY_ERR</a>  = 0x02000,</div>
 <div class="line"><span class="lineno">   41</span>        <a class="code hl_enumvalue" href="struct_stack.html#ae8242b5f1b2c3d98a6dbafc302e509d5a8deedabd24b6f0684dbf7b7ee110bd21">STRUCT_R_CANARY_ERR</a>  = 0x04000,</div>
@@ -226,7 +224,6 @@ Static Public Attributes</h2></td></tr>
 <div class="ttc" id="astruct_stack_html_ae8242b5f1b2c3d98a6dbafc302e509d5a21fffebce3cb1827d31bfb5bc44dfca8"><div class="ttname"><a href="struct_stack.html#ae8242b5f1b2c3d98a6dbafc302e509d5a21fffebce3cb1827d31bfb5bc44dfca8">Stack::NOTHING_TO_POP</a></div><div class="ttdeci">@ NOTHING_TO_POP</div><div class="ttdef"><b>Definition</b> <a href="stack_8h_source.html#l00026">stack.h:26</a></div></div>
 <div class="ttc" id="astruct_stack_html_ae8242b5f1b2c3d98a6dbafc302e509d5a2dbe0f67c49b72aef7d6253cdc1f9d43"><div class="ttname"><a href="struct_stack.html#ae8242b5f1b2c3d98a6dbafc302e509d5a2dbe0f67c49b72aef7d6253cdc1f9d43">Stack::DATA_HASH_ERR</a></div><div class="ttdeci">@ DATA_HASH_ERR</div><div class="ttdef"><b>Definition</b> <a href="stack_8h_source.html#l00035">stack.h:35</a></div></div>
 <div class="ttc" id="astruct_stack_html_ae8242b5f1b2c3d98a6dbafc302e509d5a31325202b6e6bfa0cb1b1e0c0601bea5"><div class="ttname"><a href="struct_stack.html#ae8242b5f1b2c3d98a6dbafc302e509d5a31325202b6e6bfa0cb1b1e0c0601bea5">Stack::DATA_R_CANARY_ERR</a></div><div class="ttdeci">@ DATA_R_CANARY_ERR</div><div class="ttdef"><b>Definition</b> <a href="stack_8h_source.html#l00043">stack.h:43</a></div></div>
-<div class="ttc" id="astruct_stack_html_ae8242b5f1b2c3d98a6dbafc302e509d5a60df658a23b1cc23a5f228015a51ebc2"><div class="ttname"><a href="struct_stack.html#ae8242b5f1b2c3d98a6dbafc302e509d5a60df658a23b1cc23a5f228015a51ebc2">Stack::INVALID_MIN_CAPACITY</a></div><div class="ttdeci">@ INVALID_MIN_CAPACITY</div><div class="ttdef"><b>Definition</b> <a href="stack_8h_source.html#l00038">stack.h:38</a></div></div>
 <div class="ttc" id="astruct_stack_html_ae8242b5f1b2c3d98a6dbafc302e509d5a7972d76b7f1e784ff89358e60e73f6c5"><div class="ttname"><a href="struct_stack.html#ae8242b5f1b2c3d98a6dbafc302e509d5a7972d76b7f1e784ff89358e60e73f6c5">Stack::STRUCT_L_CANARY_ERR</a></div><div class="ttdeci">@ STRUCT_L_CANARY_ERR</div><div class="ttdef"><b>Definition</b> <a href="stack_8h_source.html#l00040">stack.h:40</a></div></div>
 <div class="ttc" id="astruct_stack_html_ae8242b5f1b2c3d98a6dbafc302e509d5a8cccf06af95813b4626427c4c2595033"><div class="ttname"><a href="struct_stack.html#ae8242b5f1b2c3d98a6dbafc302e509d5a8cccf06af95813b4626427c4c2595033">Stack::STRUCT_HASH_ERR</a></div><div class="ttdeci">@ STRUCT_HASH_ERR</div><div class="ttdef"><b>Definition</b> <a href="stack_8h_source.html#l00034">stack.h:34</a></div></div>
 <div class="ttc" id="astruct_stack_html_ae8242b5f1b2c3d98a6dbafc302e509d5a8deedabd24b6f0684dbf7b7ee110bd21"><div class="ttname"><a href="struct_stack.html#ae8242b5f1b2c3d98a6dbafc302e509d5a8deedabd24b6f0684dbf7b7ee110bd21">Stack::STRUCT_R_CANARY_ERR</a></div><div class="ttdeci">@ STRUCT_R_CANARY_ERR</div><div class="ttdef"><b>Definition</b> <a href="stack_8h_source.html#l00041">stack.h:41</a></div></div>
@@ -234,6 +231,7 @@ Static Public Attributes</h2></td></tr>
 <div class="ttc" id="astruct_stack_html_ae8242b5f1b2c3d98a6dbafc302e509d5a972d0ae4ce1c7527212f6e29d78df8fe"><div class="ttname"><a href="struct_stack.html#ae8242b5f1b2c3d98a6dbafc302e509d5a972d0ae4ce1c7527212f6e29d78df8fe">Stack::DATA_L_CANARY_ERR</a></div><div class="ttdeci">@ DATA_L_CANARY_ERR</div><div class="ttdef"><b>Definition</b> <a href="stack_8h_source.html#l00042">stack.h:42</a></div></div>
 <div class="ttc" id="astruct_stack_html_ae8242b5f1b2c3d98a6dbafc302e509d5a9e1e940df37869517f75f4d2198aebad"><div class="ttname"><a href="struct_stack.html#ae8242b5f1b2c3d98a6dbafc302e509d5a9e1e940df37869517f75f4d2198aebad">Stack::NON_POISON_EMPTY</a></div><div class="ttdeci">@ NON_POISON_EMPTY</div><div class="ttdef"><b>Definition</b> <a href="stack_8h_source.html#l00033">stack.h:33</a></div></div>
 <div class="ttc" id="astruct_stack_html_ae8242b5f1b2c3d98a6dbafc302e509d5aa17ea00c21ef8ada8344e88a5d63a0de"><div class="ttname"><a href="struct_stack.html#ae8242b5f1b2c3d98a6dbafc302e509d5aa17ea00c21ef8ada8344e88a5d63a0de">Stack::POISON_VAL_FOUND</a></div><div class="ttdeci">@ POISON_VAL_FOUND</div><div class="ttdef"><b>Definition</b> <a href="stack_8h_source.html#l00032">stack.h:32</a></div></div>
+<div class="ttc" id="astruct_stack_html_ae8242b5f1b2c3d98a6dbafc302e509d5aa41ce2e438b0124421ebaa0a7bd4a8b2"><div class="ttname"><a href="struct_stack.html#ae8242b5f1b2c3d98a6dbafc302e509d5aa41ce2e438b0124421ebaa0a7bd4a8b2">Stack::INVALID_CAPACITY</a></div><div class="ttdeci">@ INVALID_CAPACITY</div><div class="ttdef"><b>Definition</b> <a href="stack_8h_source.html#l00038">stack.h:38</a></div></div>
 <div class="ttc" id="astruct_stack_html_ae8242b5f1b2c3d98a6dbafc302e509d5ab37ce957889466c726330c2b5b513b4f"><div class="ttname"><a href="struct_stack.html#ae8242b5f1b2c3d98a6dbafc302e509d5ab37ce957889466c726330c2b5b513b4f">Stack::DATA_INVALID_PTR</a></div><div class="ttdeci">@ DATA_INVALID_PTR</div><div class="ttdef"><b>Definition</b> <a href="stack_8h_source.html#l00031">stack.h:31</a></div></div>
 <div class="ttc" id="astruct_stack_html_ae8242b5f1b2c3d98a6dbafc302e509d5ad85f8db9f888d5f54791ec3dbe8dae1c"><div class="ttname"><a href="struct_stack.html#ae8242b5f1b2c3d98a6dbafc302e509d5ad85f8db9f888d5f54791ec3dbe8dae1c">Stack::NEGATIVE_SIZE</a></div><div class="ttdeci">@ NEGATIVE_SIZE</div><div class="ttdef"><b>Definition</b> <a href="stack_8h_source.html#l00039">stack.h:39</a></div></div>
 <div class="ttc" id="astruct_stack_html_ae8242b5f1b2c3d98a6dbafc302e509d5ae1ec0912fd480f7fdd5f38f4e990ffed"><div class="ttname"><a href="struct_stack.html#ae8242b5f1b2c3d98a6dbafc302e509d5ae1ec0912fd480f7fdd5f38f4e990ffed">Stack::UNITIALISED</a></div><div class="ttdeci">@ UNITIALISED</div><div class="ttdef"><b>Definition</b> <a href="stack_8h_source.html#l00030">stack.h:30</a></div></div>
@@ -257,7 +255,7 @@ Static Public Attributes</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="stack_8h_source.html#l00047">47</a> of file <a class="el" href="stack_8h_source.html">stack.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="stack_8cpp_source.html#l00226">stk_dump()</a>, and <a class="el" href="stack_8cpp_source.html#l00301">stk_verify()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="stack_8cpp_source.html#l00223">stk_dump()</a>, and <a class="el" href="stack_8cpp_source.html#l00297">stk_verify()</a>.</p>
 
 </div>
 </div>
@@ -273,9 +271,9 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="stack_8h_source.html#l00065">65</a> of file <a class="el" href="stack_8h_source.html">stack.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="stack_8h_source.html#l00064">64</a> of file <a class="el" href="stack_8h_source.html">stack.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="stack_8cpp_source.html#l00226">stk_dump()</a>, and <a class="el" href="stack_8cpp_source.html#l00301">stk_verify()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="stack_8cpp_source.html#l00223">stk_dump()</a>, and <a class="el" href="stack_8cpp_source.html#l00297">stk_verify()</a>.</p>
 
 </div>
 </div>
@@ -293,7 +291,7 @@ Static Public Attributes</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="stack_8h_source.html#l00051">51</a> of file <a class="el" href="stack_8h_source.html">stack.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="stack_8h_source.html#l00335">right_data_canary_ptr()</a>, <a class="el" href="stack_8cpp_source.html#l00017">stk_ctor()</a>, <a class="el" href="stack_8cpp_source.html#l00069">stk_dtor()</a>, <a class="el" href="stack_8cpp_source.html#l00226">stk_dump()</a>, <a class="el" href="stack_8h_source.html#l00086">stk_is_initialised()</a>, <a class="el" href="stack_8cpp_source.html#l00097">stk_resize()</a>, and <a class="el" href="stack_8cpp_source.html#l00301">stk_verify()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="stack_8h_source.html#l00370">right_data_canary_ptr()</a>, <a class="el" href="stack_8cpp_source.html#l00019">stk_ctor()</a>, <a class="el" href="stack_8cpp_source.html#l00069">stk_dtor()</a>, <a class="el" href="stack_8cpp_source.html#l00223">stk_dump()</a>, <a class="el" href="stack_8h_source.html#l00085">stk_is_initialised()</a>, <a class="el" href="stack_8cpp_source.html#l00097">stk_resize()</a>, <a class="el" href="stack_8h_source.html#l00168">stk_resize_calc_down()</a>, <a class="el" href="stack_8h_source.html#l00151">stk_resize_calc_up()</a>, and <a class="el" href="stack_8cpp_source.html#l00297">stk_verify()</a>.</p>
 
 </div>
 </div>
@@ -311,7 +309,7 @@ Static Public Attributes</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="stack_8h_source.html#l00050">50</a> of file <a class="el" href="stack_8h_source.html">stack.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="stack_8h_source.html#l00322">left_data_canary_ptr()</a>, <a class="el" href="stack_8h_source.html#l00335">right_data_canary_ptr()</a>, <a class="el" href="stack_8cpp_source.html#l00017">stk_ctor()</a>, <a class="el" href="stack_8h_source.html#l00281">stk_data_hash_calc()</a>, <a class="el" href="stack_8cpp_source.html#l00069">stk_dtor()</a>, <a class="el" href="stack_8cpp_source.html#l00226">stk_dump()</a>, <a class="el" href="stack_8h_source.html#l00086">stk_is_initialised()</a>, <a class="el" href="stack_8cpp_source.html#l00164">stk_pop()</a>, <a class="el" href="stack_8cpp_source.html#l00141">stk_push()</a>, <a class="el" href="stack_8cpp_source.html#l00097">stk_resize()</a>, <a class="el" href="stack_8cpp_source.html#l00301">stk_verify()</a>, and <a class="el" href="test_8cpp_source.html#l00047">test_stack_error()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="stack_8h_source.html#l00357">left_data_canary_ptr()</a>, <a class="el" href="stack_8h_source.html#l00370">right_data_canary_ptr()</a>, <a class="el" href="stack_8cpp_source.html#l00019">stk_ctor()</a>, <a class="el" href="stack_8h_source.html#l00316">stk_data_hash_calc()</a>, <a class="el" href="stack_8cpp_source.html#l00069">stk_dtor()</a>, <a class="el" href="stack_8cpp_source.html#l00223">stk_dump()</a>, <a class="el" href="stack_8h_source.html#l00085">stk_is_initialised()</a>, <a class="el" href="stack_8cpp_source.html#l00161">stk_pop()</a>, <a class="el" href="stack_8cpp_source.html#l00138">stk_push()</a>, <a class="el" href="stack_8cpp_source.html#l00097">stk_resize()</a>, <a class="el" href="stack_8cpp_source.html#l00297">stk_verify()</a>, and <a class="el" href="test_8cpp_source.html#l00047">test_stack_error()</a>.</p>
 
 </div>
 </div>
@@ -327,9 +325,9 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="stack_8h_source.html#l00057">57</a> of file <a class="el" href="stack_8h_source.html">stack.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="stack_8h_source.html#l00056">56</a> of file <a class="el" href="stack_8h_source.html">stack.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="stack_8cpp_source.html#l00017">stk_ctor()</a>, <a class="el" href="stack_8cpp_source.html#l00069">stk_dtor()</a>, <a class="el" href="stack_8cpp_source.html#l00226">stk_dump()</a>, <a class="el" href="stack_8cpp_source.html#l00164">stk_pop()</a>, <a class="el" href="stack_8cpp_source.html#l00141">stk_push()</a>, and <a class="el" href="stack_8cpp_source.html#l00301">stk_verify()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="stack_8cpp_source.html#l00019">stk_ctor()</a>, <a class="el" href="stack_8cpp_source.html#l00069">stk_dtor()</a>, <a class="el" href="stack_8cpp_source.html#l00223">stk_dump()</a>, <a class="el" href="stack_8cpp_source.html#l00161">stk_pop()</a>, <a class="el" href="stack_8cpp_source.html#l00138">stk_push()</a>, and <a class="el" href="stack_8cpp_source.html#l00297">stk_verify()</a>.</p>
 
 </div>
 </div>
@@ -343,7 +341,7 @@ Static Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const ssize_t Stack::DEFAULT_CAPACITY = 2</td>
+          <td class="memname">const ssize_t Stack::DEFAULT_CAPACITY = 8</td>
         </tr>
       </table>
   </td>
@@ -355,23 +353,7 @@ Static Public Attributes</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="stack_8h_source.html#l00020">20</a> of file <a class="el" href="stack_8h_source.html">stack.h</a>.</p>
 
-</div>
-</div>
-<a id="a27c2c24df341868a66cea296228b7ca2" name="a27c2c24df341868a66cea296228b7ca2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a27c2c24df341868a66cea296228b7ca2">&#9670;&#160;</a></span>min_capacity</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">size_t Stack::min_capacity = <a class="el" href="struct_stack.html#a02dd99e7282f168c46deef6f08f40a58">DEFAULT_CAPACITY</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="stack_8h_source.html#l00052">52</a> of file <a class="el" href="stack_8h_source.html">stack.h</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="stack_8cpp_source.html#l00017">stk_ctor()</a>, <a class="el" href="stack_8cpp_source.html#l00226">stk_dump()</a>, <a class="el" href="stack_8cpp_source.html#l00097">stk_resize()</a>, and <a class="el" href="stack_8cpp_source.html#l00301">stk_verify()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="stack_8h_source.html#l00168">stk_resize_calc_down()</a>.</p>
 
 </div>
 </div>
@@ -395,9 +377,9 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="stack_8h_source.html#l00021">21</a> of file <a class="el" href="stack_8h_source.html">stack.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="stack_8h_source.html#l00022">22</a> of file <a class="el" href="stack_8h_source.html">stack.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="stack_8cpp_source.html#l00226">stk_dump()</a>, <a class="el" href="stack_8cpp_source.html#l00164">stk_pop()</a>, and <a class="el" href="stack_8cpp_source.html#l00301">stk_verify()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="stack_8cpp_source.html#l00223">stk_dump()</a>, <a class="el" href="stack_8cpp_source.html#l00161">stk_pop()</a>, and <a class="el" href="stack_8cpp_source.html#l00297">stk_verify()</a>.</p>
 
 </div>
 </div>
@@ -413,9 +395,9 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="stack_8h_source.html#l00053">53</a> of file <a class="el" href="stack_8h_source.html">stack.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="stack_8h_source.html#l00052">52</a> of file <a class="el" href="stack_8h_source.html">stack.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="stack_8cpp_source.html#l00017">stk_ctor()</a>, <a class="el" href="stack_8h_source.html#l00281">stk_data_hash_calc()</a>, <a class="el" href="stack_8cpp_source.html#l00069">stk_dtor()</a>, <a class="el" href="stack_8cpp_source.html#l00226">stk_dump()</a>, <a class="el" href="stack_8h_source.html#l00086">stk_is_initialised()</a>, <a class="el" href="stack_8cpp_source.html#l00164">stk_pop()</a>, <a class="el" href="stack_8cpp_source.html#l00141">stk_push()</a>, <a class="el" href="stack_8cpp_source.html#l00097">stk_resize()</a>, and <a class="el" href="stack_8cpp_source.html#l00301">stk_verify()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="stack_8cpp_source.html#l00019">stk_ctor()</a>, <a class="el" href="stack_8h_source.html#l00316">stk_data_hash_calc()</a>, <a class="el" href="stack_8cpp_source.html#l00069">stk_dtor()</a>, <a class="el" href="stack_8cpp_source.html#l00223">stk_dump()</a>, <a class="el" href="stack_8h_source.html#l00085">stk_is_initialised()</a>, <a class="el" href="stack_8cpp_source.html#l00161">stk_pop()</a>, <a class="el" href="stack_8cpp_source.html#l00138">stk_push()</a>, <a class="el" href="stack_8h_source.html#l00168">stk_resize_calc_down()</a>, <a class="el" href="stack_8h_source.html#l00151">stk_resize_calc_up()</a>, and <a class="el" href="stack_8cpp_source.html#l00297">stk_verify()</a>.</p>
 
 </div>
 </div>
@@ -431,9 +413,9 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="stack_8h_source.html#l00056">56</a> of file <a class="el" href="stack_8h_source.html">stack.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="stack_8h_source.html#l00055">55</a> of file <a class="el" href="stack_8h_source.html">stack.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="stack_8cpp_source.html#l00017">stk_ctor()</a>, <a class="el" href="stack_8cpp_source.html#l00069">stk_dtor()</a>, <a class="el" href="stack_8cpp_source.html#l00226">stk_dump()</a>, <a class="el" href="stack_8cpp_source.html#l00164">stk_pop()</a>, <a class="el" href="stack_8cpp_source.html#l00141">stk_push()</a>, <a class="el" href="stack_8cpp_source.html#l00097">stk_resize()</a>, <a class="el" href="stack_8h_source.html#l00268">stk_struct_hash_calc()</a>, and <a class="el" href="stack_8cpp_source.html#l00301">stk_verify()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="stack_8cpp_source.html#l00019">stk_ctor()</a>, <a class="el" href="stack_8cpp_source.html#l00069">stk_dtor()</a>, <a class="el" href="stack_8cpp_source.html#l00223">stk_dump()</a>, <a class="el" href="stack_8cpp_source.html#l00161">stk_pop()</a>, <a class="el" href="stack_8cpp_source.html#l00138">stk_push()</a>, <a class="el" href="stack_8cpp_source.html#l00097">stk_resize()</a>, <a class="el" href="stack_8h_source.html#l00303">stk_struct_hash_calc()</a>, and <a class="el" href="stack_8cpp_source.html#l00297">stk_verify()</a>.</p>
 
 </div>
 </div>
@@ -457,9 +439,9 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="stack_8h_source.html#l00022">22</a> of file <a class="el" href="stack_8h_source.html">stack.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="stack_8h_source.html#l00021">21</a> of file <a class="el" href="stack_8h_source.html">stack.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="stack_8cpp_source.html#l00069">stk_dtor()</a>, and <a class="el" href="stack_8h_source.html#l00086">stk_is_initialised()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="stack_8cpp_source.html#l00069">stk_dtor()</a>, and <a class="el" href="stack_8h_source.html#l00085">stk_is_initialised()</a>.</p>
 
 </div>
 </div>
@@ -475,14 +457,15 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="stack_8h_source.html#l00061">61</a> of file <a class="el" href="stack_8h_source.html">stack.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="stack_8h_source.html#l00060">60</a> of file <a class="el" href="stack_8h_source.html">stack.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="stack_8cpp_source.html#l00006">stk_ctor_debug()</a>, and <a class="el" href="stack_8cpp_source.html#l00226">stk_dump()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="stack_8cpp_source.html#l00008">stk_ctor_debug()</a>, and <a class="el" href="stack_8cpp_source.html#l00223">stk_dump()</a>.</p>
 
 </div>
 </div>
-<hr/>The documentation for this struct was generated from the following file:<ul>
+<hr/>The documentation for this struct was generated from the following files:<ul>
 <li>src/<a class="el" href="stack_8h_source.html">stack.h</a></li>
+<li>src/<a class="el" href="stack_8cpp_source.html">stack.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

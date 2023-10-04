@@ -24,6 +24,8 @@ struct \mbox{\hyperlink{struct_var_code_data}{Var\+Code\+Data}}
 \begin{DoxyCompactItemize}
 \item 
 void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{macros_8h_a3e542cb9c488f76f1d0cb4b6ef234203}{recalloc}} (void \texorpdfstring{$\ast$}{*}ptr, size\+\_\+t old\+\_\+size, size\+\_\+t new\+\_\+size)
+\item 
+void \mbox{\hyperlink{macros_8h_ad912cc7e09788a9730d3a7133b5c4251}{fill}} (void \texorpdfstring{$\ast$}{*}array, size\+\_\+t len, const void \texorpdfstring{$\ast$}{*}elem, const size\+\_\+t elem\+\_\+size)
 \end{DoxyCompactItemize}
 
 
@@ -74,7 +76,7 @@ Definition at line \mbox{\hyperlink{macros_8h_source_l00007}{7}} of file \mbox{\
 
 
 
-Definition at line \mbox{\hyperlink{macros_8h_source_l00034}{34}} of file \mbox{\hyperlink{macros_8h_source}{macros.\+h}}.
+Definition at line \mbox{\hyperlink{macros_8h_source_l00041}{41}} of file \mbox{\hyperlink{macros_8h_source}{macros.\+h}}.
 
 \Hypertarget{macros_8h_a8b6dac4dee6062b891084db600caa7ec}\label{macros_8h_a8b6dac4dee6062b891084db600caa7ec} 
 \index{macros.h@{macros.h}!VAR\_CODE\_DATA\_PTR@{VAR\_CODE\_DATA\_PTR}}
@@ -84,11 +86,31 @@ Definition at line \mbox{\hyperlink{macros_8h_source_l00034}{34}} of file \mbox{
 
 
 
-Definition at line \mbox{\hyperlink{macros_8h_source_l00035}{35}} of file \mbox{\hyperlink{macros_8h_source}{macros.\+h}}.
+Definition at line \mbox{\hyperlink{macros_8h_source_l00042}{42}} of file \mbox{\hyperlink{macros_8h_source}{macros.\+h}}.
 
 
 
 \doxysubsection{Function Documentation}
+\Hypertarget{macros_8h_ad912cc7e09788a9730d3a7133b5c4251}\label{macros_8h_ad912cc7e09788a9730d3a7133b5c4251} 
+\index{macros.h@{macros.h}!fill@{fill}}
+\index{fill@{fill}!macros.h@{macros.h}}
+\doxysubsubsection{\texorpdfstring{fill()}{fill()}}
+{\footnotesize\ttfamily void fill (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{array,  }\item[{size\+\_\+t}]{len,  }\item[{const void \texorpdfstring{$\ast$}{*}}]{elem,  }\item[{const size\+\_\+t}]{elem\+\_\+size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{macros_8h_source_l00027}{27}} of file \mbox{\hyperlink{macros_8h_source}{macros.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordflow}{while}\ (len-\/-\/)\ \{}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ memcpy(array,\ elem,\ elem\_size);}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ array\ =\ (\textcolor{keywordtype}{char}*)array\ +\ elem\_size;}
+\DoxyCodeLine{00031\ \ \ \ \ \}}
+\DoxyCodeLine{00032\ \}}
+
+\end{DoxyCode}
 \Hypertarget{macros_8h_a3e542cb9c488f76f1d0cb4b6ef234203}\label{macros_8h_a3e542cb9c488f76f1d0cb4b6ef234203} 
 \index{macros.h@{macros.h}!recalloc@{recalloc}}
 \index{recalloc@{recalloc}!macros.h@{macros.h}}

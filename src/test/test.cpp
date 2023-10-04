@@ -4,7 +4,7 @@ void test_stack_normal() {
     log_printf(&log_file, HTML_H2("---Test stack (normal)---\n"));
 
     Stack stk = {};
-    STK_CTOR_CAP(&stk, 3);
+    STK_CTOR_CAP(&stk, 256);
 
     stk_push(&stk, 123);
 

@@ -4,13 +4,23 @@ int log_printf(LogFileData* log_file, const char* format, ...) {
     assert(log_file);
     assert(format);
 
-    if (log_file->file == nullptr)
+    bool file_is_opened_here = false;
+    if (log_file->file == nullptr) {
         if (!log_open_file(log_file))
             return -1;
+        file_is_opened_here = true;
+    }
 
     va_list arg_list = {};
     va_start(arg_list, format);
-    return vfprintf(log_file->file, format, arg_list);
+
+    int ret = vfprintf(log_file->file, format, arg_list);
+
+    if (file_is_opened_here)
+        if (!log_close_file(log_file))
+            return -1;
+
+    return ret;
 }
 
 bool log_open_file(LogFileData* log_file, const char* mode) {

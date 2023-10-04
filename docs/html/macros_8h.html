@@ -123,6 +123,8 @@ Macros</h2></td></tr>
 Functions</h2></td></tr>
 <tr class="memitem:a3e542cb9c488f76f1d0cb4b6ef234203"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="macros_8h.html#a3e542cb9c488f76f1d0cb4b6ef234203">recalloc</a> (void *ptr, size_t old_size, size_t new_size)</td></tr>
 <tr class="separator:a3e542cb9c488f76f1d0cb4b6ef234203"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad912cc7e09788a9730d3a7133b5c4251"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="macros_8h.html#ad912cc7e09788a9730d3a7133b5c4251">fill</a> (void *array, size_t len, const void *elem, const size_t elem_size)</td></tr>
+<tr class="separator:ad912cc7e09788a9730d3a7133b5c4251"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
 <a id="a105949c59c998e38aad80266afac92bf" name="a105949c59c998e38aad80266afac92bf"></a>
@@ -225,7 +227,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="macros_8h_source.html#l00034">34</a> of file <a class="el" href="macros_8h_source.html">macros.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="macros_8h_source.html#l00041">41</a> of file <a class="el" href="macros_8h_source.html">macros.h</a>.</p>
 
 </div>
 </div>
@@ -245,11 +247,67 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="macros_8h_source.html#l00035">35</a> of file <a class="el" href="macros_8h_source.html">macros.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="macros_8h_source.html#l00042">42</a> of file <a class="el" href="macros_8h_source.html">macros.h</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
+<a id="ad912cc7e09788a9730d3a7133b5c4251" name="ad912cc7e09788a9730d3a7133b5c4251"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad912cc7e09788a9730d3a7133b5c4251">&#9670;&#160;</a></span>fill()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void fill </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>array</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>len</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const void *&#160;</td>
+          <td class="paramname"><em>elem</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const size_t&#160;</td>
+          <td class="paramname"><em>elem_size</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="macros_8h_source.html#l00027">27</a> of file <a class="el" href="macros_8h_source.html">macros.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   27</span>                                                                                    {</div>
+<div class="line"><span class="lineno">   28</span>    <span class="keywordflow">while</span> (len--) {</div>
+<div class="line"><span class="lineno">   29</span>        memcpy(array, elem, elem_size);</div>
+<div class="line"><span class="lineno">   30</span>        array = (<span class="keywordtype">char</span>*)array + elem_size;</div>
+<div class="line"><span class="lineno">   31</span>    }</div>
+<div class="line"><span class="lineno">   32</span>}</div>
+</div><!-- fragment -->
+</div>
+</div>
 <a id="a3e542cb9c488f76f1d0cb4b6ef234203" name="a3e542cb9c488f76f1d0cb4b6ef234203"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3e542cb9c488f76f1d0cb4b6ef234203">&#9670;&#160;</a></span>recalloc()</h2>
 

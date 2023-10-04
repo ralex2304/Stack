@@ -11,15 +11,15 @@
 #include "utils/macros.h"
 #include "hash/crc32.h"
 #include "log/log.h"
-#include "utils/linux_mem.h"
+#include "utils/ptr_valid.h"
 
 /**
  * @brief Stack data struct
  */
 struct Stack {
-    static const ssize_t DEFAULT_CAPACITY = 2;
-    static const Elem_t POISON = ELEM_T_POISON;
+    static const ssize_t DEFAULT_CAPACITY = 8;
     static const ssize_t UNITIALISED_CAPACITY = -1;
+    static const Elem_t POISON; //< initialised in stack.cpp
 
     enum Results {
         OK                   = 0x00000,
@@ -35,7 +35,7 @@ struct Stack {
         DATA_HASH_ERR        = 0x00100,
         LOW_CAPACITY         = 0x00200,
         NEGATIVE_CAPACITY    = 0x00400,
-        INVALID_MIN_CAPACITY = 0x00800,
+        INVALID_CAPACITY     = 0x00800,
         NEGATIVE_SIZE        = 0x01000,
         STRUCT_L_CANARY_ERR  = 0x02000,
         STRUCT_R_CANARY_ERR  = 0x04000,
@@ -49,7 +49,6 @@ struct Stack {
 
     Elem_t* data = nullptr;
     ssize_t capacity = UNITIALISED_CAPACITY;
-    size_t min_capacity = DEFAULT_CAPACITY;
     ssize_t size = UNITIALISED_CAPACITY;
 
 #ifdef HASH_PROTECT
@@ -71,10 +70,10 @@ struct Stack {
  * @attention Use with macros STK_CTOR or STK_CTOR_CAP
  *
  * @param stk
- * @param min_capacity
+ * @param init_capacity
  * @return int
  */
-int stk_ctor(Stack* stk, const size_t min_capacity = Stack::DEFAULT_CAPACITY);
+int stk_ctor(Stack* stk, const size_t init_capacity = Stack::DEFAULT_CAPACITY);
 
 /**
  * @brief Checks if stack is initialised
@@ -138,9 +137,44 @@ int stk_pop(Stack* stk, Elem_t *const res);
  * @brief Resizes stack
  *
  * @param stk
+ * @param new_size
  * @return int
  */
-int stk_resize(Stack* stk);
+int stk_resize(Stack* stk, const size_t new_size);
+
+/**
+ * @brief Calcs new stk size, when size is rising
+ *
+ * @param stk
+ * @return ssize_t new stk capacity
+ */
+inline ssize_t stk_resize_calc_up(Stack* stk) {
+    assert(stk);
+
+    ssize_t new_cap = stk->capacity;
+
+    while (stk->size >= new_cap)
+        new_cap *= 2;
+
+    return new_cap;
+}
+
+/**
+ * @brief Calcs new stk size, when size is falling
+ *
+ * @param stk
+ * @return ssize_t new stk capacity
+ */
+inline ssize_t stk_resize_calc_down(Stack* stk) {
+    assert(stk);
+
+    ssize_t new_cap = stk->capacity;
+
+    if (stk->size * 4 <= new_cap && new_cap >= (ssize_t)stk->DEFAULT_CAPACITY * 2)
+        new_cap /= 2;
+
+    return new_cap;
+}
 
 /**
  * @brief Prints errors to log file
@@ -204,8 +238,9 @@ int stk_dtor(Stack* stk);
     /**
      * @brief fills stk data array with poison
      */
-    #define STK_FILL_POISON(stk, begin, end) for (ssize_t i = begin; i < end; i++) \
-                                                 stk->data[i] = stk->POISON
+    #define STK_FILL_POISON(stk, begin, end) \
+                if (end > begin)             \
+                    fill(stk->data + begin, end - begin, &stk->POISON, sizeof(Elem_t))
 
     /**
      * @brief stk_verify() enables in DEBUG mode

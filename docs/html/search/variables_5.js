@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['name_0',['name',['../struct_var_code_data.html#a0bde6b05c83fb7bdf1a0f20fa4677762',1,'VarCodeData']]]
+  ['poison_0',['POISON',['../struct_stack.html#a48bbbcc55325f72dcbe2414dd9598a30',1,'Stack']]]
 ];

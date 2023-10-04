@@ -28,16 +28,23 @@
 \DoxyCodeLine{\Hypertarget{macros_8h_source_l00024}00024\ \ \ \ \ \textcolor{keywordflow}{return}\ ptr;}
 \DoxyCodeLine{\Hypertarget{macros_8h_source_l00025}00025\ \}}
 \DoxyCodeLine{\Hypertarget{macros_8h_source_l00026}00026\ }
-\DoxyCodeLine{\Hypertarget{macros_8h_source_l00027}\mbox{\hyperlink{struct_var_code_data}{00027}}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_var_code_data}{VarCodeData}}\ \{}
-\DoxyCodeLine{\Hypertarget{macros_8h_source_l00028}\mbox{\hyperlink{struct_var_code_data_a0bde6b05c83fb7bdf1a0f20fa4677762}{00028}}\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{struct_var_code_data_a0bde6b05c83fb7bdf1a0f20fa4677762}{name}}\ =\ \textcolor{stringliteral}{"{}Not\ specified"{}};}
-\DoxyCodeLine{\Hypertarget{macros_8h_source_l00029}\mbox{\hyperlink{struct_var_code_data_a25347ec3ab07e84f5ac1b2e1220ef388}{00029}}\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{struct_var_code_data_a25347ec3ab07e84f5ac1b2e1220ef388}{file}}\ =\ \textcolor{stringliteral}{"{}Not\ specified"{}};}
-\DoxyCodeLine{\Hypertarget{macros_8h_source_l00030}\mbox{\hyperlink{struct_var_code_data_a57de68d99a4698c17ae07e31c8e6de6c}{00030}}\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ \mbox{\hyperlink{struct_var_code_data_a57de68d99a4698c17ae07e31c8e6de6c}{line}}\ =\ -\/1;}
-\DoxyCodeLine{\Hypertarget{macros_8h_source_l00031}\mbox{\hyperlink{struct_var_code_data_a6da889b7111ab8c530acba167462bb95}{00031}}\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{struct_var_code_data_a6da889b7111ab8c530acba167462bb95}{func}}\ =\ \textcolor{stringliteral}{"{}Not\ specified"{}};}
-\DoxyCodeLine{\Hypertarget{macros_8h_source_l00032}00032\ \};}
+\DoxyCodeLine{\Hypertarget{macros_8h_source_l00027}\mbox{\hyperlink{macros_8h_ad912cc7e09788a9730d3a7133b5c4251}{00027}}\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{macros_8h_ad912cc7e09788a9730d3a7133b5c4251}{fill}}(\textcolor{keywordtype}{void}*\ array,\ \textcolor{keywordtype}{size\_t}\ len,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*\ elem,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ elem\_size)\ \{}
+\DoxyCodeLine{\Hypertarget{macros_8h_source_l00028}00028\ \ \ \ \ \textcolor{keywordflow}{while}\ (len-\/-\/)\ \{}
+\DoxyCodeLine{\Hypertarget{macros_8h_source_l00029}00029\ \ \ \ \ \ \ \ \ memcpy(array,\ elem,\ elem\_size);}
+\DoxyCodeLine{\Hypertarget{macros_8h_source_l00030}00030\ \ \ \ \ \ \ \ \ array\ =\ (\textcolor{keywordtype}{char}*)array\ +\ elem\_size;}
+\DoxyCodeLine{\Hypertarget{macros_8h_source_l00031}00031\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{macros_8h_source_l00032}00032\ \}}
 \DoxyCodeLine{\Hypertarget{macros_8h_source_l00033}00033\ }
-\DoxyCodeLine{\Hypertarget{macros_8h_source_l00034}\mbox{\hyperlink{macros_8h_a68960fb933bea9b067598ca388e5b6d5}{00034}}\ \textcolor{preprocessor}{\#define\ VAR\_CODE\_DATA(name)\ \{\#\ name,\ \_\_FILE\_\_,\ \_\_LINE\_\_,\ \_\_func\_\_\}}}
-\DoxyCodeLine{\Hypertarget{macros_8h_source_l00035}\mbox{\hyperlink{macros_8h_a8b6dac4dee6062b891084db600caa7ec}{00035}}\ \textcolor{preprocessor}{\#define\ VAR\_CODE\_DATA\_PTR(name)\ \{(\#\ name)\ +\ 1,\ \_\_FILE\_\_,\ \_\_LINE\_\_,\ \_\_func\_\_\}}}
-\DoxyCodeLine{\Hypertarget{macros_8h_source_l00036}00036\ }
-\DoxyCodeLine{\Hypertarget{macros_8h_source_l00037}00037\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ \#ifndef\ MACROS\_H\_}}
+\DoxyCodeLine{\Hypertarget{macros_8h_source_l00034}\mbox{\hyperlink{struct_var_code_data}{00034}}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_var_code_data}{VarCodeData}}\ \{}
+\DoxyCodeLine{\Hypertarget{macros_8h_source_l00035}\mbox{\hyperlink{struct_var_code_data_a0bde6b05c83fb7bdf1a0f20fa4677762}{00035}}\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{struct_var_code_data_a0bde6b05c83fb7bdf1a0f20fa4677762}{name}}\ =\ \textcolor{stringliteral}{"{}Not\ specified"{}};}
+\DoxyCodeLine{\Hypertarget{macros_8h_source_l00036}\mbox{\hyperlink{struct_var_code_data_a25347ec3ab07e84f5ac1b2e1220ef388}{00036}}\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{struct_var_code_data_a25347ec3ab07e84f5ac1b2e1220ef388}{file}}\ =\ \textcolor{stringliteral}{"{}Not\ specified"{}};}
+\DoxyCodeLine{\Hypertarget{macros_8h_source_l00037}\mbox{\hyperlink{struct_var_code_data_a57de68d99a4698c17ae07e31c8e6de6c}{00037}}\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ \mbox{\hyperlink{struct_var_code_data_a57de68d99a4698c17ae07e31c8e6de6c}{line}}\ =\ -\/1;}
+\DoxyCodeLine{\Hypertarget{macros_8h_source_l00038}\mbox{\hyperlink{struct_var_code_data_a6da889b7111ab8c530acba167462bb95}{00038}}\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{struct_var_code_data_a6da889b7111ab8c530acba167462bb95}{func}}\ =\ \textcolor{stringliteral}{"{}Not\ specified"{}};}
+\DoxyCodeLine{\Hypertarget{macros_8h_source_l00039}00039\ \};}
+\DoxyCodeLine{\Hypertarget{macros_8h_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{macros_8h_source_l00041}\mbox{\hyperlink{macros_8h_a68960fb933bea9b067598ca388e5b6d5}{00041}}\ \textcolor{preprocessor}{\#define\ VAR\_CODE\_DATA(name)\ \{\#\ name,\ \_\_FILE\_\_,\ \_\_LINE\_\_,\ \_\_func\_\_\}}}
+\DoxyCodeLine{\Hypertarget{macros_8h_source_l00042}\mbox{\hyperlink{macros_8h_a8b6dac4dee6062b891084db600caa7ec}{00042}}\ \textcolor{preprocessor}{\#define\ VAR\_CODE\_DATA\_PTR(name)\ \{(\#\ name)\ +\ 1,\ \_\_FILE\_\_,\ \_\_LINE\_\_,\ \_\_func\_\_\}}}
+\DoxyCodeLine{\Hypertarget{macros_8h_source_l00043}00043\ }
+\DoxyCodeLine{\Hypertarget{macros_8h_source_l00044}00044\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ \#ifndef\ MACROS\_H\_}}
 
 \end{DoxyCode}

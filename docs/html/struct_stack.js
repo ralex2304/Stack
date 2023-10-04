@@ -13,7 +13,7 @@ var struct_stack =
       [ "DATA_HASH_ERR", "struct_stack.html#ae8242b5f1b2c3d98a6dbafc302e509d5a2dbe0f67c49b72aef7d6253cdc1f9d43", null ],
       [ "LOW_CAPACITY", "struct_stack.html#ae8242b5f1b2c3d98a6dbafc302e509d5a0a4d618cba92355bcf446359ec408e60", null ],
       [ "NEGATIVE_CAPACITY", "struct_stack.html#ae8242b5f1b2c3d98a6dbafc302e509d5af68a03245ae05bdfca1879f027972e0c", null ],
-      [ "INVALID_MIN_CAPACITY", "struct_stack.html#ae8242b5f1b2c3d98a6dbafc302e509d5a60df658a23b1cc23a5f228015a51ebc2", null ],
+      [ "INVALID_CAPACITY", "struct_stack.html#ae8242b5f1b2c3d98a6dbafc302e509d5aa41ce2e438b0124421ebaa0a7bd4a8b2", null ],
       [ "NEGATIVE_SIZE", "struct_stack.html#ae8242b5f1b2c3d98a6dbafc302e509d5ad85f8db9f888d5f54791ec3dbe8dae1c", null ],
       [ "STRUCT_L_CANARY_ERR", "struct_stack.html#ae8242b5f1b2c3d98a6dbafc302e509d5a7972d76b7f1e784ff89358e60e73f6c5", null ],
       [ "STRUCT_R_CANARY_ERR", "struct_stack.html#ae8242b5f1b2c3d98a6dbafc302e509d5a8deedabd24b6f0684dbf7b7ee110bd21", null ],
@@ -25,7 +25,6 @@ var struct_stack =
     [ "capacity", "struct_stack.html#a2f2b41ebbf7c8adce40da902814e1c7b", null ],
     [ "data", "struct_stack.html#a02ed96691b2e6636bd9155758e8ee8cd", null ],
     [ "data_hash", "struct_stack.html#a0313f9fb25ba1f5ce41bcaf465777ead", null ],
-    [ "min_capacity", "struct_stack.html#a27c2c24df341868a66cea296228b7ca2", null ],
     [ "size", "struct_stack.html#a3b6cb0b4ff732c7bbbaaa5d3860bcd1a", null ],
     [ "struct_hash", "struct_stack.html#a5d85c28620cf7c22e622df2d8a58f35b", null ],
     [ "var_data", "struct_stack.html#ada9ac9dd578c2f702547fbf23447dfc5", null ]

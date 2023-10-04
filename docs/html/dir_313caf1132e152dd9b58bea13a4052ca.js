@@ -2,7 +2,7 @@ var dir_313caf1132e152dd9b58bea13a4052ca =
 [
     [ "console.h", "console_8h.html", "console_8h" ],
     [ "html.h", "html_8h.html", "html_8h" ],
-    [ "linux_mem.cpp", "linux__mem_8cpp.html", "linux__mem_8cpp" ],
-    [ "linux_mem.h", "linux__mem_8h.html", "linux__mem_8h" ],
-    [ "macros.h", "macros_8h.html", "macros_8h" ]
+    [ "macros.h", "macros_8h.html", "macros_8h" ],
+    [ "ptr_valid.cpp", "ptr__valid_8cpp.html", null ],
+    [ "ptr_valid.h", "ptr__valid_8h.html", "ptr__valid_8h" ]
 ];

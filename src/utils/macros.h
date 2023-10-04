@@ -24,6 +24,13 @@ inline void* recalloc(void* ptr, size_t old_size, size_t new_size) {
     return ptr;
 }
 
+inline void fill(void* array, size_t len, const void* elem, const size_t elem_size) {
+    while (len--) {
+        memcpy(array, elem, elem_size);
+        array = (char*)array + elem_size;
+    }
+}
+
 struct VarCodeData {
     const char* name = "Not specified";
     const char* file = "Not specified";
