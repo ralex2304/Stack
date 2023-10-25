@@ -105,7 +105,7 @@ int stk_resize(Stack* stk, size_t new_size) {
 
     Elem_t* tmp = stk->data;
 
-    stk->data = (Elem_t*)recalloc((void*)((Canary_t*)stk->data - 1),
+    stk->data = (Elem_t*)recalloc((void*)((Canary_t*)stk->data ON_CANARY_PROTECT(- 1)),
              // We need to clear right canary and free space before it -> + 1
                          stk->capacity * sizeof(Elem_t) ON_CANARY_PROTECT(+ 1 * sizeof(CANARY_VAL)),
                          calc_stk_data_size(new_size));
