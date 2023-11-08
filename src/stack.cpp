@@ -138,7 +138,7 @@ int stk_resize(Stack* stk, size_t new_size) {
 int stk_push(Stack* stk, const Elem_t elem) {
     int res = STK_ASSERT(stk);
 
-    res |= stk_resize(stk, stk_resize_calc_up(stk));
+    res |= stk_resize_up(stk);
 
     if (res != stk->OK)
         return res;
@@ -178,7 +178,7 @@ int stk_pop(Stack* stk, Elem_t *const elem) {
 
     ON_DEBUG(stk->data[stk->size] = stk->POISON);
 
-    res |= stk_resize(stk, stk_resize_calc_down(stk));
+    res |= stk_resize_down(stk);
 
     res |= STK_VERIFY(stk);
     STK_OK(stk, res);
@@ -288,7 +288,7 @@ void stk_dump(const Stack* stk, const VarCodeData call_data) {
 
     log_printf(&log_file, "        }\n");
 
-    log_printf(&log_file, "    }\n");
+    log_printf(&log_file, "    }\n" HTML_END);
 }
 
 //==================================================================================================

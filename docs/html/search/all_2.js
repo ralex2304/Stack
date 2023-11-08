@@ -1,12 +1,12 @@
 var searchData=
 [
   ['calc_5fstk_5fdata_5fsize_0',['calc_stk_data_size',['../stack_8h.html#a9d171b647636bbf53d7335be5b7ff367',1,'stack.h']]],
-  ['canary_5fleft_1',['canary_left',['../struct_stack.html#a93649663411b07293ec66851c09c99c9',1,'Stack']]],
+  ['canary_5fleft_1',['canary_left',['../structStack.html#a93649663411b07293ec66851c09c99c9',1,'Stack']]],
   ['canary_5fprotect_2',['CANARY_PROTECT',['../config_8h.html#ab693b7f0431ff5fb4177290e6184fc6e',1,'config.h']]],
-  ['canary_5fright_3',['canary_right',['../struct_stack.html#a26e3a891c804d0a2deef354cb6d7f13b',1,'Stack']]],
+  ['canary_5fright_3',['canary_right',['../structStack.html#a26e3a891c804d0a2deef354cb6d7f13b',1,'Stack']]],
   ['canary_5ft_4',['Canary_t',['../config_8h.html#a788ec731a306c6e69c1dbb06983429ed',1,'config.h']]],
   ['canary_5ft_5fprintf_5',['CANARY_T_PRINTF',['../config_8h.html#a2a23f87eee71a5bd4ac163e1bba1f479',1,'config.h']]],
-  ['capacity_6',['capacity',['../struct_stack.html#a2f2b41ebbf7c8adce40da902814e1c7b',1,'Stack']]],
+  ['capacity_6',['capacity',['../structStack.html#a2f2b41ebbf7c8adce40da902814e1c7b',1,'Stack']]],
   ['check_5ferr_5f_7',['CHECK_ERR_',['../stack_8cpp.html#a0f2905892855073ba849455a73cd569b',1,'stack.cpp']]],
   ['color_5fblack_8',['COLOR_BLACK',['../console_8h.html#aba2a7fe77a7501e5844370eec0185207',1,'console.h']]],
   ['color_5fblue_9',['COLOR_BLUE',['../console_8h.html#a23c70d699a5a775bc2e1ebeb8603f630',1,'console.h']]],

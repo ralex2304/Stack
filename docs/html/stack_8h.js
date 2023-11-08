@@ -1,6 +1,6 @@
 var stack_8h =
 [
-    [ "Stack", "struct_stack.html", "struct_stack" ],
+    [ "Stack", "structStack.html", "structStack" ],
     [ "ON_CANARY_PROTECT", "stack_8h.html#ae09c894ab7c3c3daa2c838cde400b7fc", null ],
     [ "ON_DEBUG", "stack_8h.html#a1bdd7c1369b250215a080e8421d4ecf3", null ],
     [ "ON_HASH_PROTECT", "stack_8h.html#a1dc689bb2898fa51bd45a9e016fc2777", null ],
@@ -25,8 +25,8 @@ var stack_8h =
     [ "stk_print_error", "stack_8h.html#a1b7caf431e78e8fc61a308f2898feafe", null ],
     [ "stk_push", "stack_8h.html#aa30787d931ba7ff16b8aa1ddfa7337d3", null ],
     [ "stk_resize", "stack_8h.html#a6c5e2d562b3eeeeabca9396a5e457247", null ],
-    [ "stk_resize_calc_down", "stack_8h.html#aeb392b549704a476d9e40e86d7e7c148", null ],
-    [ "stk_resize_calc_up", "stack_8h.html#a391dde569392473706030d7db6eb84c4", null ],
+    [ "stk_resize_down", "stack_8h.html#a39fe4fd668c5eb885f0e79b238311053", null ],
+    [ "stk_resize_up", "stack_8h.html#a28f2ffba75ab89f49acdd3b07040f40b", null ],
     [ "stk_struct_hash_calc", "stack_8h.html#a536ddddf9bb8810b9703d5e405a073b9", null ],
     [ "stk_verify", "stack_8h.html#aa5801fe77f92f99b324b972ee22ed326", null ]
 ];

@@ -22,25 +22,25 @@ struct Stack {
     static const Elem_t POISON; //< initialised in stack.cpp
 
     enum Results {
-        OK                   = 0x00000,
-        NOTHING_TO_POP       = 0x00001,
-        ALLOC_ERR            = 0x00002,
+        OK                   = 0x000000,
+        NOTHING_TO_POP       = 0x000001,
+        ALLOC_ERR            = 0x000002,
 
-        ALREADY_INITIALISED  = 0x00004,
-        UNITIALISED          = 0x00008,
-        DATA_INVALID_PTR     = 0x00010,
-        POISON_VAL_FOUND     = 0x00020,
-        NON_POISON_EMPTY     = 0x00040,
-        STRUCT_HASH_ERR      = 0x00080,
-        DATA_HASH_ERR        = 0x00100,
-        LOW_CAPACITY         = 0x00200,
-        NEGATIVE_CAPACITY    = 0x00400,
-        INVALID_CAPACITY     = 0x00800,
-        NEGATIVE_SIZE        = 0x01000,
-        STRUCT_L_CANARY_ERR  = 0x02000,
-        STRUCT_R_CANARY_ERR  = 0x04000,
-        DATA_L_CANARY_ERR    = 0x08000,
-        DATA_R_CANARY_ERR    = 0x10000,
+        ALREADY_INITIALISED  = 0x000004,
+        UNITIALISED          = 0x000008,
+        DATA_INVALID_PTR     = 0x000010,
+        POISON_VAL_FOUND     = 0x000020,
+        NON_POISON_EMPTY     = 0x000040,
+        STRUCT_HASH_ERR      = 0x000080,
+        DATA_HASH_ERR        = 0x000100,
+        LOW_CAPACITY         = 0x000200,
+        NEGATIVE_CAPACITY    = 0x000400,
+        INVALID_CAPACITY     = 0x000800,
+        NEGATIVE_SIZE        = 0x001000,
+        STRUCT_L_CANARY_ERR  = 0x002000,
+        STRUCT_R_CANARY_ERR  = 0x004000,
+        DATA_L_CANARY_ERR    = 0x008000,
+        DATA_R_CANARY_ERR    = 0x010000,
     };
 
 #ifdef CANARY_PROTECT
@@ -88,33 +88,6 @@ inline bool stk_is_initialised(const Stack* stk) {
            stk->data != nullptr;
 }
 
-#ifdef DEBUG
-/**
- * @brief stk_ctor macros
- */
-#define STK_CTOR(stk)   stk_ctor_debug(stk, VAR_CODE_DATA_PTR(stk))
-
-/**
- * @brief stk_ctor macros with capacity
- */
-#define STK_CTOR_CAP(stk, capacity)   stk_ctor_debug(stk, VAR_CODE_DATA_PTR(stk), capacity)
-
-#else  // #ifndef DEBUG
-
-/**
- * @brief stk_ctor macros
- */
-#define STK_CTOR(stk)   stk_ctor(stk)
-
-/**
- * @brief stk_ctor macros with capacity
- */
-#define STK_CTOR_CAP(stk, capacity)   stk_ctor(stk, capacity)
-
-#endif // #ifdef DEBUG
-
-
-
 /**
  * @brief Pushes elem to stack
  *
@@ -143,40 +116,6 @@ int stk_pop(Stack* stk, Elem_t *const res);
 int stk_resize(Stack* stk, const size_t new_size);
 
 /**
- * @brief Calcs new stk size, when size is rising
- *
- * @param stk
- * @return ssize_t new stk capacity
- */
-inline ssize_t stk_resize_calc_up(Stack* stk) {
-    assert(stk);
-
-    ssize_t new_cap = stk->capacity;
-
-    while (stk->size >= new_cap)
-        new_cap *= 2;
-
-    return new_cap;
-}
-
-/**
- * @brief Calcs new stk size, when size is falling
- *
- * @param stk
- * @return ssize_t new stk capacity
- */
-inline ssize_t stk_resize_calc_down(Stack* stk) {
-    assert(stk);
-
-    ssize_t new_cap = stk->capacity;
-
-    if (stk->size * 4 <= new_cap && new_cap >= (ssize_t)stk->DEFAULT_CAPACITY * 2)
-        new_cap /= 2;
-
-    return new_cap;
-}
-
-/**
  * @brief Prints errors to log file
  *
  * @param err_code
@@ -197,6 +136,16 @@ int stk_dtor(Stack* stk);
      * @brief hidden ifdef macros for DEBUG
      */
     #define ON_DEBUG(...) __VA_ARGS__
+
+    /**
+    * @brief stk_ctor macros
+    */
+    #define STK_CTOR(stk)   stk_ctor_debug(stk, VAR_CODE_DATA_PTR(stk))
+
+    /**
+    * @brief stk_ctor macros with capacity
+    */
+    #define STK_CTOR_CAP(stk, capacity)   stk_ctor_debug(stk, VAR_CODE_DATA_PTR(stk), capacity)
 
     /**
      * @brief Stack constructor in debug mode (calls stk_ctor() inside)
@@ -266,6 +215,16 @@ int stk_dtor(Stack* stk);
      * @brief hidden ifdef macros for DEBUG
      */
     #define ON_DEBUG(...)
+
+    /**
+    * @brief stk_ctor macros
+    */
+    #define STK_CTOR(stk)   stk_ctor(stk)
+
+    /**
+    * @brief stk_ctor macros with capacity
+    */
+    #define STK_CTOR_CAP(stk, capacity)   stk_ctor(stk, capacity)
 
     /**
      * @brief Used in the beginning of stk_ function
@@ -384,7 +343,45 @@ inline Canary_t* right_data_canary_ptr(const Stack* stk) {
 
 #endif // #ifdef CANARY_PROTECT
 
+/**
+ * @brief Calcs new stk size, when size is rising and does resize
+ *
+ * @param stk
+ * @return int
+ */
+inline int stk_resize_up(Stack* stk) {
+    int res = STK_ASSERT(stk);
 
+    ssize_t new_cap = stk->capacity;
+
+    while (stk->size >= new_cap)
+        new_cap *= 2;
+
+    if (new_cap != stk->capacity)
+        return res | stk_resize(stk, new_cap);
+
+    return res;
+}
+
+/**
+ * @brief Calcs new stk size, when size is falling and does resize
+ *
+ * @param stk
+ * @return int
+ */
+inline int stk_resize_down(Stack* stk) {
+    int res = STK_ASSERT(stk);
+
+    ssize_t new_cap = stk->capacity;
+
+    if (stk->size * 4 <= new_cap && new_cap >= (ssize_t)stk->DEFAULT_CAPACITY * 2)
+        new_cap /= 2;
+
+    if (new_cap != stk->capacity)
+        return res | stk_resize(stk, new_cap);
+
+    return res;
+}
 
 /**
  * @brief Calcs stk.data size in bytes

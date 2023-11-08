@@ -56,8 +56,8 @@ $(BUILD_DIR)/%.o: %.cpp | $(BUILD_DIR) $(MAKE_DIRS)
 doxygen dox: $(DOCS_TARGET)
 
 $(DOCS_TARGET): $(FILES:/%=%) | $(DOCS_DIR)
-	@echo "Doxygen generated %date% %time%" > $(DOCS_TARGET)
-	@doxygen.exe docs/Doxyfile
+	@echo "Doxygen generated `date`" > $(DOCS_TARGET)
+	@doxygen docs/Doxyfile
 
 $(DOCS_DIR):
 	@mkdir ./$@
