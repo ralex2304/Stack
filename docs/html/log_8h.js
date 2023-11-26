@@ -1,7 +1,7 @@
 var log_8h =
 [
     [ "LogFileData", "structLogFileData.html", "structLogFileData" ],
-    [ "log_close_file", "log_8h.html#adbd07eb33ee1a2336466f870015e1270", null ],
-    [ "log_open_file", "log_8h.html#a0084efb0fc28d09429574caed2723ff0", null ],
-    [ "log_printf", "log_8h.html#a871c297aa3487813db55d6e90ca9eea4", null ]
+    [ "stk_log_close_file", "log_8h.html#a71d240f49b28d1a1943ca298d6f614af", null ],
+    [ "stk_log_open_file", "log_8h.html#ad698bf7dd8fe604cd49e2fc772057b37", null ],
+    [ "stk_log_printf", "log_8h.html#a197cb47877e8a6fae89122aa2c327037", null ]
 ];

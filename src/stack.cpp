@@ -1,8 +1,16 @@
 #include "stack.h"
 
+const Elem_t Stack::POISON = ELEM_T_POISON;
+
+#ifdef DEBUG
+
+#include "log/log.h"
+
 extern LogFileData log_file;
 
-const Elem_t Stack::POISON = ELEM_T_POISON;
+#endif //< #ifdef DEBUG
+
+//==================================================================================================
 
 #ifdef DEBUG
 int stk_ctor_debug(Stack* stk, const VarCodeData var_data, const size_t min_capacity) {
@@ -12,7 +20,7 @@ int stk_ctor_debug(Stack* stk, const VarCodeData var_data, const size_t min_capa
 
     return stk_ctor(stk, min_capacity);
 }
-#endif // #ifdef DEBUG
+#endif //< #ifdef DEBUG
 
 //==================================================================================================
 
@@ -49,14 +57,14 @@ int stk_ctor(Stack* stk, const size_t init_capacity) {
 
      *left_data_canary_ptr(stk) = CANARY_VAL;
     *right_data_canary_ptr(stk) = CANARY_VAL;
-#endif // #ifdef CANARY_PROTECT
+#endif //< #ifdef CANARY_PROTECT
 
     STK_FILL_POISON(stk, 0, stk->capacity);
 
 #ifdef HASH_PROTECT
     stk->data_hash   =   stk_data_hash_calc(stk);
     stk->struct_hash = stk_struct_hash_calc(stk);
-#endif // #ifdef HASH_PROTECT
+#endif //< #ifdef HASH_PROTECT
 
     res |= STK_VERIFY(stk);
     STK_OK(stk, res);
@@ -77,9 +85,9 @@ int stk_dtor(Stack* stk) {
 #ifdef CANARY_PROTECT
     free((Canary_t*)stk->data - 1);
     stk->data = nullptr;
-#else  // #ifndef CANARY_PROTECT
+#else  //< #ifndef CANARY_PROTECT
     FREE(stk->data);
-#endif // #ifdef CANARY_PROTECT
+#endif //< #ifdef CANARY_PROTECT
 
     stk->capacity = stk->UNITIALISED_CAPACITY;
     stk->size     = stk->UNITIALISED_CAPACITY;
@@ -87,7 +95,7 @@ int stk_dtor(Stack* stk) {
 #ifdef HASH_PROTECT
     stk->struct_hash = 0;
     stk->data_hash   = 0;
-#endif // #ifdef HASH_PROTECT
+#endif //< #ifdef HASH_PROTECT
 
     return res;
 }
@@ -148,7 +156,7 @@ int stk_push(Stack* stk, const Elem_t elem) {
 #ifdef HASH_PROTECT
     stk->data_hash = stk_data_hash_push(stk, stk->data[stk->size - 1], stk->data_hash);
     stk->struct_hash = stk_struct_hash_calc(stk);
-#endif // #ifdef HASH_PROTECT
+#endif //< #ifdef HASH_PROTECT
 
     res |= STK_VERIFY(stk);
     STK_OK(stk, res);
@@ -174,7 +182,7 @@ int stk_pop(Stack* stk, Elem_t *const elem) {
 #ifdef HASH_PROTECT
     stk->data_hash = stk_data_hash_calc(stk);
     stk->struct_hash = stk_struct_hash_calc(stk);
-#endif // #ifdef HASH_PROTECT
+#endif //< #ifdef HASH_PROTECT
 
     ON_DEBUG(stk->data[stk->size] = stk->POISON);
 
@@ -188,13 +196,15 @@ int stk_pop(Stack* stk, Elem_t *const elem) {
 
 //==================================================================================================
 
+#ifdef DEBUG
+
 #define PRINT_ERR_(code, descr)  if ((err_code) & Stack::code)                                    \
-                                    log_printf(&log_file,                                         \
+                                    stk_log_printf(&log_file,                                         \
                                                HTML_TEXT(HTML_RED("!!! " #code ": " descr "\n")));
 
 void stk_print_error(const int err_code) {
     if (err_code == Stack::OK) {
-        log_printf(&log_file, HTML_TEXT(HTML_GREEN("No error\n")));
+        stk_log_printf(&log_file, HTML_TEXT(HTML_GREEN("No error\n")));
     } else {
         PRINT_ERR_(ALREADY_INITIALISED,  "Constructor called for already initialised or corrupted stack");
         PRINT_ERR_(UNITIALISED,          "Stack is not initialised");
@@ -217,51 +227,53 @@ void stk_print_error(const int err_code) {
 }
 #undef PRINT_ERR_
 
+#endif //< #ifdef DEBUG
+
 //==================================================================================================
 
 #ifdef DEBUG
 void stk_dump(const Stack* stk, const VarCodeData call_data) {
     assert(stk);
 
-    log_printf(&log_file, HTML_BEGIN);
+    stk_log_printf(&log_file, HTML_BEGIN);
 
-    log_printf(&log_file, "    stk_dump() called from %s:%d %s\n"
+    stk_log_printf(&log_file, "    stk_dump() called from %s:%d %s\n"
                           "    %s[%p] initialised in %s:%d %s \n",
                           call_data.file, call_data.line, call_data.func,
                           stk->var_data.name, stk,
                           stk->var_data.file, stk->var_data.line, stk->var_data.func);
 
-    log_printf(&log_file, "    {\n");
+    stk_log_printf(&log_file, "    {\n");
 
 #ifdef CANARY_PROTECT
-    log_printf(&log_file, "        L_canary = 0x" CANARY_T_PRINTF "\n", stk->canary_left);
-    log_printf(&log_file, "        R_canary = 0x" CANARY_T_PRINTF "\n", stk->canary_right);
-#endif // #ifdef CANARY_PROTECT
+    stk_log_printf(&log_file, "        L_canary = 0x" CANARY_T_PRINTF "\n", stk->canary_left);
+    stk_log_printf(&log_file, "        R_canary = 0x" CANARY_T_PRINTF "\n", stk->canary_right);
+#endif //< #ifdef CANARY_PROTECT
 
-    log_printf(&log_file, "        size     = %zd\n"
+    stk_log_printf(&log_file, "        size     = %zd\n"
                           "        capacity = %zd\n", stk->size, stk->capacity);
 
 #ifdef HASH_PROTECT
-    log_printf(&log_file, "        struct hash = 0x%X\n"
+    stk_log_printf(&log_file, "        struct hash = 0x%X\n"
                           "        data   hash = 0x%X\n", stk->struct_hash, stk->data_hash);
-#endif // #ifdef HASH_PROTECT
+#endif //< #ifdef HASH_PROTECT
 
-    log_printf(&log_file, "        data[%p] {\n", stk->data);
+    stk_log_printf(&log_file, "        data[%p] {\n", stk->data);
 
     if (!is_ptr_valid(stk->data)) {
 
         if (stk_is_initialised(stk))
-            log_printf(&log_file, HTML_RED("        can't read (invalid pointer)\n"));
+            stk_log_printf(&log_file, HTML_RED("        can't read (invalid pointer)\n"));
 
-        log_printf(&log_file, "        }\n"
+        stk_log_printf(&log_file, "        }\n"
                               "    }\n" HTML_END);
         return;
     }
 
 #ifdef CANARY_PROTECT
-    log_printf(&log_file, "            L_canary = 0x" CANARY_T_PRINTF "\n",
+    stk_log_printf(&log_file, "            L_canary = 0x" CANARY_T_PRINTF "\n",
                *left_data_canary_ptr(stk));
-#endif // #ifdef CANARY_PROTECT
+#endif //< #ifdef CANARY_PROTECT
 
     int index_len = 1;
     ssize_t index = MAX(stk->size, stk->capacity);
@@ -270,25 +282,25 @@ void stk_dump(const Stack* stk, const VarCodeData call_data) {
 
     for (ssize_t i = 0; i < stk->capacity; i++) {
         if (i < stk->size)
-            log_printf(&log_file, "            *");
+            stk_log_printf(&log_file, "            *");
         else
-            log_printf(&log_file, "             ");
+            stk_log_printf(&log_file, "             ");
 
-        log_printf(&log_file, "[%*zu] ", index_len, i);
+        stk_log_printf(&log_file, "[%*zu] ", index_len, i);
         if (stk->data[i] == stk->POISON)
-            log_printf(&log_file, "(poison)\n");
+            stk_log_printf(&log_file, "(poison)\n");
         else
-            log_printf(&log_file, ELEM_T_PRINTF "\n", stk->data[i]);
+            stk_log_printf(&log_file, ELEM_T_PRINTF "\n", stk->data[i]);
     }
 
 #ifdef CANARY_PROTECT
-    log_printf(&log_file, "            R_canary = 0x" CANARY_T_PRINTF "\n",
+    stk_log_printf(&log_file, "            R_canary = 0x" CANARY_T_PRINTF "\n",
                *right_data_canary_ptr(stk));
-#endif // #ifdef CANARY_PROTECT
+#endif //< #ifdef CANARY_PROTECT
 
-    log_printf(&log_file, "        }\n");
+    stk_log_printf(&log_file, "        }\n");
 
-    log_printf(&log_file, "    }\n" HTML_END);
+    stk_log_printf(&log_file, "    }\n" HTML_END);
 }
 
 //==================================================================================================
@@ -337,7 +349,7 @@ int stk_verify(Stack* stk) {
     stk->struct_hash = tmp_struct_hash;
 
     CHECK_ERR_(stk->struct_hash != struct_hash, stk->STRUCT_HASH_ERR);
-#endif // #ifdef HASH_PROTECT
+#endif //< #ifdef HASH_PROTECT
 
     CHECK_ERR_(stk->capacity < stk->size, stk->LOW_CAPACITY);
     CHECK_ERR_(stk->capacity < 0, stk->NEGATIVE_CAPACITY);
@@ -351,10 +363,10 @@ int stk_verify(Stack* stk) {
         CHECK_ERR_( *left_data_canary_ptr(stk) != CANARY_VAL, stk->DATA_L_CANARY_ERR);
         CHECK_ERR_(*right_data_canary_ptr(stk) != CANARY_VAL, stk->DATA_R_CANARY_ERR);
     }
-#endif // #ifdef CANARY_PROTECT
+#endif //< #ifdef CANARY_PROTECT
 
     return res;
 }
 #undef CHECK_ERR_
 
-#endif // #ifdef DEBUG
+#endif //< #ifdef DEBUG

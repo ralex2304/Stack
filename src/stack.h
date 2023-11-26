@@ -6,12 +6,29 @@
 #include <malloc.h>
 #include <math.h>
 
-#include "config.h"
 #include "utils/html.h"
 #include "utils/macros.h"
 #include "hash/crc32.h"
-#include "log/log.h"
+
+#define DEBUG           //< Enables debug mode
+#define CANARY_PROTECT  //< Enables canary protection
+#define HASH_PROTECT    //< Enables hash protection
+
+
+typedef signed char Elem_t;                                      //< stack elements type
+static const Elem_t ELEM_T_POISON = 127 - 13;                    //< poison value for stack
+#define ELEM_T_PRINTF   "%d"                                     //< Elem_t printf specificator
+
+typedef unsigned long long Canary_t;                             //< canary type
+static const Canary_t CANARY_VAL = 0x8BADF00DDEADDEAD;           //< canary protect value
+#define CANARY_T_PRINTF "%llX"                                   //< Canary_t printf specificator
+
+
+#ifdef DEBUG
+
 #include "utils/ptr_valid.h"
+
+#endif //< #ifdef DEBUG
 
 /**
  * @brief Stack data struct
@@ -116,13 +133,6 @@ int stk_pop(Stack* stk, Elem_t *const res);
 int stk_resize(Stack* stk, const size_t new_size);
 
 /**
- * @brief Prints errors to log file
- *
- * @param err_code
- */
-void stk_print_error(const int err_code);
-
-/**
  * @brief Stack destructor
  *
  * @param stk
@@ -173,6 +183,13 @@ int stk_dtor(Stack* stk);
      * @return int error code
      */
     int stk_verify(Stack* stk);
+
+    /**
+    * @brief Prints errors to log file
+    *
+    * @param err_code
+    */
+    void stk_print_error(const int err_code);
 
     /**
      * @brief Used in the beginning of stk_ function

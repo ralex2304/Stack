@@ -4,11 +4,9 @@
 {\ttfamily \#include $<$assert.\+h$>$}\newline
 {\ttfamily \#include $<$malloc.\+h$>$}\newline
 {\ttfamily \#include $<$math.\+h$>$}\newline
-{\ttfamily \#include "{}config.\+h"{}}\newline
 {\ttfamily \#include "{}utils/html.\+h"{}}\newline
 {\ttfamily \#include "{}utils/macros.\+h"{}}\newline
 {\ttfamily \#include "{}hash/crc32.\+h"{}}\newline
-{\ttfamily \#include "{}log/log.\+h"{}}\newline
 {\ttfamily \#include "{}utils/ptr\+\_\+valid.\+h"{}}\newline
 \doxysubsubsection*{Classes}
 \begin{DoxyCompactItemize}
@@ -17,6 +15,16 @@ struct \mbox{\hyperlink{structStack}{Stack}}
 \begin{DoxyCompactList}\small\item\em \doxylink{structStack}{Stack} data struct. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Macros}
 \begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{stack_8h_ad72dbcf6d0153db1b8d8a58001feed83}{DEBUG}}
+\item 
+\#define \mbox{\hyperlink{stack_8h_ab693b7f0431ff5fb4177290e6184fc6e}{CANARY\+\_\+\+PROTECT}}
+\item 
+\#define \mbox{\hyperlink{stack_8h_a3d1311d889954a0ddf65567d3913eb29}{HASH\+\_\+\+PROTECT}}
+\item 
+\#define \mbox{\hyperlink{stack_8h_a0e86e404fb41df2a06346b0fd53ccb83}{ELEM\+\_\+\+T\+\_\+\+PRINTF}}~"{}\%d"{}
+\item 
+\#define \mbox{\hyperlink{stack_8h_a2a23f87eee71a5bd4ac163e1bba1f479}{CANARY\+\_\+\+T\+\_\+\+PRINTF}}~"{}\%ll\+X"{}
 \item 
 \#define \mbox{\hyperlink{stack_8h_a1bdd7c1369b250215a080e8421d4ecf3}{ON\+\_\+\+DEBUG}}(...)~\+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+
 \begin{DoxyCompactList}\small\item\em hidden ifdef macros for DEBUG \end{DoxyCompactList}\item 
@@ -38,6 +46,13 @@ struct \mbox{\hyperlink{structStack}{Stack}}
 \begin{DoxyCompactList}\small\item\em hidden ifdef macros for HASH\+\_\+\+PROTECT \end{DoxyCompactList}\item 
 \#define \mbox{\hyperlink{stack_8h_ae09c894ab7c3c3daa2c838cde400b7fc}{ON\+\_\+\+CANARY\+\_\+\+PROTECT}}(...)~\+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+
 \begin{DoxyCompactList}\small\item\em hidden ifdef macros for CANARY\+\_\+\+PROTECT \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef signed char \mbox{\hyperlink{stack_8h_a2cc56bfd987df84942ab4dc387f55160}{Elem\+\_\+t}}
+\item 
+typedef unsigned long long \mbox{\hyperlink{stack_8h_a788ec731a306c6e69c1dbb06983429ed}{Canary\+\_\+t}}
+\end{DoxyCompactItemize}
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -45,14 +60,12 @@ int \mbox{\hyperlink{stack_8h_af7ef1edc742a93d33af35b9ab80c4196}{stk\+\_\+ctor}}
 \begin{DoxyCompactList}\small\item\em \doxylink{structStack}{Stack} constructor. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{stack_8h_a274ef6d070da1ebae0069c65a0775984}{stk\+\_\+is\+\_\+initialised}} (const \mbox{\hyperlink{structStack}{Stack}} \texorpdfstring{$\ast$}{*}stk)
 \begin{DoxyCompactList}\small\item\em Checks if stack is initialised. \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{stack_8h_aa30787d931ba7ff16b8aa1ddfa7337d3}{stk\+\_\+push}} (\mbox{\hyperlink{structStack}{Stack}} \texorpdfstring{$\ast$}{*}stk, const \mbox{\hyperlink{config_8h_a2cc56bfd987df84942ab4dc387f55160}{Elem\+\_\+t}} elem)
+int \mbox{\hyperlink{stack_8h_aa30787d931ba7ff16b8aa1ddfa7337d3}{stk\+\_\+push}} (\mbox{\hyperlink{structStack}{Stack}} \texorpdfstring{$\ast$}{*}stk, const \mbox{\hyperlink{stack_8h_a2cc56bfd987df84942ab4dc387f55160}{Elem\+\_\+t}} elem)
 \begin{DoxyCompactList}\small\item\em Pushes elem to stack. \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{stack_8h_a8a9034ca7b569e78083db61cefdafbff}{stk\+\_\+pop}} (\mbox{\hyperlink{structStack}{Stack}} \texorpdfstring{$\ast$}{*}stk, \mbox{\hyperlink{config_8h_a2cc56bfd987df84942ab4dc387f55160}{Elem\+\_\+t}} \texorpdfstring{$\ast$}{*}const res)
+int \mbox{\hyperlink{stack_8h_a8a9034ca7b569e78083db61cefdafbff}{stk\+\_\+pop}} (\mbox{\hyperlink{structStack}{Stack}} \texorpdfstring{$\ast$}{*}stk, \mbox{\hyperlink{stack_8h_a2cc56bfd987df84942ab4dc387f55160}{Elem\+\_\+t}} \texorpdfstring{$\ast$}{*}const res)
 \begin{DoxyCompactList}\small\item\em Pops elem from stack. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{stack_8h_a6c5e2d562b3eeeeabca9396a5e457247}{stk\+\_\+resize}} (\mbox{\hyperlink{structStack}{Stack}} \texorpdfstring{$\ast$}{*}stk, const size\+\_\+t new\+\_\+size)
 \begin{DoxyCompactList}\small\item\em Resizes stack. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{stack_8h_a1b7caf431e78e8fc61a308f2898feafe}{stk\+\_\+print\+\_\+error}} (const int err\+\_\+code)
-\begin{DoxyCompactList}\small\item\em Prints errors to log file. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{stack_8h_a60863cc39088870cab1ccd33d1e8d2f6}{stk\+\_\+dtor}} (\mbox{\hyperlink{structStack}{Stack}} \texorpdfstring{$\ast$}{*}stk)
 \begin{DoxyCompactList}\small\item\em \doxylink{structStack}{Stack} destructor. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{stack_8h_a03c94c054172abf5fa9fc1e887840ae3}{stk\+\_\+ctor\+\_\+debug}} (\mbox{\hyperlink{structStack}{Stack}} \texorpdfstring{$\ast$}{*}stk, const \mbox{\hyperlink{structVarCodeData}{Var\+Code\+Data}} var\+\_\+data, const size\+\_\+t min\+\_\+capacity=\mbox{\hyperlink{structStack_a02dd99e7282f168c46deef6f08f40a58}{Stack\+::\+DEFAULT\+\_\+\+CAPACITY}})
@@ -61,15 +74,17 @@ void \mbox{\hyperlink{stack_8h_a512d9a3195de2d401bec9a3c64a29fd0}{stk\+\_\+dump}
 \begin{DoxyCompactList}\small\item\em Dumps all stack data to log. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{stack_8h_aa5801fe77f92f99b324b972ee22ed326}{stk\+\_\+verify}} (\mbox{\hyperlink{structStack}{Stack}} \texorpdfstring{$\ast$}{*}stk)
 \begin{DoxyCompactList}\small\item\em Verifies stack. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{stack_8h_a1b7caf431e78e8fc61a308f2898feafe}{stk\+\_\+print\+\_\+error}} (const int err\+\_\+code)
+\begin{DoxyCompactList}\small\item\em Prints errors to log file. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{crc32_8h_aec0adc213b23c34ec982fa84dceb81fd}{CRC32\+\_\+t}} \mbox{\hyperlink{stack_8h_a536ddddf9bb8810b9703d5e405a073b9}{stk\+\_\+struct\+\_\+hash\+\_\+calc}} (\mbox{\hyperlink{structStack}{Stack}} \texorpdfstring{$\ast$}{*}stk)
 \begin{DoxyCompactList}\small\item\em Calculates hash for \doxylink{structStack}{Stack} struct. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{crc32_8h_aec0adc213b23c34ec982fa84dceb81fd}{CRC32\+\_\+t}} \mbox{\hyperlink{stack_8h_ae72fe1519dee325a0e6dd4eafc14898b}{stk\+\_\+data\+\_\+hash\+\_\+calc}} (\mbox{\hyperlink{structStack}{Stack}} \texorpdfstring{$\ast$}{*}stk)
 \begin{DoxyCompactList}\small\item\em Calculates hash for stk.\+data. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{crc32_8h_aec0adc213b23c34ec982fa84dceb81fd}{CRC32\+\_\+t}} \mbox{\hyperlink{stack_8h_a5623fe015c076479c94adb3ddd01ad35}{stk\+\_\+data\+\_\+hash\+\_\+push}} (\mbox{\hyperlink{structStack}{Stack}} \texorpdfstring{$\ast$}{*}stk, \mbox{\hyperlink{config_8h_a2cc56bfd987df84942ab4dc387f55160}{Elem\+\_\+t}} elem, \mbox{\hyperlink{crc32_8h_aec0adc213b23c34ec982fa84dceb81fd}{CRC32\+\_\+t}} crc)
+\mbox{\hyperlink{crc32_8h_aec0adc213b23c34ec982fa84dceb81fd}{CRC32\+\_\+t}} \mbox{\hyperlink{stack_8h_a5623fe015c076479c94adb3ddd01ad35}{stk\+\_\+data\+\_\+hash\+\_\+push}} (\mbox{\hyperlink{structStack}{Stack}} \texorpdfstring{$\ast$}{*}stk, \mbox{\hyperlink{stack_8h_a2cc56bfd987df84942ab4dc387f55160}{Elem\+\_\+t}} elem, \mbox{\hyperlink{crc32_8h_aec0adc213b23c34ec982fa84dceb81fd}{CRC32\+\_\+t}} crc)
 \begin{DoxyCompactList}\small\item\em Addes one elemnt to stk.\+data hash. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{config_8h_a788ec731a306c6e69c1dbb06983429ed}{Canary\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{stack_8h_a38d2301409d76703e2936d8a89853e31}{left\+\_\+data\+\_\+canary\+\_\+ptr}} (const \mbox{\hyperlink{structStack}{Stack}} \texorpdfstring{$\ast$}{*}stk)
+\mbox{\hyperlink{stack_8h_a788ec731a306c6e69c1dbb06983429ed}{Canary\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{stack_8h_a38d2301409d76703e2936d8a89853e31}{left\+\_\+data\+\_\+canary\+\_\+ptr}} (const \mbox{\hyperlink{structStack}{Stack}} \texorpdfstring{$\ast$}{*}stk)
 \begin{DoxyCompactList}\small\item\em Returns pointer to stk.\+data left canary. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{config_8h_a788ec731a306c6e69c1dbb06983429ed}{Canary\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{stack_8h_a8141a491532e1b89ad3bc94fc410d523}{right\+\_\+data\+\_\+canary\+\_\+ptr}} (const \mbox{\hyperlink{structStack}{Stack}} \texorpdfstring{$\ast$}{*}stk)
+\mbox{\hyperlink{stack_8h_a788ec731a306c6e69c1dbb06983429ed}{Canary\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{stack_8h_a8141a491532e1b89ad3bc94fc410d523}{right\+\_\+data\+\_\+canary\+\_\+ptr}} (const \mbox{\hyperlink{structStack}{Stack}} \texorpdfstring{$\ast$}{*}stk)
 \begin{DoxyCompactList}\small\item\em Returns pointer to stk.\+data right canary. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{stack_8h_a28f2ffba75ab89f49acdd3b07040f40b}{stk\+\_\+resize\+\_\+up}} (\mbox{\hyperlink{structStack}{Stack}} \texorpdfstring{$\ast$}{*}stk)
 \begin{DoxyCompactList}\small\item\em Calcs new stk size, when size is rising and does resize. \end{DoxyCompactList}\item 
@@ -80,6 +95,56 @@ size\+\_\+t \mbox{\hyperlink{stack_8h_a9d171b647636bbf53d7335be5b7ff367}{calc\+\
 
 
 \doxysubsection{Macro Definition Documentation}
+\Hypertarget{stack_8h_ab693b7f0431ff5fb4177290e6184fc6e}\label{stack_8h_ab693b7f0431ff5fb4177290e6184fc6e} 
+\index{stack.h@{stack.h}!CANARY\_PROTECT@{CANARY\_PROTECT}}
+\index{CANARY\_PROTECT@{CANARY\_PROTECT}!stack.h@{stack.h}}
+\doxysubsubsection{\texorpdfstring{CANARY\_PROTECT}{CANARY\_PROTECT}}
+{\footnotesize\ttfamily \#define CANARY\+\_\+\+PROTECT}
+
+
+
+Definition at line \mbox{\hyperlink{stack_8h_source_l00014}{14}} of file \mbox{\hyperlink{stack_8h_source}{stack.\+h}}.
+
+\Hypertarget{stack_8h_a2a23f87eee71a5bd4ac163e1bba1f479}\label{stack_8h_a2a23f87eee71a5bd4ac163e1bba1f479} 
+\index{stack.h@{stack.h}!CANARY\_T\_PRINTF@{CANARY\_T\_PRINTF}}
+\index{CANARY\_T\_PRINTF@{CANARY\_T\_PRINTF}!stack.h@{stack.h}}
+\doxysubsubsection{\texorpdfstring{CANARY\_T\_PRINTF}{CANARY\_T\_PRINTF}}
+{\footnotesize\ttfamily \#define CANARY\+\_\+\+T\+\_\+\+PRINTF~"{}\%ll\+X"{}}
+
+
+
+Definition at line \mbox{\hyperlink{stack_8h_source_l00024}{24}} of file \mbox{\hyperlink{stack_8h_source}{stack.\+h}}.
+
+\Hypertarget{stack_8h_ad72dbcf6d0153db1b8d8a58001feed83}\label{stack_8h_ad72dbcf6d0153db1b8d8a58001feed83} 
+\index{stack.h@{stack.h}!DEBUG@{DEBUG}}
+\index{DEBUG@{DEBUG}!stack.h@{stack.h}}
+\doxysubsubsection{\texorpdfstring{DEBUG}{DEBUG}}
+{\footnotesize\ttfamily \#define DEBUG}
+
+
+
+Definition at line \mbox{\hyperlink{stack_8h_source_l00013}{13}} of file \mbox{\hyperlink{stack_8h_source}{stack.\+h}}.
+
+\Hypertarget{stack_8h_a0e86e404fb41df2a06346b0fd53ccb83}\label{stack_8h_a0e86e404fb41df2a06346b0fd53ccb83} 
+\index{stack.h@{stack.h}!ELEM\_T\_PRINTF@{ELEM\_T\_PRINTF}}
+\index{ELEM\_T\_PRINTF@{ELEM\_T\_PRINTF}!stack.h@{stack.h}}
+\doxysubsubsection{\texorpdfstring{ELEM\_T\_PRINTF}{ELEM\_T\_PRINTF}}
+{\footnotesize\ttfamily \#define ELEM\+\_\+\+T\+\_\+\+PRINTF~"{}\%d"{}}
+
+
+
+Definition at line \mbox{\hyperlink{stack_8h_source_l00020}{20}} of file \mbox{\hyperlink{stack_8h_source}{stack.\+h}}.
+
+\Hypertarget{stack_8h_a3d1311d889954a0ddf65567d3913eb29}\label{stack_8h_a3d1311d889954a0ddf65567d3913eb29} 
+\index{stack.h@{stack.h}!HASH\_PROTECT@{HASH\_PROTECT}}
+\index{HASH\_PROTECT@{HASH\_PROTECT}!stack.h@{stack.h}}
+\doxysubsubsection{\texorpdfstring{HASH\_PROTECT}{HASH\_PROTECT}}
+{\footnotesize\ttfamily \#define HASH\+\_\+\+PROTECT}
+
+
+
+Definition at line \mbox{\hyperlink{stack_8h_source_l00015}{15}} of file \mbox{\hyperlink{stack_8h_source}{stack.\+h}}.
+
 \Hypertarget{stack_8h_ae09c894ab7c3c3daa2c838cde400b7fc}\label{stack_8h_ae09c894ab7c3c3daa2c838cde400b7fc} 
 \index{stack.h@{stack.h}!ON\_CANARY\_PROTECT@{ON\_CANARY\_PROTECT}}
 \index{ON\_CANARY\_PROTECT@{ON\_CANARY\_PROTECT}!stack.h@{stack.h}}
@@ -92,7 +157,7 @@ hidden ifdef macros for CANARY\+\_\+\+PROTECT
 
 
 
-Definition at line \mbox{\hyperlink{stack_8h_source_l00308}{308}} of file \mbox{\hyperlink{stack_8h_source}{stack.\+h}}.
+Definition at line \mbox{\hyperlink{stack_8h_source_l00325}{325}} of file \mbox{\hyperlink{stack_8h_source}{stack.\+h}}.
 
 \Hypertarget{stack_8h_a1bdd7c1369b250215a080e8421d4ecf3}\label{stack_8h_a1bdd7c1369b250215a080e8421d4ecf3} 
 \index{stack.h@{stack.h}!ON\_DEBUG@{ON\_DEBUG}}
@@ -106,7 +171,7 @@ hidden ifdef macros for DEBUG
 
 
 
-Definition at line \mbox{\hyperlink{stack_8h_source_l00138}{138}} of file \mbox{\hyperlink{stack_8h_source}{stack.\+h}}.
+Definition at line \mbox{\hyperlink{stack_8h_source_l00148}{148}} of file \mbox{\hyperlink{stack_8h_source}{stack.\+h}}.
 
 \Hypertarget{stack_8h_a1dc689bb2898fa51bd45a9e016fc2777}\label{stack_8h_a1dc689bb2898fa51bd45a9e016fc2777} 
 \index{stack.h@{stack.h}!ON\_HASH\_PROTECT@{ON\_HASH\_PROTECT}}
@@ -120,7 +185,7 @@ hidden ifdef macros for HASH\+\_\+\+PROTECT
 
 
 
-Definition at line \mbox{\hyperlink{stack_8h_source_l00254}{254}} of file \mbox{\hyperlink{stack_8h_source}{stack.\+h}}.
+Definition at line \mbox{\hyperlink{stack_8h_source_l00271}{271}} of file \mbox{\hyperlink{stack_8h_source}{stack.\+h}}.
 
 \Hypertarget{stack_8h_a1442ee943ce9afe9c695447e23ac327f}\label{stack_8h_a1442ee943ce9afe9c695447e23ac327f} 
 \index{stack.h@{stack.h}!STK\_ASSERT@{STK\_ASSERT}}
@@ -143,124 +208,124 @@ Used in the beginning of stk\+\_\+ function.
 
 
 
-Definition at line \mbox{\hyperlink{stack_8h_source_l00180}{180}} of file \mbox{\hyperlink{stack_8h_source}{stack.\+h}}.
+Definition at line \mbox{\hyperlink{stack_8h_source_l00197}{197}} of file \mbox{\hyperlink{stack_8h_source}{stack.\+h}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
-\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ if\ (res\ !=\ stk-\/>OK)\ \{\ \ \ \ \ \ \ \(\backslash\)}
-\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ stk\_print\_error(res);\ \ \ \(\backslash\)}
-\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ STK\_DUMP(stk);\ \ \ \ \ \ \ \ \ \ \(\backslash\)}
-\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
-\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{while}\ (0)}
-\DoxyCodeLine{00207\ }
-\DoxyCodeLine{00211\ \textcolor{preprocessor}{\ \ \ \ \#define\ STK\_DUMP(stk)\ \ \ stk\_dump(stk,\ VAR\_CODE\_DATA())}}
-\DoxyCodeLine{00212\ \textcolor{preprocessor}{\#else\ }\textcolor{comment}{//\ \#ifndef\ DEBUG}}
-\DoxyCodeLine{00216\ \ \ \ \ \#define\ ON\_DEBUG(...)}
-\DoxyCodeLine{00217\ }
-\DoxyCodeLine{00221\ \textcolor{preprocessor}{\ \ \ \ \#define\ STK\_CTOR(stk)\ \ \ stk\_ctor(stk)}}
-\DoxyCodeLine{00222\ }
-\DoxyCodeLine{00226\ \textcolor{preprocessor}{\ \ \ \ \#define\ STK\_CTOR\_CAP(stk,\ capacity)\ \ \ stk\_ctor(stk,\ capacity)}}
-\DoxyCodeLine{00227\ }
-\DoxyCodeLine{00231\ \textcolor{preprocessor}{\ \ \ \ \#define\ STK\_ASSERT(stk)\ Stack::OK}}
-\DoxyCodeLine{00232\ }
-\DoxyCodeLine{00236\ \textcolor{preprocessor}{\ \ \ \ \#define\ STK\_FILL\_POISON(stk,\ begin,\ end)\ void\ (0)}}
-\DoxyCodeLine{00237\ }
-\DoxyCodeLine{00241\ \textcolor{preprocessor}{\ \ \ \ \#define\ STK\_VERIFY(stk)\ Stack::OK;}}
-\DoxyCodeLine{00242\ }
-\DoxyCodeLine{00243\ \textcolor{preprocessor}{\ \ \ \ \#define\ STK\_OK(stk,\ res)\ void\ (0)}}
+\DoxyCodeLine{00218\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{00219\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ if\ (res\ !=\ stk-\/>OK)\ \{\ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{00220\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ stk\_print\_error(res);\ \ \ \(\backslash\)}
+\DoxyCodeLine{00221\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ STK\_DUMP(stk);\ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{00222\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{00223\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{while}\ (0)}
+\DoxyCodeLine{00224\ }
+\DoxyCodeLine{00228\ \textcolor{preprocessor}{\ \ \ \ \#define\ STK\_DUMP(stk)\ \ \ stk\_dump(stk,\ VAR\_CODE\_DATA())}}
+\DoxyCodeLine{00229\ \textcolor{preprocessor}{\#else\ }\textcolor{comment}{//\ \#ifndef\ DEBUG}}
+\DoxyCodeLine{00233\ \ \ \ \ \#define\ ON\_DEBUG(...)}
+\DoxyCodeLine{00234\ }
+\DoxyCodeLine{00238\ \textcolor{preprocessor}{\ \ \ \ \#define\ STK\_CTOR(stk)\ \ \ stk\_ctor(stk)}}
+\DoxyCodeLine{00239\ }
+\DoxyCodeLine{00243\ \textcolor{preprocessor}{\ \ \ \ \#define\ STK\_CTOR\_CAP(stk,\ capacity)\ \ \ stk\_ctor(stk,\ capacity)}}
 \DoxyCodeLine{00244\ }
-\DoxyCodeLine{00245\ \textcolor{preprocessor}{\ \ \ \ \#define\ STK\_DUMP(stk)\ void\ (0)}}
-\DoxyCodeLine{00246\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ \#ifdef\ DEBUG}}
-\DoxyCodeLine{00247\ }
-\DoxyCodeLine{00248\ \textcolor{preprocessor}{\#ifdef\ HASH\_PROTECT}}
+\DoxyCodeLine{00248\ \textcolor{preprocessor}{\ \ \ \ \#define\ STK\_ASSERT(stk)\ Stack::OK}}
 \DoxyCodeLine{00249\ }
-\DoxyCodeLine{00253\ \textcolor{preprocessor}{\#define\ ON\_HASH\_PROTECT(...)\ \_\_VA\_ARGS\_\_}}
+\DoxyCodeLine{00253\ \textcolor{preprocessor}{\ \ \ \ \#define\ STK\_FILL\_POISON(stk,\ begin,\ end)\ void\ (0)}}
 \DoxyCodeLine{00254\ }
-\DoxyCodeLine{00261\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{crc32_8h_aec0adc213b23c34ec982fa84dceb81fd}{CRC32\_t}}\ \mbox{\hyperlink{stack_8h_a536ddddf9bb8810b9703d5e405a073b9}{stk\_struct\_hash\_calc}}(\mbox{\hyperlink{structStack}{Stack}}*\ stk)\ \{}
-\DoxyCodeLine{00262\ \ \ \ \ assert(stk);}
-\DoxyCodeLine{00263\ }
-\DoxyCodeLine{00264\ \ \ \ \ stk-\/>\mbox{\hyperlink{structStack_a5d85c28620cf7c22e622df2d8a58f35b}{struct\_hash}}\ =\ 0;}
-\DoxyCodeLine{00265\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{crc32_8cpp_ac24ce753a192608e6a70627eecea4adb}{crc\_add}}(0,\ (\textcolor{keywordtype}{char}*)stk,\ \textcolor{keyword}{sizeof}(stk));}
-\DoxyCodeLine{00266\ \}}
-\DoxyCodeLine{00267\ }
-\DoxyCodeLine{00274\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{crc32_8h_aec0adc213b23c34ec982fa84dceb81fd}{CRC32\_t}}\ \mbox{\hyperlink{stack_8h_ae72fe1519dee325a0e6dd4eafc14898b}{stk\_data\_hash\_calc}}(\mbox{\hyperlink{structStack}{Stack}}*\ stk)\ \{}
-\DoxyCodeLine{00275\ \ \ \ \ assert(stk);}
-\DoxyCodeLine{00276\ }
-\DoxyCodeLine{00277\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{crc32_8cpp_ac24ce753a192608e6a70627eecea4adb}{crc\_add}}(0,\ (\textcolor{keywordtype}{char}*)stk-\/>\mbox{\hyperlink{structStack_a02ed96691b2e6636bd9155758e8ee8cd}{data}},\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{config_8h_a2cc56bfd987df84942ab4dc387f55160}{Elem\_t}})\ *\ stk-\/>\mbox{\hyperlink{structStack_a3b6cb0b4ff732c7bbbaaa5d3860bcd1a}{size}});}
-\DoxyCodeLine{00278\ \}}
-\DoxyCodeLine{00279\ }
-\DoxyCodeLine{00288\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{crc32_8h_aec0adc213b23c34ec982fa84dceb81fd}{CRC32\_t}}\ \mbox{\hyperlink{stack_8h_a5623fe015c076479c94adb3ddd01ad35}{stk\_data\_hash\_push}}(\mbox{\hyperlink{structStack}{Stack}}*\ stk,\ \mbox{\hyperlink{config_8h_a2cc56bfd987df84942ab4dc387f55160}{Elem\_t}}\ elem,\ \mbox{\hyperlink{crc32_8h_aec0adc213b23c34ec982fa84dceb81fd}{CRC32\_t}}\ crc)\ \{}
-\DoxyCodeLine{00289\ \ \ \ \ assert(stk);}
-\DoxyCodeLine{00290\ }
-\DoxyCodeLine{00291\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{crc32_8cpp_ac24ce753a192608e6a70627eecea4adb}{crc\_add}}(crc,\ (\textcolor{keywordtype}{char}*)(\&elem),\ \textcolor{keyword}{sizeof}(elem));}
-\DoxyCodeLine{00292\ \}}
-\DoxyCodeLine{00293\ \textcolor{preprocessor}{\#else\ }\textcolor{comment}{//\ \#ifndef\ HASH\_PROTECT}}
-\DoxyCodeLine{00294\ }
-\DoxyCodeLine{00298\ \textcolor{preprocessor}{\#define\ ON\_HASH\_PROTECT(...)}}
-\DoxyCodeLine{00299\ }
-\DoxyCodeLine{00300\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ \#ifdef\ HASH\_PROTECT}}
-\DoxyCodeLine{00301\ }
-\DoxyCodeLine{00302\ \textcolor{preprocessor}{\#ifdef\ CANARY\_PROTECT}}
-\DoxyCodeLine{00303\ }
-\DoxyCodeLine{00307\ \textcolor{preprocessor}{\#define\ ON\_CANARY\_PROTECT(...)\ \_\_VA\_ARGS\_\_}}
-\DoxyCodeLine{00308\ }
-\DoxyCodeLine{00315\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{config_8h_a788ec731a306c6e69c1dbb06983429ed}{Canary\_t}}*\ \mbox{\hyperlink{stack_8h_a38d2301409d76703e2936d8a89853e31}{left\_data\_canary\_ptr}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structStack}{Stack}}*\ stk)\ \{}
-\DoxyCodeLine{00316\ \ \ \ \ assert(stk);}
-\DoxyCodeLine{00317\ \ \ \ \ assert(stk-\/>\mbox{\hyperlink{structStack_a02ed96691b2e6636bd9155758e8ee8cd}{data}});}
+\DoxyCodeLine{00258\ \textcolor{preprocessor}{\ \ \ \ \#define\ STK\_VERIFY(stk)\ Stack::OK;}}
+\DoxyCodeLine{00259\ }
+\DoxyCodeLine{00260\ \textcolor{preprocessor}{\ \ \ \ \#define\ STK\_OK(stk,\ res)\ void\ (0)}}
+\DoxyCodeLine{00261\ }
+\DoxyCodeLine{00262\ \textcolor{preprocessor}{\ \ \ \ \#define\ STK\_DUMP(stk)\ void\ (0)}}
+\DoxyCodeLine{00263\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ \#ifdef\ DEBUG}}
+\DoxyCodeLine{00264\ }
+\DoxyCodeLine{00265\ \textcolor{preprocessor}{\#ifdef\ HASH\_PROTECT}}
+\DoxyCodeLine{00266\ }
+\DoxyCodeLine{00270\ \textcolor{preprocessor}{\#define\ ON\_HASH\_PROTECT(...)\ \_\_VA\_ARGS\_\_}}
+\DoxyCodeLine{00271\ }
+\DoxyCodeLine{00278\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{crc32_8h_aec0adc213b23c34ec982fa84dceb81fd}{CRC32\_t}}\ \mbox{\hyperlink{stack_8h_a536ddddf9bb8810b9703d5e405a073b9}{stk\_struct\_hash\_calc}}(\mbox{\hyperlink{structStack}{Stack}}*\ stk)\ \{}
+\DoxyCodeLine{00279\ \ \ \ \ assert(stk);}
+\DoxyCodeLine{00280\ }
+\DoxyCodeLine{00281\ \ \ \ \ stk-\/>\mbox{\hyperlink{structStack_a5d85c28620cf7c22e622df2d8a58f35b}{struct\_hash}}\ =\ 0;}
+\DoxyCodeLine{00282\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{crc32_8cpp_ac24ce753a192608e6a70627eecea4adb}{crc\_add}}(0,\ (\textcolor{keywordtype}{char}*)stk,\ \textcolor{keyword}{sizeof}(stk));}
+\DoxyCodeLine{00283\ \}}
+\DoxyCodeLine{00284\ }
+\DoxyCodeLine{00291\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{crc32_8h_aec0adc213b23c34ec982fa84dceb81fd}{CRC32\_t}}\ \mbox{\hyperlink{stack_8h_ae72fe1519dee325a0e6dd4eafc14898b}{stk\_data\_hash\_calc}}(\mbox{\hyperlink{structStack}{Stack}}*\ stk)\ \{}
+\DoxyCodeLine{00292\ \ \ \ \ assert(stk);}
+\DoxyCodeLine{00293\ }
+\DoxyCodeLine{00294\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{crc32_8cpp_ac24ce753a192608e6a70627eecea4adb}{crc\_add}}(0,\ (\textcolor{keywordtype}{char}*)stk-\/>\mbox{\hyperlink{structStack_a02ed96691b2e6636bd9155758e8ee8cd}{data}},\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{stack_8h_a2cc56bfd987df84942ab4dc387f55160}{Elem\_t}})\ *\ stk-\/>\mbox{\hyperlink{structStack_a3b6cb0b4ff732c7bbbaaa5d3860bcd1a}{size}});}
+\DoxyCodeLine{00295\ \}}
+\DoxyCodeLine{00296\ }
+\DoxyCodeLine{00305\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{crc32_8h_aec0adc213b23c34ec982fa84dceb81fd}{CRC32\_t}}\ \mbox{\hyperlink{stack_8h_a5623fe015c076479c94adb3ddd01ad35}{stk\_data\_hash\_push}}(\mbox{\hyperlink{structStack}{Stack}}*\ stk,\ \mbox{\hyperlink{stack_8h_a2cc56bfd987df84942ab4dc387f55160}{Elem\_t}}\ elem,\ \mbox{\hyperlink{crc32_8h_aec0adc213b23c34ec982fa84dceb81fd}{CRC32\_t}}\ crc)\ \{}
+\DoxyCodeLine{00306\ \ \ \ \ assert(stk);}
+\DoxyCodeLine{00307\ }
+\DoxyCodeLine{00308\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{crc32_8cpp_ac24ce753a192608e6a70627eecea4adb}{crc\_add}}(crc,\ (\textcolor{keywordtype}{char}*)(\&elem),\ \textcolor{keyword}{sizeof}(elem));}
+\DoxyCodeLine{00309\ \}}
+\DoxyCodeLine{00310\ \textcolor{preprocessor}{\#else\ }\textcolor{comment}{//\ \#ifndef\ HASH\_PROTECT}}
+\DoxyCodeLine{00311\ }
+\DoxyCodeLine{00315\ \textcolor{preprocessor}{\#define\ ON\_HASH\_PROTECT(...)}}
+\DoxyCodeLine{00316\ }
+\DoxyCodeLine{00317\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ \#ifdef\ HASH\_PROTECT}}
 \DoxyCodeLine{00318\ }
-\DoxyCodeLine{00319\ \ \ \ \ \textcolor{keywordflow}{return}\ (\mbox{\hyperlink{config_8h_a788ec731a306c6e69c1dbb06983429ed}{Canary\_t}}*)stk-\/>\mbox{\hyperlink{structStack_a02ed96691b2e6636bd9155758e8ee8cd}{data}}\ -\/\ 1;}
-\DoxyCodeLine{00320\ \}}
-\DoxyCodeLine{00321\ }
-\DoxyCodeLine{00328\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{config_8h_a788ec731a306c6e69c1dbb06983429ed}{Canary\_t}}*\ \mbox{\hyperlink{stack_8h_a8141a491532e1b89ad3bc94fc410d523}{right\_data\_canary\_ptr}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structStack}{Stack}}*\ stk)\ \{}
-\DoxyCodeLine{00329\ \ \ \ \ assert(stk);}
-\DoxyCodeLine{00330\ \ \ \ \ assert(stk-\/>\mbox{\hyperlink{structStack_a02ed96691b2e6636bd9155758e8ee8cd}{data}});}
-\DoxyCodeLine{00331\ }
-\DoxyCodeLine{00332\ \ \ \ \ \textcolor{keywordflow}{return}\ (\mbox{\hyperlink{config_8h_a788ec731a306c6e69c1dbb06983429ed}{Canary\_t}}*)((\textcolor{keywordtype}{char}*)stk-\/>\mbox{\hyperlink{structStack_a02ed96691b2e6636bd9155758e8ee8cd}{data}}\ +\ stk-\/>\mbox{\hyperlink{structStack_a2f2b41ebbf7c8adce40da902814e1c7b}{capacity}}\ *\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{config_8h_a2cc56bfd987df84942ab4dc387f55160}{Elem\_t}})}
-\DoxyCodeLine{00333\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ +\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{config_8h_a788ec731a306c6e69c1dbb06983429ed}{Canary\_t}})\ -\/\ stk-\/>\mbox{\hyperlink{structStack_a2f2b41ebbf7c8adce40da902814e1c7b}{capacity}}\ *\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{config_8h_a2cc56bfd987df84942ab4dc387f55160}{Elem\_t}})\ \%\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{config_8h_a788ec731a306c6e69c1dbb06983429ed}{Canary\_t}}));}
-\DoxyCodeLine{00334\ \}}
+\DoxyCodeLine{00319\ \textcolor{preprocessor}{\#ifdef\ CANARY\_PROTECT}}
+\DoxyCodeLine{00320\ }
+\DoxyCodeLine{00324\ \textcolor{preprocessor}{\#define\ ON\_CANARY\_PROTECT(...)\ \_\_VA\_ARGS\_\_}}
+\DoxyCodeLine{00325\ }
+\DoxyCodeLine{00332\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{stack_8h_a788ec731a306c6e69c1dbb06983429ed}{Canary\_t}}*\ \mbox{\hyperlink{stack_8h_a38d2301409d76703e2936d8a89853e31}{left\_data\_canary\_ptr}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structStack}{Stack}}*\ stk)\ \{}
+\DoxyCodeLine{00333\ \ \ \ \ assert(stk);}
+\DoxyCodeLine{00334\ \ \ \ \ assert(stk-\/>\mbox{\hyperlink{structStack_a02ed96691b2e6636bd9155758e8ee8cd}{data}});}
 \DoxyCodeLine{00335\ }
-\DoxyCodeLine{00336\ \textcolor{preprocessor}{\#else\ \ }\textcolor{comment}{//\ \#ifndef\ CANARY\_PROTECT}}
-\DoxyCodeLine{00337\ }
-\DoxyCodeLine{00341\ \textcolor{preprocessor}{\#define\ ON\_CANARY\_PROTECT(...)}}
-\DoxyCodeLine{00342\ }
-\DoxyCodeLine{00343\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ \#ifdef\ CANARY\_PROTECT}}
-\DoxyCodeLine{00344\ }
-\DoxyCodeLine{00351\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{stack_8h_a28f2ffba75ab89f49acdd3b07040f40b}{stk\_resize\_up}}(\mbox{\hyperlink{structStack}{Stack}}*\ stk)\ \{}
-\DoxyCodeLine{00352\ \ \ \ \ \textcolor{keywordtype}{int}\ res\ =\ \mbox{\hyperlink{stack_8h_a1442ee943ce9afe9c695447e23ac327f}{STK\_ASSERT}}(stk);}
-\DoxyCodeLine{00353\ }
-\DoxyCodeLine{00354\ \ \ \ \ ssize\_t\ new\_cap\ =\ stk-\/>\mbox{\hyperlink{structStack_a2f2b41ebbf7c8adce40da902814e1c7b}{capacity}};}
-\DoxyCodeLine{00355\ }
-\DoxyCodeLine{00356\ \ \ \ \ \textcolor{keywordflow}{while}\ (stk-\/>\mbox{\hyperlink{structStack_a3b6cb0b4ff732c7bbbaaa5d3860bcd1a}{size}}\ >=\ new\_cap)}
-\DoxyCodeLine{00357\ \ \ \ \ \ \ \ \ new\_cap\ *=\ 2;}
-\DoxyCodeLine{00358\ }
-\DoxyCodeLine{00359\ \ \ \ \ \textcolor{keywordflow}{if}\ (new\_cap\ !=\ stk-\/>\mbox{\hyperlink{structStack_a2f2b41ebbf7c8adce40da902814e1c7b}{capacity}})}
-\DoxyCodeLine{00360\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ res\ |\ \mbox{\hyperlink{stack_8h_a6c5e2d562b3eeeeabca9396a5e457247}{stk\_resize}}(stk,\ new\_cap);}
+\DoxyCodeLine{00336\ \ \ \ \ \textcolor{keywordflow}{return}\ (\mbox{\hyperlink{stack_8h_a788ec731a306c6e69c1dbb06983429ed}{Canary\_t}}*)stk-\/>\mbox{\hyperlink{structStack_a02ed96691b2e6636bd9155758e8ee8cd}{data}}\ -\/\ 1;}
+\DoxyCodeLine{00337\ \}}
+\DoxyCodeLine{00338\ }
+\DoxyCodeLine{00345\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{stack_8h_a788ec731a306c6e69c1dbb06983429ed}{Canary\_t}}*\ \mbox{\hyperlink{stack_8h_a8141a491532e1b89ad3bc94fc410d523}{right\_data\_canary\_ptr}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structStack}{Stack}}*\ stk)\ \{}
+\DoxyCodeLine{00346\ \ \ \ \ assert(stk);}
+\DoxyCodeLine{00347\ \ \ \ \ assert(stk-\/>\mbox{\hyperlink{structStack_a02ed96691b2e6636bd9155758e8ee8cd}{data}});}
+\DoxyCodeLine{00348\ }
+\DoxyCodeLine{00349\ \ \ \ \ \textcolor{keywordflow}{return}\ (\mbox{\hyperlink{stack_8h_a788ec731a306c6e69c1dbb06983429ed}{Canary\_t}}*)((\textcolor{keywordtype}{char}*)stk-\/>\mbox{\hyperlink{structStack_a02ed96691b2e6636bd9155758e8ee8cd}{data}}\ +\ stk-\/>\mbox{\hyperlink{structStack_a2f2b41ebbf7c8adce40da902814e1c7b}{capacity}}\ *\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{stack_8h_a2cc56bfd987df84942ab4dc387f55160}{Elem\_t}})}
+\DoxyCodeLine{00350\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ +\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{stack_8h_a788ec731a306c6e69c1dbb06983429ed}{Canary\_t}})\ -\/\ stk-\/>\mbox{\hyperlink{structStack_a2f2b41ebbf7c8adce40da902814e1c7b}{capacity}}\ *\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{stack_8h_a2cc56bfd987df84942ab4dc387f55160}{Elem\_t}})\ \%\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{stack_8h_a788ec731a306c6e69c1dbb06983429ed}{Canary\_t}}));}
+\DoxyCodeLine{00351\ \}}
+\DoxyCodeLine{00352\ }
+\DoxyCodeLine{00353\ \textcolor{preprocessor}{\#else\ \ }\textcolor{comment}{//\ \#ifndef\ CANARY\_PROTECT}}
+\DoxyCodeLine{00354\ }
+\DoxyCodeLine{00358\ \textcolor{preprocessor}{\#define\ ON\_CANARY\_PROTECT(...)}}
+\DoxyCodeLine{00359\ }
+\DoxyCodeLine{00360\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ \#ifdef\ CANARY\_PROTECT}}
 \DoxyCodeLine{00361\ }
-\DoxyCodeLine{00362\ \ \ \ \ \textcolor{keywordflow}{return}\ res;}
-\DoxyCodeLine{00363\ \}}
-\DoxyCodeLine{00364\ }
-\DoxyCodeLine{00371\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{stack_8h_a39fe4fd668c5eb885f0e79b238311053}{stk\_resize\_down}}(\mbox{\hyperlink{structStack}{Stack}}*\ stk)\ \{}
-\DoxyCodeLine{00372\ \ \ \ \ \textcolor{keywordtype}{int}\ res\ =\ \mbox{\hyperlink{stack_8h_a1442ee943ce9afe9c695447e23ac327f}{STK\_ASSERT}}(stk);}
-\DoxyCodeLine{00373\ }
-\DoxyCodeLine{00374\ \ \ \ \ ssize\_t\ new\_cap\ =\ stk-\/>\mbox{\hyperlink{structStack_a2f2b41ebbf7c8adce40da902814e1c7b}{capacity}};}
+\DoxyCodeLine{00368\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{stack_8h_a28f2ffba75ab89f49acdd3b07040f40b}{stk\_resize\_up}}(\mbox{\hyperlink{structStack}{Stack}}*\ stk)\ \{}
+\DoxyCodeLine{00369\ \ \ \ \ \textcolor{keywordtype}{int}\ res\ =\ \mbox{\hyperlink{stack_8h_a1442ee943ce9afe9c695447e23ac327f}{STK\_ASSERT}}(stk);}
+\DoxyCodeLine{00370\ }
+\DoxyCodeLine{00371\ \ \ \ \ ssize\_t\ new\_cap\ =\ stk-\/>\mbox{\hyperlink{structStack_a2f2b41ebbf7c8adce40da902814e1c7b}{capacity}};}
+\DoxyCodeLine{00372\ }
+\DoxyCodeLine{00373\ \ \ \ \ \textcolor{keywordflow}{while}\ (stk-\/>\mbox{\hyperlink{structStack_a3b6cb0b4ff732c7bbbaaa5d3860bcd1a}{size}}\ >=\ new\_cap)}
+\DoxyCodeLine{00374\ \ \ \ \ \ \ \ \ new\_cap\ *=\ 2;}
 \DoxyCodeLine{00375\ }
-\DoxyCodeLine{00376\ \ \ \ \ \textcolor{keywordflow}{if}\ (stk-\/>\mbox{\hyperlink{structStack_a3b6cb0b4ff732c7bbbaaa5d3860bcd1a}{size}}\ *\ 4\ <=\ new\_cap\ \&\&\ new\_cap\ >=\ (ssize\_t)stk-\/>\mbox{\hyperlink{structStack_a02dd99e7282f168c46deef6f08f40a58}{DEFAULT\_CAPACITY}}\ *\ 2)}
-\DoxyCodeLine{00377\ \ \ \ \ \ \ \ \ new\_cap\ /=\ 2;}
+\DoxyCodeLine{00376\ \ \ \ \ \textcolor{keywordflow}{if}\ (new\_cap\ !=\ stk-\/>\mbox{\hyperlink{structStack_a2f2b41ebbf7c8adce40da902814e1c7b}{capacity}})}
+\DoxyCodeLine{00377\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ res\ |\ \mbox{\hyperlink{stack_8h_a6c5e2d562b3eeeeabca9396a5e457247}{stk\_resize}}(stk,\ new\_cap);}
 \DoxyCodeLine{00378\ }
-\DoxyCodeLine{00379\ \ \ \ \ \textcolor{keywordflow}{if}\ (new\_cap\ !=\ stk-\/>\mbox{\hyperlink{structStack_a2f2b41ebbf7c8adce40da902814e1c7b}{capacity}})}
-\DoxyCodeLine{00380\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ res\ |\ \mbox{\hyperlink{stack_8h_a6c5e2d562b3eeeeabca9396a5e457247}{stk\_resize}}(stk,\ new\_cap);}
+\DoxyCodeLine{00379\ \ \ \ \ \textcolor{keywordflow}{return}\ res;}
+\DoxyCodeLine{00380\ \}}
 \DoxyCodeLine{00381\ }
-\DoxyCodeLine{00382\ \ \ \ \ \textcolor{keywordflow}{return}\ res;}
-\DoxyCodeLine{00383\ \}}
-\DoxyCodeLine{00384\ }
-\DoxyCodeLine{00391\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{stack_8h_a9d171b647636bbf53d7335be5b7ff367}{calc\_stk\_data\_size}}(\textcolor{keywordtype}{size\_t}\ len)\ \{}
-\DoxyCodeLine{00392\ \ \ \ \ \textcolor{keywordflow}{return}\ len\ *\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{config_8h_a2cc56bfd987df84942ab4dc387f55160}{Elem\_t}})}
-\DoxyCodeLine{00393\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{stack_8h_ae09c894ab7c3c3daa2c838cde400b7fc}{ON\_CANARY\_PROTECT}}(+\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{config_8h_a788ec731a306c6e69c1dbb06983429ed}{Canary\_t}})\ -\/\ len\ *\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{config_8h_a2cc56bfd987df84942ab4dc387f55160}{Elem\_t}})\ \%\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{config_8h_a788ec731a306c6e69c1dbb06983429ed}{Canary\_t}})}
-\DoxyCodeLine{00394\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ +\ 2\ *\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{config_8h_a788ec731a306c6e69c1dbb06983429ed}{Canary\_t}}));}
-\DoxyCodeLine{00395\ \}}
-\DoxyCodeLine{00396\ }
-\DoxyCodeLine{00397\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ \#ifndef\ STACK\_H\_}}
+\DoxyCodeLine{00388\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{stack_8h_a39fe4fd668c5eb885f0e79b238311053}{stk\_resize\_down}}(\mbox{\hyperlink{structStack}{Stack}}*\ stk)\ \{}
+\DoxyCodeLine{00389\ \ \ \ \ \textcolor{keywordtype}{int}\ res\ =\ \mbox{\hyperlink{stack_8h_a1442ee943ce9afe9c695447e23ac327f}{STK\_ASSERT}}(stk);}
+\DoxyCodeLine{00390\ }
+\DoxyCodeLine{00391\ \ \ \ \ ssize\_t\ new\_cap\ =\ stk-\/>\mbox{\hyperlink{structStack_a2f2b41ebbf7c8adce40da902814e1c7b}{capacity}};}
+\DoxyCodeLine{00392\ }
+\DoxyCodeLine{00393\ \ \ \ \ \textcolor{keywordflow}{if}\ (stk-\/>\mbox{\hyperlink{structStack_a3b6cb0b4ff732c7bbbaaa5d3860bcd1a}{size}}\ *\ 4\ <=\ new\_cap\ \&\&\ new\_cap\ >=\ (ssize\_t)stk-\/>\mbox{\hyperlink{structStack_a02dd99e7282f168c46deef6f08f40a58}{DEFAULT\_CAPACITY}}\ *\ 2)}
+\DoxyCodeLine{00394\ \ \ \ \ \ \ \ \ new\_cap\ /=\ 2;}
+\DoxyCodeLine{00395\ }
+\DoxyCodeLine{00396\ \ \ \ \ \textcolor{keywordflow}{if}\ (new\_cap\ !=\ stk-\/>\mbox{\hyperlink{structStack_a2f2b41ebbf7c8adce40da902814e1c7b}{capacity}})}
+\DoxyCodeLine{00397\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ res\ |\ \mbox{\hyperlink{stack_8h_a6c5e2d562b3eeeeabca9396a5e457247}{stk\_resize}}(stk,\ new\_cap);}
+\DoxyCodeLine{00398\ }
+\DoxyCodeLine{00399\ \ \ \ \ \textcolor{keywordflow}{return}\ res;}
+\DoxyCodeLine{00400\ \}}
+\DoxyCodeLine{00401\ }
+\DoxyCodeLine{00408\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{stack_8h_a9d171b647636bbf53d7335be5b7ff367}{calc\_stk\_data\_size}}(\textcolor{keywordtype}{size\_t}\ len)\ \{}
+\DoxyCodeLine{00409\ \ \ \ \ \textcolor{keywordflow}{return}\ len\ *\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{stack_8h_a2cc56bfd987df84942ab4dc387f55160}{Elem\_t}})}
+\DoxyCodeLine{00410\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{stack_8h_ae09c894ab7c3c3daa2c838cde400b7fc}{ON\_CANARY\_PROTECT}}(+\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{stack_8h_a788ec731a306c6e69c1dbb06983429ed}{Canary\_t}})\ -\/\ len\ *\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{stack_8h_a2cc56bfd987df84942ab4dc387f55160}{Elem\_t}})\ \%\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{stack_8h_a788ec731a306c6e69c1dbb06983429ed}{Canary\_t}})}
+\DoxyCodeLine{00411\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ +\ 2\ *\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{stack_8h_a788ec731a306c6e69c1dbb06983429ed}{Canary\_t}}));}
+\DoxyCodeLine{00412\ \}}
+\DoxyCodeLine{00413\ }
+\DoxyCodeLine{00414\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ \#ifndef\ STACK\_H\_}}
 
 \end{DoxyCode}
 \Hypertarget{stack_8h_a77d5f30dcde5dbd333d45dc0958348d7}\label{stack_8h_a77d5f30dcde5dbd333d45dc0958348d7} 
@@ -275,7 +340,7 @@ stk\+\_\+ctor macros
 
 
 
-Definition at line \mbox{\hyperlink{stack_8h_source_l00143}{143}} of file \mbox{\hyperlink{stack_8h_source}{stack.\+h}}.
+Definition at line \mbox{\hyperlink{stack_8h_source_l00153}{153}} of file \mbox{\hyperlink{stack_8h_source}{stack.\+h}}.
 
 \Hypertarget{stack_8h_af52f302590a00f9e30f71a93a1b83b81}\label{stack_8h_af52f302590a00f9e30f71a93a1b83b81} 
 \index{stack.h@{stack.h}!STK\_CTOR\_CAP@{STK\_CTOR\_CAP}}
@@ -289,7 +354,7 @@ stk\+\_\+ctor macros with capacity
 
 
 
-Definition at line \mbox{\hyperlink{stack_8h_source_l00148}{148}} of file \mbox{\hyperlink{stack_8h_source}{stack.\+h}}.
+Definition at line \mbox{\hyperlink{stack_8h_source_l00158}{158}} of file \mbox{\hyperlink{stack_8h_source}{stack.\+h}}.
 
 \Hypertarget{stack_8h_a8ee2f82704b56dfa7a24d2b44becebd4}\label{stack_8h_a8ee2f82704b56dfa7a24d2b44becebd4} 
 \index{stack.h@{stack.h}!STK\_DUMP@{STK\_DUMP}}
@@ -303,7 +368,7 @@ stk\+\_\+dump macros
 
 
 
-Definition at line \mbox{\hyperlink{stack_8h_source_l00212}{212}} of file \mbox{\hyperlink{stack_8h_source}{stack.\+h}}.
+Definition at line \mbox{\hyperlink{stack_8h_source_l00229}{229}} of file \mbox{\hyperlink{stack_8h_source}{stack.\+h}}.
 
 \Hypertarget{stack_8h_adf27c21e09fa1d3a5d8309d2ccbea793}\label{stack_8h_adf27c21e09fa1d3a5d8309d2ccbea793} 
 \index{stack.h@{stack.h}!STK\_FILL\_POISON@{STK\_FILL\_POISON}}
@@ -314,7 +379,7 @@ Definition at line \mbox{\hyperlink{stack_8h_source_l00212}{212}} of file \mbox{
 {\bfseries Value\+:}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (end\ >\ begin)\ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fill(stk-\/>data\ +\ begin,\ end\ -\/\ begin,\ \&stk-\/>POISON,\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{config_8h_a2cc56bfd987df84942ab4dc387f55160}{Elem\_t}}))}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fill(stk-\/>data\ +\ begin,\ end\ -\/\ begin,\ \&stk-\/>POISON,\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{stack_8h_a2cc56bfd987df84942ab4dc387f55160}{Elem\_t}}))}
 
 \end{DoxyCode}
 
@@ -323,7 +388,7 @@ fills stk data array with poison
 
 
 
-Definition at line \mbox{\hyperlink{stack_8h_source_l00190}{190}} of file \mbox{\hyperlink{stack_8h_source}{stack.\+h}}.
+Definition at line \mbox{\hyperlink{stack_8h_source_l00207}{207}} of file \mbox{\hyperlink{stack_8h_source}{stack.\+h}}.
 
 \Hypertarget{stack_8h_adfe306bbeb051d0e57c29ae2fcda4b3b}\label{stack_8h_adfe306bbeb051d0e57c29ae2fcda4b3b} 
 \index{stack.h@{stack.h}!STK\_OK@{STK\_OK}}
@@ -347,16 +412,16 @@ calls \doxylink{stack_8h_a1b7caf431e78e8fc61a308f2898feafe}{stk\+\_\+print\+\_\+
 
 
 
-Definition at line \mbox{\hyperlink{stack_8h_source_l00202}{202}} of file \mbox{\hyperlink{stack_8h_source}{stack.\+h}}.
+Definition at line \mbox{\hyperlink{stack_8h_source_l00219}{219}} of file \mbox{\hyperlink{stack_8h_source}{stack.\+h}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
-\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ if\ (res\ !=\ stk-\/>OK)\ \{\ \ \ \ \ \ \ \(\backslash\)}
-\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ stk\_print\_error(res);\ \ \ \(\backslash\)}
-\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ STK\_DUMP(stk);\ \ \ \ \ \ \ \ \ \ \(\backslash\)}
-\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
-\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{while}\ (0)}
+\DoxyCodeLine{00219\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{00220\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ if\ (res\ !=\ stk-\/>OK)\ \{\ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{00221\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ stk\_print\_error(res);\ \ \ \(\backslash\)}
+\DoxyCodeLine{00222\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ STK\_DUMP(stk);\ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{00223\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{00224\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{while}\ (0)}
 
 \end{DoxyCode}
 \Hypertarget{stack_8h_a013fc56c5d16255530c4b0134dfeb8a6}\label{stack_8h_a013fc56c5d16255530c4b0134dfeb8a6} 
@@ -371,7 +436,30 @@ Definition at line \mbox{\hyperlink{stack_8h_source_l00202}{202}} of file \mbox{
 
 
 
-Definition at line \mbox{\hyperlink{stack_8h_source_l00197}{197}} of file \mbox{\hyperlink{stack_8h_source}{stack.\+h}}.
+Definition at line \mbox{\hyperlink{stack_8h_source_l00214}{214}} of file \mbox{\hyperlink{stack_8h_source}{stack.\+h}}.
+
+
+
+\doxysubsection{Typedef Documentation}
+\Hypertarget{stack_8h_a788ec731a306c6e69c1dbb06983429ed}\label{stack_8h_a788ec731a306c6e69c1dbb06983429ed} 
+\index{stack.h@{stack.h}!Canary\_t@{Canary\_t}}
+\index{Canary\_t@{Canary\_t}!stack.h@{stack.h}}
+\doxysubsubsection{\texorpdfstring{Canary\_t}{Canary\_t}}
+{\footnotesize\ttfamily typedef unsigned long long \mbox{\hyperlink{stack_8h_a788ec731a306c6e69c1dbb06983429ed}{Canary\+\_\+t}}}
+
+
+
+Definition at line \mbox{\hyperlink{stack_8h_source_l00022}{22}} of file \mbox{\hyperlink{stack_8h_source}{stack.\+h}}.
+
+\Hypertarget{stack_8h_a2cc56bfd987df84942ab4dc387f55160}\label{stack_8h_a2cc56bfd987df84942ab4dc387f55160} 
+\index{stack.h@{stack.h}!Elem\_t@{Elem\_t}}
+\index{Elem\_t@{Elem\_t}!stack.h@{stack.h}}
+\doxysubsubsection{\texorpdfstring{Elem\_t}{Elem\_t}}
+{\footnotesize\ttfamily typedef signed char \mbox{\hyperlink{stack_8h_a2cc56bfd987df84942ab4dc387f55160}{Elem\+\_\+t}}}
+
+
+
+Definition at line \mbox{\hyperlink{stack_8h_source_l00018}{18}} of file \mbox{\hyperlink{stack_8h_source}{stack.\+h}}.
 
 
 
@@ -396,30 +484,30 @@ size\+\_\+t
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{stack_8h_source_l00392}{392}} of file \mbox{\hyperlink{stack_8h_source}{stack.\+h}}.
+Definition at line \mbox{\hyperlink{stack_8h_source_l00409}{409}} of file \mbox{\hyperlink{stack_8h_source}{stack.\+h}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00392\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00393\ \ \ \ \ \textcolor{keywordflow}{return}\ len\ *\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{config_8h_a2cc56bfd987df84942ab4dc387f55160}{Elem\_t}})}
-\DoxyCodeLine{00394\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{stack_8h_ae09c894ab7c3c3daa2c838cde400b7fc}{ON\_CANARY\_PROTECT}}(+\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{config_8h_a788ec731a306c6e69c1dbb06983429ed}{Canary\_t}})\ -\/\ len\ *\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{config_8h_a2cc56bfd987df84942ab4dc387f55160}{Elem\_t}})\ \%\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{config_8h_a788ec731a306c6e69c1dbb06983429ed}{Canary\_t}})}
-\DoxyCodeLine{00395\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ +\ 2\ *\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{config_8h_a788ec731a306c6e69c1dbb06983429ed}{Canary\_t}}));}
-\DoxyCodeLine{00396\ \}}
+\DoxyCodeLine{00409\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00410\ \ \ \ \ \textcolor{keywordflow}{return}\ len\ *\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{stack_8h_a2cc56bfd987df84942ab4dc387f55160}{Elem\_t}})}
+\DoxyCodeLine{00411\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{stack_8h_ae09c894ab7c3c3daa2c838cde400b7fc}{ON\_CANARY\_PROTECT}}(+\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{stack_8h_a788ec731a306c6e69c1dbb06983429ed}{Canary\_t}})\ -\/\ len\ *\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{stack_8h_a2cc56bfd987df84942ab4dc387f55160}{Elem\_t}})\ \%\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{stack_8h_a788ec731a306c6e69c1dbb06983429ed}{Canary\_t}})}
+\DoxyCodeLine{00412\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ +\ 2\ *\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{stack_8h_a788ec731a306c6e69c1dbb06983429ed}{Canary\_t}}));}
+\DoxyCodeLine{00413\ \}}
 
 \end{DoxyCode}
 
 
-References \mbox{\hyperlink{stack_8h_source_l00308}{ON\+\_\+\+CANARY\+\_\+\+PROTECT}}.
+References \mbox{\hyperlink{stack_8h_source_l00325}{ON\+\_\+\+CANARY\+\_\+\+PROTECT}}.
 
 
 
-Referenced by \mbox{\hyperlink{stack_8cpp_source_l00019}{stk\+\_\+ctor()}}, and \mbox{\hyperlink{stack_8cpp_source_l00097}{stk\+\_\+resize()}}.
+Referenced by \mbox{\hyperlink{stack_8cpp_source_l00027}{stk\+\_\+ctor()}}, and \mbox{\hyperlink{stack_8cpp_source_l00105}{stk\+\_\+resize()}}.
 
 \Hypertarget{stack_8h_a38d2301409d76703e2936d8a89853e31}\label{stack_8h_a38d2301409d76703e2936d8a89853e31} 
 \index{stack.h@{stack.h}!left\_data\_canary\_ptr@{left\_data\_canary\_ptr}}
 \index{left\_data\_canary\_ptr@{left\_data\_canary\_ptr}!stack.h@{stack.h}}
 \doxysubsubsection{\texorpdfstring{left\_data\_canary\_ptr()}{left\_data\_canary\_ptr()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{config_8h_a788ec731a306c6e69c1dbb06983429ed}{Canary\+\_\+t}} \texorpdfstring{$\ast$}{*} left\+\_\+data\+\_\+canary\+\_\+ptr (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structStack}{Stack}} \texorpdfstring{$\ast$}{*}}]{stk }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{stack_8h_a788ec731a306c6e69c1dbb06983429ed}{Canary\+\_\+t}} \texorpdfstring{$\ast$}{*} left\+\_\+data\+\_\+canary\+\_\+ptr (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structStack}{Stack}} \texorpdfstring{$\ast$}{*}}]{stk }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
@@ -435,31 +523,31 @@ Canary\+\_\+t\texorpdfstring{$\ast$}{*}
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{stack_8h_source_l00316}{316}} of file \mbox{\hyperlink{stack_8h_source}{stack.\+h}}.
+Definition at line \mbox{\hyperlink{stack_8h_source_l00333}{333}} of file \mbox{\hyperlink{stack_8h_source}{stack.\+h}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00316\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00317\ \ \ \ \ assert(stk);}
-\DoxyCodeLine{00318\ \ \ \ \ assert(stk-\/>\mbox{\hyperlink{structStack_a02ed96691b2e6636bd9155758e8ee8cd}{data}});}
-\DoxyCodeLine{00319\ }
-\DoxyCodeLine{00320\ \ \ \ \ \textcolor{keywordflow}{return}\ (\mbox{\hyperlink{config_8h_a788ec731a306c6e69c1dbb06983429ed}{Canary\_t}}*)stk-\/>\mbox{\hyperlink{structStack_a02ed96691b2e6636bd9155758e8ee8cd}{data}}\ -\/\ 1;}
-\DoxyCodeLine{00321\ \}}
+\DoxyCodeLine{00333\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00334\ \ \ \ \ assert(stk);}
+\DoxyCodeLine{00335\ \ \ \ \ assert(stk-\/>\mbox{\hyperlink{structStack_a02ed96691b2e6636bd9155758e8ee8cd}{data}});}
+\DoxyCodeLine{00336\ }
+\DoxyCodeLine{00337\ \ \ \ \ \textcolor{keywordflow}{return}\ (\mbox{\hyperlink{stack_8h_a788ec731a306c6e69c1dbb06983429ed}{Canary\_t}}*)stk-\/>\mbox{\hyperlink{structStack_a02ed96691b2e6636bd9155758e8ee8cd}{data}}\ -\/\ 1;}
+\DoxyCodeLine{00338\ \}}
 
 \end{DoxyCode}
 
 
-References \mbox{\hyperlink{stack_8h_source_l00050}{Stack\+::data}}.
+References \mbox{\hyperlink{stack_8h_source_l00067}{Stack\+::data}}.
 
 
 
-Referenced by \mbox{\hyperlink{stack_8cpp_source_l00019}{stk\+\_\+ctor()}}, \mbox{\hyperlink{stack_8cpp_source_l00223}{stk\+\_\+dump()}}, and \mbox{\hyperlink{stack_8cpp_source_l00297}{stk\+\_\+verify()}}.
+Referenced by \mbox{\hyperlink{stack_8cpp_source_l00027}{stk\+\_\+ctor()}}, \mbox{\hyperlink{stack_8cpp_source_l00235}{stk\+\_\+dump()}}, and \mbox{\hyperlink{stack_8cpp_source_l00309}{stk\+\_\+verify()}}.
 
 \Hypertarget{stack_8h_a8141a491532e1b89ad3bc94fc410d523}\label{stack_8h_a8141a491532e1b89ad3bc94fc410d523} 
 \index{stack.h@{stack.h}!right\_data\_canary\_ptr@{right\_data\_canary\_ptr}}
 \index{right\_data\_canary\_ptr@{right\_data\_canary\_ptr}!stack.h@{stack.h}}
 \doxysubsubsection{\texorpdfstring{right\_data\_canary\_ptr()}{right\_data\_canary\_ptr()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{config_8h_a788ec731a306c6e69c1dbb06983429ed}{Canary\+\_\+t}} \texorpdfstring{$\ast$}{*} right\+\_\+data\+\_\+canary\+\_\+ptr (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structStack}{Stack}} \texorpdfstring{$\ast$}{*}}]{stk }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{stack_8h_a788ec731a306c6e69c1dbb06983429ed}{Canary\+\_\+t}} \texorpdfstring{$\ast$}{*} right\+\_\+data\+\_\+canary\+\_\+ptr (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structStack}{Stack}} \texorpdfstring{$\ast$}{*}}]{stk }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
@@ -475,26 +563,26 @@ Canary\+\_\+t\texorpdfstring{$\ast$}{*}
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{stack_8h_source_l00329}{329}} of file \mbox{\hyperlink{stack_8h_source}{stack.\+h}}.
+Definition at line \mbox{\hyperlink{stack_8h_source_l00346}{346}} of file \mbox{\hyperlink{stack_8h_source}{stack.\+h}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00329\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00330\ \ \ \ \ assert(stk);}
-\DoxyCodeLine{00331\ \ \ \ \ assert(stk-\/>\mbox{\hyperlink{structStack_a02ed96691b2e6636bd9155758e8ee8cd}{data}});}
-\DoxyCodeLine{00332\ }
-\DoxyCodeLine{00333\ \ \ \ \ \textcolor{keywordflow}{return}\ (\mbox{\hyperlink{config_8h_a788ec731a306c6e69c1dbb06983429ed}{Canary\_t}}*)((\textcolor{keywordtype}{char}*)stk-\/>\mbox{\hyperlink{structStack_a02ed96691b2e6636bd9155758e8ee8cd}{data}}\ +\ stk-\/>\mbox{\hyperlink{structStack_a2f2b41ebbf7c8adce40da902814e1c7b}{capacity}}\ *\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{config_8h_a2cc56bfd987df84942ab4dc387f55160}{Elem\_t}})}
-\DoxyCodeLine{00334\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ +\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{config_8h_a788ec731a306c6e69c1dbb06983429ed}{Canary\_t}})\ -\/\ stk-\/>\mbox{\hyperlink{structStack_a2f2b41ebbf7c8adce40da902814e1c7b}{capacity}}\ *\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{config_8h_a2cc56bfd987df84942ab4dc387f55160}{Elem\_t}})\ \%\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{config_8h_a788ec731a306c6e69c1dbb06983429ed}{Canary\_t}}));}
-\DoxyCodeLine{00335\ \}}
+\DoxyCodeLine{00346\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00347\ \ \ \ \ assert(stk);}
+\DoxyCodeLine{00348\ \ \ \ \ assert(stk-\/>\mbox{\hyperlink{structStack_a02ed96691b2e6636bd9155758e8ee8cd}{data}});}
+\DoxyCodeLine{00349\ }
+\DoxyCodeLine{00350\ \ \ \ \ \textcolor{keywordflow}{return}\ (\mbox{\hyperlink{stack_8h_a788ec731a306c6e69c1dbb06983429ed}{Canary\_t}}*)((\textcolor{keywordtype}{char}*)stk-\/>\mbox{\hyperlink{structStack_a02ed96691b2e6636bd9155758e8ee8cd}{data}}\ +\ stk-\/>\mbox{\hyperlink{structStack_a2f2b41ebbf7c8adce40da902814e1c7b}{capacity}}\ *\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{stack_8h_a2cc56bfd987df84942ab4dc387f55160}{Elem\_t}})}
+\DoxyCodeLine{00351\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ +\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{stack_8h_a788ec731a306c6e69c1dbb06983429ed}{Canary\_t}})\ -\/\ stk-\/>\mbox{\hyperlink{structStack_a2f2b41ebbf7c8adce40da902814e1c7b}{capacity}}\ *\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{stack_8h_a2cc56bfd987df84942ab4dc387f55160}{Elem\_t}})\ \%\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{stack_8h_a788ec731a306c6e69c1dbb06983429ed}{Canary\_t}}));}
+\DoxyCodeLine{00352\ \}}
 
 \end{DoxyCode}
 
 
-References \mbox{\hyperlink{stack_8h_source_l00051}{Stack\+::capacity}}, and \mbox{\hyperlink{stack_8h_source_l00050}{Stack\+::data}}.
+References \mbox{\hyperlink{stack_8h_source_l00068}{Stack\+::capacity}}, and \mbox{\hyperlink{stack_8h_source_l00067}{Stack\+::data}}.
 
 
 
-Referenced by \mbox{\hyperlink{stack_8cpp_source_l00019}{stk\+\_\+ctor()}}, \mbox{\hyperlink{stack_8cpp_source_l00223}{stk\+\_\+dump()}}, \mbox{\hyperlink{stack_8cpp_source_l00097}{stk\+\_\+resize()}}, and \mbox{\hyperlink{stack_8cpp_source_l00297}{stk\+\_\+verify()}}.
+Referenced by \mbox{\hyperlink{stack_8cpp_source_l00027}{stk\+\_\+ctor()}}, \mbox{\hyperlink{stack_8cpp_source_l00235}{stk\+\_\+dump()}}, \mbox{\hyperlink{stack_8cpp_source_l00105}{stk\+\_\+resize()}}, and \mbox{\hyperlink{stack_8cpp_source_l00309}{stk\+\_\+verify()}}.
 
 \Hypertarget{stack_8h_af7ef1edc742a93d33af35b9ab80c4196}\label{stack_8h_af7ef1edc742a93d33af35b9ab80c4196} 
 \index{stack.h@{stack.h}!stk\_ctor@{stk\_ctor}}
@@ -521,66 +609,66 @@ int
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{stack_8cpp_source_l00019}{19}} of file \mbox{\hyperlink{stack_8cpp_source}{stack.\+cpp}}.
+Definition at line \mbox{\hyperlink{stack_8cpp_source_l00027}{27}} of file \mbox{\hyperlink{stack_8cpp_source}{stack.\+cpp}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00020\ \ \ \ \ assert(stk);}
-\DoxyCodeLine{00021\ }
-\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{int}\ res\ =\ stk-\/>\mbox{\hyperlink{structStack_ae8242b5f1b2c3d98a6dbafc302e509d5a146633a2ef2a9bbb1c05ec4cd31ba019}{OK}};}
-\DoxyCodeLine{00023\ }
-\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{stack_8h_a274ef6d070da1ebae0069c65a0775984}{stk\_is\_initialised}}(stk))\ \{}
-\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ res\ |=\ stk-\/>\mbox{\hyperlink{structStack_ae8242b5f1b2c3d98a6dbafc302e509d5af004171243fdbfc79e0cb30fd7561690}{ALREADY\_INITIALISED}};}
-\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{stack_8h_adfe306bbeb051d0e57c29ae2fcda4b3b}{STK\_OK}}(stk,\ res);}
-\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ res;}
-\DoxyCodeLine{00028\ \ \ \ \ \}}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00028\ \ \ \ \ assert(stk);}
 \DoxyCodeLine{00029\ }
-\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordflow}{if}\ (init\_capacity\ ==\ 0)\ \{}
-\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ res\ |=\ stk-\/>\mbox{\hyperlink{structStack_ae8242b5f1b2c3d98a6dbafc302e509d5aa41ce2e438b0124421ebaa0a7bd4a8b2}{INVALID\_CAPACITY}};}
-\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{stack_8h_adfe306bbeb051d0e57c29ae2fcda4b3b}{STK\_OK}}(stk,\ res);}
-\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ res;}
-\DoxyCodeLine{00034\ \ \ \ \ \}}
-\DoxyCodeLine{00035\ }
-\DoxyCodeLine{00036\ \ \ \ \ stk-\/>\mbox{\hyperlink{structStack_a02ed96691b2e6636bd9155758e8ee8cd}{data}}\ =\ (\mbox{\hyperlink{config_8h_a2cc56bfd987df84942ab4dc387f55160}{Elem\_t}}*)calloc(\mbox{\hyperlink{stack_8h_a9d171b647636bbf53d7335be5b7ff367}{calc\_stk\_data\_size}}(init\_capacity),\ 1);}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{int}\ res\ =\ stk-\/>\mbox{\hyperlink{structStack_ae8242b5f1b2c3d98a6dbafc302e509d5a146633a2ef2a9bbb1c05ec4cd31ba019}{OK}};}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{stack_8h_a274ef6d070da1ebae0069c65a0775984}{stk\_is\_initialised}}(stk))\ \{}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ res\ |=\ stk-\/>\mbox{\hyperlink{structStack_ae8242b5f1b2c3d98a6dbafc302e509d5af004171243fdbfc79e0cb30fd7561690}{ALREADY\_INITIALISED}};}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{stack_8h_adfe306bbeb051d0e57c29ae2fcda4b3b}{STK\_OK}}(stk,\ res);}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ res;}
+\DoxyCodeLine{00036\ \ \ \ \ \}}
 \DoxyCodeLine{00037\ }
-\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordflow}{if}\ (stk-\/>\mbox{\hyperlink{structStack_a02ed96691b2e6636bd9155758e8ee8cd}{data}}\ ==\ \textcolor{keyword}{nullptr})\ \{}
-\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ res\ |=\ stk-\/>\mbox{\hyperlink{structStack_ae8242b5f1b2c3d98a6dbafc302e509d5a8e610fdd9bd4faa7ad35a6058ad9fcbf}{ALLOC\_ERR}};}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordflow}{if}\ (init\_capacity\ ==\ 0)\ \{}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ res\ |=\ stk-\/>\mbox{\hyperlink{structStack_ae8242b5f1b2c3d98a6dbafc302e509d5aa41ce2e438b0124421ebaa0a7bd4a8b2}{INVALID\_CAPACITY}};}
 \DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{stack_8h_adfe306bbeb051d0e57c29ae2fcda4b3b}{STK\_OK}}(stk,\ res);}
 \DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ res;}
 \DoxyCodeLine{00042\ \ \ \ \ \}}
 \DoxyCodeLine{00043\ }
-\DoxyCodeLine{00044\ \ \ \ \ stk-\/>\mbox{\hyperlink{structStack_a2f2b41ebbf7c8adce40da902814e1c7b}{capacity}}\ =\ init\_capacity;}
-\DoxyCodeLine{00045\ \ \ \ \ stk-\/>\mbox{\hyperlink{structStack_a3b6cb0b4ff732c7bbbaaa5d3860bcd1a}{size}}\ =\ 0;}
-\DoxyCodeLine{00046\ }
-\DoxyCodeLine{00047\ \textcolor{preprocessor}{\#ifdef\ CANARY\_PROTECT}}
-\DoxyCodeLine{00048\ \ \ \ \ stk-\/>\mbox{\hyperlink{structStack_a02ed96691b2e6636bd9155758e8ee8cd}{data}}\ =\ (\mbox{\hyperlink{config_8h_a2cc56bfd987df84942ab4dc387f55160}{Elem\_t}}*)(((\mbox{\hyperlink{config_8h_a788ec731a306c6e69c1dbb06983429ed}{Canary\_t}}*)stk-\/>\mbox{\hyperlink{structStack_a02ed96691b2e6636bd9155758e8ee8cd}{data}})\ +\ 1);}
-\DoxyCodeLine{00049\ }
-\DoxyCodeLine{00050\ \ \ \ \ \ *\mbox{\hyperlink{stack_8h_a38d2301409d76703e2936d8a89853e31}{left\_data\_canary\_ptr}}(stk)\ =\ CANARY\_VAL;}
-\DoxyCodeLine{00051\ \ \ \ \ *\mbox{\hyperlink{stack_8h_a8141a491532e1b89ad3bc94fc410d523}{right\_data\_canary\_ptr}}(stk)\ =\ CANARY\_VAL;}
-\DoxyCodeLine{00052\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ \#ifdef\ CANARY\_PROTECT}}
-\DoxyCodeLine{00053\ }
-\DoxyCodeLine{00054\ \ \ \ \ \mbox{\hyperlink{stack_8h_adf27c21e09fa1d3a5d8309d2ccbea793}{STK\_FILL\_POISON}}(stk,\ 0,\ stk-\/>\mbox{\hyperlink{structStack_a2f2b41ebbf7c8adce40da902814e1c7b}{capacity}});}
-\DoxyCodeLine{00055\ }
-\DoxyCodeLine{00056\ \textcolor{preprocessor}{\#ifdef\ HASH\_PROTECT}}
-\DoxyCodeLine{00057\ \ \ \ \ stk-\/>\mbox{\hyperlink{structStack_a0313f9fb25ba1f5ce41bcaf465777ead}{data\_hash}}\ \ \ =\ \ \ \mbox{\hyperlink{stack_8h_ae72fe1519dee325a0e6dd4eafc14898b}{stk\_data\_hash\_calc}}(stk);}
-\DoxyCodeLine{00058\ \ \ \ \ stk-\/>\mbox{\hyperlink{structStack_a5d85c28620cf7c22e622df2d8a58f35b}{struct\_hash}}\ =\ \mbox{\hyperlink{stack_8h_a536ddddf9bb8810b9703d5e405a073b9}{stk\_struct\_hash\_calc}}(stk);}
-\DoxyCodeLine{00059\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ \#ifdef\ HASH\_PROTECT}}
-\DoxyCodeLine{00060\ }
-\DoxyCodeLine{00061\ \ \ \ \ res\ |=\ \mbox{\hyperlink{stack_8h_a013fc56c5d16255530c4b0134dfeb8a6}{STK\_VERIFY}}(stk);}
-\DoxyCodeLine{00062\ \ \ \ \ \mbox{\hyperlink{stack_8h_adfe306bbeb051d0e57c29ae2fcda4b3b}{STK\_OK}}(stk,\ res);}
+\DoxyCodeLine{00044\ \ \ \ \ stk-\/>\mbox{\hyperlink{structStack_a02ed96691b2e6636bd9155758e8ee8cd}{data}}\ =\ (\mbox{\hyperlink{stack_8h_a2cc56bfd987df84942ab4dc387f55160}{Elem\_t}}*)calloc(\mbox{\hyperlink{stack_8h_a9d171b647636bbf53d7335be5b7ff367}{calc\_stk\_data\_size}}(init\_capacity),\ 1);}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordflow}{if}\ (stk-\/>\mbox{\hyperlink{structStack_a02ed96691b2e6636bd9155758e8ee8cd}{data}}\ ==\ \textcolor{keyword}{nullptr})\ \{}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ res\ |=\ stk-\/>\mbox{\hyperlink{structStack_ae8242b5f1b2c3d98a6dbafc302e509d5a8e610fdd9bd4faa7ad35a6058ad9fcbf}{ALLOC\_ERR}};}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{stack_8h_adfe306bbeb051d0e57c29ae2fcda4b3b}{STK\_OK}}(stk,\ res);}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ res;}
+\DoxyCodeLine{00050\ \ \ \ \ \}}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \ \ \ \ stk-\/>\mbox{\hyperlink{structStack_a2f2b41ebbf7c8adce40da902814e1c7b}{capacity}}\ =\ init\_capacity;}
+\DoxyCodeLine{00053\ \ \ \ \ stk-\/>\mbox{\hyperlink{structStack_a3b6cb0b4ff732c7bbbaaa5d3860bcd1a}{size}}\ =\ 0;}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \textcolor{preprocessor}{\#ifdef\ CANARY\_PROTECT}}
+\DoxyCodeLine{00056\ \ \ \ \ stk-\/>\mbox{\hyperlink{structStack_a02ed96691b2e6636bd9155758e8ee8cd}{data}}\ =\ (\mbox{\hyperlink{stack_8h_a2cc56bfd987df84942ab4dc387f55160}{Elem\_t}}*)(((\mbox{\hyperlink{stack_8h_a788ec731a306c6e69c1dbb06983429ed}{Canary\_t}}*)stk-\/>\mbox{\hyperlink{structStack_a02ed96691b2e6636bd9155758e8ee8cd}{data}})\ +\ 1);}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \ \ \ \ \ *\mbox{\hyperlink{stack_8h_a38d2301409d76703e2936d8a89853e31}{left\_data\_canary\_ptr}}(stk)\ =\ CANARY\_VAL;}
+\DoxyCodeLine{00059\ \ \ \ \ *\mbox{\hyperlink{stack_8h_a8141a491532e1b89ad3bc94fc410d523}{right\_data\_canary\_ptr}}(stk)\ =\ CANARY\_VAL;}
+\DoxyCodeLine{00060\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//<\ \#ifdef\ CANARY\_PROTECT}}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \ \ \ \ \mbox{\hyperlink{stack_8h_adf27c21e09fa1d3a5d8309d2ccbea793}{STK\_FILL\_POISON}}(stk,\ 0,\ stk-\/>\mbox{\hyperlink{structStack_a2f2b41ebbf7c8adce40da902814e1c7b}{capacity}});}
 \DoxyCodeLine{00063\ }
-\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keywordflow}{return}\ res;}
-\DoxyCodeLine{00065\ \}}
+\DoxyCodeLine{00064\ \textcolor{preprocessor}{\#ifdef\ HASH\_PROTECT}}
+\DoxyCodeLine{00065\ \ \ \ \ stk-\/>\mbox{\hyperlink{structStack_a0313f9fb25ba1f5ce41bcaf465777ead}{data\_hash}}\ \ \ =\ \ \ \mbox{\hyperlink{stack_8h_ae72fe1519dee325a0e6dd4eafc14898b}{stk\_data\_hash\_calc}}(stk);}
+\DoxyCodeLine{00066\ \ \ \ \ stk-\/>\mbox{\hyperlink{structStack_a5d85c28620cf7c22e622df2d8a58f35b}{struct\_hash}}\ =\ \mbox{\hyperlink{stack_8h_a536ddddf9bb8810b9703d5e405a073b9}{stk\_struct\_hash\_calc}}(stk);}
+\DoxyCodeLine{00067\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//<\ \#ifdef\ HASH\_PROTECT}}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \ \ \ \ res\ |=\ \mbox{\hyperlink{stack_8h_a013fc56c5d16255530c4b0134dfeb8a6}{STK\_VERIFY}}(stk);}
+\DoxyCodeLine{00070\ \ \ \ \ \mbox{\hyperlink{stack_8h_adfe306bbeb051d0e57c29ae2fcda4b3b}{STK\_OK}}(stk,\ res);}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keywordflow}{return}\ res;}
+\DoxyCodeLine{00073\ \}}
 
 \end{DoxyCode}
 
 
-References \mbox{\hyperlink{stack_8h_source_l00027}{Stack\+::\+ALLOC\+\_\+\+ERR}}, \mbox{\hyperlink{stack_8h_source_l00029}{Stack\+::\+ALREADY\+\_\+\+INITIALISED}}, \mbox{\hyperlink{stack_8h_source_l00392}{calc\+\_\+stk\+\_\+data\+\_\+size()}}, \mbox{\hyperlink{stack_8h_source_l00051}{Stack\+::capacity}}, \mbox{\hyperlink{stack_8h_source_l00050}{Stack\+::data}}, \mbox{\hyperlink{stack_8h_source_l00056}{Stack\+::data\+\_\+hash}}, \mbox{\hyperlink{stack_8h_source_l00038}{Stack\+::\+INVALID\+\_\+\+CAPACITY}}, \mbox{\hyperlink{stack_8h_source_l00316}{left\+\_\+data\+\_\+canary\+\_\+ptr()}}, \mbox{\hyperlink{stack_8h_source_l00025}{Stack\+::\+OK}}, \mbox{\hyperlink{stack_8h_source_l00329}{right\+\_\+data\+\_\+canary\+\_\+ptr()}}, \mbox{\hyperlink{stack_8h_source_l00052}{Stack\+::size}}, \mbox{\hyperlink{stack_8h_source_l00275}{stk\+\_\+data\+\_\+hash\+\_\+calc()}}, \mbox{\hyperlink{stack_8h_source_l00190}{STK\+\_\+\+FILL\+\_\+\+POISON}}, \mbox{\hyperlink{stack_8h_source_l00085}{stk\+\_\+is\+\_\+initialised()}}, \mbox{\hyperlink{stack_8h_source_l00202}{STK\+\_\+\+OK}}, \mbox{\hyperlink{stack_8h_source_l00262}{stk\+\_\+struct\+\_\+hash\+\_\+calc()}}, \mbox{\hyperlink{stack_8h_source_l00197}{STK\+\_\+\+VERIFY}}, and \mbox{\hyperlink{stack_8h_source_l00055}{Stack\+::struct\+\_\+hash}}.
+References \mbox{\hyperlink{stack_8h_source_l00044}{Stack\+::\+ALLOC\+\_\+\+ERR}}, \mbox{\hyperlink{stack_8h_source_l00046}{Stack\+::\+ALREADY\+\_\+\+INITIALISED}}, \mbox{\hyperlink{stack_8h_source_l00409}{calc\+\_\+stk\+\_\+data\+\_\+size()}}, \mbox{\hyperlink{stack_8h_source_l00068}{Stack\+::capacity}}, \mbox{\hyperlink{stack_8h_source_l00067}{Stack\+::data}}, \mbox{\hyperlink{stack_8h_source_l00073}{Stack\+::data\+\_\+hash}}, \mbox{\hyperlink{stack_8h_source_l00055}{Stack\+::\+INVALID\+\_\+\+CAPACITY}}, \mbox{\hyperlink{stack_8h_source_l00333}{left\+\_\+data\+\_\+canary\+\_\+ptr()}}, \mbox{\hyperlink{stack_8h_source_l00042}{Stack\+::\+OK}}, \mbox{\hyperlink{stack_8h_source_l00346}{right\+\_\+data\+\_\+canary\+\_\+ptr()}}, \mbox{\hyperlink{stack_8h_source_l00069}{Stack\+::size}}, \mbox{\hyperlink{stack_8h_source_l00292}{stk\+\_\+data\+\_\+hash\+\_\+calc()}}, \mbox{\hyperlink{stack_8h_source_l00207}{STK\+\_\+\+FILL\+\_\+\+POISON}}, \mbox{\hyperlink{stack_8h_source_l00102}{stk\+\_\+is\+\_\+initialised()}}, \mbox{\hyperlink{stack_8h_source_l00219}{STK\+\_\+\+OK}}, \mbox{\hyperlink{stack_8h_source_l00279}{stk\+\_\+struct\+\_\+hash\+\_\+calc()}}, \mbox{\hyperlink{stack_8h_source_l00214}{STK\+\_\+\+VERIFY}}, and \mbox{\hyperlink{stack_8h_source_l00072}{Stack\+::struct\+\_\+hash}}.
 
 
 
-Referenced by \mbox{\hyperlink{stack_8cpp_source_l00008}{stk\+\_\+ctor\+\_\+debug()}}.
+Referenced by \mbox{\hyperlink{stack_8cpp_source_l00016}{stk\+\_\+ctor\+\_\+debug()}}.
 
 \Hypertarget{stack_8h_a03c94c054172abf5fa9fc1e887840ae3}\label{stack_8h_a03c94c054172abf5fa9fc1e887840ae3} 
 \index{stack.h@{stack.h}!stk\_ctor\_debug@{stk\_ctor\_debug}}
@@ -606,22 +694,22 @@ int
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{stack_8cpp_source_l00008}{8}} of file \mbox{\hyperlink{stack_8cpp_source}{stack.\+cpp}}.
+Definition at line \mbox{\hyperlink{stack_8cpp_source_l00016}{16}} of file \mbox{\hyperlink{stack_8cpp_source}{stack.\+cpp}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00008\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00009\ \ \ \ \ assert(stk);}
-\DoxyCodeLine{00010\ }
-\DoxyCodeLine{00011\ \ \ \ \ stk-\/>\mbox{\hyperlink{structStack_ada9ac9dd578c2f702547fbf23447dfc5}{var\_data}}\ =\ var\_data;}
-\DoxyCodeLine{00012\ }
-\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{stack_8cpp_a4c91ff37743d4d44803916d7fa157447}{stk\_ctor}}(stk,\ min\_capacity);}
-\DoxyCodeLine{00014\ \}}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00017\ \ \ \ \ assert(stk);}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \ \ \ \ stk-\/>\mbox{\hyperlink{structStack_ada9ac9dd578c2f702547fbf23447dfc5}{var\_data}}\ =\ var\_data;}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{stack_8cpp_a4c91ff37743d4d44803916d7fa157447}{stk\_ctor}}(stk,\ min\_capacity);}
+\DoxyCodeLine{00022\ \}}
 
 \end{DoxyCode}
 
 
-References \mbox{\hyperlink{stack_8cpp_source_l00019}{stk\+\_\+ctor()}}, and \mbox{\hyperlink{stack_8h_source_l00060}{Stack\+::var\+\_\+data}}.
+References \mbox{\hyperlink{stack_8cpp_source_l00027}{stk\+\_\+ctor()}}, and \mbox{\hyperlink{stack_8h_source_l00077}{Stack\+::var\+\_\+data}}.
 
 \Hypertarget{stack_8h_ae72fe1519dee325a0e6dd4eafc14898b}\label{stack_8h_ae72fe1519dee325a0e6dd4eafc14898b} 
 \index{stack.h@{stack.h}!stk\_data\_hash\_calc@{stk\_data\_hash\_calc}}
@@ -643,30 +731,30 @@ CRC32\+\_\+t
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{stack_8h_source_l00275}{275}} of file \mbox{\hyperlink{stack_8h_source}{stack.\+h}}.
+Definition at line \mbox{\hyperlink{stack_8h_source_l00292}{292}} of file \mbox{\hyperlink{stack_8h_source}{stack.\+h}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00275\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00276\ \ \ \ \ assert(stk);}
-\DoxyCodeLine{00277\ }
-\DoxyCodeLine{00278\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{crc32_8cpp_ac24ce753a192608e6a70627eecea4adb}{crc\_add}}(0,\ (\textcolor{keywordtype}{char}*)stk-\/>\mbox{\hyperlink{structStack_a02ed96691b2e6636bd9155758e8ee8cd}{data}},\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{config_8h_a2cc56bfd987df84942ab4dc387f55160}{Elem\_t}})\ *\ stk-\/>\mbox{\hyperlink{structStack_a3b6cb0b4ff732c7bbbaaa5d3860bcd1a}{size}});}
-\DoxyCodeLine{00279\ \}}
+\DoxyCodeLine{00292\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00293\ \ \ \ \ assert(stk);}
+\DoxyCodeLine{00294\ }
+\DoxyCodeLine{00295\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{crc32_8cpp_ac24ce753a192608e6a70627eecea4adb}{crc\_add}}(0,\ (\textcolor{keywordtype}{char}*)stk-\/>\mbox{\hyperlink{structStack_a02ed96691b2e6636bd9155758e8ee8cd}{data}},\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{stack_8h_a2cc56bfd987df84942ab4dc387f55160}{Elem\_t}})\ *\ stk-\/>\mbox{\hyperlink{structStack_a3b6cb0b4ff732c7bbbaaa5d3860bcd1a}{size}});}
+\DoxyCodeLine{00296\ \}}
 
 \end{DoxyCode}
 
 
-References \mbox{\hyperlink{crc32_8cpp_source_l00003}{crc\+\_\+add()}}, \mbox{\hyperlink{stack_8h_source_l00050}{Stack\+::data}}, and \mbox{\hyperlink{stack_8h_source_l00052}{Stack\+::size}}.
+References \mbox{\hyperlink{crc32_8cpp_source_l00003}{crc\+\_\+add()}}, \mbox{\hyperlink{stack_8h_source_l00067}{Stack\+::data}}, and \mbox{\hyperlink{stack_8h_source_l00069}{Stack\+::size}}.
 
 
 
-Referenced by \mbox{\hyperlink{stack_8cpp_source_l00019}{stk\+\_\+ctor()}}, \mbox{\hyperlink{stack_8cpp_source_l00161}{stk\+\_\+pop()}}, and \mbox{\hyperlink{stack_8cpp_source_l00297}{stk\+\_\+verify()}}.
+Referenced by \mbox{\hyperlink{stack_8cpp_source_l00027}{stk\+\_\+ctor()}}, \mbox{\hyperlink{stack_8cpp_source_l00169}{stk\+\_\+pop()}}, and \mbox{\hyperlink{stack_8cpp_source_l00309}{stk\+\_\+verify()}}.
 
 \Hypertarget{stack_8h_a5623fe015c076479c94adb3ddd01ad35}\label{stack_8h_a5623fe015c076479c94adb3ddd01ad35} 
 \index{stack.h@{stack.h}!stk\_data\_hash\_push@{stk\_data\_hash\_push}}
 \index{stk\_data\_hash\_push@{stk\_data\_hash\_push}!stack.h@{stack.h}}
 \doxysubsubsection{\texorpdfstring{stk\_data\_hash\_push()}{stk\_data\_hash\_push()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{crc32_8h_aec0adc213b23c34ec982fa84dceb81fd}{CRC32\+\_\+t}} stk\+\_\+data\+\_\+hash\+\_\+push (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structStack}{Stack}} \texorpdfstring{$\ast$}{*}}]{stk,  }\item[{\mbox{\hyperlink{config_8h_a2cc56bfd987df84942ab4dc387f55160}{Elem\+\_\+t}}}]{elem,  }\item[{\mbox{\hyperlink{crc32_8h_aec0adc213b23c34ec982fa84dceb81fd}{CRC32\+\_\+t}}}]{crc }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{crc32_8h_aec0adc213b23c34ec982fa84dceb81fd}{CRC32\+\_\+t}} stk\+\_\+data\+\_\+hash\+\_\+push (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structStack}{Stack}} \texorpdfstring{$\ast$}{*}}]{stk,  }\item[{\mbox{\hyperlink{stack_8h_a2cc56bfd987df84942ab4dc387f55160}{Elem\+\_\+t}}}]{elem,  }\item[{\mbox{\hyperlink{crc32_8h_aec0adc213b23c34ec982fa84dceb81fd}{CRC32\+\_\+t}}}]{crc }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
@@ -686,15 +774,15 @@ CRC32\+\_\+t
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{stack_8h_source_l00289}{289}} of file \mbox{\hyperlink{stack_8h_source}{stack.\+h}}.
+Definition at line \mbox{\hyperlink{stack_8h_source_l00306}{306}} of file \mbox{\hyperlink{stack_8h_source}{stack.\+h}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00289\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00290\ \ \ \ \ assert(stk);}
-\DoxyCodeLine{00291\ }
-\DoxyCodeLine{00292\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{crc32_8cpp_ac24ce753a192608e6a70627eecea4adb}{crc\_add}}(crc,\ (\textcolor{keywordtype}{char}*)(\&elem),\ \textcolor{keyword}{sizeof}(elem));}
-\DoxyCodeLine{00293\ \}}
+\DoxyCodeLine{00306\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00307\ \ \ \ \ assert(stk);}
+\DoxyCodeLine{00308\ }
+\DoxyCodeLine{00309\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{crc32_8cpp_ac24ce753a192608e6a70627eecea4adb}{crc\_add}}(crc,\ (\textcolor{keywordtype}{char}*)(\&elem),\ \textcolor{keyword}{sizeof}(elem));}
+\DoxyCodeLine{00310\ \}}
 
 \end{DoxyCode}
 
@@ -703,7 +791,7 @@ References \mbox{\hyperlink{crc32_8cpp_source_l00003}{crc\+\_\+add()}}.
 
 
 
-Referenced by \mbox{\hyperlink{stack_8cpp_source_l00138}{stk\+\_\+push()}}.
+Referenced by \mbox{\hyperlink{stack_8cpp_source_l00146}{stk\+\_\+push()}}.
 
 \Hypertarget{stack_8h_a60863cc39088870cab1ccd33d1e8d2f6}\label{stack_8h_a60863cc39088870cab1ccd33d1e8d2f6} 
 \index{stack.h@{stack.h}!stk\_dtor@{stk\_dtor}}
@@ -725,40 +813,40 @@ int
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{stack_8cpp_source_l00069}{69}} of file \mbox{\hyperlink{stack_8cpp_source}{stack.\+cpp}}.
+Definition at line \mbox{\hyperlink{stack_8cpp_source_l00077}{77}} of file \mbox{\hyperlink{stack_8cpp_source}{stack.\+cpp}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00070\ \ \ \ \ assert(stk);}
-\DoxyCodeLine{00071\ }
-\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keywordtype}{int}\ res\ =\ \mbox{\hyperlink{stack_8h_a013fc56c5d16255530c4b0134dfeb8a6}{STK\_VERIFY}}(stk);}
-\DoxyCodeLine{00073\ \ \ \ \ \mbox{\hyperlink{stack_8h_adfe306bbeb051d0e57c29ae2fcda4b3b}{STK\_OK}}(stk,\ res);}
-\DoxyCodeLine{00074\ }
-\DoxyCodeLine{00075\ \ \ \ \ \mbox{\hyperlink{stack_8h_adf27c21e09fa1d3a5d8309d2ccbea793}{STK\_FILL\_POISON}}(stk,\ 0,\ stk-\/>\mbox{\hyperlink{structStack_a2f2b41ebbf7c8adce40da902814e1c7b}{capacity}});}
-\DoxyCodeLine{00076\ }
-\DoxyCodeLine{00077\ \textcolor{preprocessor}{\#ifdef\ CANARY\_PROTECT}}
-\DoxyCodeLine{00078\ \ \ \ \ free((\mbox{\hyperlink{config_8h_a788ec731a306c6e69c1dbb06983429ed}{Canary\_t}}*)stk-\/>\mbox{\hyperlink{structStack_a02ed96691b2e6636bd9155758e8ee8cd}{data}}\ -\/\ 1);}
-\DoxyCodeLine{00079\ \ \ \ \ stk-\/>\mbox{\hyperlink{structStack_a02ed96691b2e6636bd9155758e8ee8cd}{data}}\ =\ \textcolor{keyword}{nullptr};}
-\DoxyCodeLine{00080\ \textcolor{preprocessor}{\#else\ \ }\textcolor{comment}{//\ \#ifndef\ CANARY\_PROTECT}}
-\DoxyCodeLine{00081\ \ \ \ \ \mbox{\hyperlink{macros_8h_a105949c59c998e38aad80266afac92bf}{FREE}}(stk-\/>\mbox{\hyperlink{structStack_a02ed96691b2e6636bd9155758e8ee8cd}{data}});}
-\DoxyCodeLine{00082\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ \#ifdef\ CANARY\_PROTECT}}
-\DoxyCodeLine{00083\ }
-\DoxyCodeLine{00084\ \ \ \ \ stk-\/>\mbox{\hyperlink{structStack_a2f2b41ebbf7c8adce40da902814e1c7b}{capacity}}\ =\ stk-\/>\mbox{\hyperlink{structStack_aa50c905a38095756b153a80c4e974ee2}{UNITIALISED\_CAPACITY}};}
-\DoxyCodeLine{00085\ \ \ \ \ stk-\/>\mbox{\hyperlink{structStack_a3b6cb0b4ff732c7bbbaaa5d3860bcd1a}{size}}\ \ \ \ \ =\ stk-\/>\mbox{\hyperlink{structStack_aa50c905a38095756b153a80c4e974ee2}{UNITIALISED\_CAPACITY}};}
-\DoxyCodeLine{00086\ }
-\DoxyCodeLine{00087\ \textcolor{preprocessor}{\#ifdef\ HASH\_PROTECT}}
-\DoxyCodeLine{00088\ \ \ \ \ stk-\/>\mbox{\hyperlink{structStack_a5d85c28620cf7c22e622df2d8a58f35b}{struct\_hash}}\ =\ 0;}
-\DoxyCodeLine{00089\ \ \ \ \ stk-\/>\mbox{\hyperlink{structStack_a0313f9fb25ba1f5ce41bcaf465777ead}{data\_hash}}\ \ \ =\ 0;}
-\DoxyCodeLine{00090\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ \#ifdef\ HASH\_PROTECT}}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00078\ \ \ \ \ assert(stk);}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keywordtype}{int}\ res\ =\ \mbox{\hyperlink{stack_8h_a013fc56c5d16255530c4b0134dfeb8a6}{STK\_VERIFY}}(stk);}
+\DoxyCodeLine{00081\ \ \ \ \ \mbox{\hyperlink{stack_8h_adfe306bbeb051d0e57c29ae2fcda4b3b}{STK\_OK}}(stk,\ res);}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \ \ \ \ \mbox{\hyperlink{stack_8h_adf27c21e09fa1d3a5d8309d2ccbea793}{STK\_FILL\_POISON}}(stk,\ 0,\ stk-\/>\mbox{\hyperlink{structStack_a2f2b41ebbf7c8adce40da902814e1c7b}{capacity}});}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00085\ \textcolor{preprocessor}{\#ifdef\ CANARY\_PROTECT}}
+\DoxyCodeLine{00086\ \ \ \ \ free((\mbox{\hyperlink{stack_8h_a788ec731a306c6e69c1dbb06983429ed}{Canary\_t}}*)stk-\/>\mbox{\hyperlink{structStack_a02ed96691b2e6636bd9155758e8ee8cd}{data}}\ -\/\ 1);}
+\DoxyCodeLine{00087\ \ \ \ \ stk-\/>\mbox{\hyperlink{structStack_a02ed96691b2e6636bd9155758e8ee8cd}{data}}\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00088\ \textcolor{preprocessor}{\#else\ \ }\textcolor{comment}{//<\ \#ifndef\ CANARY\_PROTECT}}
+\DoxyCodeLine{00089\ \ \ \ \ \mbox{\hyperlink{macros_8h_a105949c59c998e38aad80266afac92bf}{FREE}}(stk-\/>\mbox{\hyperlink{structStack_a02ed96691b2e6636bd9155758e8ee8cd}{data}});}
+\DoxyCodeLine{00090\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//<\ \#ifdef\ CANARY\_PROTECT}}
 \DoxyCodeLine{00091\ }
-\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keywordflow}{return}\ res;}
-\DoxyCodeLine{00093\ \}}
+\DoxyCodeLine{00092\ \ \ \ \ stk-\/>\mbox{\hyperlink{structStack_a2f2b41ebbf7c8adce40da902814e1c7b}{capacity}}\ =\ stk-\/>\mbox{\hyperlink{structStack_aa50c905a38095756b153a80c4e974ee2}{UNITIALISED\_CAPACITY}};}
+\DoxyCodeLine{00093\ \ \ \ \ stk-\/>\mbox{\hyperlink{structStack_a3b6cb0b4ff732c7bbbaaa5d3860bcd1a}{size}}\ \ \ \ \ =\ stk-\/>\mbox{\hyperlink{structStack_aa50c905a38095756b153a80c4e974ee2}{UNITIALISED\_CAPACITY}};}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ \textcolor{preprocessor}{\#ifdef\ HASH\_PROTECT}}
+\DoxyCodeLine{00096\ \ \ \ \ stk-\/>\mbox{\hyperlink{structStack_a5d85c28620cf7c22e622df2d8a58f35b}{struct\_hash}}\ =\ 0;}
+\DoxyCodeLine{00097\ \ \ \ \ stk-\/>\mbox{\hyperlink{structStack_a0313f9fb25ba1f5ce41bcaf465777ead}{data\_hash}}\ \ \ =\ 0;}
+\DoxyCodeLine{00098\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//<\ \#ifdef\ HASH\_PROTECT}}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00100\ \ \ \ \ \textcolor{keywordflow}{return}\ res;}
+\DoxyCodeLine{00101\ \}}
 
 \end{DoxyCode}
 
 
-References \mbox{\hyperlink{stack_8h_source_l00051}{Stack\+::capacity}}, \mbox{\hyperlink{stack_8h_source_l00050}{Stack\+::data}}, \mbox{\hyperlink{stack_8h_source_l00056}{Stack\+::data\+\_\+hash}}, \mbox{\hyperlink{macros_8h_source_l00010}{FREE}}, \mbox{\hyperlink{stack_8h_source_l00052}{Stack\+::size}}, \mbox{\hyperlink{stack_8h_source_l00190}{STK\+\_\+\+FILL\+\_\+\+POISON}}, \mbox{\hyperlink{stack_8h_source_l00202}{STK\+\_\+\+OK}}, \mbox{\hyperlink{stack_8h_source_l00197}{STK\+\_\+\+VERIFY}}, \mbox{\hyperlink{stack_8h_source_l00055}{Stack\+::struct\+\_\+hash}}, and \mbox{\hyperlink{stack_8h_source_l00021}{Stack\+::\+UNITIALISED\+\_\+\+CAPACITY}}.
+References \mbox{\hyperlink{stack_8h_source_l00068}{Stack\+::capacity}}, \mbox{\hyperlink{stack_8h_source_l00067}{Stack\+::data}}, \mbox{\hyperlink{stack_8h_source_l00073}{Stack\+::data\+\_\+hash}}, \mbox{\hyperlink{macros_8h_source_l00010}{FREE}}, \mbox{\hyperlink{stack_8h_source_l00069}{Stack\+::size}}, \mbox{\hyperlink{stack_8h_source_l00207}{STK\+\_\+\+FILL\+\_\+\+POISON}}, \mbox{\hyperlink{stack_8h_source_l00219}{STK\+\_\+\+OK}}, \mbox{\hyperlink{stack_8h_source_l00214}{STK\+\_\+\+VERIFY}}, \mbox{\hyperlink{stack_8h_source_l00072}{Stack\+::struct\+\_\+hash}}, and \mbox{\hyperlink{stack_8h_source_l00038}{Stack\+::\+UNITIALISED\+\_\+\+CAPACITY}}.
 
 
 
@@ -783,85 +871,85 @@ Dumps all stack data to log.
 \end{DoxyParams}
 
 
-Definition at line \mbox{\hyperlink{stack_8cpp_source_l00223}{223}} of file \mbox{\hyperlink{stack_8cpp_source}{stack.\+cpp}}.
+Definition at line \mbox{\hyperlink{stack_8cpp_source_l00235}{235}} of file \mbox{\hyperlink{stack_8cpp_source}{stack.\+cpp}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00223\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00224\ \ \ \ \ assert(stk);}
-\DoxyCodeLine{00225\ }
-\DoxyCodeLine{00226\ \ \ \ \ \mbox{\hyperlink{log_8cpp_adab5e89ed01fa9fb9c55544d3a21629b}{log\_printf}}(\&\mbox{\hyperlink{stack_8cpp_a06336a68ce7f0258cc88d5a2bb94e4d3}{log\_file}},\ \mbox{\hyperlink{html_8h_a010fbac8fc4096415b18c664d84b12da}{HTML\_BEGIN}});}
-\DoxyCodeLine{00227\ }
-\DoxyCodeLine{00228\ \ \ \ \ \mbox{\hyperlink{log_8cpp_adab5e89ed01fa9fb9c55544d3a21629b}{log\_printf}}(\&\mbox{\hyperlink{stack_8cpp_a06336a68ce7f0258cc88d5a2bb94e4d3}{log\_file}},\ \textcolor{stringliteral}{"{}\ \ \ \ stk\_dump()\ called\ from\ \%s:\%d\ \%s\(\backslash\)n"{}}}
-\DoxyCodeLine{00229\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ \ \%s[\%p]\ initialised\ in\ \%s:\%d\ \%s\ \(\backslash\)n"{}},}
-\DoxyCodeLine{00230\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ call\_data.\mbox{\hyperlink{structVarCodeData_a25347ec3ab07e84f5ac1b2e1220ef388}{file}},\ call\_data.\mbox{\hyperlink{structVarCodeData_a57de68d99a4698c17ae07e31c8e6de6c}{line}},\ call\_data.\mbox{\hyperlink{structVarCodeData_a6da889b7111ab8c530acba167462bb95}{func}},}
-\DoxyCodeLine{00231\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ stk-\/>\mbox{\hyperlink{structStack_ada9ac9dd578c2f702547fbf23447dfc5}{var\_data}}.\mbox{\hyperlink{structVarCodeData_a0bde6b05c83fb7bdf1a0f20fa4677762}{name}},\ stk,}
-\DoxyCodeLine{00232\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ stk-\/>\mbox{\hyperlink{structStack_ada9ac9dd578c2f702547fbf23447dfc5}{var\_data}}.\mbox{\hyperlink{structVarCodeData_a25347ec3ab07e84f5ac1b2e1220ef388}{file}},\ stk-\/>\mbox{\hyperlink{structStack_ada9ac9dd578c2f702547fbf23447dfc5}{var\_data}}.\mbox{\hyperlink{structVarCodeData_a57de68d99a4698c17ae07e31c8e6de6c}{line}},\ stk-\/>\mbox{\hyperlink{structStack_ada9ac9dd578c2f702547fbf23447dfc5}{var\_data}}.\mbox{\hyperlink{structVarCodeData_a6da889b7111ab8c530acba167462bb95}{func}});}
-\DoxyCodeLine{00233\ }
-\DoxyCodeLine{00234\ \ \ \ \ \mbox{\hyperlink{log_8cpp_adab5e89ed01fa9fb9c55544d3a21629b}{log\_printf}}(\&\mbox{\hyperlink{stack_8cpp_a06336a68ce7f0258cc88d5a2bb94e4d3}{log\_file}},\ \textcolor{stringliteral}{"{}\ \ \ \ \{\(\backslash\)n"{}});}
-\DoxyCodeLine{00235\ }
-\DoxyCodeLine{00236\ \textcolor{preprocessor}{\#ifdef\ CANARY\_PROTECT}}
-\DoxyCodeLine{00237\ \ \ \ \ \mbox{\hyperlink{log_8cpp_adab5e89ed01fa9fb9c55544d3a21629b}{log\_printf}}(\&\mbox{\hyperlink{stack_8cpp_a06336a68ce7f0258cc88d5a2bb94e4d3}{log\_file}},\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ \ \ L\_canary\ =\ 0x"{}}\ \mbox{\hyperlink{config_8h_a2a23f87eee71a5bd4ac163e1bba1f479}{CANARY\_T\_PRINTF}}\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}},\ stk-\/>\mbox{\hyperlink{structStack_a93649663411b07293ec66851c09c99c9}{canary\_left}});}
-\DoxyCodeLine{00238\ \ \ \ \ \mbox{\hyperlink{log_8cpp_adab5e89ed01fa9fb9c55544d3a21629b}{log\_printf}}(\&\mbox{\hyperlink{stack_8cpp_a06336a68ce7f0258cc88d5a2bb94e4d3}{log\_file}},\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ \ \ R\_canary\ =\ 0x"{}}\ \mbox{\hyperlink{config_8h_a2a23f87eee71a5bd4ac163e1bba1f479}{CANARY\_T\_PRINTF}}\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}},\ stk-\/>\mbox{\hyperlink{structStack_a26e3a891c804d0a2deef354cb6d7f13b}{canary\_right}});}
-\DoxyCodeLine{00239\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ \#ifdef\ CANARY\_PROTECT}}
-\DoxyCodeLine{00240\ }
-\DoxyCodeLine{00241\ \ \ \ \ \mbox{\hyperlink{log_8cpp_adab5e89ed01fa9fb9c55544d3a21629b}{log\_printf}}(\&\mbox{\hyperlink{stack_8cpp_a06336a68ce7f0258cc88d5a2bb94e4d3}{log\_file}},\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ \ \ size\ \ \ \ \ =\ \%zd\(\backslash\)n"{}}}
-\DoxyCodeLine{00242\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ \ \ \ \ \ capacity\ =\ \%zd\(\backslash\)n"{}},\ stk-\/>\mbox{\hyperlink{structStack_a3b6cb0b4ff732c7bbbaaa5d3860bcd1a}{size}},\ stk-\/>\mbox{\hyperlink{structStack_a2f2b41ebbf7c8adce40da902814e1c7b}{capacity}});}
-\DoxyCodeLine{00243\ }
-\DoxyCodeLine{00244\ \textcolor{preprocessor}{\#ifdef\ HASH\_PROTECT}}
-\DoxyCodeLine{00245\ \ \ \ \ \mbox{\hyperlink{log_8cpp_adab5e89ed01fa9fb9c55544d3a21629b}{log\_printf}}(\&\mbox{\hyperlink{stack_8cpp_a06336a68ce7f0258cc88d5a2bb94e4d3}{log\_file}},\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ \ \ struct\ hash\ =\ 0x\%X\(\backslash\)n"{}}}
-\DoxyCodeLine{00246\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ \ \ \ \ \ data\ \ \ hash\ =\ 0x\%X\(\backslash\)n"{}},\ stk-\/>\mbox{\hyperlink{structStack_a5d85c28620cf7c22e622df2d8a58f35b}{struct\_hash}},\ stk-\/>\mbox{\hyperlink{structStack_a0313f9fb25ba1f5ce41bcaf465777ead}{data\_hash}});}
-\DoxyCodeLine{00247\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ \#ifdef\ HASH\_PROTECT}}
-\DoxyCodeLine{00248\ }
-\DoxyCodeLine{00249\ \ \ \ \ \mbox{\hyperlink{log_8cpp_adab5e89ed01fa9fb9c55544d3a21629b}{log\_printf}}(\&\mbox{\hyperlink{stack_8cpp_a06336a68ce7f0258cc88d5a2bb94e4d3}{log\_file}},\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ \ \ data[\%p]\ \{\(\backslash\)n"{}},\ stk-\/>\mbox{\hyperlink{structStack_a02ed96691b2e6636bd9155758e8ee8cd}{data}});}
-\DoxyCodeLine{00250\ }
-\DoxyCodeLine{00251\ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{ptr__valid_8h_a9118aa9878b41057b6d2067e5d5dff2b}{is\_ptr\_valid}}(stk-\/>\mbox{\hyperlink{structStack_a02ed96691b2e6636bd9155758e8ee8cd}{data}}))\ \{}
+\DoxyCodeLine{00235\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00236\ \ \ \ \ assert(stk);}
+\DoxyCodeLine{00237\ }
+\DoxyCodeLine{00238\ \ \ \ \ \mbox{\hyperlink{log_8cpp_a876596de91601e1d893e2614bb2de32b}{stk\_log\_printf}}(\&\mbox{\hyperlink{stack_8cpp_a06336a68ce7f0258cc88d5a2bb94e4d3}{log\_file}},\ \mbox{\hyperlink{html_8h_a010fbac8fc4096415b18c664d84b12da}{HTML\_BEGIN}});}
+\DoxyCodeLine{00239\ }
+\DoxyCodeLine{00240\ \ \ \ \ \mbox{\hyperlink{log_8cpp_a876596de91601e1d893e2614bb2de32b}{stk\_log\_printf}}(\&\mbox{\hyperlink{stack_8cpp_a06336a68ce7f0258cc88d5a2bb94e4d3}{log\_file}},\ \textcolor{stringliteral}{"{}\ \ \ \ stk\_dump()\ called\ from\ \%s:\%d\ \%s\(\backslash\)n"{}}}
+\DoxyCodeLine{00241\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ \ \%s[\%p]\ initialised\ in\ \%s:\%d\ \%s\ \(\backslash\)n"{}},}
+\DoxyCodeLine{00242\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ call\_data.\mbox{\hyperlink{structVarCodeData_a25347ec3ab07e84f5ac1b2e1220ef388}{file}},\ call\_data.\mbox{\hyperlink{structVarCodeData_a57de68d99a4698c17ae07e31c8e6de6c}{line}},\ call\_data.\mbox{\hyperlink{structVarCodeData_a6da889b7111ab8c530acba167462bb95}{func}},}
+\DoxyCodeLine{00243\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ stk-\/>\mbox{\hyperlink{structStack_ada9ac9dd578c2f702547fbf23447dfc5}{var\_data}}.\mbox{\hyperlink{structVarCodeData_a0bde6b05c83fb7bdf1a0f20fa4677762}{name}},\ stk,}
+\DoxyCodeLine{00244\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ stk-\/>\mbox{\hyperlink{structStack_ada9ac9dd578c2f702547fbf23447dfc5}{var\_data}}.\mbox{\hyperlink{structVarCodeData_a25347ec3ab07e84f5ac1b2e1220ef388}{file}},\ stk-\/>\mbox{\hyperlink{structStack_ada9ac9dd578c2f702547fbf23447dfc5}{var\_data}}.\mbox{\hyperlink{structVarCodeData_a57de68d99a4698c17ae07e31c8e6de6c}{line}},\ stk-\/>\mbox{\hyperlink{structStack_ada9ac9dd578c2f702547fbf23447dfc5}{var\_data}}.\mbox{\hyperlink{structVarCodeData_a6da889b7111ab8c530acba167462bb95}{func}});}
+\DoxyCodeLine{00245\ }
+\DoxyCodeLine{00246\ \ \ \ \ \mbox{\hyperlink{log_8cpp_a876596de91601e1d893e2614bb2de32b}{stk\_log\_printf}}(\&\mbox{\hyperlink{stack_8cpp_a06336a68ce7f0258cc88d5a2bb94e4d3}{log\_file}},\ \textcolor{stringliteral}{"{}\ \ \ \ \{\(\backslash\)n"{}});}
+\DoxyCodeLine{00247\ }
+\DoxyCodeLine{00248\ \textcolor{preprocessor}{\#ifdef\ CANARY\_PROTECT}}
+\DoxyCodeLine{00249\ \ \ \ \ \mbox{\hyperlink{log_8cpp_a876596de91601e1d893e2614bb2de32b}{stk\_log\_printf}}(\&\mbox{\hyperlink{stack_8cpp_a06336a68ce7f0258cc88d5a2bb94e4d3}{log\_file}},\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ \ \ L\_canary\ =\ 0x"{}}\ \mbox{\hyperlink{stack_8h_a2a23f87eee71a5bd4ac163e1bba1f479}{CANARY\_T\_PRINTF}}\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}},\ stk-\/>\mbox{\hyperlink{structStack_a93649663411b07293ec66851c09c99c9}{canary\_left}});}
+\DoxyCodeLine{00250\ \ \ \ \ \mbox{\hyperlink{log_8cpp_a876596de91601e1d893e2614bb2de32b}{stk\_log\_printf}}(\&\mbox{\hyperlink{stack_8cpp_a06336a68ce7f0258cc88d5a2bb94e4d3}{log\_file}},\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ \ \ R\_canary\ =\ 0x"{}}\ \mbox{\hyperlink{stack_8h_a2a23f87eee71a5bd4ac163e1bba1f479}{CANARY\_T\_PRINTF}}\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}},\ stk-\/>\mbox{\hyperlink{structStack_a26e3a891c804d0a2deef354cb6d7f13b}{canary\_right}});}
+\DoxyCodeLine{00251\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//<\ \#ifdef\ CANARY\_PROTECT}}
 \DoxyCodeLine{00252\ }
-\DoxyCodeLine{00253\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{stack_8h_a274ef6d070da1ebae0069c65a0775984}{stk\_is\_initialised}}(stk))}
-\DoxyCodeLine{00254\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{log_8cpp_adab5e89ed01fa9fb9c55544d3a21629b}{log\_printf}}(\&\mbox{\hyperlink{stack_8cpp_a06336a68ce7f0258cc88d5a2bb94e4d3}{log\_file}},\ \mbox{\hyperlink{html_8h_aeff0254241bdd079cf60aa19016e3c44}{HTML\_RED}}(\textcolor{stringliteral}{"{}\ \ \ \ \ \ \ \ can't\ read\ (invalid\ pointer)\(\backslash\)n"{}}));}
+\DoxyCodeLine{00253\ \ \ \ \ \mbox{\hyperlink{log_8cpp_a876596de91601e1d893e2614bb2de32b}{stk\_log\_printf}}(\&\mbox{\hyperlink{stack_8cpp_a06336a68ce7f0258cc88d5a2bb94e4d3}{log\_file}},\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ \ \ size\ \ \ \ \ =\ \%zd\(\backslash\)n"{}}}
+\DoxyCodeLine{00254\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ \ \ \ \ \ capacity\ =\ \%zd\(\backslash\)n"{}},\ stk-\/>\mbox{\hyperlink{structStack_a3b6cb0b4ff732c7bbbaaa5d3860bcd1a}{size}},\ stk-\/>\mbox{\hyperlink{structStack_a2f2b41ebbf7c8adce40da902814e1c7b}{capacity}});}
 \DoxyCodeLine{00255\ }
-\DoxyCodeLine{00256\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{log_8cpp_adab5e89ed01fa9fb9c55544d3a21629b}{log\_printf}}(\&\mbox{\hyperlink{stack_8cpp_a06336a68ce7f0258cc88d5a2bb94e4d3}{log\_file}},\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ \ \ \}\(\backslash\)n"{}}}
-\DoxyCodeLine{00257\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ \ \}\(\backslash\)n"{}}\ \mbox{\hyperlink{html_8h_a2df8677bea55f26352fc8982b34337f2}{HTML\_END}});}
-\DoxyCodeLine{00258\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
-\DoxyCodeLine{00259\ \ \ \ \ \}}
+\DoxyCodeLine{00256\ \textcolor{preprocessor}{\#ifdef\ HASH\_PROTECT}}
+\DoxyCodeLine{00257\ \ \ \ \ \mbox{\hyperlink{log_8cpp_a876596de91601e1d893e2614bb2de32b}{stk\_log\_printf}}(\&\mbox{\hyperlink{stack_8cpp_a06336a68ce7f0258cc88d5a2bb94e4d3}{log\_file}},\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ \ \ struct\ hash\ =\ 0x\%X\(\backslash\)n"{}}}
+\DoxyCodeLine{00258\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ \ \ \ \ \ data\ \ \ hash\ =\ 0x\%X\(\backslash\)n"{}},\ stk-\/>\mbox{\hyperlink{structStack_a5d85c28620cf7c22e622df2d8a58f35b}{struct\_hash}},\ stk-\/>\mbox{\hyperlink{structStack_a0313f9fb25ba1f5ce41bcaf465777ead}{data\_hash}});}
+\DoxyCodeLine{00259\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//<\ \#ifdef\ HASH\_PROTECT}}
 \DoxyCodeLine{00260\ }
-\DoxyCodeLine{00261\ \textcolor{preprocessor}{\#ifdef\ CANARY\_PROTECT}}
-\DoxyCodeLine{00262\ \ \ \ \ \mbox{\hyperlink{log_8cpp_adab5e89ed01fa9fb9c55544d3a21629b}{log\_printf}}(\&\mbox{\hyperlink{stack_8cpp_a06336a68ce7f0258cc88d5a2bb94e4d3}{log\_file}},\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ \ \ \ \ \ \ L\_canary\ =\ 0x"{}}\ \mbox{\hyperlink{config_8h_a2a23f87eee71a5bd4ac163e1bba1f479}{CANARY\_T\_PRINTF}}\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}},}
-\DoxyCodeLine{00263\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *\mbox{\hyperlink{stack_8h_a38d2301409d76703e2936d8a89853e31}{left\_data\_canary\_ptr}}(stk));}
-\DoxyCodeLine{00264\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ \#ifdef\ CANARY\_PROTECT}}
-\DoxyCodeLine{00265\ }
-\DoxyCodeLine{00266\ \ \ \ \ \textcolor{keywordtype}{int}\ index\_len\ =\ 1;}
-\DoxyCodeLine{00267\ \ \ \ \ ssize\_t\ index\ =\ \mbox{\hyperlink{macros_8h_afa99ec4acc4ecb2dc3c2d05da15d0e3f}{MAX}}(stk-\/>\mbox{\hyperlink{structStack_a3b6cb0b4ff732c7bbbaaa5d3860bcd1a}{size}},\ stk-\/>\mbox{\hyperlink{structStack_a2f2b41ebbf7c8adce40da902814e1c7b}{capacity}});}
-\DoxyCodeLine{00268\ \ \ \ \ \textcolor{keywordflow}{while}\ ((index\ /=\ 10)\ >\ 0)}
-\DoxyCodeLine{00269\ \ \ \ \ \ \ \ \ index\_len++;}
-\DoxyCodeLine{00270\ }
-\DoxyCodeLine{00271\ \ \ \ \ \textcolor{keywordflow}{for}\ (ssize\_t\ i\ =\ 0;\ i\ <\ stk-\/>\mbox{\hyperlink{structStack_a2f2b41ebbf7c8adce40da902814e1c7b}{capacity}};\ i++)\ \{}
-\DoxyCodeLine{00272\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ <\ stk-\/>size)}
-\DoxyCodeLine{00273\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{log_8cpp_adab5e89ed01fa9fb9c55544d3a21629b}{log\_printf}}(\&\mbox{\hyperlink{stack_8cpp_a06336a68ce7f0258cc88d5a2bb94e4d3}{log\_file}},\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ \ \ \ \ \ \ *"{}});}
-\DoxyCodeLine{00274\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
-\DoxyCodeLine{00275\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{log_8cpp_adab5e89ed01fa9fb9c55544d3a21629b}{log\_printf}}(\&\mbox{\hyperlink{stack_8cpp_a06336a68ce7f0258cc88d5a2bb94e4d3}{log\_file}},\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ \ \ \ \ \ \ \ "{}});}
-\DoxyCodeLine{00276\ }
-\DoxyCodeLine{00277\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{log_8cpp_adab5e89ed01fa9fb9c55544d3a21629b}{log\_printf}}(\&\mbox{\hyperlink{stack_8cpp_a06336a68ce7f0258cc88d5a2bb94e4d3}{log\_file}},\ \textcolor{stringliteral}{"{}[\%*zu]\ "{}},\ index\_len,\ i);}
-\DoxyCodeLine{00278\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (stk-\/>\mbox{\hyperlink{structStack_a02ed96691b2e6636bd9155758e8ee8cd}{data}}[i]\ ==\ stk-\/>\mbox{\hyperlink{structStack_a48bbbcc55325f72dcbe2414dd9598a30}{POISON}})}
-\DoxyCodeLine{00279\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{log_8cpp_adab5e89ed01fa9fb9c55544d3a21629b}{log\_printf}}(\&\mbox{\hyperlink{stack_8cpp_a06336a68ce7f0258cc88d5a2bb94e4d3}{log\_file}},\ \textcolor{stringliteral}{"{}(poison)\(\backslash\)n"{}});}
-\DoxyCodeLine{00280\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
-\DoxyCodeLine{00281\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{log_8cpp_adab5e89ed01fa9fb9c55544d3a21629b}{log\_printf}}(\&\mbox{\hyperlink{stack_8cpp_a06336a68ce7f0258cc88d5a2bb94e4d3}{log\_file}},\ \mbox{\hyperlink{config_8h_a0e86e404fb41df2a06346b0fd53ccb83}{ELEM\_T\_PRINTF}}\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}},\ stk-\/>\mbox{\hyperlink{structStack_a02ed96691b2e6636bd9155758e8ee8cd}{data}}[i]);}
-\DoxyCodeLine{00282\ \ \ \ \ \}}
-\DoxyCodeLine{00283\ }
-\DoxyCodeLine{00284\ \textcolor{preprocessor}{\#ifdef\ CANARY\_PROTECT}}
-\DoxyCodeLine{00285\ \ \ \ \ \mbox{\hyperlink{log_8cpp_adab5e89ed01fa9fb9c55544d3a21629b}{log\_printf}}(\&\mbox{\hyperlink{stack_8cpp_a06336a68ce7f0258cc88d5a2bb94e4d3}{log\_file}},\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ \ \ \ \ \ \ R\_canary\ =\ 0x"{}}\ \mbox{\hyperlink{config_8h_a2a23f87eee71a5bd4ac163e1bba1f479}{CANARY\_T\_PRINTF}}\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}},}
-\DoxyCodeLine{00286\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *\mbox{\hyperlink{stack_8h_a8141a491532e1b89ad3bc94fc410d523}{right\_data\_canary\_ptr}}(stk));}
-\DoxyCodeLine{00287\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ \#ifdef\ CANARY\_PROTECT}}
+\DoxyCodeLine{00261\ \ \ \ \ \mbox{\hyperlink{log_8cpp_a876596de91601e1d893e2614bb2de32b}{stk\_log\_printf}}(\&\mbox{\hyperlink{stack_8cpp_a06336a68ce7f0258cc88d5a2bb94e4d3}{log\_file}},\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ \ \ data[\%p]\ \{\(\backslash\)n"{}},\ stk-\/>\mbox{\hyperlink{structStack_a02ed96691b2e6636bd9155758e8ee8cd}{data}});}
+\DoxyCodeLine{00262\ }
+\DoxyCodeLine{00263\ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{ptr__valid_8h_a9118aa9878b41057b6d2067e5d5dff2b}{is\_ptr\_valid}}(stk-\/>\mbox{\hyperlink{structStack_a02ed96691b2e6636bd9155758e8ee8cd}{data}}))\ \{}
+\DoxyCodeLine{00264\ }
+\DoxyCodeLine{00265\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{stack_8h_a274ef6d070da1ebae0069c65a0775984}{stk\_is\_initialised}}(stk))}
+\DoxyCodeLine{00266\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{log_8cpp_a876596de91601e1d893e2614bb2de32b}{stk\_log\_printf}}(\&\mbox{\hyperlink{stack_8cpp_a06336a68ce7f0258cc88d5a2bb94e4d3}{log\_file}},\ \mbox{\hyperlink{html_8h_aeff0254241bdd079cf60aa19016e3c44}{HTML\_RED}}(\textcolor{stringliteral}{"{}\ \ \ \ \ \ \ \ can't\ read\ (invalid\ pointer)\(\backslash\)n"{}}));}
+\DoxyCodeLine{00267\ }
+\DoxyCodeLine{00268\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{log_8cpp_a876596de91601e1d893e2614bb2de32b}{stk\_log\_printf}}(\&\mbox{\hyperlink{stack_8cpp_a06336a68ce7f0258cc88d5a2bb94e4d3}{log\_file}},\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ \ \ \}\(\backslash\)n"{}}}
+\DoxyCodeLine{00269\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ \ \}\(\backslash\)n"{}}\ \mbox{\hyperlink{html_8h_a2df8677bea55f26352fc8982b34337f2}{HTML\_END}});}
+\DoxyCodeLine{00270\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00271\ \ \ \ \ \}}
+\DoxyCodeLine{00272\ }
+\DoxyCodeLine{00273\ \textcolor{preprocessor}{\#ifdef\ CANARY\_PROTECT}}
+\DoxyCodeLine{00274\ \ \ \ \ \mbox{\hyperlink{log_8cpp_a876596de91601e1d893e2614bb2de32b}{stk\_log\_printf}}(\&\mbox{\hyperlink{stack_8cpp_a06336a68ce7f0258cc88d5a2bb94e4d3}{log\_file}},\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ \ \ \ \ \ \ L\_canary\ =\ 0x"{}}\ \mbox{\hyperlink{stack_8h_a2a23f87eee71a5bd4ac163e1bba1f479}{CANARY\_T\_PRINTF}}\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}},}
+\DoxyCodeLine{00275\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *\mbox{\hyperlink{stack_8h_a38d2301409d76703e2936d8a89853e31}{left\_data\_canary\_ptr}}(stk));}
+\DoxyCodeLine{00276\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//<\ \#ifdef\ CANARY\_PROTECT}}
+\DoxyCodeLine{00277\ }
+\DoxyCodeLine{00278\ \ \ \ \ \textcolor{keywordtype}{int}\ index\_len\ =\ 1;}
+\DoxyCodeLine{00279\ \ \ \ \ ssize\_t\ index\ =\ \mbox{\hyperlink{macros_8h_afa99ec4acc4ecb2dc3c2d05da15d0e3f}{MAX}}(stk-\/>\mbox{\hyperlink{structStack_a3b6cb0b4ff732c7bbbaaa5d3860bcd1a}{size}},\ stk-\/>\mbox{\hyperlink{structStack_a2f2b41ebbf7c8adce40da902814e1c7b}{capacity}});}
+\DoxyCodeLine{00280\ \ \ \ \ \textcolor{keywordflow}{while}\ ((index\ /=\ 10)\ >\ 0)}
+\DoxyCodeLine{00281\ \ \ \ \ \ \ \ \ index\_len++;}
+\DoxyCodeLine{00282\ }
+\DoxyCodeLine{00283\ \ \ \ \ \textcolor{keywordflow}{for}\ (ssize\_t\ i\ =\ 0;\ i\ <\ stk-\/>\mbox{\hyperlink{structStack_a2f2b41ebbf7c8adce40da902814e1c7b}{capacity}};\ i++)\ \{}
+\DoxyCodeLine{00284\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ <\ stk-\/>size)}
+\DoxyCodeLine{00285\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{log_8cpp_a876596de91601e1d893e2614bb2de32b}{stk\_log\_printf}}(\&\mbox{\hyperlink{stack_8cpp_a06336a68ce7f0258cc88d5a2bb94e4d3}{log\_file}},\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ \ \ \ \ \ \ *"{}});}
+\DoxyCodeLine{00286\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00287\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{log_8cpp_a876596de91601e1d893e2614bb2de32b}{stk\_log\_printf}}(\&\mbox{\hyperlink{stack_8cpp_a06336a68ce7f0258cc88d5a2bb94e4d3}{log\_file}},\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ \ \ \ \ \ \ \ "{}});}
 \DoxyCodeLine{00288\ }
-\DoxyCodeLine{00289\ \ \ \ \ \mbox{\hyperlink{log_8cpp_adab5e89ed01fa9fb9c55544d3a21629b}{log\_printf}}(\&\mbox{\hyperlink{stack_8cpp_a06336a68ce7f0258cc88d5a2bb94e4d3}{log\_file}},\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ \ \ \}\(\backslash\)n"{}});}
-\DoxyCodeLine{00290\ }
-\DoxyCodeLine{00291\ \ \ \ \ \mbox{\hyperlink{log_8cpp_adab5e89ed01fa9fb9c55544d3a21629b}{log\_printf}}(\&\mbox{\hyperlink{stack_8cpp_a06336a68ce7f0258cc88d5a2bb94e4d3}{log\_file}},\ \textcolor{stringliteral}{"{}\ \ \ \ \}\(\backslash\)n"{}}\ \mbox{\hyperlink{html_8h_a2df8677bea55f26352fc8982b34337f2}{HTML\_END}});}
-\DoxyCodeLine{00292\ \}}
+\DoxyCodeLine{00289\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{log_8cpp_a876596de91601e1d893e2614bb2de32b}{stk\_log\_printf}}(\&\mbox{\hyperlink{stack_8cpp_a06336a68ce7f0258cc88d5a2bb94e4d3}{log\_file}},\ \textcolor{stringliteral}{"{}[\%*zu]\ "{}},\ index\_len,\ i);}
+\DoxyCodeLine{00290\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (stk-\/>\mbox{\hyperlink{structStack_a02ed96691b2e6636bd9155758e8ee8cd}{data}}[i]\ ==\ stk-\/>\mbox{\hyperlink{structStack_a48bbbcc55325f72dcbe2414dd9598a30}{POISON}})}
+\DoxyCodeLine{00291\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{log_8cpp_a876596de91601e1d893e2614bb2de32b}{stk\_log\_printf}}(\&\mbox{\hyperlink{stack_8cpp_a06336a68ce7f0258cc88d5a2bb94e4d3}{log\_file}},\ \textcolor{stringliteral}{"{}(poison)\(\backslash\)n"{}});}
+\DoxyCodeLine{00292\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00293\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{log_8cpp_a876596de91601e1d893e2614bb2de32b}{stk\_log\_printf}}(\&\mbox{\hyperlink{stack_8cpp_a06336a68ce7f0258cc88d5a2bb94e4d3}{log\_file}},\ \mbox{\hyperlink{stack_8h_a0e86e404fb41df2a06346b0fd53ccb83}{ELEM\_T\_PRINTF}}\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}},\ stk-\/>\mbox{\hyperlink{structStack_a02ed96691b2e6636bd9155758e8ee8cd}{data}}[i]);}
+\DoxyCodeLine{00294\ \ \ \ \ \}}
+\DoxyCodeLine{00295\ }
+\DoxyCodeLine{00296\ \textcolor{preprocessor}{\#ifdef\ CANARY\_PROTECT}}
+\DoxyCodeLine{00297\ \ \ \ \ \mbox{\hyperlink{log_8cpp_a876596de91601e1d893e2614bb2de32b}{stk\_log\_printf}}(\&\mbox{\hyperlink{stack_8cpp_a06336a68ce7f0258cc88d5a2bb94e4d3}{log\_file}},\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ \ \ \ \ \ \ R\_canary\ =\ 0x"{}}\ \mbox{\hyperlink{stack_8h_a2a23f87eee71a5bd4ac163e1bba1f479}{CANARY\_T\_PRINTF}}\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}},}
+\DoxyCodeLine{00298\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *\mbox{\hyperlink{stack_8h_a8141a491532e1b89ad3bc94fc410d523}{right\_data\_canary\_ptr}}(stk));}
+\DoxyCodeLine{00299\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//<\ \#ifdef\ CANARY\_PROTECT}}
+\DoxyCodeLine{00300\ }
+\DoxyCodeLine{00301\ \ \ \ \ \mbox{\hyperlink{log_8cpp_a876596de91601e1d893e2614bb2de32b}{stk\_log\_printf}}(\&\mbox{\hyperlink{stack_8cpp_a06336a68ce7f0258cc88d5a2bb94e4d3}{log\_file}},\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ \ \ \}\(\backslash\)n"{}});}
+\DoxyCodeLine{00302\ }
+\DoxyCodeLine{00303\ \ \ \ \ \mbox{\hyperlink{log_8cpp_a876596de91601e1d893e2614bb2de32b}{stk\_log\_printf}}(\&\mbox{\hyperlink{stack_8cpp_a06336a68ce7f0258cc88d5a2bb94e4d3}{log\_file}},\ \textcolor{stringliteral}{"{}\ \ \ \ \}\(\backslash\)n"{}}\ \mbox{\hyperlink{html_8h_a2df8677bea55f26352fc8982b34337f2}{HTML\_END}});}
+\DoxyCodeLine{00304\ \}}
 
 \end{DoxyCode}
 
 
-References \mbox{\hyperlink{stack_8h_source_l00047}{Stack\+::canary\+\_\+left}}, \mbox{\hyperlink{stack_8h_source_l00064}{Stack\+::canary\+\_\+right}}, \mbox{\hyperlink{config_8h_source_l00015}{CANARY\+\_\+\+T\+\_\+\+PRINTF}}, \mbox{\hyperlink{stack_8h_source_l00051}{Stack\+::capacity}}, \mbox{\hyperlink{stack_8h_source_l00050}{Stack\+::data}}, \mbox{\hyperlink{stack_8h_source_l00056}{Stack\+::data\+\_\+hash}}, \mbox{\hyperlink{config_8h_source_l00011}{ELEM\+\_\+\+T\+\_\+\+PRINTF}}, \mbox{\hyperlink{macros_8h_source_l00036}{Var\+Code\+Data\+::file}}, \mbox{\hyperlink{macros_8h_source_l00038}{Var\+Code\+Data\+::func}}, \mbox{\hyperlink{html_8h_source_l00005}{HTML\+\_\+\+BEGIN}}, \mbox{\hyperlink{html_8h_source_l00007}{HTML\+\_\+\+END}}, \mbox{\hyperlink{html_8h_source_l00018}{HTML\+\_\+\+RED}}, \mbox{\hyperlink{ptr__valid_8h_a9118aa9878b41057b6d2067e5d5dff2b}{is\+\_\+ptr\+\_\+valid()}}, \mbox{\hyperlink{stack_8h_source_l00316}{left\+\_\+data\+\_\+canary\+\_\+ptr()}}, \mbox{\hyperlink{macros_8h_source_l00037}{Var\+Code\+Data\+::line}}, \mbox{\hyperlink{main_8cpp_source_l00004}{log\+\_\+file}}, \mbox{\hyperlink{log_8cpp_source_l00003}{log\+\_\+printf()}}, \mbox{\hyperlink{macros_8h_source_l00008}{MAX}}, \mbox{\hyperlink{macros_8h_source_l00035}{Var\+Code\+Data\+::name}}, \mbox{\hyperlink{stack_8h_source_l00022}{Stack\+::\+POISON}}, \mbox{\hyperlink{stack_8h_source_l00329}{right\+\_\+data\+\_\+canary\+\_\+ptr()}}, \mbox{\hyperlink{stack_8h_source_l00052}{Stack\+::size}}, \mbox{\hyperlink{stack_8h_source_l00085}{stk\+\_\+is\+\_\+initialised()}}, \mbox{\hyperlink{stack_8h_source_l00055}{Stack\+::struct\+\_\+hash}}, and \mbox{\hyperlink{stack_8h_source_l00060}{Stack\+::var\+\_\+data}}.
+References \mbox{\hyperlink{stack_8h_source_l00064}{Stack\+::canary\+\_\+left}}, \mbox{\hyperlink{stack_8h_source_l00081}{Stack\+::canary\+\_\+right}}, \mbox{\hyperlink{stack_8h_source_l00024}{CANARY\+\_\+\+T\+\_\+\+PRINTF}}, \mbox{\hyperlink{stack_8h_source_l00068}{Stack\+::capacity}}, \mbox{\hyperlink{stack_8h_source_l00067}{Stack\+::data}}, \mbox{\hyperlink{stack_8h_source_l00073}{Stack\+::data\+\_\+hash}}, \mbox{\hyperlink{stack_8h_source_l00020}{ELEM\+\_\+\+T\+\_\+\+PRINTF}}, \mbox{\hyperlink{macros_8h_source_l00036}{Var\+Code\+Data\+::file}}, \mbox{\hyperlink{macros_8h_source_l00038}{Var\+Code\+Data\+::func}}, \mbox{\hyperlink{html_8h_source_l00005}{HTML\+\_\+\+BEGIN}}, \mbox{\hyperlink{html_8h_source_l00007}{HTML\+\_\+\+END}}, \mbox{\hyperlink{html_8h_source_l00018}{HTML\+\_\+\+RED}}, \mbox{\hyperlink{ptr__valid_8h_a9118aa9878b41057b6d2067e5d5dff2b}{is\+\_\+ptr\+\_\+valid()}}, \mbox{\hyperlink{stack_8h_source_l00333}{left\+\_\+data\+\_\+canary\+\_\+ptr()}}, \mbox{\hyperlink{macros_8h_source_l00037}{Var\+Code\+Data\+::line}}, \mbox{\hyperlink{main_8cpp_source_l00004}{log\+\_\+file}}, \mbox{\hyperlink{macros_8h_source_l00008}{MAX}}, \mbox{\hyperlink{macros_8h_source_l00035}{Var\+Code\+Data\+::name}}, \mbox{\hyperlink{stack_8h_source_l00039}{Stack\+::\+POISON}}, \mbox{\hyperlink{stack_8h_source_l00346}{right\+\_\+data\+\_\+canary\+\_\+ptr()}}, \mbox{\hyperlink{stack_8h_source_l00069}{Stack\+::size}}, \mbox{\hyperlink{stack_8h_source_l00102}{stk\+\_\+is\+\_\+initialised()}}, \mbox{\hyperlink{log_8cpp_source_l00003}{stk\+\_\+log\+\_\+printf()}}, \mbox{\hyperlink{stack_8h_source_l00072}{Stack\+::struct\+\_\+hash}}, and \mbox{\hyperlink{stack_8h_source_l00077}{Stack\+::var\+\_\+data}}.
 
 \Hypertarget{stack_8h_a274ef6d070da1ebae0069c65a0775984}\label{stack_8h_a274ef6d070da1ebae0069c65a0775984} 
 \index{stack.h@{stack.h}!stk\_is\_initialised@{stk\_is\_initialised}}
@@ -885,30 +973,30 @@ false
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{stack_8h_source_l00085}{85}} of file \mbox{\hyperlink{stack_8h_source}{stack.\+h}}.
+Definition at line \mbox{\hyperlink{stack_8h_source_l00102}{102}} of file \mbox{\hyperlink{stack_8h_source}{stack.\+h}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keywordflow}{return}\ stk-\/>\mbox{\hyperlink{structStack_a3b6cb0b4ff732c7bbbaaa5d3860bcd1a}{size}}\ !=\ stk-\/>\mbox{\hyperlink{structStack_aa50c905a38095756b153a80c4e974ee2}{UNITIALISED\_CAPACITY}}\ ||}
-\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ stk-\/>\mbox{\hyperlink{structStack_a2f2b41ebbf7c8adce40da902814e1c7b}{capacity}}\ !=\ stk-\/>\mbox{\hyperlink{structStack_aa50c905a38095756b153a80c4e974ee2}{UNITIALISED\_CAPACITY}}\ ||}
-\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \ \ \ stk-\/>\mbox{\hyperlink{structStack_a02ed96691b2e6636bd9155758e8ee8cd}{data}}\ !=\ \textcolor{keyword}{nullptr};}
-\DoxyCodeLine{00089\ \}}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{keywordflow}{return}\ stk-\/>\mbox{\hyperlink{structStack_a3b6cb0b4ff732c7bbbaaa5d3860bcd1a}{size}}\ !=\ stk-\/>\mbox{\hyperlink{structStack_aa50c905a38095756b153a80c4e974ee2}{UNITIALISED\_CAPACITY}}\ ||}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \ \ \ stk-\/>\mbox{\hyperlink{structStack_a2f2b41ebbf7c8adce40da902814e1c7b}{capacity}}\ !=\ stk-\/>\mbox{\hyperlink{structStack_aa50c905a38095756b153a80c4e974ee2}{UNITIALISED\_CAPACITY}}\ ||}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \ \ \ stk-\/>\mbox{\hyperlink{structStack_a02ed96691b2e6636bd9155758e8ee8cd}{data}}\ !=\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00106\ \}}
 
 \end{DoxyCode}
 
 
-References \mbox{\hyperlink{stack_8h_source_l00051}{Stack\+::capacity}}, \mbox{\hyperlink{stack_8h_source_l00050}{Stack\+::data}}, \mbox{\hyperlink{stack_8h_source_l00052}{Stack\+::size}}, and \mbox{\hyperlink{stack_8h_source_l00021}{Stack\+::\+UNITIALISED\+\_\+\+CAPACITY}}.
+References \mbox{\hyperlink{stack_8h_source_l00068}{Stack\+::capacity}}, \mbox{\hyperlink{stack_8h_source_l00067}{Stack\+::data}}, \mbox{\hyperlink{stack_8h_source_l00069}{Stack\+::size}}, and \mbox{\hyperlink{stack_8h_source_l00038}{Stack\+::\+UNITIALISED\+\_\+\+CAPACITY}}.
 
 
 
-Referenced by \mbox{\hyperlink{stack_8cpp_source_l00019}{stk\+\_\+ctor()}}, \mbox{\hyperlink{stack_8cpp_source_l00223}{stk\+\_\+dump()}}, and \mbox{\hyperlink{stack_8cpp_source_l00297}{stk\+\_\+verify()}}.
+Referenced by \mbox{\hyperlink{stack_8cpp_source_l00027}{stk\+\_\+ctor()}}, \mbox{\hyperlink{stack_8cpp_source_l00235}{stk\+\_\+dump()}}, and \mbox{\hyperlink{stack_8cpp_source_l00309}{stk\+\_\+verify()}}.
 
 \Hypertarget{stack_8h_a8a9034ca7b569e78083db61cefdafbff}\label{stack_8h_a8a9034ca7b569e78083db61cefdafbff} 
 \index{stack.h@{stack.h}!stk\_pop@{stk\_pop}}
 \index{stk\_pop@{stk\_pop}!stack.h@{stack.h}}
 \doxysubsubsection{\texorpdfstring{stk\_pop()}{stk\_pop()}}
-{\footnotesize\ttfamily int stk\+\_\+pop (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structStack}{Stack}} \texorpdfstring{$\ast$}{*}}]{stk,  }\item[{\mbox{\hyperlink{config_8h_a2cc56bfd987df84942ab4dc387f55160}{Elem\+\_\+t}} \texorpdfstring{$\ast$}{*}const}]{res }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily int stk\+\_\+pop (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structStack}{Stack}} \texorpdfstring{$\ast$}{*}}]{stk,  }\item[{\mbox{\hyperlink{stack_8h_a2cc56bfd987df84942ab4dc387f55160}{Elem\+\_\+t}} \texorpdfstring{$\ast$}{*}const}]{res }\end{DoxyParamCaption})}
 
 
 
@@ -926,42 +1014,42 @@ int
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{stack_8cpp_source_l00161}{161}} of file \mbox{\hyperlink{stack_8cpp_source}{stack.\+cpp}}.
+Definition at line \mbox{\hyperlink{stack_8cpp_source_l00169}{169}} of file \mbox{\hyperlink{stack_8cpp_source}{stack.\+cpp}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00162\ \ \ \ \ assert(elem);}
-\DoxyCodeLine{00163\ }
-\DoxyCodeLine{00164\ \ \ \ \ \textcolor{keywordtype}{int}\ res\ =\ \mbox{\hyperlink{stack_8h_a1442ee943ce9afe9c695447e23ac327f}{STK\_ASSERT}}(stk);}
-\DoxyCodeLine{00165\ }
-\DoxyCodeLine{00166\ \ \ \ \ \textcolor{keywordflow}{if}\ (stk-\/>\mbox{\hyperlink{structStack_a3b6cb0b4ff732c7bbbaaa5d3860bcd1a}{size}}\ <=\ 0)\ \{}
-\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ res\ |=\ stk-\/>\mbox{\hyperlink{structStack_ae8242b5f1b2c3d98a6dbafc302e509d5a21fffebce3cb1827d31bfb5bc44dfca8}{NOTHING\_TO\_POP}};}
-\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{stack_8h_adfe306bbeb051d0e57c29ae2fcda4b3b}{STK\_OK}}(stk,\ res);}
-\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ res;}
-\DoxyCodeLine{00170\ \ \ \ \ \}}
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00170\ \ \ \ \ assert(elem);}
 \DoxyCodeLine{00171\ }
-\DoxyCodeLine{00172\ \ \ \ \ *elem\ =\ stk-\/>\mbox{\hyperlink{structStack_a02ed96691b2e6636bd9155758e8ee8cd}{data}}[-\/-\/stk-\/>\mbox{\hyperlink{structStack_a3b6cb0b4ff732c7bbbaaa5d3860bcd1a}{size}}];}
+\DoxyCodeLine{00172\ \ \ \ \ \textcolor{keywordtype}{int}\ res\ =\ \mbox{\hyperlink{stack_8h_a1442ee943ce9afe9c695447e23ac327f}{STK\_ASSERT}}(stk);}
 \DoxyCodeLine{00173\ }
-\DoxyCodeLine{00174\ \textcolor{preprocessor}{\#ifdef\ HASH\_PROTECT}}
-\DoxyCodeLine{00175\ \ \ \ \ stk-\/>\mbox{\hyperlink{structStack_a0313f9fb25ba1f5ce41bcaf465777ead}{data\_hash}}\ =\ \mbox{\hyperlink{stack_8h_ae72fe1519dee325a0e6dd4eafc14898b}{stk\_data\_hash\_calc}}(stk);}
-\DoxyCodeLine{00176\ \ \ \ \ stk-\/>\mbox{\hyperlink{structStack_a5d85c28620cf7c22e622df2d8a58f35b}{struct\_hash}}\ =\ \mbox{\hyperlink{stack_8h_a536ddddf9bb8810b9703d5e405a073b9}{stk\_struct\_hash\_calc}}(stk);}
-\DoxyCodeLine{00177\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ \#ifdef\ HASH\_PROTECT}}
-\DoxyCodeLine{00178\ }
-\DoxyCodeLine{00179\ \ \ \ \ \mbox{\hyperlink{stack_8h_a1bdd7c1369b250215a080e8421d4ecf3}{ON\_DEBUG}}(stk-\/>\mbox{\hyperlink{structStack_a02ed96691b2e6636bd9155758e8ee8cd}{data}}[stk-\/>\mbox{\hyperlink{structStack_a3b6cb0b4ff732c7bbbaaa5d3860bcd1a}{size}}]\ =\ stk-\/>\mbox{\hyperlink{structStack_a48bbbcc55325f72dcbe2414dd9598a30}{POISON}});}
-\DoxyCodeLine{00180\ }
-\DoxyCodeLine{00181\ \ \ \ \ res\ |=\ \mbox{\hyperlink{stack_8h_a39fe4fd668c5eb885f0e79b238311053}{stk\_resize\_down}}(stk);}
-\DoxyCodeLine{00182\ }
-\DoxyCodeLine{00183\ \ \ \ \ res\ |=\ \mbox{\hyperlink{stack_8h_a013fc56c5d16255530c4b0134dfeb8a6}{STK\_VERIFY}}(stk);}
-\DoxyCodeLine{00184\ \ \ \ \ \mbox{\hyperlink{stack_8h_adfe306bbeb051d0e57c29ae2fcda4b3b}{STK\_OK}}(stk,\ res);}
-\DoxyCodeLine{00185\ }
-\DoxyCodeLine{00186\ \ \ \ \ \textcolor{keywordflow}{return}\ res;}
-\DoxyCodeLine{00187\ \}}
+\DoxyCodeLine{00174\ \ \ \ \ \textcolor{keywordflow}{if}\ (stk-\/>\mbox{\hyperlink{structStack_a3b6cb0b4ff732c7bbbaaa5d3860bcd1a}{size}}\ <=\ 0)\ \{}
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ res\ |=\ stk-\/>\mbox{\hyperlink{structStack_ae8242b5f1b2c3d98a6dbafc302e509d5a21fffebce3cb1827d31bfb5bc44dfca8}{NOTHING\_TO\_POP}};}
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{stack_8h_adfe306bbeb051d0e57c29ae2fcda4b3b}{STK\_OK}}(stk,\ res);}
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ res;}
+\DoxyCodeLine{00178\ \ \ \ \ \}}
+\DoxyCodeLine{00179\ }
+\DoxyCodeLine{00180\ \ \ \ \ *elem\ =\ stk-\/>\mbox{\hyperlink{structStack_a02ed96691b2e6636bd9155758e8ee8cd}{data}}[-\/-\/stk-\/>\mbox{\hyperlink{structStack_a3b6cb0b4ff732c7bbbaaa5d3860bcd1a}{size}}];}
+\DoxyCodeLine{00181\ }
+\DoxyCodeLine{00182\ \textcolor{preprocessor}{\#ifdef\ HASH\_PROTECT}}
+\DoxyCodeLine{00183\ \ \ \ \ stk-\/>\mbox{\hyperlink{structStack_a0313f9fb25ba1f5ce41bcaf465777ead}{data\_hash}}\ =\ \mbox{\hyperlink{stack_8h_ae72fe1519dee325a0e6dd4eafc14898b}{stk\_data\_hash\_calc}}(stk);}
+\DoxyCodeLine{00184\ \ \ \ \ stk-\/>\mbox{\hyperlink{structStack_a5d85c28620cf7c22e622df2d8a58f35b}{struct\_hash}}\ =\ \mbox{\hyperlink{stack_8h_a536ddddf9bb8810b9703d5e405a073b9}{stk\_struct\_hash\_calc}}(stk);}
+\DoxyCodeLine{00185\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//<\ \#ifdef\ HASH\_PROTECT}}
+\DoxyCodeLine{00186\ }
+\DoxyCodeLine{00187\ \ \ \ \ \mbox{\hyperlink{stack_8h_a1bdd7c1369b250215a080e8421d4ecf3}{ON\_DEBUG}}(stk-\/>\mbox{\hyperlink{structStack_a02ed96691b2e6636bd9155758e8ee8cd}{data}}[stk-\/>\mbox{\hyperlink{structStack_a3b6cb0b4ff732c7bbbaaa5d3860bcd1a}{size}}]\ =\ stk-\/>\mbox{\hyperlink{structStack_a48bbbcc55325f72dcbe2414dd9598a30}{POISON}});}
+\DoxyCodeLine{00188\ }
+\DoxyCodeLine{00189\ \ \ \ \ res\ |=\ \mbox{\hyperlink{stack_8h_a39fe4fd668c5eb885f0e79b238311053}{stk\_resize\_down}}(stk);}
+\DoxyCodeLine{00190\ }
+\DoxyCodeLine{00191\ \ \ \ \ res\ |=\ \mbox{\hyperlink{stack_8h_a013fc56c5d16255530c4b0134dfeb8a6}{STK\_VERIFY}}(stk);}
+\DoxyCodeLine{00192\ \ \ \ \ \mbox{\hyperlink{stack_8h_adfe306bbeb051d0e57c29ae2fcda4b3b}{STK\_OK}}(stk,\ res);}
+\DoxyCodeLine{00193\ }
+\DoxyCodeLine{00194\ \ \ \ \ \textcolor{keywordflow}{return}\ res;}
+\DoxyCodeLine{00195\ \}}
 
 \end{DoxyCode}
 
 
-References \mbox{\hyperlink{stack_8h_source_l00050}{Stack\+::data}}, \mbox{\hyperlink{stack_8h_source_l00056}{Stack\+::data\+\_\+hash}}, \mbox{\hyperlink{stack_8h_source_l00026}{Stack\+::\+NOTHING\+\_\+\+TO\+\_\+\+POP}}, \mbox{\hyperlink{stack_8h_source_l00138}{ON\+\_\+\+DEBUG}}, \mbox{\hyperlink{stack_8h_source_l00022}{Stack\+::\+POISON}}, \mbox{\hyperlink{stack_8h_source_l00052}{Stack\+::size}}, \mbox{\hyperlink{stack_8h_source_l00180}{STK\+\_\+\+ASSERT}}, \mbox{\hyperlink{stack_8h_source_l00275}{stk\+\_\+data\+\_\+hash\+\_\+calc()}}, \mbox{\hyperlink{stack_8h_source_l00202}{STK\+\_\+\+OK}}, \mbox{\hyperlink{stack_8h_source_l00372}{stk\+\_\+resize\+\_\+down()}}, \mbox{\hyperlink{stack_8h_source_l00262}{stk\+\_\+struct\+\_\+hash\+\_\+calc()}}, \mbox{\hyperlink{stack_8h_source_l00197}{STK\+\_\+\+VERIFY}}, and \mbox{\hyperlink{stack_8h_source_l00055}{Stack\+::struct\+\_\+hash}}.
+References \mbox{\hyperlink{stack_8h_source_l00067}{Stack\+::data}}, \mbox{\hyperlink{stack_8h_source_l00073}{Stack\+::data\+\_\+hash}}, \mbox{\hyperlink{stack_8h_source_l00043}{Stack\+::\+NOTHING\+\_\+\+TO\+\_\+\+POP}}, \mbox{\hyperlink{stack_8h_source_l00148}{ON\+\_\+\+DEBUG}}, \mbox{\hyperlink{stack_8h_source_l00039}{Stack\+::\+POISON}}, \mbox{\hyperlink{stack_8h_source_l00069}{Stack\+::size}}, \mbox{\hyperlink{stack_8h_source_l00197}{STK\+\_\+\+ASSERT}}, \mbox{\hyperlink{stack_8h_source_l00292}{stk\+\_\+data\+\_\+hash\+\_\+calc()}}, \mbox{\hyperlink{stack_8h_source_l00219}{STK\+\_\+\+OK}}, \mbox{\hyperlink{stack_8h_source_l00389}{stk\+\_\+resize\+\_\+down()}}, \mbox{\hyperlink{stack_8h_source_l00279}{stk\+\_\+struct\+\_\+hash\+\_\+calc()}}, \mbox{\hyperlink{stack_8h_source_l00214}{STK\+\_\+\+VERIFY}}, and \mbox{\hyperlink{stack_8h_source_l00072}{Stack\+::struct\+\_\+hash}}.
 
 
 
@@ -984,44 +1072,44 @@ Prints errors to log file.
 \end{DoxyParams}
 
 
-Definition at line \mbox{\hyperlink{stack_8cpp_source_l00195}{195}} of file \mbox{\hyperlink{stack_8cpp_source}{stack.\+cpp}}.
+Definition at line \mbox{\hyperlink{stack_8cpp_source_l00205}{205}} of file \mbox{\hyperlink{stack_8cpp_source}{stack.\+cpp}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00196\ \ \ \ \ \textcolor{keywordflow}{if}\ (err\_code\ ==\ \mbox{\hyperlink{structStack_ae8242b5f1b2c3d98a6dbafc302e509d5a146633a2ef2a9bbb1c05ec4cd31ba019}{Stack::OK}})\ \{}
-\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{log_8cpp_adab5e89ed01fa9fb9c55544d3a21629b}{log\_printf}}(\&\mbox{\hyperlink{stack_8cpp_a06336a68ce7f0258cc88d5a2bb94e4d3}{log\_file}},\ \mbox{\hyperlink{html_8h_af5420035dccd3dfd5325ca0638081475}{HTML\_TEXT}}(\mbox{\hyperlink{html_8h_a3208c6e370f00379a74f19180fbc6462}{HTML\_GREEN}}(\textcolor{stringliteral}{"{}No\ error\(\backslash\)n"{}})));}
-\DoxyCodeLine{00198\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
-\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{stack_8cpp_a4f9e8dba978737f226f1698e5d4ac66f}{PRINT\_ERR\_}}(ALREADY\_INITIALISED,\ \ \textcolor{stringliteral}{"{}Constructor\ called\ for\ already\ initialised\ or\ corrupted\ stack"{}});}
-\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{stack_8cpp_a4f9e8dba978737f226f1698e5d4ac66f}{PRINT\_ERR\_}}(UNITIALISED,\ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Stack\ is\ not\ initialised"{}});}
-\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{stack_8cpp_a4f9e8dba978737f226f1698e5d4ac66f}{PRINT\_ERR\_}}(DATA\_INVALID\_PTR,\ \ \ \ \ \textcolor{stringliteral}{"{}stk.data\ pointer\ is\ not\ valid\ for\ writing"{}});}
-\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{stack_8cpp_a4f9e8dba978737f226f1698e5d4ac66f}{PRINT\_ERR\_}}(ALLOC\_ERR,\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Can't\ allocate\ memory"{}});}
-\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{stack_8cpp_a4f9e8dba978737f226f1698e5d4ac66f}{PRINT\_ERR\_}}(NOTHING\_TO\_POP,\ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Program\ is\ trying\ to\ pop\ empty\ stack"{}});}
-\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{stack_8cpp_a4f9e8dba978737f226f1698e5d4ac66f}{PRINT\_ERR\_}}(POISON\_VAL\_FOUND,\ \ \ \ \ \textcolor{stringliteral}{"{}There\ is\ poison\ value\ in\ stack"{}});}
-\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{stack_8cpp_a4f9e8dba978737f226f1698e5d4ac66f}{PRINT\_ERR\_}}(NON\_POISON\_EMPTY,\ \ \ \ \ \textcolor{stringliteral}{"{}Empty\ element\ is\ not\ poison"{}});}
-\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{stack_8cpp_a4f9e8dba978737f226f1698e5d4ac66f}{PRINT\_ERR\_}}(STRUCT\_HASH\_ERR,\ \ \ \ \ \ \textcolor{stringliteral}{"{}Stack\ struct\ was\ modified\ (wrong\ hash)"{}});}
-\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{stack_8cpp_a4f9e8dba978737f226f1698e5d4ac66f}{PRINT\_ERR\_}}(DATA\_HASH\_ERR,\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Stack\ data\ was\ modified\ (wrong\ hash)"{}});}
-\DoxyCodeLine{00208\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{stack_8cpp_a4f9e8dba978737f226f1698e5d4ac66f}{PRINT\_ERR\_}}(LOW\_CAPACITY,\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}stk.size\ >\ stk.capacity"{}});}
-\DoxyCodeLine{00209\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{stack_8cpp_a4f9e8dba978737f226f1698e5d4ac66f}{PRINT\_ERR\_}}(NEGATIVE\_CAPACITY,\ \ \ \ \textcolor{stringliteral}{"{}Negative\ stk.capacity"{}});}
-\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{stack_8cpp_a4f9e8dba978737f226f1698e5d4ac66f}{PRINT\_ERR\_}}(INVALID\_CAPACITY,\ \ \ \ \ \textcolor{stringliteral}{"{}Invalid\ capacity\ given"{}});}
-\DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{stack_8cpp_a4f9e8dba978737f226f1698e5d4ac66f}{PRINT\_ERR\_}}(NEGATIVE\_SIZE,\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Negative\ stk.size"{}});}
-\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{stack_8cpp_a4f9e8dba978737f226f1698e5d4ac66f}{PRINT\_ERR\_}}(STRUCT\_L\_CANARY\_ERR,\ \ \textcolor{stringliteral}{"{}Left\ struct\ canary\ is\ corrupt"{}});}
-\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{stack_8cpp_a4f9e8dba978737f226f1698e5d4ac66f}{PRINT\_ERR\_}}(STRUCT\_R\_CANARY\_ERR,\ \ \textcolor{stringliteral}{"{}Right\ struct\ canary\ is\ corrupt"{}});}
-\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{stack_8cpp_a4f9e8dba978737f226f1698e5d4ac66f}{PRINT\_ERR\_}}(DATA\_L\_CANARY\_ERR,\ \ \ \ \textcolor{stringliteral}{"{}Left\ data\ canary\ is\ corrupt"{}});}
-\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{stack_8cpp_a4f9e8dba978737f226f1698e5d4ac66f}{PRINT\_ERR\_}}(DATA\_R\_CANARY\_ERR,\ \ \ \ \textcolor{stringliteral}{"{}Right\ data\ canary\ is\ corrupt"{}});}
-\DoxyCodeLine{00216\ \ \ \ \ \}}
-\DoxyCodeLine{00217\ \}}
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00206\ \ \ \ \ \textcolor{keywordflow}{if}\ (err\_code\ ==\ \mbox{\hyperlink{structStack_ae8242b5f1b2c3d98a6dbafc302e509d5a146633a2ef2a9bbb1c05ec4cd31ba019}{Stack::OK}})\ \{}
+\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{log_8cpp_a876596de91601e1d893e2614bb2de32b}{stk\_log\_printf}}(\&\mbox{\hyperlink{stack_8cpp_a06336a68ce7f0258cc88d5a2bb94e4d3}{log\_file}},\ \mbox{\hyperlink{html_8h_af5420035dccd3dfd5325ca0638081475}{HTML\_TEXT}}(\mbox{\hyperlink{html_8h_a3208c6e370f00379a74f19180fbc6462}{HTML\_GREEN}}(\textcolor{stringliteral}{"{}No\ error\(\backslash\)n"{}})));}
+\DoxyCodeLine{00208\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00209\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{stack_8cpp_a4f9e8dba978737f226f1698e5d4ac66f}{PRINT\_ERR\_}}(ALREADY\_INITIALISED,\ \ \textcolor{stringliteral}{"{}Constructor\ called\ for\ already\ initialised\ or\ corrupted\ stack"{}});}
+\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{stack_8cpp_a4f9e8dba978737f226f1698e5d4ac66f}{PRINT\_ERR\_}}(UNITIALISED,\ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Stack\ is\ not\ initialised"{}});}
+\DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{stack_8cpp_a4f9e8dba978737f226f1698e5d4ac66f}{PRINT\_ERR\_}}(DATA\_INVALID\_PTR,\ \ \ \ \ \textcolor{stringliteral}{"{}stk.data\ pointer\ is\ not\ valid\ for\ writing"{}});}
+\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{stack_8cpp_a4f9e8dba978737f226f1698e5d4ac66f}{PRINT\_ERR\_}}(ALLOC\_ERR,\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Can't\ allocate\ memory"{}});}
+\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{stack_8cpp_a4f9e8dba978737f226f1698e5d4ac66f}{PRINT\_ERR\_}}(NOTHING\_TO\_POP,\ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Program\ is\ trying\ to\ pop\ empty\ stack"{}});}
+\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{stack_8cpp_a4f9e8dba978737f226f1698e5d4ac66f}{PRINT\_ERR\_}}(POISON\_VAL\_FOUND,\ \ \ \ \ \textcolor{stringliteral}{"{}There\ is\ poison\ value\ in\ stack"{}});}
+\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{stack_8cpp_a4f9e8dba978737f226f1698e5d4ac66f}{PRINT\_ERR\_}}(NON\_POISON\_EMPTY,\ \ \ \ \ \textcolor{stringliteral}{"{}Empty\ element\ is\ not\ poison"{}});}
+\DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{stack_8cpp_a4f9e8dba978737f226f1698e5d4ac66f}{PRINT\_ERR\_}}(STRUCT\_HASH\_ERR,\ \ \ \ \ \ \textcolor{stringliteral}{"{}Stack\ struct\ was\ modified\ (wrong\ hash)"{}});}
+\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{stack_8cpp_a4f9e8dba978737f226f1698e5d4ac66f}{PRINT\_ERR\_}}(DATA\_HASH\_ERR,\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Stack\ data\ was\ modified\ (wrong\ hash)"{}});}
+\DoxyCodeLine{00218\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{stack_8cpp_a4f9e8dba978737f226f1698e5d4ac66f}{PRINT\_ERR\_}}(LOW\_CAPACITY,\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}stk.size\ >\ stk.capacity"{}});}
+\DoxyCodeLine{00219\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{stack_8cpp_a4f9e8dba978737f226f1698e5d4ac66f}{PRINT\_ERR\_}}(NEGATIVE\_CAPACITY,\ \ \ \ \textcolor{stringliteral}{"{}Negative\ stk.capacity"{}});}
+\DoxyCodeLine{00220\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{stack_8cpp_a4f9e8dba978737f226f1698e5d4ac66f}{PRINT\_ERR\_}}(INVALID\_CAPACITY,\ \ \ \ \ \textcolor{stringliteral}{"{}Invalid\ capacity\ given"{}});}
+\DoxyCodeLine{00221\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{stack_8cpp_a4f9e8dba978737f226f1698e5d4ac66f}{PRINT\_ERR\_}}(NEGATIVE\_SIZE,\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Negative\ stk.size"{}});}
+\DoxyCodeLine{00222\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{stack_8cpp_a4f9e8dba978737f226f1698e5d4ac66f}{PRINT\_ERR\_}}(STRUCT\_L\_CANARY\_ERR,\ \ \textcolor{stringliteral}{"{}Left\ struct\ canary\ is\ corrupt"{}});}
+\DoxyCodeLine{00223\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{stack_8cpp_a4f9e8dba978737f226f1698e5d4ac66f}{PRINT\_ERR\_}}(STRUCT\_R\_CANARY\_ERR,\ \ \textcolor{stringliteral}{"{}Right\ struct\ canary\ is\ corrupt"{}});}
+\DoxyCodeLine{00224\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{stack_8cpp_a4f9e8dba978737f226f1698e5d4ac66f}{PRINT\_ERR\_}}(DATA\_L\_CANARY\_ERR,\ \ \ \ \textcolor{stringliteral}{"{}Left\ data\ canary\ is\ corrupt"{}});}
+\DoxyCodeLine{00225\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{stack_8cpp_a4f9e8dba978737f226f1698e5d4ac66f}{PRINT\_ERR\_}}(DATA\_R\_CANARY\_ERR,\ \ \ \ \textcolor{stringliteral}{"{}Right\ data\ canary\ is\ corrupt"{}});}
+\DoxyCodeLine{00226\ \ \ \ \ \}}
+\DoxyCodeLine{00227\ \}}
 
 \end{DoxyCode}
 
 
-References \mbox{\hyperlink{html_8h_source_l00019}{HTML\+\_\+\+GREEN}}, \mbox{\hyperlink{html_8h_source_l00016}{HTML\+\_\+\+TEXT}}, \mbox{\hyperlink{main_8cpp_source_l00004}{log\+\_\+file}}, \mbox{\hyperlink{log_8cpp_source_l00003}{log\+\_\+printf()}}, \mbox{\hyperlink{stack_8h_source_l00025}{Stack\+::\+OK}}, and \mbox{\hyperlink{stack_8cpp_source_l00191}{PRINT\+\_\+\+ERR\+\_\+}}.
+References \mbox{\hyperlink{html_8h_source_l00019}{HTML\+\_\+\+GREEN}}, \mbox{\hyperlink{html_8h_source_l00016}{HTML\+\_\+\+TEXT}}, \mbox{\hyperlink{main_8cpp_source_l00004}{log\+\_\+file}}, \mbox{\hyperlink{stack_8h_source_l00042}{Stack\+::\+OK}}, \mbox{\hyperlink{stack_8cpp_source_l00201}{PRINT\+\_\+\+ERR\+\_\+}}, and \mbox{\hyperlink{log_8cpp_source_l00003}{stk\+\_\+log\+\_\+printf()}}.
 
 \Hypertarget{stack_8h_aa30787d931ba7ff16b8aa1ddfa7337d3}\label{stack_8h_aa30787d931ba7ff16b8aa1ddfa7337d3} 
 \index{stack.h@{stack.h}!stk\_push@{stk\_push}}
 \index{stk\_push@{stk\_push}!stack.h@{stack.h}}
 \doxysubsubsection{\texorpdfstring{stk\_push()}{stk\_push()}}
-{\footnotesize\ttfamily int stk\+\_\+push (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structStack}{Stack}} \texorpdfstring{$\ast$}{*}}]{stk,  }\item[{const \mbox{\hyperlink{config_8h_a2cc56bfd987df84942ab4dc387f55160}{Elem\+\_\+t}}}]{elem }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily int stk\+\_\+push (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structStack}{Stack}} \texorpdfstring{$\ast$}{*}}]{stk,  }\item[{const \mbox{\hyperlink{stack_8h_a2cc56bfd987df84942ab4dc387f55160}{Elem\+\_\+t}}}]{elem }\end{DoxyParamCaption})}
 
 
 
@@ -1039,35 +1127,35 @@ int
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{stack_8cpp_source_l00138}{138}} of file \mbox{\hyperlink{stack_8cpp_source}{stack.\+cpp}}.
+Definition at line \mbox{\hyperlink{stack_8cpp_source_l00146}{146}} of file \mbox{\hyperlink{stack_8cpp_source}{stack.\+cpp}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00139\ \ \ \ \ \textcolor{keywordtype}{int}\ res\ =\ \mbox{\hyperlink{stack_8h_a1442ee943ce9afe9c695447e23ac327f}{STK\_ASSERT}}(stk);}
-\DoxyCodeLine{00140\ }
-\DoxyCodeLine{00141\ \ \ \ \ res\ |=\ \mbox{\hyperlink{stack_8h_a28f2ffba75ab89f49acdd3b07040f40b}{stk\_resize\_up}}(stk);}
-\DoxyCodeLine{00142\ }
-\DoxyCodeLine{00143\ \ \ \ \ \textcolor{keywordflow}{if}\ (res\ !=\ stk-\/>\mbox{\hyperlink{structStack_ae8242b5f1b2c3d98a6dbafc302e509d5a146633a2ef2a9bbb1c05ec4cd31ba019}{OK}})}
-\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ res;}
-\DoxyCodeLine{00145\ }
-\DoxyCodeLine{00146\ \ \ \ \ stk-\/>\mbox{\hyperlink{structStack_a02ed96691b2e6636bd9155758e8ee8cd}{data}}[stk-\/>\mbox{\hyperlink{structStack_a3b6cb0b4ff732c7bbbaaa5d3860bcd1a}{size}}++]\ =\ elem;}
-\DoxyCodeLine{00147\ }
-\DoxyCodeLine{00148\ \textcolor{preprocessor}{\#ifdef\ HASH\_PROTECT}}
-\DoxyCodeLine{00149\ \ \ \ \ stk-\/>\mbox{\hyperlink{structStack_a0313f9fb25ba1f5ce41bcaf465777ead}{data\_hash}}\ =\ \mbox{\hyperlink{stack_8h_a5623fe015c076479c94adb3ddd01ad35}{stk\_data\_hash\_push}}(stk,\ stk-\/>\mbox{\hyperlink{structStack_a02ed96691b2e6636bd9155758e8ee8cd}{data}}[stk-\/>\mbox{\hyperlink{structStack_a3b6cb0b4ff732c7bbbaaa5d3860bcd1a}{size}}\ -\/\ 1],\ stk-\/>\mbox{\hyperlink{structStack_a0313f9fb25ba1f5ce41bcaf465777ead}{data\_hash}});}
-\DoxyCodeLine{00150\ \ \ \ \ stk-\/>\mbox{\hyperlink{structStack_a5d85c28620cf7c22e622df2d8a58f35b}{struct\_hash}}\ =\ \mbox{\hyperlink{stack_8h_a536ddddf9bb8810b9703d5e405a073b9}{stk\_struct\_hash\_calc}}(stk);}
-\DoxyCodeLine{00151\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ \#ifdef\ HASH\_PROTECT}}
-\DoxyCodeLine{00152\ }
-\DoxyCodeLine{00153\ \ \ \ \ res\ |=\ \mbox{\hyperlink{stack_8h_a013fc56c5d16255530c4b0134dfeb8a6}{STK\_VERIFY}}(stk);}
-\DoxyCodeLine{00154\ \ \ \ \ \mbox{\hyperlink{stack_8h_adfe306bbeb051d0e57c29ae2fcda4b3b}{STK\_OK}}(stk,\ res);}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00147\ \ \ \ \ \textcolor{keywordtype}{int}\ res\ =\ \mbox{\hyperlink{stack_8h_a1442ee943ce9afe9c695447e23ac327f}{STK\_ASSERT}}(stk);}
+\DoxyCodeLine{00148\ }
+\DoxyCodeLine{00149\ \ \ \ \ res\ |=\ \mbox{\hyperlink{stack_8h_a28f2ffba75ab89f49acdd3b07040f40b}{stk\_resize\_up}}(stk);}
+\DoxyCodeLine{00150\ }
+\DoxyCodeLine{00151\ \ \ \ \ \textcolor{keywordflow}{if}\ (res\ !=\ stk-\/>\mbox{\hyperlink{structStack_ae8242b5f1b2c3d98a6dbafc302e509d5a146633a2ef2a9bbb1c05ec4cd31ba019}{OK}})}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ res;}
+\DoxyCodeLine{00153\ }
+\DoxyCodeLine{00154\ \ \ \ \ stk-\/>\mbox{\hyperlink{structStack_a02ed96691b2e6636bd9155758e8ee8cd}{data}}[stk-\/>\mbox{\hyperlink{structStack_a3b6cb0b4ff732c7bbbaaa5d3860bcd1a}{size}}++]\ =\ elem;}
 \DoxyCodeLine{00155\ }
-\DoxyCodeLine{00156\ \ \ \ \ \textcolor{keywordflow}{return}\ res;}
-\DoxyCodeLine{00157\ \}}
+\DoxyCodeLine{00156\ \textcolor{preprocessor}{\#ifdef\ HASH\_PROTECT}}
+\DoxyCodeLine{00157\ \ \ \ \ stk-\/>\mbox{\hyperlink{structStack_a0313f9fb25ba1f5ce41bcaf465777ead}{data\_hash}}\ =\ \mbox{\hyperlink{stack_8h_a5623fe015c076479c94adb3ddd01ad35}{stk\_data\_hash\_push}}(stk,\ stk-\/>\mbox{\hyperlink{structStack_a02ed96691b2e6636bd9155758e8ee8cd}{data}}[stk-\/>\mbox{\hyperlink{structStack_a3b6cb0b4ff732c7bbbaaa5d3860bcd1a}{size}}\ -\/\ 1],\ stk-\/>\mbox{\hyperlink{structStack_a0313f9fb25ba1f5ce41bcaf465777ead}{data\_hash}});}
+\DoxyCodeLine{00158\ \ \ \ \ stk-\/>\mbox{\hyperlink{structStack_a5d85c28620cf7c22e622df2d8a58f35b}{struct\_hash}}\ =\ \mbox{\hyperlink{stack_8h_a536ddddf9bb8810b9703d5e405a073b9}{stk\_struct\_hash\_calc}}(stk);}
+\DoxyCodeLine{00159\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//<\ \#ifdef\ HASH\_PROTECT}}
+\DoxyCodeLine{00160\ }
+\DoxyCodeLine{00161\ \ \ \ \ res\ |=\ \mbox{\hyperlink{stack_8h_a013fc56c5d16255530c4b0134dfeb8a6}{STK\_VERIFY}}(stk);}
+\DoxyCodeLine{00162\ \ \ \ \ \mbox{\hyperlink{stack_8h_adfe306bbeb051d0e57c29ae2fcda4b3b}{STK\_OK}}(stk,\ res);}
+\DoxyCodeLine{00163\ }
+\DoxyCodeLine{00164\ \ \ \ \ \textcolor{keywordflow}{return}\ res;}
+\DoxyCodeLine{00165\ \}}
 
 \end{DoxyCode}
 
 
-References \mbox{\hyperlink{stack_8h_source_l00050}{Stack\+::data}}, \mbox{\hyperlink{stack_8h_source_l00056}{Stack\+::data\+\_\+hash}}, \mbox{\hyperlink{stack_8h_source_l00025}{Stack\+::\+OK}}, \mbox{\hyperlink{stack_8h_source_l00052}{Stack\+::size}}, \mbox{\hyperlink{stack_8h_source_l00180}{STK\+\_\+\+ASSERT}}, \mbox{\hyperlink{stack_8h_source_l00289}{stk\+\_\+data\+\_\+hash\+\_\+push()}}, \mbox{\hyperlink{stack_8h_source_l00202}{STK\+\_\+\+OK}}, \mbox{\hyperlink{stack_8h_source_l00352}{stk\+\_\+resize\+\_\+up()}}, \mbox{\hyperlink{stack_8h_source_l00262}{stk\+\_\+struct\+\_\+hash\+\_\+calc()}}, \mbox{\hyperlink{stack_8h_source_l00197}{STK\+\_\+\+VERIFY}}, and \mbox{\hyperlink{stack_8h_source_l00055}{Stack\+::struct\+\_\+hash}}.
+References \mbox{\hyperlink{stack_8h_source_l00067}{Stack\+::data}}, \mbox{\hyperlink{stack_8h_source_l00073}{Stack\+::data\+\_\+hash}}, \mbox{\hyperlink{stack_8h_source_l00042}{Stack\+::\+OK}}, \mbox{\hyperlink{stack_8h_source_l00069}{Stack\+::size}}, \mbox{\hyperlink{stack_8h_source_l00197}{STK\+\_\+\+ASSERT}}, \mbox{\hyperlink{stack_8h_source_l00306}{stk\+\_\+data\+\_\+hash\+\_\+push()}}, \mbox{\hyperlink{stack_8h_source_l00219}{STK\+\_\+\+OK}}, \mbox{\hyperlink{stack_8h_source_l00369}{stk\+\_\+resize\+\_\+up()}}, \mbox{\hyperlink{stack_8h_source_l00279}{stk\+\_\+struct\+\_\+hash\+\_\+calc()}}, \mbox{\hyperlink{stack_8h_source_l00214}{STK\+\_\+\+VERIFY}}, and \mbox{\hyperlink{stack_8h_source_l00072}{Stack\+::struct\+\_\+hash}}.
 
 
 
@@ -1095,57 +1183,57 @@ int
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{stack_8cpp_source_l00097}{97}} of file \mbox{\hyperlink{stack_8cpp_source}{stack.\+cpp}}.
+Definition at line \mbox{\hyperlink{stack_8cpp_source_l00105}{105}} of file \mbox{\hyperlink{stack_8cpp_source}{stack.\+cpp}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00098\ \ \ \ \ \textcolor{keywordtype}{int}\ res\ =\ \mbox{\hyperlink{stack_8h_a1442ee943ce9afe9c695447e23ac327f}{STK\_ASSERT}}(stk);}
-\DoxyCodeLine{00099\ }
-\DoxyCodeLine{00100\ \ \ \ \ \textcolor{keywordflow}{if}\ (new\_size\ ==\ 0)\ \{}
-\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ res\ |=\ stk-\/>\mbox{\hyperlink{structStack_ae8242b5f1b2c3d98a6dbafc302e509d5aa41ce2e438b0124421ebaa0a7bd4a8b2}{INVALID\_CAPACITY}};}
-\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{stack_8h_adfe306bbeb051d0e57c29ae2fcda4b3b}{STK\_OK}}(stk,\ res);}
-\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ res;}
-\DoxyCodeLine{00104\ \ \ \ \ \}}
-\DoxyCodeLine{00105\ }
-\DoxyCodeLine{00106\ \ \ \ \ \mbox{\hyperlink{config_8h_a2cc56bfd987df84942ab4dc387f55160}{Elem\_t}}*\ tmp\ =\ stk-\/>\mbox{\hyperlink{structStack_a02ed96691b2e6636bd9155758e8ee8cd}{data}};}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00106\ \ \ \ \ \textcolor{keywordtype}{int}\ res\ =\ \mbox{\hyperlink{stack_8h_a1442ee943ce9afe9c695447e23ac327f}{STK\_ASSERT}}(stk);}
 \DoxyCodeLine{00107\ }
-\DoxyCodeLine{00108\ \ \ \ \ stk-\/>\mbox{\hyperlink{structStack_a02ed96691b2e6636bd9155758e8ee8cd}{data}}\ =\ (\mbox{\hyperlink{config_8h_a2cc56bfd987df84942ab4dc387f55160}{Elem\_t}}*)\mbox{\hyperlink{macros_8h_a3e542cb9c488f76f1d0cb4b6ef234203}{recalloc}}((\textcolor{keywordtype}{void}*)((\mbox{\hyperlink{config_8h_a788ec731a306c6e69c1dbb06983429ed}{Canary\_t}}*)stk-\/>\mbox{\hyperlink{structStack_a02ed96691b2e6636bd9155758e8ee8cd}{data}}\ \mbox{\hyperlink{stack_8h_ae09c894ab7c3c3daa2c838cde400b7fc}{ON\_CANARY\_PROTECT}}(-\/\ 1)),}
-\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ We\ need\ to\ clear\ right\ canary\ and\ free\ space\ before\ it\ -\/>\ +\ 1}}
-\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ stk-\/>\mbox{\hyperlink{structStack_a2f2b41ebbf7c8adce40da902814e1c7b}{capacity}}\ *\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{config_8h_a2cc56bfd987df84942ab4dc387f55160}{Elem\_t}})\ \mbox{\hyperlink{stack_8h_ae09c894ab7c3c3daa2c838cde400b7fc}{ON\_CANARY\_PROTECT}}(+\ 1\ *\ \textcolor{keyword}{sizeof}(CANARY\_VAL)),}
-\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{stack_8h_a9d171b647636bbf53d7335be5b7ff367}{calc\_stk\_data\_size}}(new\_size));}
-\DoxyCodeLine{00112\ }
-\DoxyCodeLine{00113\ \ \ \ \ \textcolor{keywordflow}{if}\ (!stk-\/>\mbox{\hyperlink{structStack_a02ed96691b2e6636bd9155758e8ee8cd}{data}})\ \{}
-\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ stk-\/>\mbox{\hyperlink{structStack_a02ed96691b2e6636bd9155758e8ee8cd}{data}}\ =\ tmp;}
-\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ res\ |=\ stk-\/>\mbox{\hyperlink{structStack_ae8242b5f1b2c3d98a6dbafc302e509d5a8e610fdd9bd4faa7ad35a6058ad9fcbf}{ALLOC\_ERR}};}
-\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{stack_8h_adfe306bbeb051d0e57c29ae2fcda4b3b}{STK\_OK}}(stk,\ res);}
-\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ res;}
-\DoxyCodeLine{00118\ \ \ \ \ \}}
-\DoxyCodeLine{00119\ }
-\DoxyCodeLine{00120\ \ \ \ \ \mbox{\hyperlink{stack_8h_ae09c894ab7c3c3daa2c838cde400b7fc}{ON\_CANARY\_PROTECT}}(stk-\/>\mbox{\hyperlink{structStack_a02ed96691b2e6636bd9155758e8ee8cd}{data}}\ =\ (\mbox{\hyperlink{config_8h_a2cc56bfd987df84942ab4dc387f55160}{Elem\_t}}*)((\mbox{\hyperlink{config_8h_a788ec731a306c6e69c1dbb06983429ed}{Canary\_t}}*)stk-\/>\mbox{\hyperlink{structStack_a02ed96691b2e6636bd9155758e8ee8cd}{data}}\ +\ 1));}
-\DoxyCodeLine{00121\ }
-\DoxyCodeLine{00122\ \ \ \ \ \mbox{\hyperlink{stack_8h_adf27c21e09fa1d3a5d8309d2ccbea793}{STK\_FILL\_POISON}}(stk,\ stk-\/>\mbox{\hyperlink{structStack_a2f2b41ebbf7c8adce40da902814e1c7b}{capacity}},\ (ssize\_t)new\_size);}
-\DoxyCodeLine{00123\ }
-\DoxyCodeLine{00124\ \ \ \ \ stk-\/>\mbox{\hyperlink{structStack_a2f2b41ebbf7c8adce40da902814e1c7b}{capacity}}\ =\ new\_size;}
-\DoxyCodeLine{00125\ }
-\DoxyCodeLine{00126\ \ \ \ \ \mbox{\hyperlink{stack_8h_ae09c894ab7c3c3daa2c838cde400b7fc}{ON\_CANARY\_PROTECT}}(*\mbox{\hyperlink{stack_8h_a8141a491532e1b89ad3bc94fc410d523}{right\_data\_canary\_ptr}}(stk)\ =\ CANARY\_VAL);}
+\DoxyCodeLine{00108\ \ \ \ \ \textcolor{keywordflow}{if}\ (new\_size\ ==\ 0)\ \{}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ res\ |=\ stk-\/>\mbox{\hyperlink{structStack_ae8242b5f1b2c3d98a6dbafc302e509d5aa41ce2e438b0124421ebaa0a7bd4a8b2}{INVALID\_CAPACITY}};}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{stack_8h_adfe306bbeb051d0e57c29ae2fcda4b3b}{STK\_OK}}(stk,\ res);}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ res;}
+\DoxyCodeLine{00112\ \ \ \ \ \}}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00114\ \ \ \ \ \mbox{\hyperlink{stack_8h_a2cc56bfd987df84942ab4dc387f55160}{Elem\_t}}*\ tmp\ =\ stk-\/>\mbox{\hyperlink{structStack_a02ed96691b2e6636bd9155758e8ee8cd}{data}};}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00116\ \ \ \ \ stk-\/>\mbox{\hyperlink{structStack_a02ed96691b2e6636bd9155758e8ee8cd}{data}}\ =\ (\mbox{\hyperlink{stack_8h_a2cc56bfd987df84942ab4dc387f55160}{Elem\_t}}*)\mbox{\hyperlink{macros_8h_a3e542cb9c488f76f1d0cb4b6ef234203}{recalloc}}((\textcolor{keywordtype}{void}*)((\mbox{\hyperlink{stack_8h_a788ec731a306c6e69c1dbb06983429ed}{Canary\_t}}*)stk-\/>\mbox{\hyperlink{structStack_a02ed96691b2e6636bd9155758e8ee8cd}{data}}\ \mbox{\hyperlink{stack_8h_ae09c894ab7c3c3daa2c838cde400b7fc}{ON\_CANARY\_PROTECT}}(-\/\ 1)),}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ We\ need\ to\ clear\ right\ canary\ and\ free\ space\ before\ it\ -\/>\ +\ 1}}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ stk-\/>\mbox{\hyperlink{structStack_a2f2b41ebbf7c8adce40da902814e1c7b}{capacity}}\ *\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{stack_8h_a2cc56bfd987df84942ab4dc387f55160}{Elem\_t}})\ \mbox{\hyperlink{stack_8h_ae09c894ab7c3c3daa2c838cde400b7fc}{ON\_CANARY\_PROTECT}}(+\ 1\ *\ \textcolor{keyword}{sizeof}(CANARY\_VAL)),}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{stack_8h_a9d171b647636bbf53d7335be5b7ff367}{calc\_stk\_data\_size}}(new\_size));}
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00121\ \ \ \ \ \textcolor{keywordflow}{if}\ (!stk-\/>\mbox{\hyperlink{structStack_a02ed96691b2e6636bd9155758e8ee8cd}{data}})\ \{}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ stk-\/>\mbox{\hyperlink{structStack_a02ed96691b2e6636bd9155758e8ee8cd}{data}}\ =\ tmp;}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ res\ |=\ stk-\/>\mbox{\hyperlink{structStack_ae8242b5f1b2c3d98a6dbafc302e509d5a8e610fdd9bd4faa7ad35a6058ad9fcbf}{ALLOC\_ERR}};}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{stack_8h_adfe306bbeb051d0e57c29ae2fcda4b3b}{STK\_OK}}(stk,\ res);}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ res;}
+\DoxyCodeLine{00126\ \ \ \ \ \}}
 \DoxyCodeLine{00127\ }
-\DoxyCodeLine{00128\ \ \ \ \ \mbox{\hyperlink{stack_8h_a1dc689bb2898fa51bd45a9e016fc2777}{ON\_HASH\_PROTECT}}(stk-\/>\mbox{\hyperlink{structStack_a5d85c28620cf7c22e622df2d8a58f35b}{struct\_hash}}\ =\ \mbox{\hyperlink{stack_8h_a536ddddf9bb8810b9703d5e405a073b9}{stk\_struct\_hash\_calc}}(stk));}
+\DoxyCodeLine{00128\ \ \ \ \ \mbox{\hyperlink{stack_8h_ae09c894ab7c3c3daa2c838cde400b7fc}{ON\_CANARY\_PROTECT}}(stk-\/>\mbox{\hyperlink{structStack_a02ed96691b2e6636bd9155758e8ee8cd}{data}}\ =\ (\mbox{\hyperlink{stack_8h_a2cc56bfd987df84942ab4dc387f55160}{Elem\_t}}*)((\mbox{\hyperlink{stack_8h_a788ec731a306c6e69c1dbb06983429ed}{Canary\_t}}*)stk-\/>\mbox{\hyperlink{structStack_a02ed96691b2e6636bd9155758e8ee8cd}{data}}\ +\ 1));}
 \DoxyCodeLine{00129\ }
-\DoxyCodeLine{00130\ \ \ \ \ res\ |=\ \mbox{\hyperlink{stack_8h_a013fc56c5d16255530c4b0134dfeb8a6}{STK\_VERIFY}}(stk);}
-\DoxyCodeLine{00131\ \ \ \ \ \mbox{\hyperlink{stack_8h_adfe306bbeb051d0e57c29ae2fcda4b3b}{STK\_OK}}(stk,\ res);}
-\DoxyCodeLine{00132\ }
-\DoxyCodeLine{00133\ \ \ \ \ \textcolor{keywordflow}{return}\ res;}
-\DoxyCodeLine{00134\ \}}
+\DoxyCodeLine{00130\ \ \ \ \ \mbox{\hyperlink{stack_8h_adf27c21e09fa1d3a5d8309d2ccbea793}{STK\_FILL\_POISON}}(stk,\ stk-\/>\mbox{\hyperlink{structStack_a2f2b41ebbf7c8adce40da902814e1c7b}{capacity}},\ (ssize\_t)new\_size);}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00132\ \ \ \ \ stk-\/>\mbox{\hyperlink{structStack_a2f2b41ebbf7c8adce40da902814e1c7b}{capacity}}\ =\ new\_size;}
+\DoxyCodeLine{00133\ }
+\DoxyCodeLine{00134\ \ \ \ \ \mbox{\hyperlink{stack_8h_ae09c894ab7c3c3daa2c838cde400b7fc}{ON\_CANARY\_PROTECT}}(*\mbox{\hyperlink{stack_8h_a8141a491532e1b89ad3bc94fc410d523}{right\_data\_canary\_ptr}}(stk)\ =\ CANARY\_VAL);}
+\DoxyCodeLine{00135\ }
+\DoxyCodeLine{00136\ \ \ \ \ \mbox{\hyperlink{stack_8h_a1dc689bb2898fa51bd45a9e016fc2777}{ON\_HASH\_PROTECT}}(stk-\/>\mbox{\hyperlink{structStack_a5d85c28620cf7c22e622df2d8a58f35b}{struct\_hash}}\ =\ \mbox{\hyperlink{stack_8h_a536ddddf9bb8810b9703d5e405a073b9}{stk\_struct\_hash\_calc}}(stk));}
+\DoxyCodeLine{00137\ }
+\DoxyCodeLine{00138\ \ \ \ \ res\ |=\ \mbox{\hyperlink{stack_8h_a013fc56c5d16255530c4b0134dfeb8a6}{STK\_VERIFY}}(stk);}
+\DoxyCodeLine{00139\ \ \ \ \ \mbox{\hyperlink{stack_8h_adfe306bbeb051d0e57c29ae2fcda4b3b}{STK\_OK}}(stk,\ res);}
+\DoxyCodeLine{00140\ }
+\DoxyCodeLine{00141\ \ \ \ \ \textcolor{keywordflow}{return}\ res;}
+\DoxyCodeLine{00142\ \}}
 
 \end{DoxyCode}
 
 
-References \mbox{\hyperlink{stack_8h_source_l00027}{Stack\+::\+ALLOC\+\_\+\+ERR}}, \mbox{\hyperlink{stack_8h_source_l00392}{calc\+\_\+stk\+\_\+data\+\_\+size()}}, \mbox{\hyperlink{stack_8h_source_l00051}{Stack\+::capacity}}, \mbox{\hyperlink{stack_8h_source_l00050}{Stack\+::data}}, \mbox{\hyperlink{stack_8h_source_l00038}{Stack\+::\+INVALID\+\_\+\+CAPACITY}}, \mbox{\hyperlink{stack_8h_source_l00308}{ON\+\_\+\+CANARY\+\_\+\+PROTECT}}, \mbox{\hyperlink{stack_8h_source_l00254}{ON\+\_\+\+HASH\+\_\+\+PROTECT}}, \mbox{\hyperlink{macros_8h_source_l00015}{recalloc()}}, \mbox{\hyperlink{stack_8h_source_l00329}{right\+\_\+data\+\_\+canary\+\_\+ptr()}}, \mbox{\hyperlink{stack_8h_source_l00180}{STK\+\_\+\+ASSERT}}, \mbox{\hyperlink{stack_8h_source_l00190}{STK\+\_\+\+FILL\+\_\+\+POISON}}, \mbox{\hyperlink{stack_8h_source_l00202}{STK\+\_\+\+OK}}, \mbox{\hyperlink{stack_8h_source_l00262}{stk\+\_\+struct\+\_\+hash\+\_\+calc()}}, \mbox{\hyperlink{stack_8h_source_l00197}{STK\+\_\+\+VERIFY}}, and \mbox{\hyperlink{stack_8h_source_l00055}{Stack\+::struct\+\_\+hash}}.
+References \mbox{\hyperlink{stack_8h_source_l00044}{Stack\+::\+ALLOC\+\_\+\+ERR}}, \mbox{\hyperlink{stack_8h_source_l00409}{calc\+\_\+stk\+\_\+data\+\_\+size()}}, \mbox{\hyperlink{stack_8h_source_l00068}{Stack\+::capacity}}, \mbox{\hyperlink{stack_8h_source_l00067}{Stack\+::data}}, \mbox{\hyperlink{stack_8h_source_l00055}{Stack\+::\+INVALID\+\_\+\+CAPACITY}}, \mbox{\hyperlink{stack_8h_source_l00325}{ON\+\_\+\+CANARY\+\_\+\+PROTECT}}, \mbox{\hyperlink{stack_8h_source_l00271}{ON\+\_\+\+HASH\+\_\+\+PROTECT}}, \mbox{\hyperlink{macros_8h_source_l00015}{recalloc()}}, \mbox{\hyperlink{stack_8h_source_l00346}{right\+\_\+data\+\_\+canary\+\_\+ptr()}}, \mbox{\hyperlink{stack_8h_source_l00197}{STK\+\_\+\+ASSERT}}, \mbox{\hyperlink{stack_8h_source_l00207}{STK\+\_\+\+FILL\+\_\+\+POISON}}, \mbox{\hyperlink{stack_8h_source_l00219}{STK\+\_\+\+OK}}, \mbox{\hyperlink{stack_8h_source_l00279}{stk\+\_\+struct\+\_\+hash\+\_\+calc()}}, \mbox{\hyperlink{stack_8h_source_l00214}{STK\+\_\+\+VERIFY}}, and \mbox{\hyperlink{stack_8h_source_l00072}{Stack\+::struct\+\_\+hash}}.
 
 
 
-Referenced by \mbox{\hyperlink{stack_8h_source_l00372}{stk\+\_\+resize\+\_\+down()}}, and \mbox{\hyperlink{stack_8h_source_l00352}{stk\+\_\+resize\+\_\+up()}}.
+Referenced by \mbox{\hyperlink{stack_8h_source_l00389}{stk\+\_\+resize\+\_\+down()}}, and \mbox{\hyperlink{stack_8h_source_l00369}{stk\+\_\+resize\+\_\+up()}}.
 
 \Hypertarget{stack_8h_a39fe4fd668c5eb885f0e79b238311053}\label{stack_8h_a39fe4fd668c5eb885f0e79b238311053} 
 \index{stack.h@{stack.h}!stk\_resize\_down@{stk\_resize\_down}}
@@ -1167,32 +1255,32 @@ int
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{stack_8h_source_l00372}{372}} of file \mbox{\hyperlink{stack_8h_source}{stack.\+h}}.
+Definition at line \mbox{\hyperlink{stack_8h_source_l00389}{389}} of file \mbox{\hyperlink{stack_8h_source}{stack.\+h}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00372\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00373\ \ \ \ \ \textcolor{keywordtype}{int}\ res\ =\ \mbox{\hyperlink{stack_8h_a1442ee943ce9afe9c695447e23ac327f}{STK\_ASSERT}}(stk);}
-\DoxyCodeLine{00374\ }
-\DoxyCodeLine{00375\ \ \ \ \ ssize\_t\ new\_cap\ =\ stk-\/>\mbox{\hyperlink{structStack_a2f2b41ebbf7c8adce40da902814e1c7b}{capacity}};}
-\DoxyCodeLine{00376\ }
-\DoxyCodeLine{00377\ \ \ \ \ \textcolor{keywordflow}{if}\ (stk-\/>\mbox{\hyperlink{structStack_a3b6cb0b4ff732c7bbbaaa5d3860bcd1a}{size}}\ *\ 4\ <=\ new\_cap\ \&\&\ new\_cap\ >=\ (ssize\_t)stk-\/>\mbox{\hyperlink{structStack_a02dd99e7282f168c46deef6f08f40a58}{DEFAULT\_CAPACITY}}\ *\ 2)}
-\DoxyCodeLine{00378\ \ \ \ \ \ \ \ \ new\_cap\ /=\ 2;}
-\DoxyCodeLine{00379\ }
-\DoxyCodeLine{00380\ \ \ \ \ \textcolor{keywordflow}{if}\ (new\_cap\ !=\ stk-\/>\mbox{\hyperlink{structStack_a2f2b41ebbf7c8adce40da902814e1c7b}{capacity}})}
-\DoxyCodeLine{00381\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ res\ |\ \mbox{\hyperlink{stack_8h_a6c5e2d562b3eeeeabca9396a5e457247}{stk\_resize}}(stk,\ new\_cap);}
-\DoxyCodeLine{00382\ }
-\DoxyCodeLine{00383\ \ \ \ \ \textcolor{keywordflow}{return}\ res;}
-\DoxyCodeLine{00384\ \}}
+\DoxyCodeLine{00389\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00390\ \ \ \ \ \textcolor{keywordtype}{int}\ res\ =\ \mbox{\hyperlink{stack_8h_a1442ee943ce9afe9c695447e23ac327f}{STK\_ASSERT}}(stk);}
+\DoxyCodeLine{00391\ }
+\DoxyCodeLine{00392\ \ \ \ \ ssize\_t\ new\_cap\ =\ stk-\/>\mbox{\hyperlink{structStack_a2f2b41ebbf7c8adce40da902814e1c7b}{capacity}};}
+\DoxyCodeLine{00393\ }
+\DoxyCodeLine{00394\ \ \ \ \ \textcolor{keywordflow}{if}\ (stk-\/>\mbox{\hyperlink{structStack_a3b6cb0b4ff732c7bbbaaa5d3860bcd1a}{size}}\ *\ 4\ <=\ new\_cap\ \&\&\ new\_cap\ >=\ (ssize\_t)stk-\/>\mbox{\hyperlink{structStack_a02dd99e7282f168c46deef6f08f40a58}{DEFAULT\_CAPACITY}}\ *\ 2)}
+\DoxyCodeLine{00395\ \ \ \ \ \ \ \ \ new\_cap\ /=\ 2;}
+\DoxyCodeLine{00396\ }
+\DoxyCodeLine{00397\ \ \ \ \ \textcolor{keywordflow}{if}\ (new\_cap\ !=\ stk-\/>\mbox{\hyperlink{structStack_a2f2b41ebbf7c8adce40da902814e1c7b}{capacity}})}
+\DoxyCodeLine{00398\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ res\ |\ \mbox{\hyperlink{stack_8h_a6c5e2d562b3eeeeabca9396a5e457247}{stk\_resize}}(stk,\ new\_cap);}
+\DoxyCodeLine{00399\ }
+\DoxyCodeLine{00400\ \ \ \ \ \textcolor{keywordflow}{return}\ res;}
+\DoxyCodeLine{00401\ \}}
 
 \end{DoxyCode}
 
 
-References \mbox{\hyperlink{stack_8h_source_l00051}{Stack\+::capacity}}, \mbox{\hyperlink{stack_8h_source_l00020}{Stack\+::\+DEFAULT\+\_\+\+CAPACITY}}, \mbox{\hyperlink{stack_8h_source_l00052}{Stack\+::size}}, \mbox{\hyperlink{stack_8h_source_l00180}{STK\+\_\+\+ASSERT}}, and \mbox{\hyperlink{stack_8cpp_source_l00097}{stk\+\_\+resize()}}.
+References \mbox{\hyperlink{stack_8h_source_l00068}{Stack\+::capacity}}, \mbox{\hyperlink{stack_8h_source_l00037}{Stack\+::\+DEFAULT\+\_\+\+CAPACITY}}, \mbox{\hyperlink{stack_8h_source_l00069}{Stack\+::size}}, \mbox{\hyperlink{stack_8h_source_l00197}{STK\+\_\+\+ASSERT}}, and \mbox{\hyperlink{stack_8cpp_source_l00105}{stk\+\_\+resize()}}.
 
 
 
-Referenced by \mbox{\hyperlink{stack_8cpp_source_l00161}{stk\+\_\+pop()}}.
+Referenced by \mbox{\hyperlink{stack_8cpp_source_l00169}{stk\+\_\+pop()}}.
 
 \Hypertarget{stack_8h_a28f2ffba75ab89f49acdd3b07040f40b}\label{stack_8h_a28f2ffba75ab89f49acdd3b07040f40b} 
 \index{stack.h@{stack.h}!stk\_resize\_up@{stk\_resize\_up}}
@@ -1214,32 +1302,32 @@ int
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{stack_8h_source_l00352}{352}} of file \mbox{\hyperlink{stack_8h_source}{stack.\+h}}.
+Definition at line \mbox{\hyperlink{stack_8h_source_l00369}{369}} of file \mbox{\hyperlink{stack_8h_source}{stack.\+h}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00352\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00353\ \ \ \ \ \textcolor{keywordtype}{int}\ res\ =\ \mbox{\hyperlink{stack_8h_a1442ee943ce9afe9c695447e23ac327f}{STK\_ASSERT}}(stk);}
-\DoxyCodeLine{00354\ }
-\DoxyCodeLine{00355\ \ \ \ \ ssize\_t\ new\_cap\ =\ stk-\/>\mbox{\hyperlink{structStack_a2f2b41ebbf7c8adce40da902814e1c7b}{capacity}};}
-\DoxyCodeLine{00356\ }
-\DoxyCodeLine{00357\ \ \ \ \ \textcolor{keywordflow}{while}\ (stk-\/>\mbox{\hyperlink{structStack_a3b6cb0b4ff732c7bbbaaa5d3860bcd1a}{size}}\ >=\ new\_cap)}
-\DoxyCodeLine{00358\ \ \ \ \ \ \ \ \ new\_cap\ *=\ 2;}
-\DoxyCodeLine{00359\ }
-\DoxyCodeLine{00360\ \ \ \ \ \textcolor{keywordflow}{if}\ (new\_cap\ !=\ stk-\/>\mbox{\hyperlink{structStack_a2f2b41ebbf7c8adce40da902814e1c7b}{capacity}})}
-\DoxyCodeLine{00361\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ res\ |\ \mbox{\hyperlink{stack_8h_a6c5e2d562b3eeeeabca9396a5e457247}{stk\_resize}}(stk,\ new\_cap);}
-\DoxyCodeLine{00362\ }
-\DoxyCodeLine{00363\ \ \ \ \ \textcolor{keywordflow}{return}\ res;}
-\DoxyCodeLine{00364\ \}}
+\DoxyCodeLine{00369\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00370\ \ \ \ \ \textcolor{keywordtype}{int}\ res\ =\ \mbox{\hyperlink{stack_8h_a1442ee943ce9afe9c695447e23ac327f}{STK\_ASSERT}}(stk);}
+\DoxyCodeLine{00371\ }
+\DoxyCodeLine{00372\ \ \ \ \ ssize\_t\ new\_cap\ =\ stk-\/>\mbox{\hyperlink{structStack_a2f2b41ebbf7c8adce40da902814e1c7b}{capacity}};}
+\DoxyCodeLine{00373\ }
+\DoxyCodeLine{00374\ \ \ \ \ \textcolor{keywordflow}{while}\ (stk-\/>\mbox{\hyperlink{structStack_a3b6cb0b4ff732c7bbbaaa5d3860bcd1a}{size}}\ >=\ new\_cap)}
+\DoxyCodeLine{00375\ \ \ \ \ \ \ \ \ new\_cap\ *=\ 2;}
+\DoxyCodeLine{00376\ }
+\DoxyCodeLine{00377\ \ \ \ \ \textcolor{keywordflow}{if}\ (new\_cap\ !=\ stk-\/>\mbox{\hyperlink{structStack_a2f2b41ebbf7c8adce40da902814e1c7b}{capacity}})}
+\DoxyCodeLine{00378\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ res\ |\ \mbox{\hyperlink{stack_8h_a6c5e2d562b3eeeeabca9396a5e457247}{stk\_resize}}(stk,\ new\_cap);}
+\DoxyCodeLine{00379\ }
+\DoxyCodeLine{00380\ \ \ \ \ \textcolor{keywordflow}{return}\ res;}
+\DoxyCodeLine{00381\ \}}
 
 \end{DoxyCode}
 
 
-References \mbox{\hyperlink{stack_8h_source_l00051}{Stack\+::capacity}}, \mbox{\hyperlink{stack_8h_source_l00052}{Stack\+::size}}, \mbox{\hyperlink{stack_8h_source_l00180}{STK\+\_\+\+ASSERT}}, and \mbox{\hyperlink{stack_8cpp_source_l00097}{stk\+\_\+resize()}}.
+References \mbox{\hyperlink{stack_8h_source_l00068}{Stack\+::capacity}}, \mbox{\hyperlink{stack_8h_source_l00069}{Stack\+::size}}, \mbox{\hyperlink{stack_8h_source_l00197}{STK\+\_\+\+ASSERT}}, and \mbox{\hyperlink{stack_8cpp_source_l00105}{stk\+\_\+resize()}}.
 
 
 
-Referenced by \mbox{\hyperlink{stack_8cpp_source_l00138}{stk\+\_\+push()}}.
+Referenced by \mbox{\hyperlink{stack_8cpp_source_l00146}{stk\+\_\+push()}}.
 
 \Hypertarget{stack_8h_a536ddddf9bb8810b9703d5e405a073b9}\label{stack_8h_a536ddddf9bb8810b9703d5e405a073b9} 
 \index{stack.h@{stack.h}!stk\_struct\_hash\_calc@{stk\_struct\_hash\_calc}}
@@ -1261,25 +1349,25 @@ CRC32\+\_\+t
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{stack_8h_source_l00262}{262}} of file \mbox{\hyperlink{stack_8h_source}{stack.\+h}}.
+Definition at line \mbox{\hyperlink{stack_8h_source_l00279}{279}} of file \mbox{\hyperlink{stack_8h_source}{stack.\+h}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00262\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00263\ \ \ \ \ assert(stk);}
-\DoxyCodeLine{00264\ }
-\DoxyCodeLine{00265\ \ \ \ \ stk-\/>\mbox{\hyperlink{structStack_a5d85c28620cf7c22e622df2d8a58f35b}{struct\_hash}}\ =\ 0;}
-\DoxyCodeLine{00266\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{crc32_8cpp_ac24ce753a192608e6a70627eecea4adb}{crc\_add}}(0,\ (\textcolor{keywordtype}{char}*)stk,\ \textcolor{keyword}{sizeof}(stk));}
-\DoxyCodeLine{00267\ \}}
+\DoxyCodeLine{00279\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00280\ \ \ \ \ assert(stk);}
+\DoxyCodeLine{00281\ }
+\DoxyCodeLine{00282\ \ \ \ \ stk-\/>\mbox{\hyperlink{structStack_a5d85c28620cf7c22e622df2d8a58f35b}{struct\_hash}}\ =\ 0;}
+\DoxyCodeLine{00283\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{crc32_8cpp_ac24ce753a192608e6a70627eecea4adb}{crc\_add}}(0,\ (\textcolor{keywordtype}{char}*)stk,\ \textcolor{keyword}{sizeof}(stk));}
+\DoxyCodeLine{00284\ \}}
 
 \end{DoxyCode}
 
 
-References \mbox{\hyperlink{crc32_8cpp_source_l00003}{crc\+\_\+add()}}, and \mbox{\hyperlink{stack_8h_source_l00055}{Stack\+::struct\+\_\+hash}}.
+References \mbox{\hyperlink{crc32_8cpp_source_l00003}{crc\+\_\+add()}}, and \mbox{\hyperlink{stack_8h_source_l00072}{Stack\+::struct\+\_\+hash}}.
 
 
 
-Referenced by \mbox{\hyperlink{stack_8cpp_source_l00019}{stk\+\_\+ctor()}}, \mbox{\hyperlink{stack_8cpp_source_l00161}{stk\+\_\+pop()}}, \mbox{\hyperlink{stack_8cpp_source_l00138}{stk\+\_\+push()}}, \mbox{\hyperlink{stack_8cpp_source_l00097}{stk\+\_\+resize()}}, and \mbox{\hyperlink{stack_8cpp_source_l00297}{stk\+\_\+verify()}}.
+Referenced by \mbox{\hyperlink{stack_8cpp_source_l00027}{stk\+\_\+ctor()}}, \mbox{\hyperlink{stack_8cpp_source_l00169}{stk\+\_\+pop()}}, \mbox{\hyperlink{stack_8cpp_source_l00146}{stk\+\_\+push()}}, \mbox{\hyperlink{stack_8cpp_source_l00105}{stk\+\_\+resize()}}, and \mbox{\hyperlink{stack_8cpp_source_l00309}{stk\+\_\+verify()}}.
 
 \Hypertarget{stack_8h_aa5801fe77f92f99b324b972ee22ed326}\label{stack_8h_aa5801fe77f92f99b324b972ee22ed326} 
 \index{stack.h@{stack.h}!stk\_verify@{stk\_verify}}
@@ -1301,74 +1389,74 @@ int error code
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{stack_8cpp_source_l00297}{297}} of file \mbox{\hyperlink{stack_8cpp_source}{stack.\+cpp}}.
+Definition at line \mbox{\hyperlink{stack_8cpp_source_l00309}{309}} of file \mbox{\hyperlink{stack_8cpp_source}{stack.\+cpp}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00297\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00298\ \ \ \ \ assert(stk);}
-\DoxyCodeLine{00299\ }
-\DoxyCodeLine{00300\ \ \ \ \ \textcolor{keywordtype}{int}\ res\ =\ stk-\/>\mbox{\hyperlink{structStack_ae8242b5f1b2c3d98a6dbafc302e509d5a146633a2ef2a9bbb1c05ec4cd31ba019}{OK}};}
-\DoxyCodeLine{00301\ }
-\DoxyCodeLine{00302\ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{stack_8h_a274ef6d070da1ebae0069c65a0775984}{stk\_is\_initialised}}(stk))\ \{}
-\DoxyCodeLine{00303\ \ \ \ \ \ \ \ \ res\ |=\ stk-\/>\mbox{\hyperlink{structStack_ae8242b5f1b2c3d98a6dbafc302e509d5ae1ec0912fd480f7fdd5f38f4e990ffed}{UNITIALISED}};}
-\DoxyCodeLine{00304\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ res;}
-\DoxyCodeLine{00305\ \ \ \ \ \}}
-\DoxyCodeLine{00306\ }
-\DoxyCodeLine{00307\ \ \ \ \ \textcolor{keywordtype}{bool}\ is\_data\_valid\ =\ \textcolor{keyword}{true};}
-\DoxyCodeLine{00308\ }
-\DoxyCodeLine{00309\ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{ptr__valid_8h_a9118aa9878b41057b6d2067e5d5dff2b}{is\_ptr\_valid}}(stk-\/>\mbox{\hyperlink{structStack_a02ed96691b2e6636bd9155758e8ee8cd}{data}}))\ \{}
-\DoxyCodeLine{00310\ \ \ \ \ \ \ \ \ res\ |=\ stk-\/>\mbox{\hyperlink{structStack_ae8242b5f1b2c3d98a6dbafc302e509d5ab37ce957889466c726330c2b5b513b4f}{DATA\_INVALID\_PTR}};}
-\DoxyCodeLine{00311\ \ \ \ \ \ \ \ \ is\_data\_valid\ =\ \textcolor{keyword}{false};}
-\DoxyCodeLine{00312\ \ \ \ \ \}}
+\DoxyCodeLine{00309\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00310\ \ \ \ \ assert(stk);}
+\DoxyCodeLine{00311\ }
+\DoxyCodeLine{00312\ \ \ \ \ \textcolor{keywordtype}{int}\ res\ =\ stk-\/>\mbox{\hyperlink{structStack_ae8242b5f1b2c3d98a6dbafc302e509d5a146633a2ef2a9bbb1c05ec4cd31ba019}{OK}};}
 \DoxyCodeLine{00313\ }
-\DoxyCodeLine{00314\ \ \ \ \ \textcolor{keywordflow}{if}\ (is\_data\_valid)\ \{}
-\DoxyCodeLine{00315\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (ssize\_t\ i\ =\ 0;\ i\ <\ stk-\/>\mbox{\hyperlink{structStack_a3b6cb0b4ff732c7bbbaaa5d3860bcd1a}{size}};\ i++)}
-\DoxyCodeLine{00316\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (stk-\/>\mbox{\hyperlink{structStack_a02ed96691b2e6636bd9155758e8ee8cd}{data}}[i]\ ==\ stk-\/>\mbox{\hyperlink{structStack_a48bbbcc55325f72dcbe2414dd9598a30}{POISON}})\ \{}
-\DoxyCodeLine{00317\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ res\ |=\ stk-\/>\mbox{\hyperlink{structStack_ae8242b5f1b2c3d98a6dbafc302e509d5aa17ea00c21ef8ada8344e88a5d63a0de}{POISON\_VAL\_FOUND}};}
-\DoxyCodeLine{00318\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
-\DoxyCodeLine{00319\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00314\ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{stack_8h_a274ef6d070da1ebae0069c65a0775984}{stk\_is\_initialised}}(stk))\ \{}
+\DoxyCodeLine{00315\ \ \ \ \ \ \ \ \ res\ |=\ stk-\/>\mbox{\hyperlink{structStack_ae8242b5f1b2c3d98a6dbafc302e509d5ae1ec0912fd480f7fdd5f38f4e990ffed}{UNITIALISED}};}
+\DoxyCodeLine{00316\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ res;}
+\DoxyCodeLine{00317\ \ \ \ \ \}}
+\DoxyCodeLine{00318\ }
+\DoxyCodeLine{00319\ \ \ \ \ \textcolor{keywordtype}{bool}\ is\_data\_valid\ =\ \textcolor{keyword}{true};}
 \DoxyCodeLine{00320\ }
-\DoxyCodeLine{00321\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (ssize\_t\ i\ =\ stk-\/>\mbox{\hyperlink{structStack_a3b6cb0b4ff732c7bbbaaa5d3860bcd1a}{size}};\ i\ <\ stk-\/>\mbox{\hyperlink{structStack_a2f2b41ebbf7c8adce40da902814e1c7b}{capacity}};\ i++)}
-\DoxyCodeLine{00322\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (stk-\/>\mbox{\hyperlink{structStack_a02ed96691b2e6636bd9155758e8ee8cd}{data}}[i]\ !=\ stk-\/>\mbox{\hyperlink{structStack_a48bbbcc55325f72dcbe2414dd9598a30}{POISON}})\ \{}
-\DoxyCodeLine{00323\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ res\ |=\ stk-\/>\mbox{\hyperlink{structStack_ae8242b5f1b2c3d98a6dbafc302e509d5a9e1e940df37869517f75f4d2198aebad}{NON\_POISON\_EMPTY}};}
-\DoxyCodeLine{00324\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
-\DoxyCodeLine{00325\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00326\ \ \ \ \ \}}
-\DoxyCodeLine{00327\ }
-\DoxyCodeLine{00328\ \textcolor{preprocessor}{\#ifdef\ HASH\_PROTECT}}
-\DoxyCodeLine{00329\ \ \ \ \ \mbox{\hyperlink{crc32_8h_aec0adc213b23c34ec982fa84dceb81fd}{CRC32\_t}}\ tmp\_struct\_hash\ =\ stk-\/>\mbox{\hyperlink{structStack_a5d85c28620cf7c22e622df2d8a58f35b}{struct\_hash}};}
-\DoxyCodeLine{00330\ }
-\DoxyCodeLine{00331\ \ \ \ \ \textcolor{keywordflow}{if}\ (is\_data\_valid)\ \{}
-\DoxyCodeLine{00332\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{crc32_8h_aec0adc213b23c34ec982fa84dceb81fd}{CRC32\_t}}\ data\_hash\ =\ \mbox{\hyperlink{stack_8h_ae72fe1519dee325a0e6dd4eafc14898b}{stk\_data\_hash\_calc}}(stk);}
-\DoxyCodeLine{00333\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{stack_8cpp_a0f2905892855073ba849455a73cd569b}{CHECK\_ERR\_}}(stk-\/>\mbox{\hyperlink{structStack_a0313f9fb25ba1f5ce41bcaf465777ead}{data\_hash}}\ !=\ data\_hash,\ stk-\/>\mbox{\hyperlink{structStack_ae8242b5f1b2c3d98a6dbafc302e509d5a2dbe0f67c49b72aef7d6253cdc1f9d43}{DATA\_HASH\_ERR}});}
-\DoxyCodeLine{00334\ \ \ \ \ \}}
-\DoxyCodeLine{00335\ }
-\DoxyCodeLine{00336\ \ \ \ \ \mbox{\hyperlink{crc32_8h_aec0adc213b23c34ec982fa84dceb81fd}{CRC32\_t}}\ struct\_hash\ =\ \mbox{\hyperlink{stack_8h_a536ddddf9bb8810b9703d5e405a073b9}{stk\_struct\_hash\_calc}}(stk);}
-\DoxyCodeLine{00337\ \ \ \ \ stk-\/>\mbox{\hyperlink{structStack_a5d85c28620cf7c22e622df2d8a58f35b}{struct\_hash}}\ =\ tmp\_struct\_hash;}
-\DoxyCodeLine{00338\ }
-\DoxyCodeLine{00339\ \ \ \ \ \mbox{\hyperlink{stack_8cpp_a0f2905892855073ba849455a73cd569b}{CHECK\_ERR\_}}(stk-\/>\mbox{\hyperlink{structStack_a5d85c28620cf7c22e622df2d8a58f35b}{struct\_hash}}\ !=\ struct\_hash,\ stk-\/>\mbox{\hyperlink{structStack_ae8242b5f1b2c3d98a6dbafc302e509d5a8cccf06af95813b4626427c4c2595033}{STRUCT\_HASH\_ERR}});}
-\DoxyCodeLine{00340\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ \#ifdef\ HASH\_PROTECT}}
-\DoxyCodeLine{00341\ }
-\DoxyCodeLine{00342\ \ \ \ \ \mbox{\hyperlink{stack_8cpp_a0f2905892855073ba849455a73cd569b}{CHECK\_ERR\_}}(stk-\/>\mbox{\hyperlink{structStack_a2f2b41ebbf7c8adce40da902814e1c7b}{capacity}}\ <\ stk-\/>\mbox{\hyperlink{structStack_a3b6cb0b4ff732c7bbbaaa5d3860bcd1a}{size}},\ stk-\/>\mbox{\hyperlink{structStack_ae8242b5f1b2c3d98a6dbafc302e509d5a0a4d618cba92355bcf446359ec408e60}{LOW\_CAPACITY}});}
-\DoxyCodeLine{00343\ \ \ \ \ \mbox{\hyperlink{stack_8cpp_a0f2905892855073ba849455a73cd569b}{CHECK\_ERR\_}}(stk-\/>\mbox{\hyperlink{structStack_a2f2b41ebbf7c8adce40da902814e1c7b}{capacity}}\ <\ 0,\ stk-\/>\mbox{\hyperlink{structStack_ae8242b5f1b2c3d98a6dbafc302e509d5af68a03245ae05bdfca1879f027972e0c}{NEGATIVE\_CAPACITY}});}
-\DoxyCodeLine{00344\ \ \ \ \ \mbox{\hyperlink{stack_8cpp_a0f2905892855073ba849455a73cd569b}{CHECK\_ERR\_}}(stk-\/>\mbox{\hyperlink{structStack_a3b6cb0b4ff732c7bbbaaa5d3860bcd1a}{size}}\ <\ 0,\ stk-\/>\mbox{\hyperlink{structStack_ae8242b5f1b2c3d98a6dbafc302e509d5ad85f8db9f888d5f54791ec3dbe8dae1c}{NEGATIVE\_SIZE}});}
-\DoxyCodeLine{00345\ }
-\DoxyCodeLine{00346\ \textcolor{preprocessor}{\#ifdef\ CANARY\_PROTECT}}
-\DoxyCodeLine{00347\ \ \ \ \ \mbox{\hyperlink{stack_8cpp_a0f2905892855073ba849455a73cd569b}{CHECK\_ERR\_}}(stk-\/>\mbox{\hyperlink{structStack_a93649663411b07293ec66851c09c99c9}{canary\_left}}\ \ !=\ CANARY\_VAL,\ stk-\/>\mbox{\hyperlink{structStack_ae8242b5f1b2c3d98a6dbafc302e509d5a7972d76b7f1e784ff89358e60e73f6c5}{STRUCT\_L\_CANARY\_ERR}});}
-\DoxyCodeLine{00348\ \ \ \ \ \mbox{\hyperlink{stack_8cpp_a0f2905892855073ba849455a73cd569b}{CHECK\_ERR\_}}(stk-\/>\mbox{\hyperlink{structStack_a26e3a891c804d0a2deef354cb6d7f13b}{canary\_right}}\ !=\ CANARY\_VAL,\ stk-\/>\mbox{\hyperlink{structStack_ae8242b5f1b2c3d98a6dbafc302e509d5a8deedabd24b6f0684dbf7b7ee110bd21}{STRUCT\_R\_CANARY\_ERR}});}
-\DoxyCodeLine{00349\ }
-\DoxyCodeLine{00350\ \ \ \ \ \textcolor{keywordflow}{if}\ (is\_data\_valid)\ \{}
-\DoxyCodeLine{00351\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{stack_8cpp_a0f2905892855073ba849455a73cd569b}{CHECK\_ERR\_}}(\ *\mbox{\hyperlink{stack_8h_a38d2301409d76703e2936d8a89853e31}{left\_data\_canary\_ptr}}(stk)\ !=\ CANARY\_VAL,\ stk-\/>\mbox{\hyperlink{structStack_ae8242b5f1b2c3d98a6dbafc302e509d5a972d0ae4ce1c7527212f6e29d78df8fe}{DATA\_L\_CANARY\_ERR}});}
-\DoxyCodeLine{00352\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{stack_8cpp_a0f2905892855073ba849455a73cd569b}{CHECK\_ERR\_}}(*\mbox{\hyperlink{stack_8h_a8141a491532e1b89ad3bc94fc410d523}{right\_data\_canary\_ptr}}(stk)\ !=\ CANARY\_VAL,\ stk-\/>\mbox{\hyperlink{structStack_ae8242b5f1b2c3d98a6dbafc302e509d5a31325202b6e6bfa0cb1b1e0c0601bea5}{DATA\_R\_CANARY\_ERR}});}
-\DoxyCodeLine{00353\ \ \ \ \ \}}
-\DoxyCodeLine{00354\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ \#ifdef\ CANARY\_PROTECT}}
-\DoxyCodeLine{00355\ }
-\DoxyCodeLine{00356\ \ \ \ \ \textcolor{keywordflow}{return}\ res;}
-\DoxyCodeLine{00357\ \}}
+\DoxyCodeLine{00321\ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{ptr__valid_8h_a9118aa9878b41057b6d2067e5d5dff2b}{is\_ptr\_valid}}(stk-\/>\mbox{\hyperlink{structStack_a02ed96691b2e6636bd9155758e8ee8cd}{data}}))\ \{}
+\DoxyCodeLine{00322\ \ \ \ \ \ \ \ \ res\ |=\ stk-\/>\mbox{\hyperlink{structStack_ae8242b5f1b2c3d98a6dbafc302e509d5ab37ce957889466c726330c2b5b513b4f}{DATA\_INVALID\_PTR}};}
+\DoxyCodeLine{00323\ \ \ \ \ \ \ \ \ is\_data\_valid\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00324\ \ \ \ \ \}}
+\DoxyCodeLine{00325\ }
+\DoxyCodeLine{00326\ \ \ \ \ \textcolor{keywordflow}{if}\ (is\_data\_valid)\ \{}
+\DoxyCodeLine{00327\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (ssize\_t\ i\ =\ 0;\ i\ <\ stk-\/>\mbox{\hyperlink{structStack_a3b6cb0b4ff732c7bbbaaa5d3860bcd1a}{size}};\ i++)}
+\DoxyCodeLine{00328\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (stk-\/>\mbox{\hyperlink{structStack_a02ed96691b2e6636bd9155758e8ee8cd}{data}}[i]\ ==\ stk-\/>\mbox{\hyperlink{structStack_a48bbbcc55325f72dcbe2414dd9598a30}{POISON}})\ \{}
+\DoxyCodeLine{00329\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ res\ |=\ stk-\/>\mbox{\hyperlink{structStack_ae8242b5f1b2c3d98a6dbafc302e509d5aa17ea00c21ef8ada8344e88a5d63a0de}{POISON\_VAL\_FOUND}};}
+\DoxyCodeLine{00330\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00331\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00332\ }
+\DoxyCodeLine{00333\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (ssize\_t\ i\ =\ stk-\/>\mbox{\hyperlink{structStack_a3b6cb0b4ff732c7bbbaaa5d3860bcd1a}{size}};\ i\ <\ stk-\/>\mbox{\hyperlink{structStack_a2f2b41ebbf7c8adce40da902814e1c7b}{capacity}};\ i++)}
+\DoxyCodeLine{00334\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (stk-\/>\mbox{\hyperlink{structStack_a02ed96691b2e6636bd9155758e8ee8cd}{data}}[i]\ !=\ stk-\/>\mbox{\hyperlink{structStack_a48bbbcc55325f72dcbe2414dd9598a30}{POISON}})\ \{}
+\DoxyCodeLine{00335\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ res\ |=\ stk-\/>\mbox{\hyperlink{structStack_ae8242b5f1b2c3d98a6dbafc302e509d5a9e1e940df37869517f75f4d2198aebad}{NON\_POISON\_EMPTY}};}
+\DoxyCodeLine{00336\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00337\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00338\ \ \ \ \ \}}
+\DoxyCodeLine{00339\ }
+\DoxyCodeLine{00340\ \textcolor{preprocessor}{\#ifdef\ HASH\_PROTECT}}
+\DoxyCodeLine{00341\ \ \ \ \ \mbox{\hyperlink{crc32_8h_aec0adc213b23c34ec982fa84dceb81fd}{CRC32\_t}}\ tmp\_struct\_hash\ =\ stk-\/>\mbox{\hyperlink{structStack_a5d85c28620cf7c22e622df2d8a58f35b}{struct\_hash}};}
+\DoxyCodeLine{00342\ }
+\DoxyCodeLine{00343\ \ \ \ \ \textcolor{keywordflow}{if}\ (is\_data\_valid)\ \{}
+\DoxyCodeLine{00344\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{crc32_8h_aec0adc213b23c34ec982fa84dceb81fd}{CRC32\_t}}\ data\_hash\ =\ \mbox{\hyperlink{stack_8h_ae72fe1519dee325a0e6dd4eafc14898b}{stk\_data\_hash\_calc}}(stk);}
+\DoxyCodeLine{00345\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{stack_8cpp_a0f2905892855073ba849455a73cd569b}{CHECK\_ERR\_}}(stk-\/>\mbox{\hyperlink{structStack_a0313f9fb25ba1f5ce41bcaf465777ead}{data\_hash}}\ !=\ data\_hash,\ stk-\/>\mbox{\hyperlink{structStack_ae8242b5f1b2c3d98a6dbafc302e509d5a2dbe0f67c49b72aef7d6253cdc1f9d43}{DATA\_HASH\_ERR}});}
+\DoxyCodeLine{00346\ \ \ \ \ \}}
+\DoxyCodeLine{00347\ }
+\DoxyCodeLine{00348\ \ \ \ \ \mbox{\hyperlink{crc32_8h_aec0adc213b23c34ec982fa84dceb81fd}{CRC32\_t}}\ struct\_hash\ =\ \mbox{\hyperlink{stack_8h_a536ddddf9bb8810b9703d5e405a073b9}{stk\_struct\_hash\_calc}}(stk);}
+\DoxyCodeLine{00349\ \ \ \ \ stk-\/>\mbox{\hyperlink{structStack_a5d85c28620cf7c22e622df2d8a58f35b}{struct\_hash}}\ =\ tmp\_struct\_hash;}
+\DoxyCodeLine{00350\ }
+\DoxyCodeLine{00351\ \ \ \ \ \mbox{\hyperlink{stack_8cpp_a0f2905892855073ba849455a73cd569b}{CHECK\_ERR\_}}(stk-\/>\mbox{\hyperlink{structStack_a5d85c28620cf7c22e622df2d8a58f35b}{struct\_hash}}\ !=\ struct\_hash,\ stk-\/>\mbox{\hyperlink{structStack_ae8242b5f1b2c3d98a6dbafc302e509d5a8cccf06af95813b4626427c4c2595033}{STRUCT\_HASH\_ERR}});}
+\DoxyCodeLine{00352\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//<\ \#ifdef\ HASH\_PROTECT}}
+\DoxyCodeLine{00353\ }
+\DoxyCodeLine{00354\ \ \ \ \ \mbox{\hyperlink{stack_8cpp_a0f2905892855073ba849455a73cd569b}{CHECK\_ERR\_}}(stk-\/>\mbox{\hyperlink{structStack_a2f2b41ebbf7c8adce40da902814e1c7b}{capacity}}\ <\ stk-\/>\mbox{\hyperlink{structStack_a3b6cb0b4ff732c7bbbaaa5d3860bcd1a}{size}},\ stk-\/>\mbox{\hyperlink{structStack_ae8242b5f1b2c3d98a6dbafc302e509d5a0a4d618cba92355bcf446359ec408e60}{LOW\_CAPACITY}});}
+\DoxyCodeLine{00355\ \ \ \ \ \mbox{\hyperlink{stack_8cpp_a0f2905892855073ba849455a73cd569b}{CHECK\_ERR\_}}(stk-\/>\mbox{\hyperlink{structStack_a2f2b41ebbf7c8adce40da902814e1c7b}{capacity}}\ <\ 0,\ stk-\/>\mbox{\hyperlink{structStack_ae8242b5f1b2c3d98a6dbafc302e509d5af68a03245ae05bdfca1879f027972e0c}{NEGATIVE\_CAPACITY}});}
+\DoxyCodeLine{00356\ \ \ \ \ \mbox{\hyperlink{stack_8cpp_a0f2905892855073ba849455a73cd569b}{CHECK\_ERR\_}}(stk-\/>\mbox{\hyperlink{structStack_a3b6cb0b4ff732c7bbbaaa5d3860bcd1a}{size}}\ <\ 0,\ stk-\/>\mbox{\hyperlink{structStack_ae8242b5f1b2c3d98a6dbafc302e509d5ad85f8db9f888d5f54791ec3dbe8dae1c}{NEGATIVE\_SIZE}});}
+\DoxyCodeLine{00357\ }
+\DoxyCodeLine{00358\ \textcolor{preprocessor}{\#ifdef\ CANARY\_PROTECT}}
+\DoxyCodeLine{00359\ \ \ \ \ \mbox{\hyperlink{stack_8cpp_a0f2905892855073ba849455a73cd569b}{CHECK\_ERR\_}}(stk-\/>\mbox{\hyperlink{structStack_a93649663411b07293ec66851c09c99c9}{canary\_left}}\ \ !=\ CANARY\_VAL,\ stk-\/>\mbox{\hyperlink{structStack_ae8242b5f1b2c3d98a6dbafc302e509d5a7972d76b7f1e784ff89358e60e73f6c5}{STRUCT\_L\_CANARY\_ERR}});}
+\DoxyCodeLine{00360\ \ \ \ \ \mbox{\hyperlink{stack_8cpp_a0f2905892855073ba849455a73cd569b}{CHECK\_ERR\_}}(stk-\/>\mbox{\hyperlink{structStack_a26e3a891c804d0a2deef354cb6d7f13b}{canary\_right}}\ !=\ CANARY\_VAL,\ stk-\/>\mbox{\hyperlink{structStack_ae8242b5f1b2c3d98a6dbafc302e509d5a8deedabd24b6f0684dbf7b7ee110bd21}{STRUCT\_R\_CANARY\_ERR}});}
+\DoxyCodeLine{00361\ }
+\DoxyCodeLine{00362\ \ \ \ \ \textcolor{keywordflow}{if}\ (is\_data\_valid)\ \{}
+\DoxyCodeLine{00363\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{stack_8cpp_a0f2905892855073ba849455a73cd569b}{CHECK\_ERR\_}}(\ *\mbox{\hyperlink{stack_8h_a38d2301409d76703e2936d8a89853e31}{left\_data\_canary\_ptr}}(stk)\ !=\ CANARY\_VAL,\ stk-\/>\mbox{\hyperlink{structStack_ae8242b5f1b2c3d98a6dbafc302e509d5a972d0ae4ce1c7527212f6e29d78df8fe}{DATA\_L\_CANARY\_ERR}});}
+\DoxyCodeLine{00364\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{stack_8cpp_a0f2905892855073ba849455a73cd569b}{CHECK\_ERR\_}}(*\mbox{\hyperlink{stack_8h_a8141a491532e1b89ad3bc94fc410d523}{right\_data\_canary\_ptr}}(stk)\ !=\ CANARY\_VAL,\ stk-\/>\mbox{\hyperlink{structStack_ae8242b5f1b2c3d98a6dbafc302e509d5a31325202b6e6bfa0cb1b1e0c0601bea5}{DATA\_R\_CANARY\_ERR}});}
+\DoxyCodeLine{00365\ \ \ \ \ \}}
+\DoxyCodeLine{00366\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//<\ \#ifdef\ CANARY\_PROTECT}}
+\DoxyCodeLine{00367\ }
+\DoxyCodeLine{00368\ \ \ \ \ \textcolor{keywordflow}{return}\ res;}
+\DoxyCodeLine{00369\ \}}
 
 \end{DoxyCode}
 
 
-References \mbox{\hyperlink{stack_8h_source_l00047}{Stack\+::canary\+\_\+left}}, \mbox{\hyperlink{stack_8h_source_l00064}{Stack\+::canary\+\_\+right}}, \mbox{\hyperlink{stack_8h_source_l00051}{Stack\+::capacity}}, \mbox{\hyperlink{stack_8cpp_source_l00296}{CHECK\+\_\+\+ERR\+\_\+}}, \mbox{\hyperlink{stack_8h_source_l00050}{Stack\+::data}}, \mbox{\hyperlink{stack_8h_source_l00056}{Stack\+::data\+\_\+hash}}, \mbox{\hyperlink{stack_8h_source_l00035}{Stack\+::\+DATA\+\_\+\+HASH\+\_\+\+ERR}}, \mbox{\hyperlink{stack_8h_source_l00031}{Stack\+::\+DATA\+\_\+\+INVALID\+\_\+\+PTR}}, \mbox{\hyperlink{stack_8h_source_l00042}{Stack\+::\+DATA\+\_\+\+L\+\_\+\+CANARY\+\_\+\+ERR}}, \mbox{\hyperlink{stack_8h_source_l00043}{Stack\+::\+DATA\+\_\+\+R\+\_\+\+CANARY\+\_\+\+ERR}}, \mbox{\hyperlink{ptr__valid_8h_a9118aa9878b41057b6d2067e5d5dff2b}{is\+\_\+ptr\+\_\+valid()}}, \mbox{\hyperlink{stack_8h_source_l00316}{left\+\_\+data\+\_\+canary\+\_\+ptr()}}, \mbox{\hyperlink{stack_8h_source_l00036}{Stack\+::\+LOW\+\_\+\+CAPACITY}}, \mbox{\hyperlink{stack_8h_source_l00037}{Stack\+::\+NEGATIVE\+\_\+\+CAPACITY}}, \mbox{\hyperlink{stack_8h_source_l00039}{Stack\+::\+NEGATIVE\+\_\+\+SIZE}}, \mbox{\hyperlink{stack_8h_source_l00033}{Stack\+::\+NON\+\_\+\+POISON\+\_\+\+EMPTY}}, \mbox{\hyperlink{stack_8h_source_l00025}{Stack\+::\+OK}}, \mbox{\hyperlink{stack_8h_source_l00022}{Stack\+::\+POISON}}, \mbox{\hyperlink{stack_8h_source_l00032}{Stack\+::\+POISON\+\_\+\+VAL\+\_\+\+FOUND}}, \mbox{\hyperlink{stack_8h_source_l00329}{right\+\_\+data\+\_\+canary\+\_\+ptr()}}, \mbox{\hyperlink{stack_8h_source_l00052}{Stack\+::size}}, \mbox{\hyperlink{stack_8h_source_l00275}{stk\+\_\+data\+\_\+hash\+\_\+calc()}}, \mbox{\hyperlink{stack_8h_source_l00085}{stk\+\_\+is\+\_\+initialised()}}, \mbox{\hyperlink{stack_8h_source_l00262}{stk\+\_\+struct\+\_\+hash\+\_\+calc()}}, \mbox{\hyperlink{stack_8h_source_l00055}{Stack\+::struct\+\_\+hash}}, \mbox{\hyperlink{stack_8h_source_l00034}{Stack\+::\+STRUCT\+\_\+\+HASH\+\_\+\+ERR}}, \mbox{\hyperlink{stack_8h_source_l00040}{Stack\+::\+STRUCT\+\_\+\+L\+\_\+\+CANARY\+\_\+\+ERR}}, \mbox{\hyperlink{stack_8h_source_l00041}{Stack\+::\+STRUCT\+\_\+\+R\+\_\+\+CANARY\+\_\+\+ERR}}, and \mbox{\hyperlink{stack_8h_source_l00030}{Stack\+::\+UNITIALISED}}.
+References \mbox{\hyperlink{stack_8h_source_l00064}{Stack\+::canary\+\_\+left}}, \mbox{\hyperlink{stack_8h_source_l00081}{Stack\+::canary\+\_\+right}}, \mbox{\hyperlink{stack_8h_source_l00068}{Stack\+::capacity}}, \mbox{\hyperlink{stack_8cpp_source_l00308}{CHECK\+\_\+\+ERR\+\_\+}}, \mbox{\hyperlink{stack_8h_source_l00067}{Stack\+::data}}, \mbox{\hyperlink{stack_8h_source_l00073}{Stack\+::data\+\_\+hash}}, \mbox{\hyperlink{stack_8h_source_l00052}{Stack\+::\+DATA\+\_\+\+HASH\+\_\+\+ERR}}, \mbox{\hyperlink{stack_8h_source_l00048}{Stack\+::\+DATA\+\_\+\+INVALID\+\_\+\+PTR}}, \mbox{\hyperlink{stack_8h_source_l00059}{Stack\+::\+DATA\+\_\+\+L\+\_\+\+CANARY\+\_\+\+ERR}}, \mbox{\hyperlink{stack_8h_source_l00060}{Stack\+::\+DATA\+\_\+\+R\+\_\+\+CANARY\+\_\+\+ERR}}, \mbox{\hyperlink{ptr__valid_8h_a9118aa9878b41057b6d2067e5d5dff2b}{is\+\_\+ptr\+\_\+valid()}}, \mbox{\hyperlink{stack_8h_source_l00333}{left\+\_\+data\+\_\+canary\+\_\+ptr()}}, \mbox{\hyperlink{stack_8h_source_l00053}{Stack\+::\+LOW\+\_\+\+CAPACITY}}, \mbox{\hyperlink{stack_8h_source_l00054}{Stack\+::\+NEGATIVE\+\_\+\+CAPACITY}}, \mbox{\hyperlink{stack_8h_source_l00056}{Stack\+::\+NEGATIVE\+\_\+\+SIZE}}, \mbox{\hyperlink{stack_8h_source_l00050}{Stack\+::\+NON\+\_\+\+POISON\+\_\+\+EMPTY}}, \mbox{\hyperlink{stack_8h_source_l00042}{Stack\+::\+OK}}, \mbox{\hyperlink{stack_8h_source_l00039}{Stack\+::\+POISON}}, \mbox{\hyperlink{stack_8h_source_l00049}{Stack\+::\+POISON\+\_\+\+VAL\+\_\+\+FOUND}}, \mbox{\hyperlink{stack_8h_source_l00346}{right\+\_\+data\+\_\+canary\+\_\+ptr()}}, \mbox{\hyperlink{stack_8h_source_l00069}{Stack\+::size}}, \mbox{\hyperlink{stack_8h_source_l00292}{stk\+\_\+data\+\_\+hash\+\_\+calc()}}, \mbox{\hyperlink{stack_8h_source_l00102}{stk\+\_\+is\+\_\+initialised()}}, \mbox{\hyperlink{stack_8h_source_l00279}{stk\+\_\+struct\+\_\+hash\+\_\+calc()}}, \mbox{\hyperlink{stack_8h_source_l00072}{Stack\+::struct\+\_\+hash}}, \mbox{\hyperlink{stack_8h_source_l00051}{Stack\+::\+STRUCT\+\_\+\+HASH\+\_\+\+ERR}}, \mbox{\hyperlink{stack_8h_source_l00057}{Stack\+::\+STRUCT\+\_\+\+L\+\_\+\+CANARY\+\_\+\+ERR}}, \mbox{\hyperlink{stack_8h_source_l00058}{Stack\+::\+STRUCT\+\_\+\+R\+\_\+\+CANARY\+\_\+\+ERR}}, and \mbox{\hyperlink{stack_8h_source_l00047}{Stack\+::\+UNITIALISED}}.
 

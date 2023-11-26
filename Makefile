@@ -40,7 +40,7 @@ all: $(TARGET)
 $(TARGET): $(OBJECTS)
 	@$(CC) $(CFLAGS) $(if $(sanitizer), $(CFLAGS_SANITIZER)) $^ -o $@
 
-$(BUILD_DIR):
+$(BUILD_DIR) $(RELEASES_DIR) $(DOCS_DIR):
 	@mkdir ./$@
 
 $(MAKE_DIRS): | $(BUILD_DIR)
@@ -58,9 +58,6 @@ doxygen dox: $(DOCS_TARGET)
 $(DOCS_TARGET): $(FILES:/%=%) | $(DOCS_DIR)
 	@echo "Doxygen generated `date`" > $(DOCS_TARGET)
 	@doxygen docs/Doxyfile
-
-$(DOCS_DIR):
-	@mkdir ./$@
 
 clean:
 	@rm -rf ./$(BUILD_DIR)/*

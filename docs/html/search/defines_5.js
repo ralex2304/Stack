@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['hash_5fprotect_0',['HASH_PROTECT',['../config_8h.html#a3d1311d889954a0ddf65567d3913eb29',1,'config.h']]],
+  ['hash_5fprotect_0',['HASH_PROTECT',['../stack_8h.html#a3d1311d889954a0ddf65567d3913eb29',1,'stack.h']]],
   ['html_5fbegin_1',['HTML_BEGIN',['../html_8h.html#a010fbac8fc4096415b18c664d84b12da',1,'html.h']]],
   ['html_5fend_2',['HTML_END',['../html_8h.html#a2df8677bea55f26352fc8982b34337f2',1,'html.h']]],
   ['html_5fend_5ffont_3',['HTML_END_FONT',['../html_8h.html#ac6fb27458082955e7224ade5783bd229',1,'html.h']]],

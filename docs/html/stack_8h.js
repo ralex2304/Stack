@@ -1,6 +1,11 @@
 var stack_8h =
 [
     [ "Stack", "structStack.html", "structStack" ],
+    [ "CANARY_PROTECT", "stack_8h.html#ab693b7f0431ff5fb4177290e6184fc6e", null ],
+    [ "CANARY_T_PRINTF", "stack_8h.html#a2a23f87eee71a5bd4ac163e1bba1f479", null ],
+    [ "DEBUG", "stack_8h.html#ad72dbcf6d0153db1b8d8a58001feed83", null ],
+    [ "ELEM_T_PRINTF", "stack_8h.html#a0e86e404fb41df2a06346b0fd53ccb83", null ],
+    [ "HASH_PROTECT", "stack_8h.html#a3d1311d889954a0ddf65567d3913eb29", null ],
     [ "ON_CANARY_PROTECT", "stack_8h.html#ae09c894ab7c3c3daa2c838cde400b7fc", null ],
     [ "ON_DEBUG", "stack_8h.html#a1bdd7c1369b250215a080e8421d4ecf3", null ],
     [ "ON_HASH_PROTECT", "stack_8h.html#a1dc689bb2898fa51bd45a9e016fc2777", null ],
@@ -11,6 +16,8 @@ var stack_8h =
     [ "STK_FILL_POISON", "stack_8h.html#adf27c21e09fa1d3a5d8309d2ccbea793", null ],
     [ "STK_OK", "stack_8h.html#adfe306bbeb051d0e57c29ae2fcda4b3b", null ],
     [ "STK_VERIFY", "stack_8h.html#a013fc56c5d16255530c4b0134dfeb8a6", null ],
+    [ "Canary_t", "stack_8h.html#a788ec731a306c6e69c1dbb06983429ed", null ],
+    [ "Elem_t", "stack_8h.html#a2cc56bfd987df84942ab4dc387f55160", null ],
     [ "calc_stk_data_size", "stack_8h.html#a9d171b647636bbf53d7335be5b7ff367", null ],
     [ "left_data_canary_ptr", "stack_8h.html#a38d2301409d76703e2936d8a89853e31", null ],
     [ "right_data_canary_ptr", "stack_8h.html#a8141a491532e1b89ad3bc94fc410d523", null ],

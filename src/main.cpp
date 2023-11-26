@@ -4,11 +4,11 @@
 LogFileData log_file = {"log.html"};
 
 int main() {
-    log_open_file(&log_file, "wb");
+    stk_log_open_file(&log_file, "wb");
 
     test_stack_normal();
 
     test_stack_error();
 
-    log_close_file(&log_file);
+    stk_log_close_file(&log_file);
 }
